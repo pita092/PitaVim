@@ -1,4 +1,19 @@
 return {
+	{
+  {
+    'williamboman/mason.nvim',
+    opts = {},
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    opts = {},
+  },
+  {
+    'neovim/nvim-lspconfig',
+  },
+  { 'j-hui/fidget.nvim', opts = {} },
+  { 'j-hui/fidget.nvim', opts = {} },
+},
 {
 	{
     'nvim-telescope/telescope.nvim',
