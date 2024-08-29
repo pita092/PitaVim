@@ -25,17 +25,6 @@ require('gruvbox').setup {
 vim.o.background = 'dark'
 vim.cmd 'colorscheme gruvbox'
 vim.cmd.colorscheolors = true
-require('colorizer').setup {
-  filetypes = {
-    'html',
-    'css',
-    'javascript',
-    'typescript',
-    'typescriptreact',
-    'javascriptreact',
-    'lua',
-  },
-}
 
 --neovide function
 
