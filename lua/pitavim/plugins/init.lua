@@ -1,5 +1,10 @@
 return {
+    {
     "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+     config = function()
+     return require "nvchad.configs.nvimtree"
+     end,
     },
     {
     "nvim-treesitter/nvim-treesitter",
