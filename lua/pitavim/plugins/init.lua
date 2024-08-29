@@ -2,14 +2,17 @@ return {
 	{
   {
     'williamboman/mason.nvim',
+		cmd = { "MasonInstall","Mason" },
     opts = {},
   },
   {
     'williamboman/mason-lspconfig.nvim',
+		lazy = false,
     opts = {},
   },
   {
     'neovim/nvim-lspconfig',
+		lazy = false,
   },
   { 'j-hui/fidget.nvim', opts = {} },
   { 'j-hui/fidget.nvim', opts = {} },
@@ -17,6 +20,7 @@ return {
 {
 	{
     'nvim-telescope/telescope.nvim',
+		 cmd = { "Telescope" },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-media-files.nvim',
@@ -82,6 +86,7 @@ return {
     end,
   },
 { "ellisonleao/gruvbox.nvim",
+	event = "UIEnter",
 	priority = 1000 ,
 	config = true,
 	config = function()
@@ -92,6 +97,7 @@ return {
 		
     "nvim-neo-tree/neo-tree.nvim",
 		name = "neotree",
+		cmd = "Neotree",
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
