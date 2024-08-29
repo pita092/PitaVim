@@ -39,6 +39,9 @@ return {
         'windwp/nvim-autopairs',
       },
     },
+    config = function()
+    return require "pitavim.configs.cmp"	
+    end,
   },
 { "ellisonleao/gruvbox.nvim",
 	priority = 1000 ,
