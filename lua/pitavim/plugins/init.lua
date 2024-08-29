@@ -37,6 +37,7 @@ return {
         'saadparwaiz1/cmp_luasnip',
         'rafamadriz/friendly-snippets',
         'windwp/nvim-autopairs',
+	'VonHeikemen/lsp-zero.nvim',
       },
     },
     config = function()
