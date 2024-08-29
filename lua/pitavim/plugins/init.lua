@@ -1,11 +1,18 @@
 return {
-    {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-     config = function()
-     return require "nvchad.configs.nvimtree"
-     end,
-    },
+	{
+		
+    "nvim-neo-tree/neo-tree.nvim",
+		name = "neotree",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+	"MunifTanjim/nui.nvim",
+	 config = function()
+	return require "pitavim.configs.neotree"
+	end,
+	    }
+	},
     {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
