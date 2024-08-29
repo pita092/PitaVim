@@ -1,9 +1,5 @@
 return {
 	{
-		"folke/which-key.nvim",
-		event = "UiEnter",
-	},
-	{
   {
     'williamboman/mason.nvim',
 		cmd = { "MasonInstall","Mason" },
