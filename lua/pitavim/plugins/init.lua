@@ -1,5 +1,4 @@
 return {
-	{return {
   {
     'hrsh7th/nvim-cmp',
     lazy = false,
@@ -41,7 +40,6 @@ return {
       },
     },
   },
-}
 },
 { "ellisonleao/gruvbox.nvim",
 	priority = 1000 ,
