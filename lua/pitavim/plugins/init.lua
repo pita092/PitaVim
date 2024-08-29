@@ -42,7 +42,7 @@ return {
 },
   {
     'hrsh7th/nvim-cmp',
-		event = "BufEnter",
+		event = "UiEnter",
     priority = 100,
     dependencies = {
       'neovim/nvim-lspconfig',
