@@ -1,5 +1,5 @@
-
 return {
+<<<<<<< HEAD
     "nvim-tree/nvim-tree.lua",
     {
     "nvim-treesitter/nvim-treesitter",
@@ -14,3 +14,7 @@ return {
     end,
   },
     }
+=======
+  'nvim-lualine/lualine.nvim',
+}
+>>>>>>> 57f1bef40d110bc2c46793dd0854717a6af5da3f
