@@ -22,7 +22,7 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic locli
 
 
 -- neotree
-map("n", "<leader>e", "<cmd>Neotree reavel right<CR>", { desc = "neotree reavel" })
+map("n", "<leader>e", ":Neotree reavel right<CR>", { desc = "neotree reavel" })
 
 -- telescope
 local builtin = require 'telescope.builtin'
