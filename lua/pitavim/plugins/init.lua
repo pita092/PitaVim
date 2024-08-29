@@ -1,5 +1,9 @@
 return {
 	{
+		"folke/which-key.nvim",
+		keys = { "<leader>" },
+	},
+	{
   {
     'williamboman/mason.nvim',
 		cmd = { "MasonInstall","Mason" },
