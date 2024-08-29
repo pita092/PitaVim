@@ -116,7 +116,7 @@ return {
   "NvChad/nvterm",
 	event = "UiEnter",
   config = function ()
-    require("nvterm").setup()
+		return require("pitavim.configs.nvterm")
   end,
     },
     {
