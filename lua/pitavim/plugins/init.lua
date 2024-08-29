@@ -110,6 +110,7 @@ return {
 	},
 	{
   "NvChad/nvterm",
+	event = "UiEnter",
   config = function ()
     require("nvterm").setup()
   end,
