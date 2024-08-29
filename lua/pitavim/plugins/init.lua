@@ -1,7 +1,7 @@
 return {
 { "ellisonleao/gruvbox.nvim",
 	priority = 1000 ,
-	config = true
+	config = true,
 	config = function()
 	return require "pitavim.configs.gruvbox"
 	end,
