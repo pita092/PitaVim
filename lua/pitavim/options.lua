@@ -11,7 +11,7 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
-im.opt.breakindent = true
+vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
