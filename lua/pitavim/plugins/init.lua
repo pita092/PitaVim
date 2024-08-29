@@ -7,12 +7,12 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-			event = "BufEnter",
+			event = "UiEnter",
     opts = {},
   },
   {
     'neovim/nvim-lspconfig',
-		event = "BufEnter",
+		event = "UiEnter",
   },
   { 'j-hui/fidget.nvim', opts = {} },
   { 'j-hui/fidget.nvim', opts = {} },
