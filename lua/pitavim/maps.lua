@@ -13,7 +13,7 @@ map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "General Copy whole file" })
 
 --map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
-map("n", "<leader>h", function()
+map("n", "<C-h>", function()
   require("conform").format { lsp_fallback = true }
 end, { desc = "General Format file" })
 
@@ -65,7 +65,7 @@ map("n", "<leader>v", function()
 end, { desc = "terminal new vertical window" })
 
 -- toggleable
-map({ "n", "t" }, "<A-v>", function()
+mvp({ "n", "t" }, "<A-v>", function()
   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
 end, { desc = "terminal toggleable vertical term" })
 

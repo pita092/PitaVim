@@ -1,4 +1,8 @@
 return {
+	{{
+  'stevearc/conform.nvim',
+  opts = {},
+}},
 	{
   {
     'williamboman/mason.nvim',
