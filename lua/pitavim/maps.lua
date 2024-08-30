@@ -56,11 +56,11 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- new terminals
 map("n", "<leader>h", function()
-  require("nvchad.term").new { pos = "sp" }
-end, { desc = "terminal new horizontal term" })
+	require("nvterm.terminal").toggle "horizontal"
+ end, { desc = "terminal new horizontal term" })
 
 map("n", "<leader>v", function()
-  require("nvchad.term").new { pos = "vsp" }
+	require("nvterm.terminal").toggle "vertical"
 end, { desc = "terminal new vertical window" })
 
 -- toggleable
