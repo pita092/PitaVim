@@ -58,3 +58,12 @@ vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeFloatNormal', { fg = '#ebdbb2', bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { fg = '#ebdbb2', bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeTitleBar', { fg = '#ebdbb2', bg = 'NONE' })
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  callback = function()
+    vim.api.nvim_set_hl(0, 'TabLineFill', { bg = 'NONE' })
+  end,
+})
+
+vim.api.nvim_set_hl(0, 'TabLineFill', { bg = 'NONE' })
