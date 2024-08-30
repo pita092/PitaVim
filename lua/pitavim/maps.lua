@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+vim.keymap.set("n", "<leader>pv", ":Neotree current", { desc = "File Tree" })
+
 
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
