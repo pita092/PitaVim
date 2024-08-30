@@ -1,6 +1,4 @@
 local opt = vim.opt
-local o = vim.o
-local g = vim.g
 
 vim.cmd 'set number'
 vim.cmd 'set tabstop=2'
