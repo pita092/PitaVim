@@ -1,4 +1,4 @@
-require("ui").setup({
+require("nvchad_ui").setup({
   statusline = {
     theme = "gruvbox", -- default/vscode/vscode_colored/minimal
   },
