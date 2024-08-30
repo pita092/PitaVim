@@ -1,2 +1,2 @@
 require("pitavim.scripts.menu")
-require("pitavim.scripts.tabline")
+require("pitavim.scripts.tabline").setup()
