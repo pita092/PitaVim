@@ -1,4 +1,10 @@
 local M = {}
+local function set_tabline_highlights()
+  vim.api.nvim_set_hl(0, "TabLine", { fg = "#8FBCBB", bg = "#4C566A" })
+  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ECEFF4", bg = "#5E81AC", bold = true })
+  vim.api.nvim_set_hl(0, "TabLineFill", { fg = "#3B4252", bg = "#3B4252" })
+end
+
 local function get_file_icon(filename)
   local file_icon = {
     ['lua'] = '󰢱 ',
@@ -26,12 +32,12 @@ local function get_file_icon(filename)
   return file_icon[extension] or ''
 end
 
+
 function M.MyTabLine()
   local s = ''
   for i = 1, vim.fn.tabpagenr '$' do
-    -- Add a separator before each tab (except the first one)
     if i > 1 then
-      s = s .. '|%#TabLineFill#|'
+      s = s .. '%#TabLineSeparator#|'  -- Custom separator highlight
     end
 
     if i == vim.fn.tabpagenr() then
@@ -60,6 +66,7 @@ end
 
 function M.setup()
   vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
+  set_tabline_highlights()
 end
 
 return M
