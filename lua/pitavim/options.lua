@@ -43,3 +43,14 @@ local is_windows = vim.fn.has "win32" ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
+
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NeoTreeFloatNormal', { fg = '#ebdbb2', bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { fg = '#ebdbb2', bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NeoTreeTitleBar', { fg = '#ebdbb2', bg = 'NONE' })
