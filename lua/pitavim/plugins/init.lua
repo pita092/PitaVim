@@ -1,19 +1,5 @@
 return {
-  {
-    "3rd/image.nvim",
-    config = function()
-      return require("pitavim.configs.image")
-    end
-  },
-  {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
-    config = function()
-      return require("pitavim.configs.dashboard")
-    end,
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-  },
-  {
+    {
     "folke/which-key.nvim",
     event = "VeryLazy",
   },
