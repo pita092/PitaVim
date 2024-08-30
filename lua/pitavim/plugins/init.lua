@@ -113,7 +113,6 @@ return {
     "ellisonleao/gruvbox.nvim",
     event = "UIEnter",
     priority = 1000,
-    config = true,
     config = function()
       return require("pitavim.configs.gruvbox")
     end,
