@@ -13,14 +13,15 @@ return {
 		},
 		{
 			"williamboman/mason-lspconfig.nvim",
-			event = "BufEnter",
+			cmd = { "Mason", "Mason" },
 		},
 		{
 			"neovim/nvim-lspconfig",
-			event = "BufEnter",
+			event = "BufNewFile",
 		},
 		{
 			"j-hui/fidget.nvim",
+			event = "BufNewFile",
 			config = function()
 				return require("pitavim.configs.fidget")
 			end,
@@ -39,19 +40,22 @@ return {
 				return require("pitavim.configs.telescope")
 			end,
 		},
-		{ "nvim-lua/popup.nvim" },
+		{
+			"nvim-lua/popup.nvim",
+			cmd = "Telescope",
+		},
 		{
 			"nvim-telescope/telescope-ui-select.nvim",
+			cmd = "Telescope"
 		},
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
-			dependencies = { "nvim-telescope/telescope.nvim" },
 		},
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "UiEnter",
+		event = "BufNewFile",
 		priority = 100,
 		dependencies = {
 			"neovim/nvim-lspconfig",
@@ -120,7 +124,7 @@ return {
 	},
 	{
 		"NvChad/nvterm",
-		event = "UiEnter",
+		event = "BufNewFile",
 		config = function()
 			return require("pitavim.configs.nvterm")
 		end,
