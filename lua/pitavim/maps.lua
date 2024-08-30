@@ -95,7 +95,7 @@ vim.keymap.set('n', '<C-q>', ':tabprevious<CR>', { noremap = true, silent = true
 
 --custom menu
 
-im.keymap.set('n', '<leader>d', function()
+vim.keymap.set('n', '<leader>d', function()
 	local dashboard_opened = require('pita.dashboard').toggle_dashboard()
 	if dashboard_opened then
 		print 'Dasboard opned'
