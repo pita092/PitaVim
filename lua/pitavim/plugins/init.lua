@@ -14,7 +14,7 @@ return {
 		},
 		{
 			"neovim/nvim-lspconfig",
-			event = { "BufReadPre", "BufNewFile" },
+			event = "BufEnter",
 		},
 		{
 			"j-hui/fidget.nvim",
@@ -48,7 +48,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "BufReadPre",
+		event = "UiEnter",
 		priority = 100,
 		dependencies = {
 			"neovim/nvim-lspconfig",
@@ -95,6 +95,7 @@ return {
 		"ellisonleao/gruvbox.nvim",
 		event = "UIEnter",
 		priority = 1000,
+		config = true,
 		config = function()
 			return require("pitavim.configs.gruvbox")
 		end,
