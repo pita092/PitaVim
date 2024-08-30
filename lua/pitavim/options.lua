@@ -35,7 +35,6 @@ vim.opt.listchars = {
 }
 vim.opt.list = true
 o.updatetime = 250
-vim.o.showtabline = 2
 vim.opt.inccommand = 'split'
 o.cursorline = false
 o.cursorlineopt = "number"
