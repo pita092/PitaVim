@@ -1,7 +1,7 @@
 local M = {}
 local function set_tabline_highlights()
-  vim.api.nvim_set_hl(0, "TabLine", { fg = "#8FBCBB", bg = "#4C566A" })
-  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ECEFF4", bg = "#5E81AC", bold = true })
+  vim.api.nvim_set_hl(0, "TabLine", { fg = "#ffffff", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#ffffff", bg = "NONE", bold = true })
   vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
 end
 
