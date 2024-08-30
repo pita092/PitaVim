@@ -17,11 +17,11 @@ return {
 		},
 		{
 			"neovim/nvim-lspconfig",
-			event = "BufNewFile",
+			event = "BufReadPre",
 		},
 		{
 			"j-hui/fidget.nvim",
-			event = "BufNewFile",
+			event = "BufReadPre",
 			config = function()
 				return require("pitavim.configs.fidget")
 			end,
@@ -55,7 +55,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "BufNewFile",
+		event = "BufReadPre",
 		priority = 100,
 		dependencies = {
 			"neovim/nvim-lspconfig",
@@ -124,7 +124,7 @@ return {
 	},
 	{
 		"NvChad/nvterm",
-		event = "BufNewFile",
+		event = "BufReadPre",
 		config = function()
 			return require("pitavim.configs.nvterm")
 		end,
