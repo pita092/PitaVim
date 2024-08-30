@@ -1,6 +1,7 @@
 return {
   {
     "NvChad/ui",
+    name = "nvchad_ui",
     lazy = false,
     config = function()
       return require("pitavim.configs.ui")
