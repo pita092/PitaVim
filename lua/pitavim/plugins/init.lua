@@ -12,7 +12,11 @@ return {
   {
     'williamboman/mason-lspconfig.nvim',
 			event = "UiEnter",
-    opts = {},
+			config = function()
+			
+			return require("pitavim.configs.lsp")
+
+			end,
   },
   {
     'neovim/nvim-lspconfig',
