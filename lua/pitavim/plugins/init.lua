@@ -1,5 +1,12 @@
 return {
-    {
+  {
+    "NvChad/ui",
+    lazy = false,
+    config = function()
+      return require("pitavim.configs.ui")
+    end
+  },
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
   },
