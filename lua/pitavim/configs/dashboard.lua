@@ -1,16 +1,23 @@
 local db = require('dashboard')
+local image = require('image')
 
 db.setup({
   theme = 'doom',
   config = {
-    header = {}, -- We'll set this later
-    center = {
-      {icon = ' ', desc = 'New file', action = 'enew'},
-      {icon = ' ', desc = 'Find file', action = 'Telescope find_files'},
-      {icon = ' ', desc = 'Recent files', action = 'Telescope oldfiles'},
-      {icon = ' ', desc = 'Exit', action = 'quit'},
+    header = {
+      -- This function will be called when the dashboard is shown
+      type = "text",
+      val = function()
+        -- Display the image
+        image.from_file("~/Downloads/doof.png", {
+          width = 40,
+          height = 20,
+        })
+        -- Return an empty table for the header
+        return {}
+      end,
     },
-    footer = {} -- Optionally add a footer
+    -- Rest of your dashboard configuration...
   }
 })
 
