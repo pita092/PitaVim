@@ -1,6 +1,6 @@
 require('neo-tree').setup {
   use_popups_for_input = true,
-  popup_border_style = "rounded",
+  popup_border_style = "single",
   enable_git_status = true,
   enable_diagnostics = true,
   window = {
