@@ -12,15 +12,15 @@ return {
   {
     'williamboman/mason-lspconfig.nvim',
 			event = "UiEnter",
-			config = function()
-			
-			return require("pitavim.configs.lsp")
 
-			end,
   },
   {
     'neovim/nvim-lspconfig',
 		event = "UiEnter",
+
+			config = function()
+			return require("pitavim.configs.lsp")
+			end,
   },
   { 'j-hui/fidget.nvim', opts = {} },
   { 'j-hui/fidget.nvim', opts = {} },
