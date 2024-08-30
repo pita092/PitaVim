@@ -15,6 +15,7 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+o.expandtab = true
 vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
@@ -36,7 +37,7 @@ vim.opt.list = true
 o.updatetime = 250
 vim.o.showtabline = 2
 vim.opt.inccommand = 'split'
-o.cursorline = true
+o.cursorline = false
 o.cursorlineopt = "number"
 vim.opt.scrolloff = 10
 
