@@ -63,6 +63,10 @@ map("n", "<leader>v", function()
 	require("nvterm.terminal").toggle "float"
 end, { desc = "terminal new vertical window" })
 
+vim.api.nvim_set_keymap('n', '<leader>h', [[<Cmd>lua require("nvterm.terminal").toggle()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<leader>h',[[<C-\><C-n><Cmd>lua require("nvterm.terminal").toggle()<CR>]], { noremap = true, silent = true })
+
+
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
