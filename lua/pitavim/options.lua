@@ -1,4 +1,6 @@
 local opt = vim.opt
+local o = vim.o
+local g = vim.g
 
 vim.cmd 'set number'
 vim.cmd 'set tabstop=2'
@@ -31,9 +33,11 @@ vim.opt.listchars = {
   precedes = '❮',
 }
 vim.opt.list = true
+o.updatetime = 250
 vim.o.showtabline = 2
 vim.opt.inccommand = 'split'
-vim.opt.cursorline = true
+o.cursorline = true
+o.cursorlineopt = "number"
 vim.opt.scrolloff = 10
 
 opt.whichwrap:append "<>[]hl"
