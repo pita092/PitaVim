@@ -1,7 +1,6 @@
-require("nvchad_ui").setup({
+require("ui").setup({
   statusline = {
-    theme = "default", -- default/vscode/vscode_colored/minimal
-    -- ... other statusline options
+    theme = "gruvbox", -- default/vscode/vscode_colored/minimal
   },
   tabufline = {
     enabled = true,
