@@ -92,3 +92,14 @@ end, { desc = "blankline jump to current context" })
 vim.keymap.set('n', '<C-e>', ':tabnext<CR>', { noremap = true, silent = true, desc = 'next tab' })
 vim.keymap.set('n', '<C-w>', ':tabclose<CR>', { noremap = true, silent = true, desc = 'next tab' })
 vim.keymap.set('n', '<C-q>', ':tabprevious<CR>', { noremap = true, silent = true, desc = 'previous tab' })
+
+--custom menu
+
+im.keymap.set('n', '<leader>d', function()
+	local dashboard_opened = require('pita.dashboard').toggle_dashboard()
+	if dashboard_opened then
+		print 'Dasboard opned'
+	else
+		print 'Dashboard closed'
+	end
+end, { desc = 'Toggle dashboard' })
