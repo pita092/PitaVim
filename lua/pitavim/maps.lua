@@ -55,21 +55,11 @@ end, { desc = '[S]earch [N]eovim files' })
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- new terminals
-map("n", "<leader>h", function()
-	require("nvterm.terminal").toggle "horizontal"
- end, { desc = "terminal new horizontal term" })
-
 map("n", "<leader>v", function()
 	require("nvterm.terminal").toggle "float"
 end, { desc = "terminal new vertical window" })
 
-vim.api.nvim_set_keymap('n', '<leader>h', [[<Cmd>lua require("nvterm.terminal").toggle()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<leader>h',[[<C-\><C-n><Cmd>lua require("nvterm.terminal").toggle()<CR>]], { noremap = true, silent = true })
-
--- Close terminal in normal mode
 vim.api.nvim_set_keymap('n', '<C-q>', ':bdelete!<CR>', { noremap = true, silent = true })
-
--- Close terminal in terminal mode
 vim.api.nvim_set_keymap('t', '<C-q>', '<C-\\><C-n>:bdelete!<CR>', { noremap = true, silent = true })
 
 
