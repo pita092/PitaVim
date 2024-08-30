@@ -12,7 +12,8 @@ return {
 				desc = "Buffer Local Keymaps (which-key)",
 			},
 		},
-	},
+	}
+},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
