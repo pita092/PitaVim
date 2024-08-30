@@ -7,12 +7,9 @@ lsp_zero.set_sign_icons {
   hint = '⚑',
   info = '»',
 }
-lsp_zero.on_attach(function(client, bufnr) end)
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    lspconfig[server_name].setup(lsp_zero.nvim_lua_ls())
-  end,
-}
+
+local lspconfig = require('lspconfig')
+lspconfig.lua_ls.setup {}
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
