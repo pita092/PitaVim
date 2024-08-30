@@ -57,4 +57,5 @@ vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg = '#282828' })
 vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeFloatNormal', { fg = '#ebdbb2', bg = '#282828' })
 vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { fg = '#ebdbb2', bg = '#282828' })
-vim.api.nvim_set_hl(0, 'NeoTreeTitleBar', { fg = '#ebdbb2', bg = '#282828' })
+vim.api.nvim_set_hl(0, 'NeoTreeTitleBar', { fg = '#ebdbb2', bg = '#282828', bold = true, underline = true, sp = '#ebdbb2' })
+
