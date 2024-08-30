@@ -9,7 +9,7 @@ return {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
-      return require("pitavim.config.dashboard")
+      return require("pitavim.configs.dashboard")
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   },
