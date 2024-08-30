@@ -35,8 +35,8 @@ require('telescope').setup {
 require('telescope').load_extension 'ui-select'
 require('telescope').load_extension('fzf')
 
-vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="NONE", fg="#1d2021"})
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="NONE", fg="#fbf1c7"})
-vim.api.nvim_set_hl(0, "TelescopeResultsBorder", {bg="NONE", fg="#fbf1c7"})
-vim.api.nvim_set_hl(0, "TelescopePreviewBorder", {bg="NONE", fg="#fbf1c7"})
+vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="NONE", fg="#fbf1c7"})
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="NONE", fg="#1d2021"})
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder", {bg="NONE", fg="#1d2021"})
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder", {bg="NONE", fg="#1d2021"})
 
