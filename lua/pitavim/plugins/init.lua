@@ -1,5 +1,12 @@
 return {
 	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
+	{
 		"nvimtools/none-ls.nvim",
 		config = function()
 			return require("pitavim.configs.none-ls")
