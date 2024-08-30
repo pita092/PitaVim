@@ -13,9 +13,8 @@ map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "General Copy whole file" })
 
 --map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
-map("n", "<C-h>", function()
-  require("conform").format { lsp_fallback = true }
-end, { desc = "General Format file" })
+vim.keymap.set('n', '<C-h>', vim.lsp.buf.format, {})
+
 
 -- global lsp mappings
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
