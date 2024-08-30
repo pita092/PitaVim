@@ -1,3 +1,4 @@
+local M = {}
 local lspconfig = require 'lspconfig'
 local lsp_zero = require 'lsp-zero'
 local mason_lspconfig = require 'mason-lspconfig'
@@ -58,3 +59,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+return M
