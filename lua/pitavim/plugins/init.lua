@@ -1,18 +1,5 @@
 return {
   {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
-    },
-    config = function ()
-    return require("pitavim.configs.barbecue")
-    end
-  },
-  {
     "folke/which-key.nvim",
     event = "VeryLazy",
   },
