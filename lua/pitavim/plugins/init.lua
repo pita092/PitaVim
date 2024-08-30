@@ -1,7 +1,13 @@
 return {
-	{ {
+	{
+		"nvimtools/none-ls.nvim",
+		config = function ()
+			return require("pitavim.configs.none-ls")			
+		end
+	},
+	{
 		"stevearc/conform.nvim",
-	} },
+	},
 	{
 		{
 			"williamboman/mason.nvim",
