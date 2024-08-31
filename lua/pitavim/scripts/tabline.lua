@@ -61,6 +61,9 @@ end
 function M.ClearHighlight()
   vim.cmd('highlight clear TabLineFill')
   vim.cmd('highlight clear TabLineSel')
+  vim.cmd('highlight clear NeoTreeNormal')
+  vim.cmd('highlight clear NeoTreeNormalNC')
+
   return '' -- This function needs to return a string for the tabline
 end
 
