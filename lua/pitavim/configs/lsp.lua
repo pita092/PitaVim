@@ -1,7 +1,6 @@
 local M = {}
 local lspconfig = require 'lspconfig'
 local lsp_zero = require 'lsp-zero'
-local mason_lspconfig = require 'mason-lspconfig'
 lsp_zero.set_sign_icons {
   error = '✘',
   warn = '▲',
