@@ -114,7 +114,7 @@ local function CreateDashboard()
     '[f] Find file ──────────│ 󰮗  │',
     '[r] Recent files ───────│   │',
     '[s] Settings ───────────│   │',
-    '[g] netRW	──────────────│   │',
+    '[g] file tree ───────────│   │',
     '                        └────┘',
     '',
   }
@@ -176,7 +176,7 @@ local function CreateDashboard()
   set_keymap('f', ':lua require("pita.dashboard").telescope_findfiles()<CR>')
   set_keymap('r', ':lua require("pita.dashboard").telescope_oldfiles_in_new_tab()<CR>')
   set_keymap('s', ':Telescope find_files cwd=~/.config/nvim/<CR>')
-  set_keymap('g', ':Ex<CR>')
+  set_keymap('g', ':Neotree current<CR>')
 end
 
 --the nameX3
