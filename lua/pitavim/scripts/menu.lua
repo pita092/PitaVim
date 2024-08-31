@@ -114,7 +114,7 @@ local function CreateDashboard()
     '[f] Find file ──────────│ 󰮗  │',
     '[r] Recent files ───────│   │',
     '[s] Settings ───────────│   │',
-    '[g] file tree ───────────│   │',
+    '[g] file tree ──────────│   │',
     '                        └────┘',
     '',
   }
