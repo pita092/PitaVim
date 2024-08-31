@@ -60,9 +60,22 @@ end
 
 function M.setup()
   vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
-  vim.api.nvim_set_hl(0, "TabLineFill", {})
-  vim.api.nvim_set_hl(0, "TabLineSel", {})
+
+  -- Create an autocommand to clear the highlight group
+  vim.api.nvim_create_autocmd("TabEnter", {
+    callback = function()
+      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
+      -- Add more highlight groups to clear if needed
+      -- vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
+      -- vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
+    end
+  })
+
+  -- Immediately clear the highlight group
+  vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
+  -- Add more highlight groups to clear if needed
+  -- vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
+  -- vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
 end
 
 return M
-
