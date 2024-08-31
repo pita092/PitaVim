@@ -60,6 +60,9 @@ end
 
 function M.setup()
   vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
+  vim.api.nvim_set_hl(0, "TabLineFill", {})
+  vim.api.nvim_set_hl(0, "TabLineSel", {})
 end
 
 return M
+
