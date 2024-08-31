@@ -39,7 +39,6 @@ vim.opt.inccommand = 'split'
 o.cursorline = false
 o.cursorlineopt = "number"
 vim.opt.scrolloff = 10
-vim.opt.shortmess:append("I")
 
 
 opt.whichwrap:append "<>[]hl"
