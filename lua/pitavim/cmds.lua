@@ -30,3 +30,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.fillchars:append({ eob = " " })
   end,
 })
+vim.cmd([[
+  autocmd VimEnter * highlight clear TabLineFill
+]])
+
+vim.cmd([[
+  autocmd VimEnter * highlight clear TabLineSel
+]])
+
+
