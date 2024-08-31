@@ -29,8 +29,8 @@ return {
     {
       "neovim/nvim-lspconfig",
       event = "BufReadPre",
-      config = function ()
-      return require("pitavim.configs.lsp")      
+      config = function()
+        return require("pitavim.configs.lsp")
       end
     },
     {
@@ -44,7 +44,7 @@ return {
   {
     {
       "nvim-telescope/telescope.nvim",
-      cmd = { "Telescope" },
+      event = "BufReadPre",
       dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-media-files.nvim",
@@ -114,7 +114,7 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
-    event = "UIEnter",
+    event = "BufReadPre",
     priority = 1000,
     config = function()
       return require("pitavim.configs.gruvbox")
