@@ -37,7 +37,7 @@ return {
   {
     {
       "nvim-telescope/telescope.nvim",
-      cmd = "Telescope",
+      event = "BufReadPre",
       dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-media-files.nvim",
@@ -49,11 +49,9 @@ return {
     },
     {
       "nvim-lua/popup.nvim",
-      cmd = "Telescope",
     },
     {
       "nvim-telescope/telescope-ui-select.nvim",
-      cmd = "Telescope"
     },
     {
       "nvim-telescope/telescope-fzf-native.nvim",
