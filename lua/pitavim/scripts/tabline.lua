@@ -27,7 +27,7 @@ local function get_file_icon(filename)
 end
 
 function M.MyTabLine()
-  local s = ''
+  local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
   for i = 1, vim.fn.tabpagenr '$' do
     -- Add a separator before each tab (except the first one)
     if i > 1 then
@@ -58,23 +58,14 @@ function M.MyTabLabel(n)
   return icon .. ' ' .. short_name
 end
 
+function M.ClearHighlight()
+  vim.cmd('highlight clear TabLineFill')
+  vim.cmd('highlight clear TabLineSel')
+  return '' -- This function needs to return a string for the tabline
+end
+
 function M.setup()
   vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
-
-  -- Create an autocommand to clear the highlight group
-  vim.api.nvim_create_autocmd("TabEnter", {
-    callback = function()
-      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
-      -- vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
-    end
-  })
-
-  -- Immediately clear the highlight group
-  vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
-  -- Add more highlight groups to clear if needed
-  -- vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
-  -- vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
 end
 
 return M
