@@ -34,6 +34,7 @@ vim.opt.listchars = {
   precedes = '❮',
 }
 vim.opt.list = true
+vim.o.showtabline = 2
 o.updatetime = 250
 vim.opt.inccommand = 'split'
 o.cursorline = false
