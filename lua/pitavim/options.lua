@@ -50,6 +50,14 @@ local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
 
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    print("Welcome to Neovim! Happy coding!")
+  end,
+})
+
+
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
