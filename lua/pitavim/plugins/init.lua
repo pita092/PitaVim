@@ -29,6 +29,9 @@ return {
     {
       "neovim/nvim-lspconfig",
       event = "BufReadPre",
+      config = function ()
+      return require("pitavim.configs.lsp")      
+      end
     },
     {
       "j-hui/fidget.nvim",
