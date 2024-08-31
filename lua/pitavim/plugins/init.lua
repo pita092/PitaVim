@@ -33,18 +33,11 @@ return {
         return require("pitavim.configs.lsp")
       end
     },
-    {
-      "j-hui/fidget.nvim",
-      event = "BufReadPre",
-      config = function()
-        return require("pitavim.configs.fidget")
-      end,
-    },
   },
   {
     {
       "nvim-telescope/telescope.nvim",
-      event = "BufReadPre",
+      cmd = { "Telescope" },
       dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-media-files.nvim",
@@ -114,7 +107,7 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     priority = 1000,
     config = function()
       return require("pitavim.configs.gruvbox")
