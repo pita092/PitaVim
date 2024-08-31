@@ -65,9 +65,8 @@ function M.setup()
   vim.api.nvim_create_autocmd("TabEnter", {
     callback = function()
       vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
-      -- Add more highlight groups to clear if needed
       -- vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
-      -- vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
     end
   })
 
