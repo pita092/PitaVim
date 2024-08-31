@@ -172,9 +172,9 @@ local function CreateDashboard()
     api.nvim_buf_set_keymap(buffer, 'n', key, action, { silent = true, noremap = true })
   end
 
-  set_keymap('e', ':lua require("pita.dashboard").new_file()<CR>')
-  set_keymap('f', ':lua require("pita.dashboard").telescope_findfiles()<CR>')
-  set_keymap('r', ':lua require("pita.dashboard").telescope_oldfiles_in_new_tab()<CR>')
+  set_keymap('e', ':lua require("pitavim.scripts.menu").new_file()<CR>')
+  set_keymap('f', ':lua require("pitavim.scripts.menu").telescope_findfiles()<CR>')
+  set_keymap('r', ':lua require("pitavim.scripts.menu").telescope_oldfiles_in_new_tab()<CR>')
   set_keymap('s', ':Telescope find_files cwd=~/.config/nvim/<CR>')
   set_keymap('g', ':Neotree current<CR>')
 end
