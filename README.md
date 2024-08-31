@@ -7,5 +7,5 @@
 took the idea from nvchad/lazyvim
 its pretty functional 
 
-
-if you are inside already inside neovim you can just delete this file 
+****
+if you are already inside neovim you can just delete this file 
