@@ -11,7 +11,10 @@ vim.cmd[[colorscheme tokyonight]]
 {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    opts = {},
+    config = function()
+    require("mason").setup()
+    require("mason-lspconfig").setup()
+    end 
 },
 {
 
