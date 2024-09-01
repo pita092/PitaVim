@@ -20,8 +20,8 @@ vim.cmd[[colorscheme tokyonight]]
 {
 
     "neovim/nvim-lspconfig",
-    event = "VimEnter",
     "VonHeikemen/lsp-zero.nvim",
+    event = "VimEnter",
     config = function()
     return require("pitavim.configs.lsp")
     end 
