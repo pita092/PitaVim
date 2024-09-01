@@ -103,6 +103,7 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
+    event = "VeryLazy",
     priority = 1000,
     config = function()
       return require("pitavim.configs.gruvbox")
