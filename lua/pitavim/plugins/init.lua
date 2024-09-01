@@ -8,5 +8,13 @@ return {
 vim.cmd[[colorscheme tokyonight]]
   end 
 },
+{
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    config = function()
+    return require("pitavim.configs.lsp")
+    end 
+},
 
 }
