@@ -11,7 +11,6 @@ vim.cmd[[colorscheme tokyonight]]
 {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    lazy = false,
     config = function()
     require("mason").setup()
     require("mason-lspconfig").setup()
@@ -21,7 +20,6 @@ vim.cmd[[colorscheme tokyonight]]
 
     "neovim/nvim-lspconfig",
     "VonHeikemen/lsp-zero.nvim",
-    event = "VimEnter",
     config = function()
     return require("pitavim.configs.lsp")
     end 
