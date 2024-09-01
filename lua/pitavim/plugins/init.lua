@@ -84,6 +84,9 @@ return {
         priority = 100,
         dependencies = {
           {
+          "VonHeikemen/lsp-zero.nvim",
+          },
+          {
             -- snippet plugin
             "L3MON4D3/LuaSnip",
             dependencies = "rafamadriz/friendly-snippets",
