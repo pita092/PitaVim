@@ -12,6 +12,7 @@ vim.cmd[[colorscheme tokyonight]]
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    event = "User FilePost",
     config = function()
     return require("pitavim.configs.lsp")
     end 
