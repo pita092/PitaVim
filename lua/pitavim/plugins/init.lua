@@ -76,7 +76,6 @@ return{
         {
           "nvim-telescope/telescope-ui-select.nvim",
         },
-        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
       },
       {
         "hrsh7th/nvim-cmp",
