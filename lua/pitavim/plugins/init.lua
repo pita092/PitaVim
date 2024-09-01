@@ -22,11 +22,12 @@ return {
   },
   {
     "folke/which-key.nvim",
+    keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
     event = "VeryLazy",
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    event = "User FilePost",
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
@@ -50,8 +51,7 @@ return {
     },
     {
       "neovim/nvim-lspconfig",
-      lazy = true,
-      event = "BufReadPre",
+      event = "User FilePost",
       config = function()
         return require("pitavim.configs.lsp")
       end
@@ -86,27 +86,6 @@ return {
       "neovim/nvim-lspconfig",
       {
         "hrsh7th/cmp-nvim-lsp",
-        event = "InsertEnter",
-        {
-          "L3MON4D3/LuaSnip",
-          build = (function()
-            if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-              return
-            end
-            return "make install_jsregexp"
-          end)(),
-          dependencies = {
-            { "onsails/lspkind.nvim" },
-
-            "hrsh7th/nvim-cmp",
-            {
-              "rafamadriz/friendly-snippets",
-              config = function()
-                require("luasnip.loaders.from_vscode").lazy_load()
-              end,
-            },
-          },
-        },
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
@@ -125,7 +104,7 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     priority = 1000,
     config = function()
       return require("pitavim.configs.gruvbox")
