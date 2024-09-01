@@ -50,6 +50,7 @@ return {
     },
     {
       "neovim/nvim-lspconfig",
+      lazy = true,
       event = "BufReadPre",
       config = function()
         return require("pitavim.configs.lsp")
@@ -124,7 +125,7 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     priority = 1000,
     config = function()
       return require("pitavim.configs.gruvbox")
