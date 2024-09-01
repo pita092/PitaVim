@@ -1,5 +1,9 @@
 return {
   {
+    "nvim-lua/plenary.nvim",
+    event = "VimEnter"
+  },
+  {
     "lervag/vimtex",
     lazy = false, -- we don't want to lazy load VimTeX
     -- tag = "v2.15", -- uncomment to pin to a specific release
@@ -58,7 +62,6 @@ return {
       lazy = true,
       cmd = "Telescope",
       dependencies = {
-        "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-media-files.nvim",
         { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
       },
@@ -134,7 +137,6 @@ return {
     cmd = "Neotree",
     branch = "v3.x",
     dependencies = {
-      "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
       config = function()
