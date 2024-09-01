@@ -20,6 +20,7 @@ vim.cmd[[colorscheme tokyonight]]
 
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
+    "VonHeikemen/lsp-zero.nvim",
     config = function()
     return require("pitavim.configs.lsp")
     end 
