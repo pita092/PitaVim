@@ -10,6 +10,11 @@ lsp_zero.set_sign_icons {
 
 lspconfig.lua_ls.setup {}
 
+require('mason-lspconfig').setup_handlers({
+  function(server_name)
+    lspconfig[server_name].setup({})
+  end,
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
