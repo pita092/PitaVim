@@ -1,11 +1,3 @@
-local function set_telescope_colors()
-  vim.cmd([[
-    highlight TelescopePromptPrefix guifg=#458588
-    highlight TelescopeSelectionCaret guifg=#83a598
-  ]])
-end
-
--- Call this function after your theme setup
 require('gruvbox').setup {
   terminal_colors = true, -- add neovim terminal colors
   undercurl = true,
@@ -72,4 +64,3 @@ if vim.g.neovide then
   vim.cmd 'colorscheme gruvbox'
   vim.g.neovide_background_color = '#32302F'
 end
-set_telescope_colors()
