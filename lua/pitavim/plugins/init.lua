@@ -2,6 +2,9 @@ return {
   {
     "smartinellimarco/nvcheatsheet.nvim",
     lazy = false,
+    config = function()
+      return require("pitavim.configs.cheat")
+    end
   },
   {
     "nvim-lua/plenary.nvim",
