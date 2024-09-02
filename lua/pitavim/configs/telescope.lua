@@ -1,4 +1,4 @@
-require('telescope').setup {
+require('telescope').setup { G
   defaults = {
     prompt_prefix = '  ',
     selection_caret = '  ',
@@ -36,3 +36,7 @@ require('telescope').setup {
 }
 require('telescope').load_extension 'ui-select'
 require('telescope').load_extension 'fzf'
+vim.cmd([[
+  highlight TelescopePromptPrefix guifg=#458588
+  highlight TelescopeSelectionCaret guifg=#83a598
+]])
