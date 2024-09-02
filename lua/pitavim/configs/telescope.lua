@@ -1,7 +1,17 @@
 require('telescope').setup {
+  defaults = {
+    prompt_prefix = '  ',
+    selection_caret = '  ',
+    entry_prefix = '   ',
+    path_display = { 'truncate' },
+    file_ignore_patterns = {
+      'dist',
+      'target',
+      'node_modules',
+      'pack/plugins',
+    } },
   pickers = {
     find_files = {
-      theme = 'dropdown',
     },
   },
   extensions = {
