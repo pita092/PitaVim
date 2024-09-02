@@ -1,10 +1,7 @@
 return {
   {
     "smartinellimarco/nvcheatsheet.nvim",
-    cmd = "nvcheatsheet",
-    config = function()
-      return require("pitavim.configs.cheat")
-    end
+    lazy = false,
   },
   {
     "nvim-lua/plenary.nvim",
