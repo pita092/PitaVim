@@ -59,3 +59,7 @@ vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeFloatNormal', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeTitleBar', { fg = '#ffffff', bg = 'NONE' })
+vim.cmd([[
+  highlight TelescopePromptPrefix guifg=#458588
+  highlight TelescopeSelectionCaret guifg=#83a598
+]])
