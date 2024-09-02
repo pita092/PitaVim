@@ -9,7 +9,19 @@ require('telescope').setup {
       'target',
       'node_modules',
       'pack/plugins',
-    } },
+    },
+    layout_config = {
+      horizontal = {
+        display = function(entry, row, col)
+          -- Custom logic to determine display based on entry position
+          if row < entry.selection_row then
+            return "○ " .. entry.value -- Symbol for items above the selected one
+          else
+            return entry.value -- Default display for other items
+          end
+        end,
+      },
+    }, },
   pickers = {
     find_files = {
     },
