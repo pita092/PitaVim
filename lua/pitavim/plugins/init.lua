@@ -24,6 +24,9 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
     config = function()
       return require("pitavim.configs.none-ls")
     end,
