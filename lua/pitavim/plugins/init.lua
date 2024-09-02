@@ -1,12 +1,5 @@
 return {
   {
-    "nvim-java/nvim-java",
-    event = "BufReadPre",
-    config = function()
-      require('java').setup()
-    end
-  },
-  {
     "nvim-lua/plenary.nvim",
     event = "VimEnter"
   },
