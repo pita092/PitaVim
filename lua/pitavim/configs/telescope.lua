@@ -53,7 +53,7 @@ local action_set = require "telescope.actions.set"
 local action_state = require "telescope.actions.state"
 local make_entry = require "telescope.make_entry"
 
-ocal
+local
 function wrapper()
   local term_bufs = vim.g.nvchad_terms or {}
   local buffers = {}
