@@ -1,7 +1,7 @@
 require('telescope').setup {
   defaults = {
-    prompt_prefix = '  ',
-    selection_caret = '  ',
+    prompt_prefix = ' 🔭 ',
+    selection_caret = ' ➡️ ',
     entry_prefix = '   ',
     path_display = { 'truncate' },
     file_ignore_patterns = {
@@ -36,5 +36,3 @@ require('telescope').setup {
 }
 require('telescope').load_extension 'ui-select'
 require('telescope').load_extension 'fzf'
-
-
