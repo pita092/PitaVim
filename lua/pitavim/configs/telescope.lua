@@ -1,8 +1,8 @@
 require('telescope').setup {
   defaults = {
     prompt_prefix = ' 🔭 ',
-    entry_prefix = "○ ",
-    selection_caret = ' ╰┈➤ ',
+    entry_prefix = "● ",
+    selection_caret = '  ➤ ',
     path_display = { 'truncate' },
     file_ignore_patterns = {
       'dist',
@@ -10,18 +10,7 @@ require('telescope').setup {
       'node_modules',
       'pack/plugins',
     },
-    layout_config = {
-      horizontal = {
-        display = function(entry, row, col)
-          -- Custom logic to determine display based on entry position
-          if row < entry.selection_row then
-            return "○ " .. entry.value -- Symbol for items above the selected one
-          else
-            return entry.value -- Default display for other items
-          end
-        end,
-      },
-    }, },
+  },
   pickers = {
     find_files = {
     },
