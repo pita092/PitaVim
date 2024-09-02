@@ -1,6 +1,7 @@
 return {
   {
     "nvim-java/nvim-java",
+    event = "BufReadPre",
     config = function()
       require('java').setup()
     end
