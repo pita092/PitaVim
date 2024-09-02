@@ -1,5 +1,4 @@
 local builtin = require('telescope.builtin')
-local wk = require('which-key')
 
 local function vsp(func)
   return function()
@@ -19,32 +18,8 @@ wk.register({
   o = { builtin.resume, 'Find last search' },
 }, { prefix = '<leader>n' })
 
-wk.register({
-  ['<c-r>'] = { builtin.registers, 'Show registers' },
-}, {
-  mode = 'i',
-})
-
 local reg_lsp_keymaps = function(buffer)
-  wk.register({
-    name = 'LSP',
-    s = {
-      vsp(builtin.lsp_implementations),
-      'Go to implementation (split)',
-    },
-    S = { builtin.lsp_implementations, 'Go to implementation' },
-    n = {
-      vsp(builtin.lsp_definitions),
-      'Go to definition (split)',
-    },
-    N = { builtin.lsp_definitions, 'Go to definition' },
-    c = { builtin.diagnostics, 'Show all diagnostics' },
-    x = { builtin.lsp_references, 'Show all references' },
-  }, {
-    buffer = buffer,
-    prefix = '<leader>t',
-  })
-end
+  end
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(arg)
