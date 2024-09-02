@@ -1,8 +1,9 @@
 return {
   {
     "smartinellimarco/nvcheatsheet.nvim",
+    cmd = "nvcheatsheet",
     config = function()
-    return require("pitavim.configs.cheat")
+      return require("pitavim.configs.cheat")
     end
   },
   {
