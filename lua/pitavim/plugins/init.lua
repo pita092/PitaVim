@@ -117,7 +117,7 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = false,
+    event = "BufReadPre",
     priority = 1000,
     config = function()
       return require("pitavim.configs.gruvbox")
