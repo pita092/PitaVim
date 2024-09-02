@@ -1,5 +1,8 @@
 return {
   {
+    "smartinellimarco/nvcheatsheet.nvim"
+  },
+  {
     "nvim-lua/plenary.nvim",
     event = "VimEnter"
   },
