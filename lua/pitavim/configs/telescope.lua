@@ -36,7 +36,13 @@ require('telescope').setup {
 }
 require('telescope').load_extension 'ui-select'
 require('telescope').load_extension 'fzf'
-vim.cmd([[
-  highlight TelescopePromptPrefix guifg=#458588
-  highlight TelescopeSelectionCaret guifg=#83a598
-]])
+
+local function set_telescope_colors()
+  vim.cmd([[
+    highlight TelescopePromptPrefix guifg=#ff00ff
+    highlight TelescopeSelectionCaret guifg=#00ff00
+  ]])
+end
+
+-- Call this function after your theme setup
+set_telescope_colors()
