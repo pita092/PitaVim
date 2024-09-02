@@ -7,9 +7,6 @@ lsp_zero.set_sign_icons {
   hint = '⚑',
   info = '»',
 }
-
-lspconfig.lua_ls.setup {}
-lspconfig.jdtls.setup {}
 require('mason-lspconfig').setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({})
