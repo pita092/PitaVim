@@ -49,7 +49,7 @@ return{
         },
         {
           "neovim/nvim-lspconfig",
-          event = "BufReadPre",
+          event = "BufEnter",
           config = function()
             return require("pitavim.configs.lsp")
           end
