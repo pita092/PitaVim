@@ -1,7 +1,7 @@
 require('telescope').setup {
   defaults = {
     prompt_prefix = ' 🔭 ',
-    selection_caret = ' ➡️ ',
+    selection_caret = ' ╰┈➤ ',
     entry_prefix = '   ',
     path_display = { 'truncate' },
     file_ignore_patterns = {
