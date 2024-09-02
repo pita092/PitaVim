@@ -1,3 +1,11 @@
+local function set_telescope_colors()
+  vim.cmd([[
+    highlight TelescopePromptPrefix guifg=#458588
+    highlight TelescopeSelectionCaret guifg=#83a598
+  ]])
+end
+
+-- Call this function after your theme setup
 require('gruvbox').setup {
   terminal_colors = true, -- add neovim terminal colors
   undercurl = true,
@@ -16,7 +24,7 @@ require('gruvbox').setup {
   invert_tabline = false,
   invert_intend_guides = false,
   inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = '', -- can be "hard", "soft" or empty string
+  contrast = '',  -- can be "hard", "soft" or empty string
   palette_overrides = {},
   overrides = {},
   dim_inactive = false,
@@ -64,3 +72,4 @@ if vim.g.neovide then
   vim.cmd 'colorscheme gruvbox'
   vim.g.neovide_background_color = '#32302F'
 end
+set_telescope_colors()
