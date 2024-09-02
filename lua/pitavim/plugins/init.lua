@@ -27,10 +27,8 @@ return{
       },
       {
         "lukas-reineke/indent-blankline.nvim",
-        event = "User FilePost",
+        event = "BufReadPre",
         main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
         opts = {},
       },
       {
@@ -51,7 +49,7 @@ return{
         },
         {
           "neovim/nvim-lspconfig",
-          event = "User FilePost",
+          event = "BufReadPre",
           config = function()
             return require("pitavim.configs.lsp")
           end
