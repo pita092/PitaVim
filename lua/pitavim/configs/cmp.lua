@@ -68,9 +68,9 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = cmp.config.sources {
-    { name = 'nvim_lsp', keyword_length = 1 },
-    { name = 'luasnip', keyword_length = 1 },
-    { name = 'buffer', keyword_length = 2 },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'nvim_lua' },
@@ -80,7 +80,7 @@ cmp.setup {
     fields = { 'abbr', 'kind', 'menu' },
     expandable_indicator = true,
     format = function(entry, vim_item)
-      local kind = require('lspkind').cmp_format { mode = 'text', maxwidth = 50 }(entry, vim_item)
+      local kind = require('lspkind').cmp_format { mode = 'text', maxwidth = 50 } (entry, vim_item)
       local strings = vim.split(kind.kind, ' ', { trimempty = true })
       kind.kind = string.format('%s  %s', kind_icons[vim_item.kind], strings[1])
       vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#fbf1c7', fg = '#282828' })
