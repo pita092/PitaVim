@@ -2,7 +2,7 @@
 
 
 
-"https://github.com/pita092/nvim-main"'s plugin/config repo
+"https://github.com/pita092/nvim-main "'s plugin/config repo
 
 took the idea from nvchad/lazyvim
 its pretty functional 
