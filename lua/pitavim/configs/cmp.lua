@@ -89,7 +89,7 @@ cmp.setup {
       -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
       kind.menu = '' .. (strings[2] or '') .. ''
       vim_item.menu = ({
-        nvim_lsp = "[" .. entry.source.name .. "]",
+        nvim_lsp = "["Lsp"]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
