@@ -45,9 +45,3 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = "#83a598" })
   end,
 })
-
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    require('boo').boo()
-  end
-})
