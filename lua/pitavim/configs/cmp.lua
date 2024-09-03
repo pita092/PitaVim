@@ -88,8 +88,13 @@ cmp.setup {
 
       -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
       kind.menu = '' .. (strings[2] or '') .. ''
+      vim_item.menu = ({
+        nvim_lsp = "[" .. entry.source.name .. "]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
 
-      return kind
+      return kind, vim_item
     end,
   },
   sorting = {
