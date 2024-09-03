@@ -60,4 +60,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
-return M
+return M,
+    require("garbage-day").setup({
+      aggressive_mode = true,
+      wakeup_delay = 1,
+      notifications = true,
+    })

@@ -59,10 +59,9 @@ return {
       "zeioth/garbage-day.nvim",
       dependencies = "neovim/nvim-lspconfig",
       event = "VeryLazy",
-      opts = {
-        aggressive_mode = true,
-        wakeup_delay = 1,
-      }
+      config = function()
+        return require("pitavim.configs.lsp")
+      end,
     },
   },
   {
