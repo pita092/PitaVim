@@ -84,14 +84,11 @@ cmp.setup {
       local strings = vim.split(kind.kind, ' ', { trimempty = true })
       vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#fbf1c7', fg = '#282828' })
       -- This concatenates the icons with the name of the item kind
+      vim_item.kind = kind.symbolic(vim_item.kind, { mode = "symbol" })
+      vim_item.menu = string.format("[%s] [%s]", vim_item.kind, entry.source.name)
 
       -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
       kind.menu = '' .. (strings[2] or '') .. ''
-      vim_item.menu = ({
-        nvim_lsp = " [Lsp]",
-        buffer = " [Buffer]",
-        path = " [Path]",
-      })[entry.source.name]
 
       return kind, vim_item
     end,
