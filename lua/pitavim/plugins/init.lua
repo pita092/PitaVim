@@ -48,6 +48,12 @@ return {
         return require("pitavim.configs.lsp")
       end
     },
+    {
+      "LukasPietzschmann/boo.nvim",
+      config = function ()
+      return require("pitavim.configs.popups")
+      end
+    },
   },
   {
     {
