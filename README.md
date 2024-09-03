@@ -13,7 +13,9 @@ its pretty functional
 stuff that i dont think are a dependencie but i its good to have
 
 grep
+
 gcc (on windows because linux come with it)
+
 make/cmake
 
 
