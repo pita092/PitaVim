@@ -82,7 +82,7 @@ cmp.setup {
     format = function(entry, vim_item)
       local kind = require('lspkind').cmp_format { mode = 'text', maxwidth = 50 } (entry, vim_item)
       local strings = vim.split(kind.kind, ' ', { trimempty = true })
-      kind.kind = string.format('%s  %s', kind_icons[vim_item.kind], strings[1])
+      kind.kind = string.format('%s  %s', strings[1])
       vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#fbf1c7', fg = '#282828' })
       -- This concatenates the icons with the name of the item kind
 
@@ -93,15 +93,15 @@ cmp.setup {
     end,
   },
   sorting = {
-        comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.score,
-            require "cmp-under-comparator".under,
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
-        },
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      require "cmp-under-comparator".under,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
     },
+  },
 }
