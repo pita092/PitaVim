@@ -55,6 +55,13 @@ return {
         return require("pitavim.configs.popups")
       end
     },
+    {
+  "zeioth/garbage-day.nvim",
+  dependencies = "neovim/nvim-lspconfig",
+  event = "VeryLazy",
+  opts = {
+  }
+},
   },
   {
     {
