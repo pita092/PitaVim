@@ -3,7 +3,7 @@ require('nvim-autopairs').setup {}
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 local cmp_action = require('lsp-zero').cmp_action()
-local lspkind = require('lspkind')
+local dev_icons = require "nvim-web-devicons"
 local kind_icons = {
   Text = '󰉿',
   Method = '󰆧',
@@ -81,27 +81,44 @@ cmp.setup {
     fields = { 'abbr', 'kind', 'menu' },
     expandable_indicator = true,
     formatting = {
-      format = lspkind.cmp_format({
-        mode = 'symbol', -- Show only symbol icons
-        maxwidth = 50, -- Prevent the popup from becoming too wide
-        before = function(entry, vim_item)
-          -- Customize the menu to show kind and source wrapped in brackets
-          vim_item.menu = string.format("[%s] [%s]", vim_item.kind, entry.source.name)
-          return vim_item
-        end,
-      }),
+      format = function(entry, vim_item)
+        local menu_map = {
+          gh_issues = "[Issues]",
+          buffer = "[Buf]",
+          nvim_lsp = "[LSP]",
+          nvim_lua = "[API]",
+          path = "[Path]",
+          luasnip = "[Snip]",
+          tmux = "[Tmux]",
+          look = "[Look]",
+          rg = "[RG]",
+          crates = "[Crates]",
+          orgmode = "[ORG]",
+          dap = "[DAP]",
+          cmp_jira = "[JIRA]",
+        }
+        vim_item.menu = menu_map[entry.source.name] or string.format("[%s]", entry.source.name)
 
+        if vim_item.kind == "File" then
+          vim_item.kind = dev_icons.get_icon(vim_item.word, nil, { default = true }) .. " [file]"
+        else
+          vim_item.kind = vim.lsp.protocol.CompletionItemKind[vim_item.kind]
+        end
+
+        return vim_item
+      end,
     },
-    sorting = {
-      comparators = {
-        cmp.config.compare.offset,
-        cmp.config.compare.exact,
-        cmp.config.compare.score,
-        require "cmp-under-comparator".under,
-        cmp.config.compare.kind,
-        cmp.config.compare.sort_text,
-        cmp.config.compare.length,
-        cmp.config.compare.order,
-      },
+  },
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      require "cmp-under-comparator".under,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
     },
-  } }
+  },
+}
