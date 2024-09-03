@@ -1,22 +1,12 @@
 local M = {}
 local lspconfig = require 'lspconfig'
---lsp signs
-local signs = { Error = "✘", Warn = "▲", Hint = "⚑", Info = "»" }
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = false,
-})
---not lsp signs
-
+local lsp_zero = require 'lsp-zero'
+lsp_zero.set_sign_icons {
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = '»',
+}
 require('mason-lspconfig').setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({})
