@@ -1,3 +1,4 @@
+local boo = require('boo')
 require('boo').setup(
   {
     win_opts = {
@@ -7,7 +8,7 @@ require('boo').setup(
       row = 1,
       col = 0,
       style = 'minimal',
-      border = 'rounded',
+      border = 'single',
       focusable = true,
     },
 
@@ -23,3 +24,4 @@ require('boo').setup(
     close_on_mouse_move = true,
   }
 )
+boo.boo()
