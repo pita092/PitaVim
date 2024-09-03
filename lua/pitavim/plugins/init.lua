@@ -50,8 +50,9 @@ return {
     },
     {
       "LukasPietzschmann/boo.nvim",
-      config = function ()
-      return require("pitavim.configs.popups")
+      event = "BufReadPre",
+      config = function()
+        return require("pitavim.configs.popups")
       end
     },
   },
