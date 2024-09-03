@@ -8,7 +8,7 @@ return {
   --   version = false,
   --   event = "VeryLazy",
   --   config = function()
-  --     return require("pitavim.configs.mini")
+  --      return require("pitavim.configs.mini")
   --   end
   -- },
   {
