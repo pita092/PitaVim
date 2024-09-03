@@ -33,6 +33,7 @@ vim.opt.listchars = {
   extends = '❯',
   precedes = '❮',
 }
+vim.wo[winnr].winbar = "%f"
 vim.opt.list = true
 vim.o.showtabline = 2
 o.updatetime = 250
@@ -59,4 +60,3 @@ vim.api.nvim_set_hl(0, 'NeoTreeEndOfBuffer', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeFloatNormal', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NeoTreeTitleBar', { fg = '#ffffff', bg = 'NONE' })
-
