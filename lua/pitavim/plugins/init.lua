@@ -134,6 +134,7 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
+    event = "VeryLazy",
     config = function()
       return require("pitavim.configs.colorizer")
     end
