@@ -80,20 +80,21 @@ cmp.setup {
     fields = { 'abbr', 'kind', 'menu' },
     expandable_indicator = true,
     format = function(entry, vim_item)
-      local strings = vim.split(kind.kind, ' ', { trimempty = true })
-      kind.kind = string.format('%s  %s', kind_icons[vim_item.kind], strings[1])
+      --local kind = require('lspkind').cmp_format { mode = 'text', maxwidth = 50 } (entry, vim_item)
+      --local strings = vim.split(kind.kind, ' ', { trimempty = true })
+      --kind.kind = string.format('%s  %s', kind_icons[vim_item.kind], strings[1])
       vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#fbf1c7', fg = '#282828' })
       -- This concatenates the icons with the name of the item kind
 
       -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
-      kind.menu = '' .. (strings[2] or '') .. ''
+      --kind.menu = '' .. (strings[2] or '') .. ''
       vim_item.menu = ({
         nvim_lsp = "[Lsp]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
 
-      return kind, vim_item
+      return vim_item --kind
     end,
   },
   sorting = {
