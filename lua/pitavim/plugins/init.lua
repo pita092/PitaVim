@@ -13,6 +13,7 @@ return {
   -- },
   {
     'nvim-lualine/lualine.nvim',
+    event = "VeryLazy",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       return require("pitavim.configs.lualine")
