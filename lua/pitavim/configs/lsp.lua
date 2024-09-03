@@ -65,4 +65,5 @@ return M,
       aggressive_mode = true,
       wakeup_delay = 1,
       notifications = true,
+      excluded_lsp_clients = { "clangd", "jdtls" }
     })
