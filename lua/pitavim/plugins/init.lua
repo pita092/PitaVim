@@ -22,7 +22,7 @@ return {
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",
-    event = 'BufReadPref',
+    event = 'VeryLazy',
     version = "*",
     dependencies = {
       "SmiteshP/nvim-navic",
