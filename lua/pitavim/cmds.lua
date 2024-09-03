@@ -48,6 +48,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
-    boo.boo()
+    require('boo').boo()
   end
 })
