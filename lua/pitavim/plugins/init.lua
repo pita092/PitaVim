@@ -133,6 +133,12 @@ return {
     end,
   },
   {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      return require("pitavim.configs.colorizer")
+    end
+  },
+  {
 
     "nvim-neo-tree/neo-tree.nvim",
     name = "neotree",
