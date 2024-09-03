@@ -3,7 +3,6 @@ require('nvim-autopairs').setup {}
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 local cmp_action = require('lsp-zero').cmp_action()
-local dev_icons = require "nvim-web-devicons"
 local kind_icons = {
   Text = '󰉿',
   Method = '󰆧',
@@ -80,45 +79,29 @@ cmp.setup {
   formatting = {
     fields = { 'abbr', 'kind', 'menu' },
     expandable_indicator = true,
-    formatting = {
-      format = function(entry, vim_item)
-        local menu_map = {
-          gh_issues = "[Issues]",
-          buffer = "[Buf]",
-          nvim_lsp = "[LSP]",
-          nvim_lua = "[API]",
-          path = "[Path]",
-          luasnip = "[Snip]",
-          tmux = "[Tmux]",
-          look = "[Look]",
-          rg = "[RG]",
-          crates = "[Crates]",
-          orgmode = "[ORG]",
-          dap = "[DAP]",
-          cmp_jira = "[JIRA]",
-        }
-        vim_item.menu = menu_map[entry.source.name] or string.format("[%s]", entry.source.name)
+    format = function(entry, vim_item)
+      local kind = require('lspkind').cmp_format { mode = 'text', maxwidth = 50 } (entry, vim_item)
+      local strings = vim.split(kind.kind, ' ', { trimempty = true })
+      kind.kind = string.format('%s  %s', kind_icons[vim_item.kind], strings[1])
+      vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#fbf1c7', fg = '#282828' })
+      -- This concatenates the icons with the name of the item kind
 
-        if vim_item.kind == "File" then
-          vim_item.kind = dev_icons.get_icon(vim_item.word, nil, { default = true }) .. " [file]"
-        else
-          vim_item.kind = vim.lsp.protocol.CompletionItemKind[vim_item.kind]
-        end
+      -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
+      kind.menu = '' .. (strings[2] or '') .. ''
 
-        return vim_item
-      end,
-    },
+      return kind
+    end,
   },
   sorting = {
-    comparators = {
-      cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.score,
-      require "cmp-under-comparator".under,
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.length,
-      cmp.config.compare.order,
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            require "cmp-under-comparator".under,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
     },
-  },
 }
