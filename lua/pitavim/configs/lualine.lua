@@ -1,3 +1,13 @@
+local function cmp_status()
+  local cmp = require('cmp')
+  local status = cmp.status()
+  if status.mode == '' then
+    return ''
+  else
+    return status.mode
+  end
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -23,7 +33,13 @@ require('lualine').setup {
     lualine_c = { 'filename' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'g:CmpStatus' }
+    lualine_z = {
+      {
+        cmp_status,
+        icon = '󰚩', -- You can use any icon you prefer
+        color = { fg = '#98c379' }, -- Adjust color as needed
+      }
+    }
   },
   inactive_sections = {
     lualine_a = {},
