@@ -3,12 +3,19 @@ return {
     "nvim-lua/plenary.nvim",
     event = "VimEnter"
   },
+  -- {
+  --   'echasnovski/mini.nvim',
+  --   version = false,
+  --   event = "VeryLazy",
+  --   config = function()
+  --     return require("pitavim.configs.mini")
+  --   end
+  -- },
   {
-    'echasnovski/mini.nvim',
-    version = false,
-    event = "VeryLazy",
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      return require("pitavim.configs.mini")
+      return require("pitavim.configs.lualine")
     end
   },
   {
