@@ -88,21 +88,20 @@ cmp.setup {
 
       -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
       kind.menu = '' .. (strings[2] or '') .. ''
-      vim_item.menu = string.format("[%s] [%s]")
 
-      return kind, vim_item
+      return kind
     end,
   },
   sorting = {
-    comparators = {
-      cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.score,
-      require "cmp-under-comparator".under,
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.length,
-      cmp.config.compare.order,
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            require "cmp-under-comparator".under,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
     },
-  },
 }
