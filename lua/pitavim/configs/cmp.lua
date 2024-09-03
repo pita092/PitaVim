@@ -2,7 +2,7 @@ require('nvim-autopairs').setup {}
 
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
---local cmp_action = require('lsp-zero').cmp_action()
+local cmp_action = require('lsp-zero').cmp_action()
 local kind_icons = {
   Text = '󰉿',
   Method = '󰆧',
@@ -52,8 +52,8 @@ cmp.setup {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    --['<Tab>'] = cmp_action.luasnip_supertab(),
-    --['<C-Tab>'] = cmp_action.luasnip_shift_supertab(),
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<C-Tab>'] = cmp_action.luasnip_shift_supertab(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm { select = true },
     ['<C-l>'] = cmp.mapping(function()
