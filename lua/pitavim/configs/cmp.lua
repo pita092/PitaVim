@@ -3,6 +3,7 @@ require('nvim-autopairs').setup {}
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 local cmp_action = require('lsp-zero').cmp_action()
+local lspkind = require('lspkind')
 local kind_icons = {
   Text = '󰉿',
   Method = '󰆧',
@@ -79,30 +80,28 @@ cmp.setup {
   formatting = {
     fields = { 'abbr', 'kind', 'menu' },
     expandable_indicator = true,
-    format = function(entry, vim_item)
-      local kind = require('lspkind').cmp_format { mode = 'text', maxwidth = 50 } (entry, vim_item)
-      local strings = vim.split(kind.kind, ' ', { trimempty = true })
-      vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#fbf1c7', fg = '#282828' })
-      -- This concatenates the icons with the name of the item kind
-      vim_item.kind = kind.symbolic(vim_item.kind, { mode = "symbol" })
-      vim_item.menu = string.format("[%s] [%s]", vim_item.kind, entry.source.name)
+    formatting = {
+      format = lspkind.cmp_format({
+        mode = 'symbol', -- Show only symbol icons
+        maxwidth = 50, -- Prevent the popup from becoming too wide
+        before = function(entry, vim_item)
+          -- Customize the menu to show kind and source wrapped in brackets
+          vim_item.menu = string.format("[%s] [%s]", vim_item.kind, entry.source.name)
+          return vim_item
+        end,
+      }),
 
-      -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
-      kind.menu = '' .. (strings[2] or '') .. ''
-
-      return kind, vim_item
-    end,
-  },
-  sorting = {
-    comparators = {
-      cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.score,
-      require "cmp-under-comparator".under,
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.length,
-      cmp.config.compare.order,
     },
-  },
-}
+    sorting = {
+      comparators = {
+        cmp.config.compare.offset,
+        cmp.config.compare.exact,
+        cmp.config.compare.score,
+        require "cmp-under-comparator".under,
+        cmp.config.compare.kind,
+        cmp.config.compare.sort_text,
+        cmp.config.compare.length,
+        cmp.config.compare.order,
+      },
+    },
+  } }
