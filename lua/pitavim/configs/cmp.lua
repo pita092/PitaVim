@@ -34,8 +34,13 @@ local borderstyle = {
   border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
   winhighlight = 'Normal:CmpPmenu,CursorLine:CmpSel,Search:None',
 }
+local border2 = {
+      border = { '╔', '═', '╗', '║', '╝', '═', '╚', '║' },
+      winhighlight = 'Normal:CmpPmenu,CursorLine:CmpSel,Search:None',
 
-require('luasnip.loaders.from_vscode').lazy_load()
+    },
+
+    require('luasnip.loaders.from_vscode').lazy_load()
 require('luasnip').filetype_extend('c', { 'cdoc' })
 
 cmp.setup {
@@ -45,8 +50,8 @@ cmp.setup {
     end,
   },
   window = {
-    --   completion = borderstyle,
-    --   documentation = borderstyle,
+    completion = border2,
+    documentation = border2,
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
