@@ -25,6 +25,11 @@ map("n", "<leader>e", ":Neotree reveal right<CR>", { desc = "neotree reavel" })
 -- telescope
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
+local no_preview = require("telescope.themes").get_dropdown({
+	previewer = false,
+	-- other options...
+})
+
 vim.keymap.set("n", "<leader>H", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>K", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -33,7 +38,7 @@ vim.keymap.set("n", "<leader>s", builtin.grep_string, { desc = "[S]earch current
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>r", builtin.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-vim.keymap.set("n", "<leader>p", builtin.builtin({ previewer = false }), { desc = "[S]earch [S]elect Telescope" })
+vim.keymap.set("n", "<leader>p", builtin.builtin.no_preview, { desc = "[S]earch [S]elect Telescope" })
 
 vim.keymap.set("n", "<leader><leader>", function()
 	builtin.buffers(require("telescope.themes").get_dropdown({
