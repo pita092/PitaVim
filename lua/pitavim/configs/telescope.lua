@@ -1,5 +1,11 @@
 require("telescope").setup({
   defaults = {
+    layout_strategy = "horizontal",
+    layout_config = {
+      width = 0.8,
+      height = 0.8,
+      prompt_position = "top",
+    },
     prompt_prefix = " 🔭 ",
     entry_prefix = " ● ",
     selection_caret = "  ● ",
