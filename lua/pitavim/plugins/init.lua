@@ -149,13 +149,6 @@ return {
 		end,
 	},
 	{
-		"zaldih/themery.nvim",
-		event = "VeryLazy",
-		config = function()
-			return require("pitavim.configs.themery")
-		end,
-	},
-	{
 
 		"nvim-neo-tree/neo-tree.nvim",
 		name = "neotree",
