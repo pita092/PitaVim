@@ -3,33 +3,7 @@ require('nvim-autopairs').setup {}
 local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 local cmp_action = require('lsp-zero').cmp_action()
-local kind_icons = {
-  Text = '󰉿',
-  Method = '󰆧',
-  Function = '󰊕',
-  Constructor = '',
-  Field = '󰜢',
-  Variable = '󰀫',
-  Class = '󰠱',
-  Interface = '',
-  Module = '',
-  Property = '󰜢',
-  Unit = '󰑭',
-  Value = '󰎠',
-  Enum = '',
-  Keyword = '󰌋',
-  Snippet = '',
-  Color = '󰏘',
-  File = '󰈙',
-  Reference = '󰈇',
-  Folder = '󰉋',
-  EnumMember = '',
-  Constant = '󰏿',
-  Struct = '󰙅',
-  Event = '',
-  Operator = '󰆕',
-  TypeParameter = '',
-}
+
 local borderstyle = {
   border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
   winhighlight = 'Normal:CmpPmenu,CursorLine:CmpSel,Search:None',
@@ -88,22 +62,54 @@ cmp.setup {
       local kind = require('lspkind').cmp_format { mode = 'text', maxwidth = 50 } (entry, vim_item)
       local strings = vim.split(kind.kind, ' ', { trimempty = true })
       vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#fbf1c7', fg = '#282828' })
-      -- This concatenates the icons with the name of the item kind
 
+      -- This concatenates the icons with the name of the item kind
       -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
       kind.menu = '' .. (strings[2] or '') .. ''
 
-      item.kind = string.format('%s %s', icons[item.kind], item.kind)
+      -- Define your icons
+      local icons = {
+        Text = '󰉿',
+        Method = '󰆧',
+        Function = '󰊕',
+        Constructor = '',
+        Field = '󰜢',
+        Variable = '󰀫',
+        Class = '󰠱',
+        Interface = '',
+        Module = '',
+        Property = '󰜢',
+        Unit = '󰑭',
+        Value = '󰎠',
+        Enum = '',
+        Keyword = '󰌋',
+        Snippet = '',
+        Color = '󰏘',
+        File = '󰈙',
+        Reference = '󰈇',
+        Folder = '󰉋',
+        EnumMember = '',
+        Constant = '󰏿',
+        Struct = '󰙅',
+        Event = '',
+        Operator = '󰆕',
+        TypeParameter = '',
+      }
+
+      -- Set the icon and kind
+      kind.kind = string.format('%s %s', icons[vim_item.kind] or '', vim_item.kind)
+
       -- Set the source
-      item.menu = ({
+      kind.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-      })[entry.source.name]
+      })[entry.source.name] or kind.menu
 
-      return kind, item
+      return kind
     end,
+
   },
   sorting = {
     comparators = {
