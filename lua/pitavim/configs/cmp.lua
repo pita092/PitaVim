@@ -108,20 +108,6 @@ cmp.setup {
         path = "[Path]",
       })[entry.source.name]
 
-      local menu_color = {
-        nvim_lsp = "%#CmpItemMenuLSP#",
-        luasnip = "%#CmpItemMenuSnippet#",
-        buffer = "%#CmpItemMenuBuffer#",
-        path = "%#CmpItemMenuPath#",
-      }
-
-      -- Set the colored menu
-      local source = entry.source.name
-      vim_item.menu = string.format("%s [%s]%s",
-        menu_color[source] or "",
-        source:upper(),
-        "%#CmpItemMenu#" -- Reset color after the source indicator
-      )
       vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#a9a1e1", italic = true })
       vim.api.nvim_set_hl(0, "CmpItemMenuLSP", { fg = "#00ff00", bold = true })
       vim.api.nvim_set_hl(0, "CmpItemMenuSnippet", { fg = "#ff00ff", bold = true })
