@@ -10,14 +10,6 @@ null_ls.setup({
     null_ls.builtins.formatting.clang_format,
   },
 })
-local null_ls = require("null-ls")
-
-null_ls.setup({
-  sources = {
-    require("none-ls-luacheck.diagnostics.luacheck"),
-    ...,
-  },
-})
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({

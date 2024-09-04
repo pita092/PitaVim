@@ -32,10 +32,9 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
-    lazy = false,
+    event = "BufReadPre",
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
-      "gbprod/none-ls-luacheck.nvim",
     },
     config = function()
       return require("pitavim.configs.none-ls")
