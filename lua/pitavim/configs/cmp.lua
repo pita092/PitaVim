@@ -97,7 +97,8 @@ cmp.setup {
       }
 
       -- Set the icon and kind
-      kind.kind = string.format('%s %s', icons[vim_item.kind] or '', vim_item.kind)
+      -- kind.kind = string.format('%s %s', icons[vim_item.kind] or '', vim_item.kind)
+      vim_item.kind = icons[vim_item.kind] or ''
 
       -- Set the source
       kind.menu = ({
