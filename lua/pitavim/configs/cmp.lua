@@ -109,7 +109,7 @@ cmp.setup {
       })[entry.source.name]
 
       vim_item.menu = vim.fn.printf("%s %s",
-        vim.api.nvim_replace_termcodes(vim.fn.printf("%%#%s#", "YourHighlightGroup"), true, true, true),
+        vim.api.nvim_replace_termcodes(vim.fn.printf("%%#%s#"), true, true, true),
         vim_item.menu or ""
       )
 
@@ -134,5 +134,3 @@ cmp.setup.cmdline('@', { enabled = false })
 cmp.setup.cmdline('>', { enabled = false })
 cmp.setup.cmdline('-', { enabled = false })
 cmp.setup.cmdline('=', { enabled = false })
-
-
