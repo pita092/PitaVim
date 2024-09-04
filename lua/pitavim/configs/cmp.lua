@@ -108,6 +108,11 @@ cmp.setup {
         path = "[Path]",
       })[entry.source.name]
 
+      vim_item.menu = vim.fn.printf("%s %s",
+        vim.fn.nvim_replace_termcodes(vim.fn.printf("%%#%s#", "YourHighlightGroup"), true, true, true),
+        vim_item.menu or ""
+      )
+
       return kind, vim_item
     end,
 
