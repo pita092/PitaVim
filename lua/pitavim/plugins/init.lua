@@ -133,14 +133,14 @@ return {
 			return require("pitavim.configs.cmp")
 		end,
 	},
-	-- {
-	-- 	"ellisonleao/gruvbox.nvim",
-	-- 	event = "VeryLazy",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		return require("pitavim.configs.gruvbox")
-	-- 	end,
-	-- },
+	{
+		"ellisonleao/gruvbox.nvim",
+		event = "VeryLazy",
+		priority = 1000,
+		config = function()
+			return require("pitavim.configs.gruvbox")
+		end,
+	},
 	{
 		"NvChad/nvim-colorizer.lua",
 		event = "VeryLazy",
