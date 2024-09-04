@@ -32,7 +32,7 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
-    event = "BufReadPre",
+    lazy = false,
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
       "gbprod/none-ls-luacheck.nvim",
