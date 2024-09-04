@@ -108,7 +108,7 @@ cmp.setup {
         path = "[Path]",
       })[entry.source.name]
 
-      vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#d79921", italic = true })
+      vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#928374", italic = true })
 
       return kind, vim_item
     end,
