@@ -108,11 +108,6 @@ cmp.setup {
         path = "[Path]",
       })[entry.source.name]
 
-      vim_item.menu = vim.fn.printf("%s %s",
-        vim.api.nvim_replace_termcodes(vim.fn.printf("%%#%s#"), true, true, true),
-        vim_item.menu or ""
-      )
-
       return kind, vim_item
     end,
 
