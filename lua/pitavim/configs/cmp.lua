@@ -108,11 +108,7 @@ cmp.setup {
         path = "[Path]",
       })[entry.source.name]
 
-      vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#a9a1e1", italic = true })
-      vim.api.nvim_set_hl(0, "CmpItemMenuLSP", { fg = "#00ff00", bold = true })
-      vim.api.nvim_set_hl(0, "CmpItemMenuSnippet", { fg = "#ff00ff", bold = true })
-      vim.api.nvim_set_hl(0, "CmpItemMenuBuffer", { fg = "#ffff00", bold = true })
-      vim.api.nvim_set_hl(0, "CmpItemMenuPath", { fg = "#00ffff", bold = true })
+      vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#d79921", italic = true })
 
       return kind, vim_item
     end,
