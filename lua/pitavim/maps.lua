@@ -28,7 +28,7 @@ local themes = require("telescope.themes")
 local no_preview = require("telescope.themes").get_dropdown({
   previewer = false,
   width = 0.8,
-  height = 0.8, -- Increase this value to make it taller
+  height = 1, -- Increase this value to make it taller
   prompt_position = "top",
   -- other options...
 })
