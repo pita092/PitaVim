@@ -35,6 +35,7 @@ return {
     event = "BufReadPre",
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
+      event = "VeryLazy",
     },
     config = function()
       return require("pitavim.configs.none-ls")
