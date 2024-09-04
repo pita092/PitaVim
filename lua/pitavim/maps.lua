@@ -53,7 +53,7 @@ end, { desc = "[S]earch [N]eovim files" })
 vim.keymap.set("n", "<leader>o", function()
   builtin.telescope(require("telescope.themes").get_dropdown({
     winblend = 0,
-    previewer = false,
+    previewer = true,
   }))
 end, { desc = "[O] Live grep" })
 
