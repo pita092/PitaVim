@@ -1,6 +1,6 @@
 require("telescope").setup({
   defaults = {
-    previewer = false,
+    previewer = true,
     layout_strategy = "horizontal",
     layout_config = {
       width = 0.8,
