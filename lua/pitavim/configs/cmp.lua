@@ -10,7 +10,7 @@ local borderstyle = {
 }
 local border2 =
 	{
-		border = { "╔", "▀", "╗", "█", "╝", "▀", "╚", "█" },
+		border = { "╔", "═", "╗", "{", "╝", "═", "╚", "║" },
 		winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
 	}, require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip").filetype_extend("c", { "cdoc" })
