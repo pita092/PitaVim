@@ -1,7 +1,7 @@
 return {
   {
     "nvim-lua/plenary.nvim",
-    event = "VimEnter"
+    event = "VimEnter",
   },
   -- {
   --   'echasnovski/mini.nvim',
@@ -12,12 +12,12 @@ return {
   --   end
   -- },
   {
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       return require("pitavim.configs.lualine")
-    end
+    end,
   },
   {
     "folke/which-key.nvim",
@@ -35,7 +35,7 @@ return {
     event = "BufReadPre",
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
-      event = "VeryLazy",
+      "gbprod/none-ls-luacheck.nvim",
     },
     config = function()
       return require("pitavim.configs.none-ls")
@@ -56,7 +56,7 @@ return {
       event = "BufReadPre",
       config = function()
         return require("pitavim.configs.lsp")
-      end
+      end,
     },
   },
   {
@@ -80,7 +80,7 @@ return {
     },
     {
       "nvim-telescope/telescope-fzf-native.nvim",
-      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release',
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
     },
   },
   {
@@ -114,7 +114,7 @@ return {
           require("nvim-autopairs").setup(opts)
 
           -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+          local cmp_autopairs = require("nvim-autopairs.completion.cmp")
           require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
       },
@@ -147,7 +147,7 @@ return {
     event = "VeryLazy",
     config = function()
       return require("pitavim.configs.colorizer")
-    end
+    end,
   },
   {
 
