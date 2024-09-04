@@ -24,6 +24,7 @@ map("n", "<leader>e", ":Neotree reveal right<CR>", { desc = "neotree reavel" })
 
 -- telescope
 local builtin = require("telescope.builtin")
+local themes = require("telescope.themes")
 vim.keymap.set("n", "<leader>H", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>K", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -33,28 +34,28 @@ vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iag
 vim.keymap.set("n", "<leader>r", builtin.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 vim.keymap.set("n", "<leader>p", function()
-  builtin.builtin(require("telescope.themes").get_dropdown({
-    winblend = 0,
-    previewer = false,
-  }))
+	builtin.find_files(themes.get_ivy())({
+		winblend = 0,
+		previewer = false,
+	})
 end, { desc = "[S]earch [S]elect Telescope" })
 
 vim.keymap.set("n", "<leader><leader>", function()
-  builtin.buffers(require("telescope.themes").get_dropdown({
-    winblend = 0,
-    previewer = true,
-  }))
+	builtin.buffers(require("telescope.themes").get_dropdown({
+		winblend = 0,
+		previewer = true,
+	}))
 end, { desc = "[ ] Find existing buffers" })
 
 vim.keymap.set("n", "<leader>/", function()
-  builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-    winblend = 0,
-    previewer = false,
-  }))
+	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		winblend = 0,
+		previewer = false,
+	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 vim.keymap.set("n", "<leader>sn", function()
-  builtin.find_files({ cwd = vim.fn.stdpath("config") })
+	builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[S]earch [N]eovim files" })
 
 -- terminal
@@ -62,7 +63,7 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- new terminals
 map("n", "<leader>v", function()
-  require("nvterm.terminal").toggle("float")
+	require("nvterm.terminal").toggle("float")
 end, { desc = "terminal new vertical window" })
 
 vim.api.nvim_set_keymap("n", "<C-q>", ":bdelete!<CR>", { noremap = true, silent = true })
@@ -72,23 +73,23 @@ vim.api.nvim_set_keymap("t", "<C-q>", "<C-\\><C-n>:bdelete!<CR>", { noremap = tr
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
 map("n", "<leader>wk", function()
-  vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
+	vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
 end, { desc = "whichkey query lookup" })
 
 -- blankline
 map("n", "<leader>cc", function()
-  local config = { scope = {} }
-  config.scope.exclude = { language = {}, node_type = {} }
-  config.scope.include = { node_type = {} }
-  local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
+	local config = { scope = {} }
+	config.scope.exclude = { language = {}, node_type = {} }
+	config.scope.include = { node_type = {} }
+	local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
 
-  if node then
-    local start_row, _, end_row, _ = node:range()
-    if start_row ~= end_row then
-      vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
-      vim.api.nvim_feedkeys("_", "n", true)
-    end
-  end
+	if node then
+		local start_row, _, end_row, _ = node:range()
+		if start_row ~= end_row then
+			vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
+			vim.api.nvim_feedkeys("_", "n", true)
+		end
+	end
 end, { desc = "blankline jump to current context" })
 
 --tabline
@@ -100,10 +101,10 @@ vim.keymap.set("n", "<C-q>", ":tabprevious<CR>", { noremap = true, silent = true
 --custom menu
 
 vim.keymap.set("n", "<leader>d", function()
-  local dashboard_opened = require("pitavim.scripts.menu").toggle_dashboard()
-  if dashboard_opened then
-    print("Dasboard opned")
-  else
-    print("Dashboard closed")
-  end
+	local dashboard_opened = require("pitavim.scripts.menu").toggle_dashboard()
+	if dashboard_opened then
+		print("Dasboard opned")
+	else
+		print("Dashboard closed")
+	end
 end, { desc = "Toggle dashboard" })
