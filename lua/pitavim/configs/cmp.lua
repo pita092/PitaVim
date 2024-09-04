@@ -98,17 +98,17 @@ cmp.setup {
 
       -- Set the icon and kind
       -- kind.kind = string.format('%s %s', icons[vim_item.kind] or '', vim_item.kind)
-      vim_item.kind = icons[vim_item.kind] or ''
+      vim_item.kind = (icons[vim_item.kind] or '') .. ''
 
       -- Set the source
-      kind.menu = ({
+      vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-      })[entry.source.name] or kind.menu
+      })[entry.source.name]
 
-      return kind
+      return kind, vim_item
     end,
 
   },
