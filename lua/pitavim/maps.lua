@@ -35,7 +35,9 @@ local no_preview = require("telescope.themes").get_dropdown({
 
 vim.keymap.set("n", "<leader>H", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>K", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-vim.keymap.set("n", "<leader>f", builtin.find_files(themes.get_ivy()), { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>f", function()
+  builtin.find_files(themes.get_ivy())
+end, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>o", builtin.live_grep, { desc = "[O] Live grep" })
 vim.keymap.set("n", "<leader>s", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
