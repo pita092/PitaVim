@@ -51,7 +51,8 @@ vim.keymap.set("n", "<leader>sn", function()
 end, { desc = "[S]earch [N]eovim files" })
 
 vim.keymap.set("n", "<leader>o", function()
-	builtin.buffers(require("telescope.themes").get_ivy({
+	builtin.buffers(require("telescope.themes").get_dropdown({
+		winblend = 0,
 		previewer = false,
 	}))
 end, { desc = "[O] Live grep" })
