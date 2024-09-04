@@ -87,14 +87,22 @@ cmp.setup {
     format = function(entry, vim_item)
       local kind = require('lspkind').cmp_format { mode = 'text', maxwidth = 50 } (entry, vim_item)
       local strings = vim.split(kind.kind, ' ', { trimempty = true })
-      kind.kind = string.format('%s  %s', strings[1], kind_icons[vim_item.kind])
       vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#fbf1c7', fg = '#282828' })
       -- This concatenates the icons with the name of the item kind
 
       -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
       kind.menu = '' .. (strings[2] or '') .. ''
 
-      return kind
+      item.kind = string.format('%s %s', icons[item.kind], item.kind)
+      -- Set the source
+      item.menu = ({
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
+
+      return kind, item
     end,
   },
   sorting = {
@@ -110,3 +118,7 @@ cmp.setup {
     },
   },
 }
+cmp.setup.cmdline('@', { enabled = false })
+cmp.setup.cmdline('>', { enabled = false })
+cmp.setup.cmdline('-', { enabled = false })
+cmp.setup.cmdline('=', { enabled = false })
