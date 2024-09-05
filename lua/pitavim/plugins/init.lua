@@ -8,6 +8,10 @@ return {
 		end,
 	},
 	{
+		"NvChad/base46",
+		lazy = false,
+	},
+	{
 		"nvim-lua/plenary.nvim",
 		event = "VimEnter",
 	},
