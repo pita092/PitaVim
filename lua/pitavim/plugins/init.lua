@@ -164,7 +164,7 @@ return {
   },
   {
     "stevearc/oil.nvim",
-    cmd = "Oil",
+    Lazy = false,
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     config = function()
       return require("pitavim.configs.oil")
