@@ -25,7 +25,7 @@ require("telescope").setup({
 			"--smart-case",
 		},
 		prompt_prefix = "   ",
-		selection_caret = "🚀 ",
+		selection_caret = "  ",
 		entry_prefix = "  ",
 		initial_mode = "insert",
 		selection_strategy = "reset",
