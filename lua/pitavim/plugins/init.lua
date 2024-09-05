@@ -1,11 +1,5 @@
 return {
 	{
-		"NvChad/base46",
-		build = function()
-			require("base46").load_all_highlights()
-		end,
-	},
-	{
 		"nvim-lua/plenary.nvim",
 		event = "VimEnter",
 	},

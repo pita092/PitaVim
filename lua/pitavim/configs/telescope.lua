@@ -1,4 +1,3 @@
-dofile(vim.g.base46_cache .. "telescope")
 require("telescope").setup({
 	pickers = {
 		find_files = {
