@@ -20,8 +20,9 @@ vim.keymap.set("n", "<C-h>", vim.lsp.buf.format, {})
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
 
 -- neotree/oil
-map("n", "<leader>e", ":Neotree reveal right<CR>", { desc = "neotree reavel" })
-map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- map("n", "<leader>e", ":Neotree reveal right<CR>", { desc = "neotree reavel" })
+map("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+map("n", "<leader>r", ":lua require('oil').close()", {desc = "Close oil"})
 
 -- telescope
 local builtin = require("telescope.builtin")

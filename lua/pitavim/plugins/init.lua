@@ -148,20 +148,20 @@ return {
       return require("pitavim.configs.colorizer")
     end,
   },
-  {
-
-    "nvim-neo-tree/neo-tree.nvim",
-    name = "neotree",
-    cmd = "Neotree",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-      config = function()
-        return require("pitavim.configs.neotree")
-      end,
-    },
-  },
+  -- {
+  --
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   name = "neotree",
+  --   cmd = "Neotree",
+  --   branch = "v3.x",
+  --   dependencies = {
+  --     "nvim-tree/nvim-web-devicons",
+  --     "MunifTanjim/nui.nvim",
+  --     config = function()
+  --       return require("pitavim.configs.neotree")
+  --     end,
+  --   },
+  -- },
   {
     "stevearc/oil.nvim",
     event = "VeryLazy",
