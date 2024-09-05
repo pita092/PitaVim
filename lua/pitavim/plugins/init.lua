@@ -1,7 +1,7 @@
 return {
 	{
 		"NvChad/ui",
-		event = "VeryLazy",
+		lazy = false,
 		dependenciespe = "NvChad/base46",
 		config = function()
 			return require("pitavim.configs.dash")
