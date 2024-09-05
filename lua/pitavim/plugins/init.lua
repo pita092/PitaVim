@@ -2,14 +2,12 @@ return {
 	{
 		"NvChad/ui",
 		lazy = false,
-		dependenciespe = "NvChad/base46",
-	  config = function ()
-    return require("pitavim.configs.nvchad")  
-	  end
-  },
+	},
 	{
 		"NvChad/base46",
-		lazy = false,
+		build = function()
+			require("base46").load_all_highlights()
+		end,
 	},
 	{
 		"nvim-lua/plenary.nvim",
