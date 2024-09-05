@@ -1,5 +1,12 @@
 require("telescope").setup({
-
+  pickers = {
+    find_files = {
+      prompt_title = "🗂️ Find Files",
+    },
+    live_grep = {
+      prompt_title = "🕵️‍♂️ Search Text",
+    },
+  },
   defaults = {
     vimgrep_arguments = {
       "rg",
