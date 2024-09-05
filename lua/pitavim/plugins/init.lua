@@ -1,5 +1,12 @@
 return {
   {
+    "NvChad/ui",
+    dependenciespe = "NvChad/base46",
+    config = function ()
+    return require("pitavim.configs.dash")
+    end
+  },
+  {
     "nvim-lua/plenary.nvim",
     event = "VimEnter",
   },
