@@ -174,7 +174,7 @@ local function CreateDashboard()
 	set_keymap("e", ':lua require("pitavim.scripts.menu").new_file()<CR>')
 	set_keymap("a", ':lua require("pitavim.scripts.menu").telescope_findfiles()<CR>')
 	set_keymap("s", ':lua require("pitavim.scripts.menu").telescope_oldfiles_in_new_tab()<CR>')
-	set_keymap("d", ":Neotree current<CR>")
+	set_keymap("d", ":Oil<CR>")
 end
 
 --the nameX3
