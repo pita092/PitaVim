@@ -3,8 +3,10 @@ return {
 		"NvChad/ui",
 		lazy = false,
 		dependenciespe = "NvChad/base46",
-		opts = {},
-	},
+	  config = function ()
+    return require("pitavim.configs.nvchad")  
+	  end
+  },
 	{
 		"NvChad/base46",
 		lazy = false,
