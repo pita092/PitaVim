@@ -20,9 +20,9 @@ vim.keymap.set("n", "<C-h>", vim.lsp.buf.format, {})
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
 
 -- neotree/oil
-map("n", "<leader>e", ":Neotree reveal right<CR>", { desc = "neotree reavel" })
-map("n", "<C-x>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-map("n", "<C-f>", ":lua require('oil').close()<CR>", { desc = "Close oil" })
+map("n", "<leader>e", ":Neotree reveal right<CR>", { silent = true, desc = "neotree reavel" })
+map("n", "<C-x>", "<CMD>Oil<CR>", { silent = true, desc = "Open parent directory" })
+map("n", "<C-f>", ":lua require('oil').close()<CR>", { silent = true, desc = "Close oil" })
 
 -- telescope
 local builtin = require("telescope.builtin")
@@ -93,7 +93,7 @@ end, { desc = "blankline jump to current context" })
 --tabline
 
 vim.keymap.set("n", "<C-e>", ":tabnext<CR>", { noremap = true, silent = true, desc = "next tab" })
-vim.keymap.set("n", "<C-w>", ":tabclose<CR>", { noremap = true, silent = true, desc = "next tab" })
+vim.keymap.set("n", "<C-W>", ":tabclose<CR>", { noremap = true, silent = true, desc = "next tab" })
 vim.keymap.set("n", "<C-q>", ":tabprevious<CR>", { noremap = true, silent = true, desc = "previous tab" })
 
 --custom menu
