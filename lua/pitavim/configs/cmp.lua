@@ -1,4 +1,4 @@
-require("nvim-autopairs").setup({})
+require("nvim-autopairs").setup({})dsa
 
 
 local luasnip = require("luasnip")
