@@ -20,6 +20,18 @@ require("telescope").setup({
 			prompt_title = "/*Global Telescope Menu*/",
 			prompt_prefix = "🚀 ",
 		},
+		help_tags = {
+			prompt_title = "/*Global Telescope Menu*/",
+			prompt_prefix = "💡 ",
+		},
+		git_commits = {
+			prompt_title = "/*Git Commits*/",
+			prompt_prefix = "⏩ ",
+		},
+		keymaps = {
+			prompt_title = "/*Keymaps*/",
+			prompt_prefix = "⌨️ ",
+		},
 	},
 	defaults = {
 		vimgrep_arguments = {
