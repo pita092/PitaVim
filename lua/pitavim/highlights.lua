@@ -19,4 +19,4 @@ vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = "#282828", bg = "#fbf1c7"
 vim.api.nvim_set_hl(9, "TelescopePromptTitle", { fg = "#fbf1c7", bg = "#282828" })
 vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = "#fbf1c7", bg = "#282828" })
 vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#282828" })
-vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#fbf1c7", bg = "#282828" })
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#fbf1c7", bg = "#fbf1c7" })
