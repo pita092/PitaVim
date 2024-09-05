@@ -1,5 +1,6 @@
 require("telescope").setup({
   defaults = {
+    border = false,
     previewer = false,
     layout_strategy = "vertical",
     layout_config = {
