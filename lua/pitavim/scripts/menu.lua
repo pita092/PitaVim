@@ -113,7 +113,7 @@ local function CreateDashboard()
 		"[e] New file ───────────│   │",
 		"[a] Find file ──────────│ 󰮗  │",
 		"[s] Recent files ───────│   │",
-		"[f] file tree ──────────│   │",
+		"[f] Oil ────────────────│   │",
 		"                        └────┘",
 		"",
 	}
