@@ -49,7 +49,11 @@ vim.keymap.set("n", "<leader>/", function()
 	builtin.current_buffer_fuzzy_find(themes.get_dropdown({
 		winblend = 0,
 		previewer = false,
-		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└", "┤", "├"},
+		borderchars = {
+			prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+			results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+			preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		},
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
