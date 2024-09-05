@@ -8,6 +8,10 @@ require("telescope").setup({
 			prompt_title = "Search Text",
 			prompt_prefix = "🕵️‍♂️ ",
 		},
+		current_buffer_fuzzy_find = {
+			prompt_title = "Fuzzy Find Current Buffer",
+			prompt_prefix = "📜 ",
+		},
 	},
 	defaults = {
 		vimgrep_arguments = {
