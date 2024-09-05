@@ -197,6 +197,11 @@ local function CenterDashboard()
 end
 
 --some function for the keybinds of the menu
+function M.oil_in_new_tab()
+	CloseDashboard()
+	require("Oil").open()
+end
+
 function M.telescope_oldfiles_in_new_tab()
 	CloseDashboard()
 	require("telescope.builtin").oldfiles()
