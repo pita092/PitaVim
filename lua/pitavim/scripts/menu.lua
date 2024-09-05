@@ -197,6 +197,17 @@ local function CenterDashboard()
 end
 
 --some function for the keybinds of the menu
+
+local function toggle_oil()
+  if vim.bo.filetype == "oil" then
+    -- If we're in an oil buffer, close it
+    vim.cmd("bd")
+  else
+    -- If we're not in an oil buffer, open oil
+    require("oil").open()
+  end
+end
+
 function M.oil_in_new_tab()
   CloseDashboard()
   require("oil").open()
