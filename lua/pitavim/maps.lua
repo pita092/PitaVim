@@ -20,7 +20,7 @@ vim.keymap.set("n", "<C-h>", vim.lsp.buf.format, {})
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
 
 -- neotree/oil
-map("n", "<leader>e", ":Neotree reveal right<CR>", { desc = "neotree reavel" })
+-- map("n", "<leader>e", ":Neotree reveal right<CR>", { desc = "neotree reavel" })
 --need to remember that for other use cases
 local function is_oil_open()
 	for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -32,7 +32,7 @@ local function is_oil_open()
 	end
 	return false
 end
-map("n", "-", function()
+map("n", "<leader>e", function()
 	if is_oil_open() then
 		require("oil").close()
 	else
