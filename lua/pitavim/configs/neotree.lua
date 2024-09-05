@@ -1,3 +1,5 @@
+dofile(vim.g.base46_cache .. "neotree")
+
 require('neo-tree').setup {
   use_popups_for_input = true,
   popup_border_style = "single",
