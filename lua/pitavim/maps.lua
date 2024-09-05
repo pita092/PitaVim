@@ -27,13 +27,6 @@ map("n", "=", ":lua require('oil').close()", { desc = "Close oil" })
 -- telescope
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
-local no_preview = require("telescope.themes").get_dropdown({
-	previewer = false,
-	width = 0.9,
-	height = 0.9, -- Increase this value to make it taller
-	prompt_position = "top",
-	-- other options...
-})
 
 vim.keymap.set("n", "<leader>H", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>K", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
@@ -43,10 +36,7 @@ vim.keymap.set("n", "<leader>s", builtin.grep_string, { desc = "[S]earch current
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>r", builtin.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-
-vim.keymap.set("n", "<leader>p", function()
-	require("telescope.builtin").builtin(no_preview)
-end, { noremap = true, silent = true, desc = "[S]earch [S]elect Telescope" })
+vim.keymap.set("n", "<leader>p", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 
 vim.keymap.set("n", "<leader><leader>", function()
 	builtin.buffers(require("telescope.themes").get_dropdown({
