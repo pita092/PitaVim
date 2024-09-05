@@ -3,9 +3,7 @@ return {
 		"NvChad/ui",
 		lazy = false,
 		dependenciespe = "NvChad/base46",
-		config = function()
-			return require("pitavim.configs.dash")
-		end,
+		opts = {},
 	},
 	{
 		"NvChad/base46",
