@@ -8,7 +8,7 @@ vim.api.nvim_set_hl(0, "NeoTreeFloatNormal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NeoTreeTitleBar", { fg = "#ffffff", bg = "NONE" })
 
-vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#282828", bg = "#282828" })
+vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#282828", bg = "#3c3836" })
 vim.api.nvim_set_hl(0, "TelescopeNormal", { fg = "#fbf1c7", bg = "#3c3836" })
 -- vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = "#282828", bg = "#282828" })
 -- vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#282828" })
