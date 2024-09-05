@@ -1,5 +1,7 @@
 require("nvim-autopairs").setup({})
 
+dofile(vim.g.base46_cache .. "cmp")
+
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
