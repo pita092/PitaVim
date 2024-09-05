@@ -1,16 +1,20 @@
 require("telescope").setup({
 	pickers = {
 		find_files = {
-			prompt_title = "Find Files",
+			prompt_title = "/*Find Files*/",
 			prompt_prefix = "🗂️ ",
 		},
 		live_grep = {
-			prompt_title = "Search Text",
+			prompt_title = "/*Search Text*/",
 			prompt_prefix = "🕵️‍♂️ ",
 		},
 		current_buffer_fuzzy_find = {
-			prompt_title = "Fuzzy Find Current Buffer",
+			prompt_title = "/*Fuzzy Find Current Buffer*/",
 			prompt_prefix = "📜 ",
+		},
+		git_files = {
+			prompt_title = "/*Git File*/",
+			prompt_prefix = "📦 ",
 		},
 	},
 	defaults = {
