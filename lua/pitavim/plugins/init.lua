@@ -1,9 +1,5 @@
 return {
 	{
-		"NvChad/ui",
-		lazy = false,
-	},
-	{
 		"NvChad/base46",
 		build = function()
 			require("base46").load_all_highlights()
