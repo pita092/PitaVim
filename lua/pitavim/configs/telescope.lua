@@ -44,6 +44,7 @@ require("telescope").setup({
 			"--column",
 			"--smart-case",
 		},
+		previewer = false,
 		prompt_prefix = "  ",
 		selection_caret = "   ",
 		entry_prefix = "  ",
