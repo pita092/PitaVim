@@ -36,8 +36,8 @@ vim.keymap.set("n", "<leader>s", builtin.grep_string, { desc = "[S]earch current
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>r", builtin.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-vim.keymap.set("n", "<leader>p", builtin.builtin, { desc = "[G]it Files" })
-vim.keymap.set("n", "<leader>t", builtin.git_commits, { desc = "[G]it Commits" })
+vim.keymap.set("n", "<leader>p", builtin.git_files, { desc = "[G]it Files" })
+vim.keymap.set("n", "<leader>t", builtin.git_commits, {desc = "[G]it Commits"})
 
 vim.keymap.set("n", "<leader><leader>", function()
 	builtin.buffers(require("telescope.themes").get_dropdown({
