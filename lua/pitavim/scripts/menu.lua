@@ -210,7 +210,7 @@ end
 
 function M.oil_in_new_tab()
   CloseDashboard()
-  require("oil").open()
+  toggle_oil()
 end
 
 function M.telescope_oldfiles_in_new_tab()
