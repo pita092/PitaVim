@@ -21,7 +21,24 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic locli
 
 -- neotree/oil
 map("n", "<leader>e", ":Neotree reveal right<CR>", { desc = "neotree reavel" })
-map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+--need to remember that for other use cases
+local function is_oil_open()
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local buf = vim.api.nvim_win_get_buf(win)
+		local buf_name = vim.api.nvim_buf_get_name(buf)
+		if vim.startswith(buf_name, "oil://") then
+			return true
+		end
+	end
+	return false
+end
+map("n", "-", function()
+	if is_oil_open() then
+		require("oil").close()
+	else
+		require("oil").close()
+	end
+end, { desc = "Toggle Oil" })
 
 -- telescope
 local builtin = require("telescope.builtin")
