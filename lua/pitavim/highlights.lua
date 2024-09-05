@@ -22,39 +22,39 @@ vim.api.nvim_set_hl(0, "NeoTreeTitleBar", { fg = "#ffffff", bg = "NONE" })
 -- vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#282828", bg = "#fbf1c7" })
 
 local colors = {
-	bg0 = "#282828",
-	bg1 = "#3c3836",
-	bg2 = "#504945",
-	fg1 = "#fbf1c7",
-	fg4 = "#a89984",
-	gray = "#928374",
-	blue = "#458588",
-	aqua = "#689d6a",
-	purple = "#b16286",
-	orange = "#d65d0e",
-	red = "#cc241d",
-	green = "#98971a",
-	yellow = "#d79921",
+  bg0 = "#282828",
+  bg1 = "#3c3836",
+  bg2 = "#504945",
+  fg1 = "#fbf1c7",
+  fg4 = "#a89984",
+  gray = "#928374",
+  blue = "#458588",
+  aqua = "#689d6a",
+  purple = "#b16286",
+  orange = "#d65d0e",
+  red = "#cc241d",
+  green = "#98971a",
+  yellow = "#d79921",
 }
 
 -- Telescope highlight groups
 local highlights = {
-	TelescopeBorder = { fg = colors.bg1, bg = colors.bg1 },
-	TelescopeNormal = { bg = colors.bg1 },
-	TelescopePromptBorder = { fg = colors.bg2, bg = colors.bg2 },
-	TelescopePromptNormal = { fg = colors.fg1, bg = colors.bg2 },
-	TelescopePromptPrefix = { fg = colors.orange, bg = colors.bg2 },
-	TelescopePromptTitle = { fg = colors.fg1, bg = colors.bg0 },
-	TelescopePreviewTitle = { fg = colors.bg1, bg = colors.green },
-	TelescopeResultsTitle = { fg = colors.bg0, bg = colors.fg1 },
-	TelescopeSelection = { fg = colors.fg1, bg = colors.bg2 },
-	TelescopeSelectionCaret = { fg = colors.orange, bg = colors.bg2 },
-	TelescopeResultsDiffAdd = { fg = colors.green },
-	TelescopeResultsDiffChange = { fg = colors.yellow },
-	TelescopeResultsDiffDelete = { fg = colors.red },
+  TelescopeBorder = { fg = colors.bg1, bg = colors.bg1 },
+  TelescopeNormal = { bg = colors.bg1 },
+  TelescopePromptBorder = { fg = colors.bg2, bg = colors.bg2 },
+  TelescopePromptNormal = { fg = colors.fg1, bg = colors.bg2 },
+  TelescopePromptPrefix = { fg = colors.orange, bg = colors.bg2 },
+  TelescopePromptTitle = { fg = colors.bg0, bg = colors.fg1 },
+  TelescopePreviewTitle = { fg = colors.bg1, bg = colors.green },
+  TelescopeResultsTitle = { fg = colors.bg0, bg = colors.fg1 },
+  TelescopeSelection = { fg = colors.fg1, bg = colors.bg2 },
+  TelescopeSelectionCaret = { fg = colors.orange, bg = colors.bg2 },
+  TelescopeResultsDiffAdd = { fg = colors.green },
+  TelescopeResultsDiffChange = { fg = colors.yellow },
+  TelescopeResultsDiffDelete = { fg = colors.red },
 }
 
 -- Apply highlights
 for hl_group, col in pairs(highlights) do
-	vim.api.nvim_set_hl(0, hl_group, col)
+  vim.api.nvim_set_hl(0, hl_group, col)
 end
