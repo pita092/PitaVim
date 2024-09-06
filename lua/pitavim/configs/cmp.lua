@@ -1,6 +1,5 @@
 require("nvim-autopairs").setup({})
 
-
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
