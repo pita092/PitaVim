@@ -22,7 +22,7 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = border2,
+		completion = borderstyle,
 		documentation = borderstyle,
 	},
 	mapping = cmp.mapping.preset.insert({
