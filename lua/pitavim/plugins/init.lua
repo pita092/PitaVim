@@ -2,7 +2,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "User FilePost",
-    opts = function()
+    config = function()
       return require("pitavim.configs.gitsigns")
     end,
   },
