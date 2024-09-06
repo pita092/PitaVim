@@ -1,19 +1,19 @@
 require('gitsigns').setup {
   signs = {
-    add          = { text = '┃' },
-    change       = { text = '┃' },
-    topdelete    = { text = '‾' },
-    untracked    = { text = '┆' },
+    add          = { text = '┃ ' },
+    change       = { text = '┃ ' },
+    topdelete    = { text = '‾ ' },
+    untracked    = { text = '┆ ' },
     delete       = { text = "󰍵 " },
-    changedelete = { text = "󱕖 " }
+    changedelete = { text = "󱕖 " },
   },
   signs_staged = {
-    add          = { text = '┃' },
-    change       = { text = '┃' },
-    delete       = { text = '_' },
-    topdelete    = { text = '‾' },
-    changedelete = { text = '~' },
-    untracked    = { text = '┆' },
+    add          = { text = '┃ ' },
+    change       = { text = '┃ ' },
+    delete       = { text = "󰍵 " },
+    changedelete = { text = "󱕖 " },
+    topdelete    = { text = '‾ ' },
+    untracked    = { text = '┆ ' },
   },
   signs_staged_enable = true,
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
