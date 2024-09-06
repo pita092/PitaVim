@@ -37,7 +37,7 @@ vim.opt.list = true
 vim.o.showtabline = 2
 o.updatetime = 250
 vim.opt.inccommand = "split"
-o.cursorline = true
+o.cursorline = false
 o.cursorlineopt = "number"
 vim.opt.scrolloff = 10
 
