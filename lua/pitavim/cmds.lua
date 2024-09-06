@@ -46,4 +46,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
-
+vim.defer_fn(function()
+  vim.cmd([[
+    highlight SignColumn guibg=NONE ctermbg=NONE
+  ]])
+end, 100)
