@@ -14,7 +14,6 @@ vim.diagnostic.config({
   severity_sort = true,
   virtual_text = true,
 })
-lsp_zero.setup()
 require("mason-lspconfig").setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({})
