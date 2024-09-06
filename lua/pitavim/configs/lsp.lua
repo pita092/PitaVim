@@ -7,13 +7,7 @@ lsp_zero.set_sign_icons({
   hint = "⚑",
   info = "»",
 })
-vim.diagnostic.config({
-  signs = true,
-  update_in_insert = false,
-  underline = true,
-  severity_sort = true,
-  virtual_text = true,
-})
+
 require("mason-lspconfig").setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({})
