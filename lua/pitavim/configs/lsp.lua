@@ -8,6 +8,11 @@ lsp_zero.set_sign_icons({
   info = "»",
 })
 
+lsp_zero.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({ buffer = bufnr })
+  lsp_zero.buffer_autoformat()
+end)
+
 require("mason-lspconfig").setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({})
