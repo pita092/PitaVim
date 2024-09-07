@@ -10,22 +10,22 @@ return {
     "nvim-lua/plenary.nvim",
     event = "VimEnter",
   },
-  -- {
-  --   'echasnovski/mini.nvim',
-  --   version = false,
-  --   event = "VeryLazy",
-  --   config = function()
-  --      return require("pitavim.configs.mini")
-  --   end
-  -- },
   {
-    "nvim-lualine/lualine.nvim",
+    "echasnovski/mini.nvim",
+    version = false,
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      return require("pitavim.configs.lualine")
+      return require("pitavim.configs.mini")
     end,
   },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   config = function()
+  --     return require("pitavim.configs.lualine")
+  --   end,
+  -- },
   {
     "folke/which-key.nvim",
     keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
