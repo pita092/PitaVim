@@ -34,6 +34,10 @@ vim.cmd([[
   autocmd VimEnter * highlight clear TabLineFill
 ]])
 
+vim.cmd([[
+  autocmd VimEnter * highlight clear TabLineSel
+]])
+
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
