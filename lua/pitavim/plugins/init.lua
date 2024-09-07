@@ -148,12 +148,6 @@ return {
     end,
   },
   {
-    "gelguy/wilder.nvim",
-    config = function()
-      return require("pitavim.configs.wilder")
-    end,
-  },
-  {
     "ellisonleao/gruvbox.nvim",
     event = "VeryLazy",
     priority = 1000,
