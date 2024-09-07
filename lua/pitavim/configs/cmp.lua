@@ -33,16 +33,8 @@ cmp.setup({
     ["<C-Tab>"] = cmp_action.luasnip_shift_supertab(),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<C-l>"] = cmp.mapping(function()
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      end
-    end, { "i", "s" }),
-    ["<C-h>"] = cmp.mapping(function()
-      if luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      end
-    end, { "i", "s" }),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
