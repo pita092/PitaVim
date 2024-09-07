@@ -59,6 +59,10 @@ function M.MyTabLabel(n)
 end
 
 function M.ClearHighlight()
+	vim.cmd("highlight clear TabLineFill")
+	vim.cmd("highlight clear NeoTreeNormal")
+	vim.cmd("highlight clear NeoTreeNormalNC")
+	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#b8bb26", bg = "NONE" })')
 	return "" -- This function needs to return a string for the tabline
 end
 
