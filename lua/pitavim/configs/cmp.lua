@@ -117,6 +117,10 @@ cmp.setup({
 	},
 	cmp.setup.cmdline(":", {
 		mapping = cmp.mapping.preset.cmdline(),
+		window = {
+			width = 40,
+			height = 10,
+		},
 		sources = cmp.config.sources({
 			{ name = "path" },
 		}, {
