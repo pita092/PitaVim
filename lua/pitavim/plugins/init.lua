@@ -6,7 +6,6 @@ return {
 				"nvim-telescope/telescope-fzf-native.nvim",
 			},
 		},
-	}),
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "User FilePost",
