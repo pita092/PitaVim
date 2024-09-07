@@ -104,6 +104,43 @@ require("telescope").setup({
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
 
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
+local conf = require("telescope.config").values
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+
+local function search_and_replace()
+	local opts = {}
+	pickers
+		.new(opts, {
+			prompt_title = "Search and Replace",
+			finder = finders.new_table({
+				results = {},
+				entry_maker = function(entry)
+					return {
+						value = entry,
+						display = entry,
+						ordinal = entry,
+					}
+				end,
+			}),
+			sorter = conf.generic_sorter(opts),
+			attach_mappings = function(prompt_bufnr, map)
+				actions.select_default:replace(function()
+					actions.close(prompt_bufnr)
+					local selection = action_state.get_selected_entry()
+					-- Implement your search and replace logic here
+					vim.api.nvim_command(":%s/" .. selection.value)
+				end)
+				return true
+			end,
+		})
+		:find()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>sr", "<cmd>lua search_and_replace()<CR>", { noremap = true, silent = true })
+
 -- defaults = {
 --   border = false,
 --   previewer = false,
