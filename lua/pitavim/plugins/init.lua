@@ -5,6 +5,9 @@ return {
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 		},
+		config = function()
+			return require("pitavim.configs.winbar")
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
