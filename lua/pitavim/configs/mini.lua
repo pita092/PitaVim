@@ -1,4 +1,5 @@
 require("mini.statusline").setup({
-  use_icons = true,
-  set_vim_settings = true,
+	disabled_filetypes = { "neo-tree" },
+	use_icons = true,
+	set_vim_settings = true,
 })
