@@ -149,7 +149,6 @@ return {
   },
   {
     "gelguy/wilder.nvim",
-    event = "VeryLazy",
     config = function()
       return require("pitavim.configs.wilder")
     end,
