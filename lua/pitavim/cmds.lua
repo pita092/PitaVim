@@ -65,3 +65,10 @@ vim.cmd([[
   colorscheme gruvbox
   highlight Normal guibg=#282828
   ]])
+
+vim.notify = function(msg, log_level, _opts)
+	if msg:match("multiple different client offset_encodings") then
+		return
+	end
+	vim.api.nvim_notify(msg, log_level, _opts)
+end
