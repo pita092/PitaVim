@@ -1,49 +1,49 @@
 local M = {}
 local function get_file_icon(filename)
   local file_icon = {
-    ['lua'] = '󰢱 ',
-    ['py'] = ' ',
-    ['js'] = ' ',
-    ['ts'] = ' ',
-    ['json'] = ' ',
-    ['cpp'] = ' ',
-    ['yml'] = '',
-    ['yaml'] = '',
-    ['toml'] = ' ',
-    ['md'] = ' ',
-    ['txt'] = ' ',
-    ['vim'] = ' ',
-    ['sh'] = ' ',
-    ['bash'] = ' ',
-    ['zsh'] = ' ',
-    ['fish'] = '  ',
-    ['conf'] = ' ',
-    ['ini'] = '',
-    ['gitignore'] = ' ',
-    ['gitconfig'] = ' ',
+    ["lua"] = "󰢱 ",
+    ["py"] = " ",
+    ["js"] = " ",
+    ["ts"] = " ",
+    ["json"] = " ",
+    ["cpp"] = " ",
+    ["yml"] = "",
+    ["yaml"] = "",
+    ["toml"] = " ",
+    ["md"] = " ",
+    ["txt"] = " ",
+    ["vim"] = " ",
+    ["sh"] = " ",
+    ["bash"] = " ",
+    ["zsh"] = " ",
+    ["fish"] = "  ",
+    ["conf"] = " ",
+    ["ini"] = "",
+    ["gitignore"] = " ",
+    ["gitconfig"] = " ",
   }
-  local extension = filename:match '^.+%.(.+)$'
-  return file_icon[extension] or ''
+  local extension = filename:match("^.+%.(.+)$")
+  return file_icon[extension] or ""
 end
 
 function M.MyTabLine()
   local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
-  for i = 1, vim.fn.tabpagenr '$' do
+  for i = 1, vim.fn.tabpagenr("$") do
     -- Add a separator before each tab (except the first one)
     if i > 1 then
-      s = s .. '|%#TabLineFill#|'
+      s = s .. "|%#TabLineFill#|"
     end
 
     if i == vim.fn.tabpagenr() then
-      s = s .. '%#TabLineSel#'
+      s = s .. "%#TabLineSel#"
     else
-      s = s .. '%#TabLine#'
+      s = s .. "%#TabLine#"
     end
 
-    s = s .. '%' .. i .. 'T'
-    s = s .. ' %{v:lua.require("pitavim.scripts.tabline").MyTabLabel(' .. i .. ')} '
+    s = s .. "%" .. i .. "T"
+    s = s .. ' %{v:lua.require("pitavim.scripts.tabline").MyTabLabel(' .. i .. ")} "
   end
-  s = s .. '%#TabLineFill#%T'
+  s = s .. "%#TabLineFill#%T"
   return s
 end
 
@@ -53,17 +53,15 @@ function M.MyTabLabel(n)
   local bufnr = buflist[winnr]
   local filename = vim.fn.bufname(bufnr)
   local icon = get_file_icon(filename)
-  local short_name = vim.fn.fnamemodify(filename, ':t')
-  short_name = short_name ~= '' and short_name or '[No Name]'
-  return icon .. ' ' .. short_name
+  local short_name = vim.fn.fnamemodify(filename, ":t")
+  short_name = short_name ~= "" and short_name or "[No Name]"
+  return icon .. " " .. short_name
 end
 
 function M.ClearHighlight()
-  vim.cmd('highlight clear TabLineFill')
-  vim.cmd('highlight clear NeoTreeNormal')
-  vim.cmd('highlight clear NeoTreeNormalNC')
-
-  return '' -- This function needs to return a string for the tabline
+  vim.cmd("highlight clear NeoTreeNormal")
+  vim.cmd("highlight clear NeoTreeNormalNC")
+  return "" -- This function needs to return a string for the tabline
 end
 
 function M.setup()
