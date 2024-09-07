@@ -54,5 +54,5 @@ end, 100)
 
 vim.cmd([[
   colorscheme gruvbox
-  highlight Normal guibg=#282828 -- Replace with your desired color
-]])
+  highlight Normal guibg=#282828
+  ]])
