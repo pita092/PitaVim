@@ -109,11 +109,11 @@ cmp.setup({
   -- 	end,
   -- },
   formatting = {
-    fields = { "abbr", "kind" },
-    expandable_indicator = true,
+    -- fields = { "abbr", "kind" },
+    fields = { "kind", "abbr", "kind" },
     format = function(entry, vim_item)
       local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 27 })(entry, vim_item)
-      local strings = vim.split(kind.kind, " ", { trimempty = true })
+      local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
       vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
 
       -- Define your icons
