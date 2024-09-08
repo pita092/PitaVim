@@ -1,5 +1,9 @@
 return {
   {
+    "romgrk/fzy-lua-native",
+    event = "VeryLazy",
+  },
+  {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     -- optionally, override the default options:
     config = function()
