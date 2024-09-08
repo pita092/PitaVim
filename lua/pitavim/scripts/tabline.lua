@@ -90,12 +90,12 @@ function M.MyTabLine()
 	local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
 	for i = 1, vim.fn.tabpagenr("$") do
 		if i > 1 then
-			s = s .. "%#TabLineFill#|"
+			s = s .. "%#TabLineFill#"
 		end
 
 		local is_selected = i == vim.fn.tabpagenr()
-		local tab_hl = is_selected and "%#TabLineSel#|" or "%#TabLine#"
-		local icon_hl = is_selected and "|%#TabLineSelIcon#" or "%#TabLineIcon#"
+		local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
+		local icon_hl = is_selected and "%#TabLineSelIcon#" or "%#TabLineIcon#"
 
 		s = s .. "%" .. i .. "T"
 
