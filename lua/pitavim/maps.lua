@@ -55,9 +55,9 @@ vim.keymap.set("n", "<leader>/", function()
     winblend = 0,
     previewer = false,
     borderchars = {
-      prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-      results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-      preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+      prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+      results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+      preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     },
   }))
 end, { desc = "[/] Fuzzily search in current buffer" })
