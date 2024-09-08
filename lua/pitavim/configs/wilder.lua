@@ -35,12 +35,13 @@ wilder.set_option(
 wilder.set_option(
 	"renderer",
 	wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
-		highlights = {
-			border = "Normal",
-			wilder.lua_pcre2_highlighter(),
-			wilder.lua_fzy_highlighter(),
+		highlighter = {
+			wilder.lua_pcre2_highlighter(), -- requires `luarocks install pcre2`
+			wilder.lua_fzy_highlighter(), -- requires fzy-lua-native vim plugin found
+			-- at https://github.com/romgrk/fzy-lua-native
 		},
 		highlights = {
+			border = "Normal", -- highlight to use for the border
 			accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 1 }, { a = 1 }, { foreground = "#b8bb26" } }),
 		},
 		-- 'single', 'double', 'rounded' or 'solid'
