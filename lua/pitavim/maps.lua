@@ -27,13 +27,11 @@ map("n", "<C-f>", ":lua require('oil').close()<CR>", { silent = true, desc = "Cl
 -- telescope
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
-local actions = require("telescope.actions")
-local open_with_trouble = require("trouble.sources.telescope").open
-local add_to_trouble = require("trouble.sources.telescope").adds
-
-vim.keymap.set("i", "<C-t>", open_with_trouble, { desc = "Trouble" })
-vim.keymap.set("n", "<C-t>", open_with_trouble, { desc = "Trouble" })
-
+-- local open_with_trouble = require("trouble.sources.telescope").open
+--
+-- vim.keymap.set("i", "<C-t>", open_with_trouble, { desc = "Trouble" })
+-- vim.keymap.set("n", "<C-t>", open_with_trouble, { desc = "Trouble" })
+--
 vim.keymap.set("n", "<leader>H", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>K", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
