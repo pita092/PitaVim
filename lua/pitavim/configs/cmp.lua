@@ -77,6 +77,7 @@ cmp.setup({
 		{ name = "treesitter" },
 	}),
 	formatting = {
+		require("tailwindcss-colorizer-cmp").formatter,
 		fields = { "abbr", "kind", "menu" },
 		expandable_indicator = true,
 		format = function(entry, vim_item)
