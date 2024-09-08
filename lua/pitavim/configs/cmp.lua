@@ -9,6 +9,35 @@ local lspkind = require("lspkind")
 
 local tailwindcss_colorizer_cmp = require("tailwindcss-colorizer-cmp")
 
+  --
+      local cmp_kinds = {
+        Text = "󰉿",
+        Method = "󰆧",
+        Function = "󰊕",
+        Constructor = "",
+        Field = "󰜢",
+        Variable = "󰀫",
+        Class = "󰠱",
+        Interface = "",
+        Module = "",
+        Property = "󰜢",
+        Unit = "󰑭",
+        Value = "󰎠",
+        Enum = "",
+        Keyword = "󰌋",
+        Snippet = "",
+        Color = "󰏘",
+        File = "󰈙",
+        Reference = "󰈇",
+        Folder = "󰉋",
+        EnumMember = "",
+        Constant = "󰏿",
+        Struct = "󰙅",
+        Event = "",
+        Operator = "󰆕",
+        TypeParameter = "",
+      }
+
 local blankaborder = {
   border = { "", "", "", "", "", "", "", "" },
   winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
@@ -124,33 +153,33 @@ cmp.setup({
   --
   --     -- Define your icons
   --
-  --     local icons = {
-  --       Text = "󰉿",
-  --       Method = "󰆧",
-  --       Function = "󰊕",
-  --       Constructor = "",
-  --       Field = "󰜢",
-  --       Variable = "󰀫",
-  --       Class = "󰠱",
-  --       Interface = "",
-  --       Module = "",
-  --       Property = "󰜢",
-  --       Unit = "󰑭",
-  --       Value = "󰎠",
-  --       Enum = "",
-  --       Keyword = "󰌋",
-  --       Snippet = "",
-  --       Color = "󰏘",
-  --       File = "󰈙",
-  --       Reference = "󰈇",
-  --       Folder = "󰉋",
-  --       EnumMember = "",
-  --       Constant = "󰏿",
-  --       Struct = "󰙅",
-  --       Event = "",
-  --       Operator = "󰆕",
-  --       TypeParameter = "",
-  --     }
+      local icons = {
+        Text = "󰉿",
+        Method = "󰆧",
+        Function = "󰊕",
+        Constructor = "",
+        Field = "󰜢",
+        Variable = "󰀫",
+        Class = "󰠱",
+        Interface = "",
+        Module = "",
+        Property = "󰜢",
+        Unit = "󰑭",
+        Value = "󰎠",
+        Enum = "",
+        Keyword = "󰌋",
+        Snippet = "",
+        Color = "󰏘",
+        File = "󰈙",
+        Reference = "󰈇",
+        Folder = "󰉋",
+        EnumMember = "",
+        Constant = "󰏿",
+        Struct = "󰙅",
+        Event = "",
+        Operator = "󰆕",
+        TypeParameter = "",
+      }
   --
   --     -- Define keywords for each kind
   --     local keywords = {
