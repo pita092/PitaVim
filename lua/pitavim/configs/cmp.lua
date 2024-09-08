@@ -217,5 +217,5 @@ cmp.setup({
 vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#fbf1c7", bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#fabd2f", bg = "NONE", bold = true })
 vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#c678dd", bg = "NONE" })
-vim.api.nvim_set_hl(0, "Pmenu", { fg = "#fbf1c7", bg = "#3c3836" })
+vim.api.nvim_set_hl(0, "Pmenu", { fg = "#fbf1c7", bg = "#282828" })
 vim.api.nvim_set_hl(0, "PmenuSel", { fg = "NONE", bg = "#fbf1c7" })
