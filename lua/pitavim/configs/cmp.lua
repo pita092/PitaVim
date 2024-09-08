@@ -175,9 +175,21 @@ cmp.setup({
 			}
 
 			-- Set the icon, keyword, and kind
+
 			local icon = icons[vim_item.kind] or ""
 			local keyword = keywords[vim_item.kind] or ""
-			vim_item.kind = string.format("%s %s", icon, keyword)
+			local kind_text = string.format("%s %s", icon, keyword)
+
+			local abbr = vim_item.abbr
+			local max_abbr_width = 30
+			if #abbr > max_abbr_width then
+				vim_item.abbr = vim.fn.strcharpart(abbr, 0, max_abbr_width - 3) .. "..."
+			else
+				vim_item.abbr = abbr .. string.rep(" ", max_abbr_width - #abbr)
+			end
+
+			-- Calculate total width
+			local total_width = #vim_item.abbr + #kind_text + 3 -- +3 for spaces and separator
 
 			-- Set the source
 			vim_item.menu = ({
