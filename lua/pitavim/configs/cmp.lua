@@ -21,7 +21,6 @@ local border2 =
 require("luasnip").filetype_extend("c", { "cdoc" })
 
 cmp.setup({
-
 	formatting = {
 		fields = { "abbr", "kind" },
 		format = function(entry, vim_item)
@@ -56,7 +55,7 @@ cmp.setup({
 				TypeParameter = "",
 			}
 
-			-- Set the icon and kind
+			-- Set the icon and keyword
 			local icon = icons[vim_item.kind] or ""
 			local keyword = kind or ""
 			vim_item.kind = string.format("%s %s", icon, keyword)
@@ -68,13 +67,8 @@ cmp.setup({
 				vim_item.abbr = vim.fn.strcharpart(abbr, 0, max_abbr_width - 3) .. "..."
 			end
 
-			-- Calculate the total width based on the abbr and kind
-			local total_width = #vim_item.abbr + #vim_item.kind + 1 -- +1 for the space
-			local padding = 1 -- Extra space
-
-			-- Set the completion item width to be just enough
-			vim_item.abbr = vim_item.abbr .. string.rep(" ", padding) -- Add padding after abbr
-			vim_item.kind = vim_item.kind .. string.rep(" ", math.max(0, 50 - total_width)) -- Adjust this to your desired width
+			-- Remove extra padding
+			vim_item.abbr = vim_item.abbr .. " " -- Add a single space after the abbreviation
 
 			-- Set the source
 			vim_item.menu = ({
