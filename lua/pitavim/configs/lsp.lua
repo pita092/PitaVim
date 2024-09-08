@@ -13,6 +13,10 @@ vim.diagnostic.config({
   },
 })
 
+vim.lsp.handlers["textDocument/codeAction"] = vim.lsp.with(vim.lsp.handlers.codeAction, {
+  border = "rounded",
+})
+
 lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({ buffer = bufnr })
   lsp_zero.buffer_autoformat()
