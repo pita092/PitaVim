@@ -23,7 +23,7 @@ require("luasnip").filetype_extend("c", { "cdoc" })
 cmp.setup({
 	window = {
 		completion = {
-			border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+			border = { "", "", "", "", "", "", "", "" },
 			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
 			col_offset = -3,
 			side_padding = 0,
