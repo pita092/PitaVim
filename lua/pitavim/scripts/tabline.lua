@@ -113,7 +113,7 @@ function M.ClearHighlight()
 	vim.cmd("highlight clear NeoTreeNormal")
 	vim.cmd("highlight clear NeoTreeNormalNC")
 	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "NONE" })')
-	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIcon", { fg = "#61afef", bg = "NONE" })')
+	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIcon", { fg = "#ffffff", bg = "NONE" })')
 	return ""
 end
 
