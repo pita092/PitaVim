@@ -27,7 +27,12 @@ cmp.setup({
     end,
   },
   window = {
-    completion = borderstyle,
+    completion = {
+      border = borderstyle,
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+      col_offset = -3,
+      side_padding = 0,
+    },
     documentation = borderstyle,
   },
   mapping = cmp.mapping.preset.insert({
@@ -296,14 +301,6 @@ cmp.setup({
   },
 
   -- Add this to your cmp setup
-  window = {
-    completion = {
-      border = "rounded",
-      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
-      col_offset = -3,
-      side_padding = 0,
-    },
-  },
 
   sorting = {
     comparators = {
