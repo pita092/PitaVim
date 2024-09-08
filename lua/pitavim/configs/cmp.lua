@@ -1,4 +1,4 @@
-require("nvim-autopairs").setup({})
+requirq("nvim-autopairs").setup({})
 
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
