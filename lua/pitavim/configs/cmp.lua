@@ -1,4 +1,4 @@
-equire("nvim-autopairs").setup({})
+require("nvim-autopairs").setup({})
 
 local luasnip = require("luasnip")
 local cmp = require("cmp")
