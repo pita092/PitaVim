@@ -110,86 +110,95 @@ cmp.setup({
 	-- },
 
 	formatting = {
-		fields = { "abbr", "kind" },
+		fields = { "kind", "abbr", "menu" },
 		expandable_indicator = true,
 		format = function(entry, vim_item)
-			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 35 })(entry, vim_item)
-			local strings = vim.split(kind.kind, " ", { trimempty = true })
+			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50, ellipsis_char = "..." })(
+				entry,
+				vim_item
+			)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
 			vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
 
-			-- Define your icons
+			-- Define your icons (unchanged)
 
 			local icons = {
 				Text = "󰉿",
 				Method = "󰆧",
 				Function = "󰊕",
-				Constructor = "",
+				Constructor = "",
 				Field = "󰜢",
 				Variable = "󰀫",
 				Class = "󰠱",
-				Interface = "",
-				Module = "",
+				Interface = "",
+				Module = "",
 				Property = "󰜢",
 				Unit = "󰑭",
 				Value = "󰎠",
-				Enum = "",
+				Enum = "",
 				Keyword = "󰌋",
-				Snippet = "",
+				Snippet = "",
 				Color = "󰏘",
 				File = "󰈙",
 				Reference = "󰈇",
 				Folder = "󰉋",
-				EnumMember = "",
+				EnumMember = "",
 				Constant = "󰏿",
 				Struct = "󰙅",
-				Event = "",
+				Event = "",
 				Operator = "󰆕",
 				TypeParameter = "",
 			}
 
-			-- Define keywords for each kind
+			-- Shorter keywords for each kind
 			local keywords = {
-				Text = "Text",
-				Method = "Method",
-				Function = "Function",
-				Constructor = "Constructor",
-				Field = "Field",
-				Variable = "Variable",
-				Class = "Class",
-				Interface = "Interface",
-				Module = "Module",
-				Property = "Property",
+				Text = "Txt",
+				Method = "Mth",
+				Function = "Fn",
+				Constructor = "Ctor",
+				Field = "Fld",
+				Variable = "Var",
+				Class = "Cls",
+				Interface = "Intf",
+				Module = "Mod",
+				Property = "Prop",
 				Unit = "Unit",
-				Value = "Value",
+				Value = "Val",
 				Enum = "Enum",
-				Keyword = "Keyword",
-				Snippet = "Snippet",
-				Color = "Color",
+				Keyword = "Kw",
+				Snippet = "Snip",
+				Color = "Col",
 				File = "File",
-				Reference = "Reference",
-				Folder = "Fold",
-				EnumMember = "EnumMember",
-				Constant = "Constant",
-				Struct = "Struct",
-				Event = "Event",
-				Operator = "Operator",
-				TypeParameter = "TypeParameter",
+				Reference = "Ref",
+				Folder = "Dir",
+				EnumMember = "EnMm",
+				Constant = "Const",
+				Struct = "Strc",
+				Event = "Evt",
+				Operator = "Op",
+				TypeParameter = "TypP",
 			}
 
-			-- Set the icon, keyword, and kind
+			-- Set the icon and kind
 			local icon = icons[vim_item.kind] or ""
 			local keyword = keywords[vim_item.kind] or ""
 			vim_item.kind = string.format("%s %s", icon, keyword)
 
-			-- Set the source
+			-- Limit the width of the abbr field
+			local abbr = vim_item.abbr
+			if #abbr > 30 then
+				vim_item.abbr = vim.fn.strcharpart(abbr, 0, 27) .. "..."
+			end
+
+			-- Set a compact menu
 			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				path = "[Path]",
+				nvim_lsp = "LSP",
+				luasnip = "Snip",
+				buffer = "Buf",
+				path = "Path",
 			})[entry.source.name]
 
-			vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#fbf1c7", italic = true })
+			vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#928374", italic = true })
 
 			return vim_item
 		end,
