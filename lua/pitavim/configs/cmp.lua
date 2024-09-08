@@ -113,7 +113,7 @@ cmp.setup({
     fields = { "abbr", "kind" },
     expandable_indicator = true,
     format = function(entry, vim_item)
-      local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 12 })(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
       local strings = vim.split(kind.kind, " ", { trimempty = true })
       vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
 
