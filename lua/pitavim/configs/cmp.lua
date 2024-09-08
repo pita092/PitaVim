@@ -85,7 +85,7 @@ cmp.setup({
 
   window = {
     completion = {
-      border = "rounded",
+      border = "single",
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
       col_offset = 0, -- Adjust this to control the horizontal alignment
       side_padding = 0, -- Remove side padding
