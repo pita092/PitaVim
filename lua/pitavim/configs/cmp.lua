@@ -206,3 +206,4 @@ cmp.setup({
       cmp.config.compare.order,
     },
   },
+})
