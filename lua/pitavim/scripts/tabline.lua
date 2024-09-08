@@ -109,7 +109,7 @@ function M.MyTabLine()
 end
 
 function M.ClearHighlight()
-  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineFill", { fg = "#fabd2f", bg = "NONE" })')
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineFill", { fg = "#fbf1c7", bg = "NONE" })')
   vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fbf1c7", bg = "NONE" })')
   vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIcon", { fg = "#61afef",bg = "NONE" })')
   return ""
