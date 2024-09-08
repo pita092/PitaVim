@@ -1,6 +1,9 @@
 return {
+
   {
     "romgrk/fzy-lua-native",
+    "nixprime/cpsm",
+    "sharkdp/fd",
     event = "VeryLazy",
   },
   {
