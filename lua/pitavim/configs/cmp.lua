@@ -108,16 +108,100 @@ cmp.setup({
   -- 		return kind, vim_item
   -- 	end,
   -- },
+
+  -- formatting = {
+  --   -- fields = { "abbr", "kind" },
+  --   fields = { "abbr", "kind" },
+  --   format = function(entry, vim_item)
+  --     local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 27 })(entry, vim_item)
+  --     local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
+  --     vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
+  --
+  --     -- Define your icons
+  --
+  --     local icons = {
+  --       Text = "󰉿",
+  --       Method = "󰆧",
+  --       Function = "󰊕",
+  --       Constructor = "",
+  --       Field = "󰜢",
+  --       Variable = "󰀫",
+  --       Class = "󰠱",
+  --       Interface = "",
+  --       Module = "",
+  --       Property = "󰜢",
+  --       Unit = "󰑭",
+  --       Value = "󰎠",
+  --       Enum = "",
+  --       Keyword = "󰌋",
+  --       Snippet = "",
+  --       Color = "󰏘",
+  --       File = "󰈙",
+  --       Reference = "󰈇",
+  --       Folder = "󰉋",
+  --       EnumMember = "",
+  --       Constant = "󰏿",
+  --       Struct = "󰙅",
+  --       Event = "",
+  --       Operator = "󰆕",
+  --       TypeParameter = "",
+  --     }
+  --
+  --     -- Define keywords for each kind
+  --     local keywords = {
+  --       Text = "Text",
+  --       Method = "Method",
+  --       Function = "Function",
+  --       Constructor = "Constructor",
+  --       Field = "Field",
+  --       Variable = "Variable",
+  --       Class = "Class",
+  --       Interface = "Interface",
+  --       Module = "Module",
+  --       Property = "Property",
+  --       Unit = "Unit",
+  --       Value = "Value",
+  --       Enum = "Enum",
+  --       Keyword = "Keyword",
+  --       Snippet = "Snippet",
+  --       Color = "Color",
+  --       File = "File",
+  --       Reference = "Reference",
+  --       Folder = "Fold",
+  --       EnumMember = "EnumMember",
+  --       Constant = "Constant",
+  --       Struct = "Struct",
+  --       Event = "Event",
+  --       Operator = "Operator",
+  --       TypeParameter = "TypeParameter",
+  --     }
+  --
+  --     -- Set the icon, keyword, and kind
+  --     local icon = icons[vim_item.kind] or ""
+  --     local keyword = keywords[vim_item.kind] or ""
+  --     vim_item.kind = string.format("%s %s", icon, keyword)
+  --
+  --     -- Set the source
+  --     vim_item.menu = ({
+  --       nvim_lsp = "[LSP]",
+  --       luasnip = "[Snippet]",
+  --       buffer = "[Buffer]",
+  --       path = "[Path]",
+  --     })[entry.source.name]
+  --
+  --     vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#fbf1c7", italic = true })
+  --
+  --     return vim_item
+  --   end,
+  -- },
+
   formatting = {
-    -- fields = { "abbr", "kind" },
     fields = { "abbr", "kind" },
     format = function(entry, vim_item)
-      local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 27 })(entry, vim_item)
       local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
       vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
 
       -- Define your icons
-
       local icons = {
         Text = "󰉿",
         Method = "󰆧",
@@ -144,6 +228,7 @@ cmp.setup({
         Event = "",
         Operator = "󰆕",
         TypeParameter = "",
+        -- ... (your existing icons)
       }
 
       -- Define keywords for each kind
@@ -173,12 +258,28 @@ cmp.setup({
         Event = "Event",
         Operator = "Operator",
         TypeParameter = "TypeParameter",
+        -- ... (your existing keywords)
       }
 
       -- Set the icon, keyword, and kind
       local icon = icons[vim_item.kind] or ""
       local keyword = keywords[vim_item.kind] or ""
-      vim_item.kind = string.format("%s %s", icon, keyword)
+      local kind_text = string.format("%s %s", icon, keyword)
+
+      -- Truncate the abbr field if it's too long
+      local abbr = vim_item.abbr
+      local max_abbr_width = 30
+      if #abbr > max_abbr_width then
+        vim_item.abbr = vim.fn.strcharpart(abbr, 0, max_abbr_width - 3) .. "..."
+      else
+        vim_item.abbr = abbr .. string.rep(" ", max_abbr_width - #abbr)
+      end
+
+      -- Calculate total width
+      local total_width = #vim_item.abbr + #kind_text + 3 -- +3 for spaces and separator
+
+      -- Set the kind field
+      vim_item.kind = kind_text .. string.rep(" ", total_width - #kind_text - #vim_item.abbr - 1)
 
       -- Set the source
       vim_item.menu = ({
@@ -192,6 +293,16 @@ cmp.setup({
 
       return vim_item
     end,
+  },
+
+  -- Add this to your cmp setup
+  window = {
+    completion = {
+      border = "rounded",
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+      col_offset = -3,
+      side_padding = 0,
+    },
   },
 
   sorting = {
