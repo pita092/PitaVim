@@ -26,10 +26,13 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
-	window = {
-		completion = borderstyle,
-		documentation = borderstyle,
-	},
+  window = {
+  completion = {
+    border = "rounded",
+    winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+    col_offset = -3,
+    side_padding = 0,
+  },
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
