@@ -21,44 +21,42 @@ local border2 =
 require("luasnip").filetype_extend("c", { "cdoc" })
 
 cmp.setup({
-	formatting = {
-		fields = { "abbr", "kind" },
-		format = function(entry, vim_item)
-			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
 
+	formatting = {
+		fields = { "abbr", "kind", "menu" },
+		format = function(entry, vim_item)
 			-- Define your icons
 			local icons = {
 				Text = "󰉿",
 				Method = "󰆧",
 				Function = "󰊕",
-				Constructor = "",
+				Constructor = "",
 				Field = "󰜢",
 				Variable = "󰀫",
 				Class = "󰠱",
-				Interface = "",
-				Module = "",
+				Interface = "",
+				Module = "",
 				Property = "󰜢",
 				Unit = "󰑭",
 				Value = "󰎠",
-				Enum = "",
+				Enum = "",
 				Keyword = "󰌋",
-				Snippet = "",
+				Snippet = "",
 				Color = "󰏘",
 				File = "󰈙",
 				Reference = "󰈇",
 				Folder = "󰉋",
-				EnumMember = "",
+				EnumMember = "",
 				Constant = "󰏿",
 				Struct = "󰙅",
-				Event = "",
+				Event = "",
 				Operator = "󰆕",
 				TypeParameter = "",
 			}
 
-			-- Set the icon and keyword
+			-- Set the icon and kind
 			local icon = icons[vim_item.kind] or ""
-			local keyword = kind or ""
-			vim_item.kind = string.format("%s %s", icon, keyword)
+			vim_item.kind = string.format("%s %s", icon, vim_item.kind)
 
 			-- Set the abbreviation
 			local abbr = vim_item.abbr
@@ -67,10 +65,7 @@ cmp.setup({
 				vim_item.abbr = vim.fn.strcharpart(abbr, 0, max_abbr_width - 3) .. "..."
 			end
 
-			-- Remove extra padding
-			vim_item.abbr = vim_item.abbr .. " " -- Add a single space after the abbreviation
-
-			-- Set the source
+			-- Set the menu (source)
 			vim_item.menu = ({
 				nvim_lsp = "[LSP]",
 				luasnip = "[Snippet]",
