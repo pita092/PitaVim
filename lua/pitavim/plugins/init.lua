@@ -170,10 +170,6 @@ return {
 		end,
 	},
 	{
-		"luisiacc/gruvbox-baby",
-		event = "VeryLazy",
-	},
-	{
 		"NvChad/nvim-colorizer.lua",
 		event = "VeryLazy",
 		config = function()
