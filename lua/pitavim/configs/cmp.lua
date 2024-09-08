@@ -110,7 +110,7 @@ cmp.setup({
   -- },
   formatting = {
     -- fields = { "abbr", "kind" },
-    fields = { "kind", "abbr", "kind" },
+    fields = { "abbr", "kind" },
     format = function(entry, vim_item)
       local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 27 })(entry, vim_item)
       local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
