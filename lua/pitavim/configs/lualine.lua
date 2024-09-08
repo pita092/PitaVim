@@ -1,15 +1,3 @@
-local trouble = require("trouble")
-local symbols = trouble.statusline({
-  mode = "lsp_document_symbols",
-  groups = {},
-  title = false,
-  filter = { range = true },
-  format = "{kind_icon}{symbol.name:Normal}",
-  -- The following line is needed to fix the background color
-  -- Set it to the lualine section you want to use
-  hl_group = "lualine_c_normal",
-})
-
 require("lualine").setup({
   options = {
     icons_enabled = true,
@@ -36,7 +24,7 @@ require("lualine").setup({
     lualine_c = { "filename" },
     lualine_x = { "encoding", "filetype" },
     lualine_y = { "" },
-    lualine_z = { symbols.get, cond = symbols.has },
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = {},
