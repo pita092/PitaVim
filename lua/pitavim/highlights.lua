@@ -61,6 +61,6 @@ end
 
 --winbar
 
-vim.api.nvim_set_hl(0, "DropBarMenuCurrentContext", { fg = "#fbf1c7", bg = "#282828", italic = true })
+vim.api.nvim_set_hl(0, "DropBarMenuCurrentContext", { fg = "#fbf1c7", bg = "NONE", italic = true })
 
 --wildmenu
