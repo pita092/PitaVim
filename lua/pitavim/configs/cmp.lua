@@ -82,7 +82,7 @@ cmp.setup({
       border = "rounded",
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
       col_offset = -3,
-      side_padding = 0,
+      side_padding = 10,
     },
   },
   snippet = {
