@@ -128,8 +128,6 @@
 
 local cmp = require("cmp")
 
-dofile(vim.g.base46_cache .. "cmp")
-
 local cmp_ui = require("nvconfig").ui.cmp
 local cmp_style = cmp_ui.style
 
