@@ -93,25 +93,27 @@ function M.MyTabLine()
       s = s .. "|%#TabLineFill#|"
     end
 
-    if i == vim.fn.tabpagenr() then
-      s = s .. "%#TabLineSel#"
-    else
-      s = s .. "%#TabLine#"
-    end
+    local is_selected = i == vim.fn.tabpagenr()
+    local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
+    local icon_hl = is_selected and "%#TabLineSelIcon#" or "%#TabLineIcon#"
 
     s = s .. "%" .. i .. "T"
 
     local label = M.MyTabLabel(i)
-    s = s .. " %#TabLineIcon#" .. label.icon .. "%#TabLine# " .. label.text .. " "
+    s = s .. tab_hl .. " " .. icon_hl .. label.icon .. tab_hl .. " " .. label.text .. " "
   end
   s = s .. "%#TabLineFill#%T"
   return s
 end
 
 function M.ClearHighlight()
-  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineFill", { fg = "#fbf1c7", bg = "NONE" })')
-  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fbf1c7", bg = "NONE" })')
-  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIcon", { fg = "#61afef",bg = "NONE" })')
+  vim.cmd("highlight clear TabLineFill")
+  vim.cmd("highlight clear NeoTreeNormal")
+  vim.cmd("highlight clear NeoTreeNormalNC")
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "NONE", bold = true })')
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "NONE" })')
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIcon", { fg = "#61afef", bg = "NONE" })')
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSelIcon", { fg = "#61afef", bg = "NONE", bold = true })')
   return ""
 end
 
