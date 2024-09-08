@@ -53,8 +53,8 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = "rounded",
-		documentation = "rounded",
+		completion = "single",
+		documentation = "single",
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
