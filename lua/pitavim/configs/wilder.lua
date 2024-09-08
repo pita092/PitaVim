@@ -40,3 +40,4 @@ wilder.set_option(
     border = "rounded",
   }))
 )
+vim.api.nvim_set_hl(0, "WildMenu", { fg = "#fbf1c7", bg = "#282828", italic = true })
