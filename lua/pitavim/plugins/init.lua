@@ -1,7 +1,7 @@
 return {
 	{
 		"stevearc/dressing.nvim",
-		opts = {},
+		event = "VeryLazy",
 		config = function()
 			return require("pitavim.configs.ui")
 		end,
