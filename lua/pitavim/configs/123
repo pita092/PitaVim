@@ -87,3 +87,126 @@
 			return vim_item
 		end,
 	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   formatting = {
+    fields = { "abbr", "kind" },
+    format = function(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
+      vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
+
+      -- Define your icons
+      local icons = {
+        Text = "󰉿",
+        Method = "󰆧",
+        Function = "󰊕",
+        Constructor = "",
+        Field = "󰜢",
+        Variable = "󰀫",
+        Class = "󰠱",
+        Interface = "",
+        Module = "",
+        Property = "󰜢",
+        Unit = "󰑭",
+        Value = "󰎠",
+        Enum = "",
+        Keyword = "󰌋",
+        Snippet = "",
+        Color = "󰏘",
+        File = "󰈙",
+        Reference = "󰈇",
+        Folder = "󰉋",
+        EnumMember = "",
+        Constant = "󰏿",
+        Struct = "󰙅",
+        Event = "",
+        Operator = "󰆕",
+        TypeParameter = "",
+      }
+
+      -- Define keywords for each kind
+      local keywords = {
+        Text = "Text",
+        Method = "Method",
+        Function = "Function",
+        Constructor = "Constructor",
+        Field = "Field",
+        Variable = "Variable",
+        Class = "Class",
+        Interface = "Interface",
+        Module = "Module",
+        Property = "Property",
+        Unit = "Unit",
+        Value = "Value",
+        Enum = "Enum",
+        Keyword = "Keyword",
+        Snippet = "Snippet",
+        Color = "Color",
+        File = "File",
+        Reference = "Reference",
+        Folder = "Fold",
+        EnumMember = "EnumMember",
+        Constant = "Constant",
+        Struct = "Struct",
+        Event = "Event",
+        Operator = "Operator",
+        TypeParameter = "TypeParameter",
+      }
+
+      -- Set the icon and keyword
+      local icon = icons[vim_item.kind] or ""
+      local keyword = keywords[vim_item.kind] or ""
+
+      -- Limit the width of the abbreviation
+      local max_abbr_width = 30
+      local abbr = vim_item.abbr
+      if #abbr > max_abbr_width then
+        vim_item.abbr = vim.fn.strcharpart(abbr, 0, max_abbr_width - 3) .. "..."
+      end
+
+      -- Pad the abbreviation to ensure consistent width
+      vim_item.abbr = vim_item.abbr .. string.rep(" ", max_abbr_width - #vim_item.abbr)
+
+      -- Set a fixed width for the kind column
+      local kind_width = 20
+      vim_item.kind = string.format("%-" .. kind_width .. "s", string.format("%s %s", icon, keyword))
+
+      -- Remove the menu to save space
+      vim_item.menu = nil
+
+      return vim_item
+    end,
+  },
+  window = {
+    completion = {
+      border = "single",
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+      col_offset = -3,
+      side_padding = 0,
+    },
+  },
+
