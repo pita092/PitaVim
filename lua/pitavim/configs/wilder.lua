@@ -14,6 +14,7 @@ wilder.set_option(
 wilder.set_option(
   "renderer",
   wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
+    pumblend = 20,
     highlighter = {
       wilder.lua_pcre2_highlighter(), -- requires `luarocks install pcre2`
       wilder.lua_fzy_highlighter(), -- requires fzy-lua-native vim plugin found
