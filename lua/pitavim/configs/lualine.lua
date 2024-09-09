@@ -2,7 +2,6 @@ local mode = {
 	"mode",
 	fmt = function(str)
 		return " " .. str
-		-- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
 	end,
 }
 
@@ -35,7 +34,6 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "neo-tree" },
-		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = { mode },
