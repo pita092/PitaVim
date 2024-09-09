@@ -8,7 +8,7 @@ this doc is probably just for myself
 "https://github.com/pita092/nvim-main "'s plugin/config repo
 
 took the idea from nvchad/lazyvim
-its pretty functional 
+(shameless) 
 ***
 stuff that i dont think are a dependencie but i its good to have
 
