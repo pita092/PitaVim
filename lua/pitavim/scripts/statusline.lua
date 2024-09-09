@@ -87,8 +87,8 @@ function M.setup()
 
   -- Define highlight groups
   vim.cmd([[
-    highlight StatusLineMode guibg=#98c379 guifg=#282c34 gui=bold
-    highlight StatusLine guibg=#3e4452 guifg=#abb2bf
+    highlight StatusLineMode guibg=##1d2021 guifg=#fabd2f gui=bold
+    highlight StatusLine guibg=#fbf1c7 guifg=#7c6f64
   ]])
 end
 
