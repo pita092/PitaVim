@@ -1,5 +1,10 @@
 local statusline = {}
-local utils = require("utils")
+local utils = return setmetatable({}, {
+  __index = function(self, key)
+    self[key] = require('utils.' .. key)
+    return self[key]
+  end,
+})
 local groupid = vim.api.nvim_create_augroup("StatusLine", {})
 
 local diag_signs_default_text = { "E", "W", "I", "H" }
