@@ -13,7 +13,7 @@ local filename = {
 }
 
 local hide_in_width = function()
-  return vim.fn.winwidth(0) > 100
+  return vim.fn.winwidth(0) > 1000
 end
 
 local diagnostics = {
@@ -39,7 +39,7 @@ require("lualine").setup({
     icons_enabled = true,
     theme = "gruvbox",
     section_separators = { left = "", right = "" },
-    component_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "neo-tree" },
     always_divide_middle = true,
   },
