@@ -83,7 +83,7 @@ end
 -- Function to set up the statusline
 function M.setup()
   -- Set the statusline
-  vim.o.statusline = "%!v:lua.require'statusline'.statusline()"
+  vim.o.statusline = "%!v:lua.require'pitavim.scripts.statusline'.statusline()"
 
   -- Define highlight groups
   vim.cmd([[
