@@ -241,7 +241,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
+    event = "VimEnter",
     build = ":TSUpdate",
     opts = function()
       return require("pitavim.configs.treesitter")
