@@ -129,7 +129,7 @@ function M.MyTabLine()
 			s = s .. " %#WarningMsg#" .. label.warnings .. "W"
 		end
 		if label.errors > 0 then
-			s = s .. " %#ErrorMsg#" .. label.errors .. "E"
+			s = s .. " %#ErrorMsg#" .. label.errors .. " "
 		end
 
 		s = s .. " "
