@@ -43,7 +43,7 @@ require("lualine").setup({
       diagnostics,
       diff,
     },
-    lualine_y = { "location" },
+    lualine_y = { "filename", "location" },
     lualine_z = { "progress" },
   },
   inactive_sections = {
