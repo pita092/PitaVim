@@ -15,7 +15,8 @@
 local options = {
 	highlight = { enable = true },
 	indent = { enable = true },
-	sync_install = false,
+	sync_install = true,
+	auto_install = true,
 	incremental_selection = {
 		enable = true,
 		keymaps = {
