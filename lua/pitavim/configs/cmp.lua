@@ -32,16 +32,19 @@ local kind_icons = {
 local blankaborder = {
 	border = { "", "", "", "", "", "", "", "" },
 	winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+	scrollbar = false,
 }
 
 local borderstyle = {
 	border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
 	winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+	scrollbar = false,
 }
 local border2 =
 	{
 		border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
 		winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+		scrollbar = false,
 	}, require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip").filetype_extend("c", { "cdoc" })
 
