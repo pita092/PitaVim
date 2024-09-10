@@ -78,30 +78,51 @@ cmp.setup({
     ["<C-k>"] = cmp.mapping.select_prev_item(),
   }),
   sources = cmp.config.sources({
-    { name = "nvim_lsp",  keyword_length = 3 },
+    {
+      name = "nvim_lsp",
+      keyword_length = 3,
+    },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    { name = "luasnip" },
     { name = "nvim_lua" },
     { name = "treesitter" },
   }),
+  -- formatting = {
+  --   fields = { "abbr", "kind", "menu" },
+  --   expandable_indicator = true,
+  --   format = function(entry, vim_item)
+  --     local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
+  --     local strings = vim.split(kind.kind, " ", { trimempty = true })
+  --     kind.kind = string.format("%s  %s", kind_icons[vim_item.kind], strings[1])
+  --     vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
+  --     -- This concatenates the icons with the name of the item kind
+  --
+  --     -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
+  --     kind.menu = "" .. (strings[2] or "") .. ""
+  --
+  --     return kind
+  --   end,
+  -- },
   formatting = {
-    fields = { "abbr", "kind", "menu" },
-    expandable_indicator = true,
+    fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
-      local strings = vim.split(kind.kind, " ", { trimempty = true })
-      kind.kind = string.format("%s  %s", kind_icons[vim_item.kind], strings[1])
-      vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
-      -- This concatenates the icons with the name of the item kind
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
 
-      -- NOTE: Don't remove the line below if you don't want the CMP to go haywire
-      kind.menu = "" .. (strings[2] or "") .. ""
+      -- Customize the kind for snippets
+      if entry.source.name == "luasnip" then
+        kind.kind = "Snippet"
+        kind.menu = "(Snippet)"
+      else
+        kind.kind = " " .. (kind_icons[strings[1]] or "") .. " " .. strings[1]
+        kind.menu = strings[2] or ""
+      end
 
       return kind
     end,
   },
+
   sorting = {
     comparators = {
       cmp.config.compare.offset,
