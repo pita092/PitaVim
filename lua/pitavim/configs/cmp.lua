@@ -88,7 +88,7 @@ cmp.setup({
     { name = "spell",      keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
     { name = "dictionary", keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
     { name = "nvim_lua",   priority = 5 },
-    { name = "calc",       priority = 3 },
+    { name = "calc" },
   },
   formatting = {
     fields = { "abbr", "kind", "menu" },
