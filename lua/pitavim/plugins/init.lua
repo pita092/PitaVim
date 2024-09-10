@@ -4,6 +4,9 @@ return {
 
 		"rcarriga/nvim-notify",
 		event = "VeryLazy",
+		config = function()
+			return require("pitavim.configs.notify")
+		end,
 	},
 	{
 		"romgrk/fzy-lua-native",
