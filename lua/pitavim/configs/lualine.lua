@@ -57,3 +57,10 @@ require("lualine").setup({
   tabline = {},
   extensions = { "fugitive" },
 })
+
+
+
+
+-----
+
+
