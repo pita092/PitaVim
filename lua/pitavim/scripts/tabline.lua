@@ -126,7 +126,7 @@ function M.MyTabLine()
 
 		-- Add LSP warnings and errors
 		if label.warnings > 0 then
-			s = s .. " %#WarningMsg#" .. label.warnings .. "W"
+			s = s .. " %#WarningMsg#" .. label.warnings .. " "
 		end
 		if label.errors > 0 then
 			s = s .. " %#ErrorMsg#" .. label.errors .. " "
