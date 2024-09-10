@@ -108,8 +108,8 @@ cmp.setup({
 
     sorting = {
       comparators = {
-        compare.exact,
-        compare.score,
+        cmp.configs.compare.exact,
+        cmp.configs.compare.score,
       },
     },
   },
