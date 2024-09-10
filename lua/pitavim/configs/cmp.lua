@@ -2,6 +2,9 @@ require("nvim-autopairs").setup({})
 
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
+local lsp = require("lsp-zero")
+lsp.preset("recommended")
+lsp.setup()
 local kind_icons = {
 	Text = "󰉿",
 	Method = "󰆧",
@@ -79,26 +82,21 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 		{ name = "treesitter" },
 	}),
 	formatting = {
-		fields = { "abbr", "kind", "menu" },
+		fields = { "kind", "abbr", "menu" },
 		expandable_indicator = true,
 		format = function(entry, vim_item)
-			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
-			local strings = vim.split(kind.kind, " ", { trimempty = true })
-			kind.kind = string.format("%s  %s", kind_icons[vim_item.kind], strings[1])
-			vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
-			-- This concatenates the icons with the name of the item kind
-
-			-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
-			kind.menu = "" .. (strings[2] or "") .. ""
-
+			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = " " .. (kind_icons[strings[1]] or "") .. " " .. strings[1]
+			kind.menu = (strings[2] or "")
 			return kind
 		end,
 	},
+
 	sorting = {
 		comparators = {
 			cmp.config.compare.offset,
@@ -115,3 +113,4 @@ cmp.setup({
 
 vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#fbf1c7", bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#b8bb26", bg = "NONE", bold = true })
+vim.lsp.set_log_level("debug")
