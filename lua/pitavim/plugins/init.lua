@@ -1,5 +1,5 @@
 return {
-  
+	{
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
@@ -24,6 +24,7 @@ return {
   },
 
 },
+
 	{
 		"romgrk/fzy-lua-native",
 		"nixprime/cpsm",
