@@ -85,6 +85,11 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
+		{ name = "spell", keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
+		{ name = "dictionary", keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
+		{ name = "nvim_lua", priority = 5 },
+		{ name = "fuzzy_path", priority = 4 },
+		{ name = "calc", priority = 3 },
 	},
 	formatting = {
 		fields = { "abbr", "kind", "menu" },
