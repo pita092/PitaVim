@@ -115,7 +115,7 @@ cmp.setup({
     max_view_entries = 50,
   },
   experimental = {
-    ghost_text = false,
+    ghost_text = true,
   },
   sorting = {
     priority_weight = 2,
