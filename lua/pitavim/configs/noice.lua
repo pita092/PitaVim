@@ -147,17 +147,6 @@ require("noice").setup({
       opts = {},
     },
     -- defaults for hover and signature help
-    documentation = {
-      view = "hover",
-      ---@type NoiceViewOptions
-      opts = {
-        lang = "markdown",
-        replace = true,
-        render = "plain",
-        format = { "{message}" },
-        win_options = { concealcursor = "n", conceallevel = 3 },
-      },
-    },
   },
   markdown = {
     hover = {
