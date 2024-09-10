@@ -1,12 +1,12 @@
 return {
-	-- lazy.nvim
 	{
-
-		"rcarriga/nvim-notify",
+		"folke/noice.nvim",
 		event = "VeryLazy",
-		config = function()
-			return require("pitavim.configs.notify")
-		end,
+		opts = {},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
 	},
 	{
 		"romgrk/fzy-lua-native",
