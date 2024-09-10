@@ -71,6 +71,23 @@ end
 -- end
 --
 
+local function get_lsp_diagnostics(bufnr)
+	local diagnostics = vim.diagnostic.get(bufnr)
+	local count = { errors = 0, warnings = 0, info = 0, hints = 0 }
+	for _, diagnostic in ipairs(diagnostics) do
+		if diagnostic.severity == vim.diagnostic.severity.ERROR then
+			count.errors = count.errors + 1
+		elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+			count.warnings = count.warnings + 1
+		elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+			count.info = count.info + 1
+		elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+			count.hints = count.hints + 1
+		end
+	end
+	return count
+end
+
 function M.MyTabLabel(n)
 	local buflist = vim.fn.tabpagebuflist(n)
 	local winnr = vim.fn.tabpagewinnr(n)
@@ -81,10 +98,13 @@ function M.MyTabLabel(n)
 	short_name = short_name ~= "" and short_name or "[No Name]"
 
 	-- Get LSP diagnostics for the buffer
+	local diagnostics = get_lsp_diagnostics(bufnr)
 
 	return {
 		icon = icon,
 		text = short_name,
+		warnings = diagnostics.warnings,
+		errors = diagnostics.errors,
 	}
 end
 
@@ -106,10 +126,10 @@ function M.MyTabLine()
 
 		-- Add LSP warning and error icons without numbers
 		if label.warnings > 0 then
-			s = s .. " %#WarningMsg#" .. " " -- You can replace " " with your preferred warning icon
+			s = s .. " %#WarningMsg#" .. " " -- You can replace " " with your preferred warning icon
 		end
 		if label.errors > 0 then
-			s = s .. " %#ErrorMsg#" .. " " -- You can replace " " with your preferred error icon
+			s = s .. " %#ErrorMsg#" .. " " -- You can replace " " with your preferred error icon
 		end
 
 		s = s .. " "
