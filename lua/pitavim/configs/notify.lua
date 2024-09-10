@@ -1,6 +1,4 @@
-require("notify").setup({
-	stages = "fade_in_slide_out",
-	background_colour = "FloatShadow",
-	timeout = 3000,
+require("sniprun").setup({
+	display = { "NvimNotify" },
 })
 vim.notify = require("notify")
