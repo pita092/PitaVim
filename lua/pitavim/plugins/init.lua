@@ -240,8 +240,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-		event = { "BufReadPre", "BufNewFile" },
+		lazy = false,
 		build = ":TSUpdate",
 		opts = function()
 			return require("pitavim.configs.treesitter")
