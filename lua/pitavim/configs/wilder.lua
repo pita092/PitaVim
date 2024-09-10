@@ -28,7 +28,7 @@ local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_border_the
 		-- at https://github.com/romgrk/fzy-lua-native
 	},
 	highlights = {
-		accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 1 }, { a = 1 }, { foreground = "#f4468f" } }),
+		accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 1 }, { a = 1 }, { foreground = "#b8bb26" } }),
 		border = "WilderPopupBorder", -- use our custom border highlight
 		default = "WilderPopupNormal", -- use our custom normal highlight
 		selected = "WilderPopupSelected", -- use our custom selected highlight
