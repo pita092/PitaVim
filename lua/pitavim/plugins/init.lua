@@ -6,24 +6,15 @@ return {
 		event = "VeryLazy",
 	},
 	{
-		"roobert/tailwindcss-colorizer-cmp.nvim",
-		-- optionally, override the default options:
-		config = function()
-			require("tailwindcss-colorizer-cmp").setup({
-				color_square_width = 2,
-			})
-		end,
-	},
-	{
 		"stevearc/dressing.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		config = function()
 			return require("pitavim.configs.ui")
 		end,
 	},
 	{
 		"Bekaboo/dropbar.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 		},
