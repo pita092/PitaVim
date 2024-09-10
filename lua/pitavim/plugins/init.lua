@@ -1,16 +1,5 @@
 return {
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    config = function()
-      return require("pitavim.configs.noice")
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-  },
-  {
     "romgrk/fzy-lua-native",
     "nixprime/cpsm",
     "sharkdp/fd",
@@ -180,13 +169,13 @@ return {
       return require("pitavim.configs.cmp")
     end,
   },
-  -- {
-  --   "gelguy/wilder.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     return require("pitavim.configs.wilder")
-  --   end,
-  -- },
+  {
+    "gelguy/wilder.nvim",
+    event = "VeryLazy",
+    config = function()
+      return require("pitavim.configs.wilder")
+    end,
+  },
   {
     "ellisonleao/gruvbox.nvim",
     event = "VeryLazy",
