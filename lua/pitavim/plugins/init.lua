@@ -1,13 +1,9 @@
 return {
 	-- lazy.nvim
 	{
-		"folke/noice.nvim",
+
+		"rcarriga/nvim-notify",
 		event = "VeryLazy",
-		opts = {},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
 	},
 	{
 		"romgrk/fzy-lua-native",
