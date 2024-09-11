@@ -167,92 +167,92 @@ local M = {}
 local web_devicons = require("nvim-web-devicons")
 
 local function get_file_icon(filename)
-	local extension = filename:match("^.+%.(.+)$")
-	local icon, icon_color = web_devicons.get_icon(filename, extension)
-	return icon or "", icon_color
+  local extension = filename:match("^.+%.(.+)$")
+  local icon, icon_color = web_devicons.get_icon(filename, extension)
+  return icon or "", icon_color
 end
 
 local function get_lsp_diagnostics(bufnr)
-	local diagnostics = vim.diagnostic.get(bufnr)
-	local count = { errors = 0, warnings = 0, info = 0, hints = 0 }
-	for _, diagnostic in ipairs(diagnostics) do
-		if diagnostic.severity == vim.diagnostic.severity.ERROR then
-			count.errors = count.errors + 1
-		elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-			count.warnings = count.warnings + 1
-		elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-			count.info = count.info + 1
-		elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-			count.hints = count.hints + 1
-		end
-	end
-	return count
+  local diagnostics = vim.diagnostic.get(bufnr)
+  local count = { errors = 0, warnings = 0, info = 0, hints = 0 }
+  for _, diagnostic in ipairs(diagnostics) do
+    if diagnostic.severity == vim.diagnostic.severity.ERROR then
+      count.errors = count.errors + 1
+    elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+      count.warnings = count.warnings + 1
+    elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+      count.info = count.info + 1
+    elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+      count.hints = count.hints + 1
+    end
+  end
+  return count
 end
 
 function M.MyTabLabel(n)
-	local buflist = vim.fn.tabpagebuflist(n)
-	local winnr = vim.fn.tabpagewinnr(n)
-	local bufnr = buflist[winnr]
-	local filename = vim.fn.bufname(bufnr)
-	local icon, icon_color = get_file_icon(filename)
-	local short_name = vim.fn.fnamemodify(filename, ":t")
-	short_name = short_name ~= "" and short_name or "[No Name]"
+  local buflist = vim.fn.tabpagebuflist(n)
+  local winnr = vim.fn.tabpagewinnr(n)
+  local bufnr = buflist[winnr]
+  local filename = vim.fn.bufname(bufnr)
+  local icon, icon_color = get_file_icon(filename)
+  local short_name = vim.fn.fnamemodify(filename, ":t")
+  short_name = short_name ~= "" and short_name or "[No Name]"
 
-	-- Get LSP diagnostics for the buffer
-	local diagnostics = get_lsp_diagnostics(bufnr)
+  -- Get LSP diagnostics for the buffer
+  local diagnostics = get_lsp_diagnostics(bufnr)
 
-	return {
-		icon = icon,
-		icon_color = icon_color,
-		text = short_name,
-		warnings = diagnostics.warnings,
-		errors = diagnostics.errors,
-	}
+  return {
+    icon = icon,
+    icon_color = icon_color,
+    text = short_name,
+    warnings = diagnostics.warnings,
+    errors = diagnostics.errors,
+  }
 end
 
 function M.MyTabLine()
-	local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
-	for i = 1, vim.fn.tabpagenr("$") do
-		if i > 1 then
-			s = s .. "%#TabLineFill#"
-		end
+  local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
+  for i = 1, vim.fn.tabpagenr("$") do
+    if i > 1 then
+      s = s .. "%#TabLineFill#"
+    end
 
-		local is_selected = i == vim.fn.tabpagenr()
-		local tab_hl = is_selected and " %#TabLineSel#" or " %#TabLine#"
+    local is_selected = i == vim.fn.tabpagenr()
+    local tab_hl = is_selected and " %#TabLineSel#" or " %#TabLine#"
 
-		s = s .. "%" .. i .. "T"
+    s = s .. "%" .. i .. "T"
 
-		local label = M.MyTabLabel(i)
-		local icon_hl = string.format("%%#%s#", label.icon_color or (is_selected and "TabLineSelIcon" or "TabLineIcon"))
-		s = s .. tab_hl .. " " .. icon_hl .. label.icon .. tab_hl .. " " .. label.text
+    local label = M.MyTabLabel(i)
+    local icon_hl = string.format("%%#%s#", label.icon_color or (is_selected and "TabLineSelIcon" or "TabLineIcon"))
+    s = s .. tab_hl .. " " .. icon_hl .. label.icon .. tab_hl .. " " .. label.text
 
-		-- Add LSP warning and error icons without numbers
-		if label.warnings > 0 then
-			s = s .. " %#WarningMsg#" .. " "
-		end
-		if label.errors > 0 then
-			s = s .. " %#ErrorMsg#" .. " "
-		end
+    -- Add LSP warning and error icons without numbers
+    if label.warnings > 0 then
+      s = s .. " %#WarningMsg#" .. " "
+    end
+    if label.errors > 0 then
+      s = s .. " %#ErrorMsg#" .. " "
+    end
 
-		s = s .. " "
-	end
-	s = s .. "%#TabLineFill#%T"
-	return s
+    s = s .. " "
+  end
+  s = s .. "%#TabLineFill#%T"
+  return s
 end
 
 function M.ClearHighlight()
-	vim.cmd("highlight clear TabLineFill")
-	vim.cmd("highlight clear NeoTreeNormal")
-	vim.cmd("highlight clear NeoTreeNormalNC")
-	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fbf1c7", bg = "NONE", bold = true })')
-	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "NONE" })')
-	vim.cmd('lua vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })')
-	vim.cmd('lua vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#Fb4934", bg = "NONE" })')
-	return ""
+  vim.cmd("highlight clear TabLineFill")
+  vim.cmd("highlight clear NeoTreeNormal")
+  vim.cmd("highlight clear NeoTreeNormalNC")
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "#3c3836", bold = true })')
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "NONE" })')
+  vim.cmd('lua vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })')
+  vim.cmd('lua vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#Fb4934", bg = "NONE" })')
+  return ""
 end
 
 function M.setup()
-	vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
+  vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
 end
 
 return M
