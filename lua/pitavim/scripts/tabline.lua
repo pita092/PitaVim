@@ -218,7 +218,7 @@ function M.MyTabLine()
 		end
 
 		local is_selected = i == vim.fn.tabpagenr()
-		local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
+		local tab_hl = is_selected and " %#TabLineSel#" or " %#TabLine#"
 
 		s = s .. "%" .. i .. "T"
 
