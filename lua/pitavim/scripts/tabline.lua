@@ -356,7 +356,7 @@ function M.MyTabLine()
 
     s = s .. "%#TabLineFill# " -- Space between tabs
   end
-  s = s .. "%#TabLineFill#%T"
+  s = s .. "%#TabLineFill#%"
   return s
 end
 
