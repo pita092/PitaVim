@@ -87,7 +87,7 @@ cmp.setup({
     { name = "path" },
     { name = "spell",      keyword_length = 3, priority = 5 },
     { name = "dictionary", keyword_length = 3, priority = 5 },
-    { name = "nvim_lua",   priority = 5 },
+    { name = "nvim_lua" },
     { name = "calc" },
   },
   formatting = {
