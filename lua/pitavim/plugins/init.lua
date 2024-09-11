@@ -115,9 +115,18 @@ return {
       "nvim-telescope/telescope.nvim",
       lazy = true,
       cmd = "Telescope",
+      keys = {
+        { ":", "<cmd>Telescope cmdline<cr>", desc = "Cmdline" },
+      },
+      opts = {
+        extensions = {
+          cmdline = {},
+        },
+      },
       dependencies = {
         "nvim-telescope/telescope-media-files.nvim",
         { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+        "jonarrien/telescope-cmdline.nvim",
       },
       config = function()
         return require("pitavim.configs.telescope")
