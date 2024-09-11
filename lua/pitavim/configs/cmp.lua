@@ -61,8 +61,8 @@ cmp.setup({
     end,
   },
   window = {
-    completion = borderstyle,
-    documentation = borderstyle,
+    completion = blankaborder,
+    documentation = blankaborder,
   },
 
   mapping = cmp.mapping.preset.insert({
