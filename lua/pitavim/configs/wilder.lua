@@ -85,6 +85,11 @@ wilder.set_option(
   "renderer",
   wilder.renderer_mux({
     [":"] = wilder.popupmenu_renderer({
+	highlights = {
+		accent = wilder.make_hl(
+			"WilderAccent",
+			"Pmenu",
+			{ { a = 1 }, { a = 1 }, { foreground = "#b8bb26" }, { background = "NONE" } }},
       highlighter = wilder.lua_fzy_highlighter(),
       left = {
         " ",
@@ -96,3 +101,6 @@ wilder.set_option(
     }),
   })
 )
+
+
+
