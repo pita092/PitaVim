@@ -1,5 +1,9 @@
 require("telescope").setup({
 	pickers = {
+		cmdline = {
+			prompt_title = "/*Cmdline*/",
+			prompt_prefix = "  ",
+		},
 		find_files = {
 			prompt_title = "/*Find Files*/",
 			prompt_prefix = "🗂️ ",
