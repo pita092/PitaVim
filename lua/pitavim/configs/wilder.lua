@@ -52,12 +52,7 @@ wilder.set_option(
 	"renderer",
 	wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
 		highlights = {
-			accent = wilder.make_hl(
-				"WilderAccent",
-				"Pmenu",
-				{ { a = 1 }, { a = 1 }, { foreground = "#b8bb26" }, { background = "NONE" } }
-			),
-			border = "WilderPopupBorder", -- use our custom border highlight
+					border = "WilderPopupBorder", -- use our custom border highlight
 			default = "WilderPopupNormal", -- use our custom normal highlight
 			selected = "WilderPopupSelected", -- use our custom selected highlight
 		},
