@@ -270,6 +270,7 @@
 --
 --
 
+
 local M = {}
 local web_devicons = require("nvim-web-devicons")
 
@@ -296,10 +297,21 @@ local function get_lsp_diagnostics(bufnr)
   return count
 end
 
+local function is_neo_tree_buffer(bufnr)
+  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+  return filetype == "neo-tree"
+end
+
 function M.MyTabLabel(n)
   local buflist = vim.fn.tabpagebuflist(n)
   local winnr = vim.fn.tabpagewinnr(n)
   local bufnr = buflist[winnr]
+
+  -- Skip Neo-tree buffers
+  if is_neo_tree_buffer(bufnr) then
+    return nil
+  end
+
   local filename = vim.fn.bufname(bufnr)
   local icon, icon_color = get_file_icon(filename)
   local short_name = vim.fn.fnamemodify(filename, ":t")
@@ -321,6 +333,15 @@ end
 function M.MyTabLine()
   local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
   for i = 1, vim.fn.tabpagenr("$") do
+    local buflist = vim.fn.tabpagebuflist(i)
+    local winnr = vim.fn.tabpagewinnr(i)
+    local bufnr = buflist[winnr]
+
+    -- Skip Neo-tree buffers
+    if is_neo_tree_buffer(bufnr) then
+      goto continue
+    end
+
     local is_selected = i == vim.fn.tabpagenr()
     local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
     local icon_bg = is_selected and "%#TabLineSelIconBg#" or "%#TabLineIconBg#"
@@ -329,6 +350,9 @@ function M.MyTabLine()
     s = s .. "%" .. i .. "T"
 
     local label = M.MyTabLabel(i)
+    if not label then
+      goto continue
+    end
     local icon_color = label.icon_color and ("%#" .. label.icon_color .. "#") or tab_hl
 
     -- Left border
@@ -355,6 +379,8 @@ function M.MyTabLine()
     s = s .. border_hl .. "]"
 
     s = s .. "%#TabLineFill# " -- Space between tabs
+
+    ::continue::
   end
   s = s .. "%#TabLineFill#%T"
   return s
@@ -373,7 +399,7 @@ function M.ClearHighlight()
   vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })
   vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "NONE" })
   vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "NONE" })
-  vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "NONE" })
   return ""
 end
 
