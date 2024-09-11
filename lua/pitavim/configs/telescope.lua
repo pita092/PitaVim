@@ -87,6 +87,9 @@ require("telescope").setup({
   extensions = {
     cmdline = {
       picker = {
+        prompt_title = "/*Cmdline*/",
+        prompt_prefix = "  ",
+
         layout_config = {
           width = 70,
           height = 25,
