@@ -1,3 +1,5 @@
+local lspkind = require("lspkind")
+
 require("telescope").setup({
   pickers = {
     find_files = {
@@ -86,6 +88,10 @@ require("telescope").setup({
   },
   extensions = {
     cmdline = {
+      format_item = function(entry, item)
+        local icon = lspkind.presets.default[item.kind]
+        return string.format("%s %s", icon, item.label)
+      end,
       picker = {
         prompt_title = "/*Cmdline*/",
         prompt_prefix = "  ",
