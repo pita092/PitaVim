@@ -71,3 +71,14 @@ vim.cmd([[
 vim.api.nvim_create_user_command("Updt", "Lazy update nvim-plugins", {
   desc = "Update neovim plugins",
 })
+vim.cmd([[
+  function! LuaAbbreviation()
+    let cmd = getcmdline()
+    if cmd =~ '\v\C^(lua\s+)@!'
+      return 'lua'
+    endif
+    return '🌙'
+  endfunction
+
+  cabbrev <expr> lua LuaAbbreviation()
+]])
