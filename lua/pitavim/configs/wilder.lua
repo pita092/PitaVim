@@ -47,17 +47,14 @@ local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_border_the
   prompt_position = "top", -- 'top' or 'bottom' to set the location of the prompt
   reverse = 0,            -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
 }))
+
 wilder.set_option(
   "renderer",
   wilder.popupmenu_renderer({
     -- highlighter applies highlighting to the candidates
     highlighter = wilder.basic_highlighter(),
-    wilder.set_option(
-      "renderer",
-      wilder.popupmenu_renderer({
-        -- highlighter applies highlighting to the candidates
-        highlighter = wilder.basic_highlighter(),
-      })
-    ),
+    separator = " · ",
+    left = { " ", wilder.popupmenu_devicons() },
+    right = { " ", wilder.wildmenu_index() },
   })
 )
