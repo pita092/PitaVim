@@ -255,8 +255,7 @@
 --   vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
 -- end
 --
--- return MyTabLine
---
+-- return M
 --
 
 local M = {}
@@ -302,8 +301,8 @@ function M.MyTabLabel(n)
     text = short_name,
     warnings = diagnostics.warnings,
     errors = diagnostics.errors,
-    info = diagnostics.info, -- Added info count
-    hints = diagnostics.hints, -- Added hints count
+    info = diagnostics.info,
+    hints = diagnostics.hints,
   }
 end
 
@@ -319,8 +318,8 @@ function M.MyTabLine()
     local label = M.MyTabLabel(i)
     local icon_hl = string.format("%%#%s#", label.icon_color or (is_selected and "TabLineSelIcon" or "TabLineIcon"))
 
-    -- Add background color to the icon
-    s = s .. icon_bg_hl .. icon_hl .. label.icon .. icon_bg_hl .. " " .. tab_hl .. label.text
+    -- Add background color to the icon and text
+    s = s .. icon_bg_hl .. icon_hl .. label.icon .. "%#TabLineIconBg# " .. tab_hl .. label.text
 
     -- Add LSP diagnostic icons with numbers
     if label.errors > 0 then
@@ -347,12 +346,12 @@ function M.ClearHighlight()
   vim.cmd("highlight clear NeoTreeNormalNC")
   vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "#3c3836", bold = true })')
   vim.cmd('lua vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "#282828" })')
-  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "#504945" })') -- Background for selected tab icons
-  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "#3c3836" })')   -- Background for non-selected tab icons
-  vim.cmd('lua vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })')
-  vim.cmd('lua vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "NONE" })')
-  vim.cmd('lua vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "NONE" })')
-  vim.cmd('lua vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "NONE" })')
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "#504945" })')          -- Background for selected tab icons
+  vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "#3c3836" })')             -- Background for non-selected tab icons
+  vim.cmd('lua vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "#3c3836" })') -- Set background for warning messages
+  vim.cmd('lua vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "#3c3836" })')  -- Set background for error messages
+  vim.cmd('lua vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "#3c3836" })')   -- Set background for info messages
+  vim.cmd('lua vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "#3c3836" })')   -- Set background for hint messages
   return ""
 end
 
