@@ -68,6 +68,6 @@ vim.cmd([[
 
 ---custom commands
 
-vim.api.nvim_create_user_command("Updt", "Lazy update", {
+vim.api.nvim_create_user_command("Updt", "Lazy update nvim-plugins", {
   desc = "Update neovim plugins",
 })
