@@ -40,7 +40,7 @@ local colors = {
 -- Telescope highlight groups
 local highlights = {
   TelescopeBorder = { fg = colors.bg1, bg = colors.bg1 },
-  TelescopeNormal = { bg = "NONE" },
+  TelescopeNormal = { bg = "ffffff" },
   TelescopePromptBorder = { fg = colors.bg2, bg = colors.bg2 },
   TelescopePromptNormal = { fg = colors.fg1, bg = colors.gray },
   TelescopePromptPrefix = { fg = colors.orange, bg = colors.bg2 },
