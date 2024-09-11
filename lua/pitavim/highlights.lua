@@ -53,24 +53,6 @@ local highlights = {
 	TelescopeResultsDiffDelete = { fg = colors.red },
 }
 
-vim.defer_fn(function()
-	vim.cmd([[
-    highlight SignColumn guibg=NONE ctermbg=NONE
-  ]])
-end, 100)
-
-vim.cmd([[
-  colorscheme gruvbox
-  highlight Normal guibg=#282828
-  ]])
-
-vim.cmd([[
-  colorscheme gruvbox
-  highlight TelescopeNormal guibg=#3c3836
-  highlight TelescopeSelection guibg=#7c6f64
-  highlight  TelescopePromptPrefix guifg=#fbf1c7
-  ]])
-
 -- Apply highlights
 for hl_group, col in pairs(highlights) do
 	vim.api.nvim_set_hl(0, hl_group, col)
