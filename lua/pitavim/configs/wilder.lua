@@ -59,3 +59,10 @@ wilder.set_option(
     border = "rounded",
   }))
 )
+wilder.set_option(
+  "renderer",
+  wilder.popupmenu_renderer({
+    -- highlighter applies highlighting to the candidates
+    highlighter = wilder.basic_highlighter(),
+  })
+)
