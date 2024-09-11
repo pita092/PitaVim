@@ -54,12 +54,3 @@ local wildmenu_renderer = wilder.wildmenu_renderer({
   left = { " ", wilder.popupmenu_devicons() },
   right = { " ", wilder.wildmenu_index() },
 })
-
-wilder.set_option(
-  "renderer",
-  wilder.renderer_mux({
-    [":"] = popupmenu_renderer,
-    ["/"] = wildmenu_renderer,
-    ["?"] = wildmenu_renderer,
-  })
-)
