@@ -361,9 +361,10 @@ function M.MyTabLine()
 end
 
 function M.ClearHighlight()
+  vim.cmd("highlight clear TabLineFill")
   vim.cmd("highlight clear NeoTreeNormal")
   vim.cmd("highlight clear NeoTreeNormalNC")
-  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "#3c3836", bold = true })
+  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "NONE", bold = true })
   vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "#282828" })
   vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "#504945" })
   vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "#3c3836" })
