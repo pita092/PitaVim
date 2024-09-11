@@ -345,7 +345,7 @@ function M.ClearHighlight()
 	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "NONE" })')
 	vim.cmd('lua vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })')
 	vim.cmd('lua vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#Fb4934", bg = "NONE" })')
-	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "#3c3836" })') -- New highlight for icon background
+	vim.cmd('lua vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "NONE" })') -- New highlight for icon background
 	return ""
 end
 
