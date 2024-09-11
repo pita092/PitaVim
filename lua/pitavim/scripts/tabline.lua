@@ -1,3 +1,14 @@
+-- vim.cmd("highlight clear TabLineFill")
+-- vim.cmd("highlight clear NeoTreeNormal")
+-- vim.cmd("highlight clear NeoTreeNormalNC")
+-- vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "NONE", bold = true })
+-- vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "#504945" })
+-- vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "#3c3836" })
+-- vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "#3c3836" })
+-- vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "#3c3836" })
+-- vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "#3c3836" })
+-- vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "#3c3836" })
+
 -- local M = {}
 -- local function get_file_icon(filename)
 --   local file_icon = {
@@ -312,6 +323,10 @@ function M.MyTabLine()
     local is_selected = i == vim.fn.tabpagenr()
     local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
     local icon_bg = is_selected and "%#TabLineSelIconBg#" or "%#TabLineIconBg#"
+    local border_hl = is_selected and "%#TabLineSelBorder#" or "%#TabLineBorder#"
+
+    -- Start of tab (left border)
+    s = s .. border_hl .. "│"
 
     s = s .. "%" .. i .. "T"
 
@@ -335,19 +350,25 @@ function M.MyTabLine()
       s = s .. " %#HintMsg#" .. " " .. label.hints
     end
 
-    s = s .. " "
+    -- End of tab (right border)
+    s = s .. border_hl .. "│"
+
+    -- Add a small gap between tabs
+    s = s .. "%#TabLineFill# "
   end
   s = s .. "%#TabLineFill#%T"
   return s
 end
 
 function M.ClearHighlight()
-  vim.cmd("highlight clear TabLineFill")
   vim.cmd("highlight clear NeoTreeNormal")
   vim.cmd("highlight clear NeoTreeNormalNC")
-  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "NONE", bold = true })
+  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "#3c3836", bold = true })
+  vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "#282828" })
   vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "#504945" })
   vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "TabLineBorder", { fg = "#504945", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TabLineSelBorder", { fg = "#fabd2f", bg = "NONE" })
   vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "#3c3836" })
   vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "#3c3836" })
   vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "#3c3836" })
