@@ -66,6 +66,12 @@ vim.cmd([[
   highlight Normal guibg=#282828
   ]])
 
+vim.cmd([[
+  colorscheme gruvbox
+  highlight TelescopeNormal guibg=#3c3836
+
+  ]])
+
 ---custom commands
 
 vim.api.nvim_create_user_command("Updt", "Lazy update nvim-plugins", {
