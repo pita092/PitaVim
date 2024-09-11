@@ -268,7 +268,6 @@
 --
 -- return M
 --
-
 local M = {}
 local web_devicons = require("nvim-web-devicons")
 
@@ -318,91 +317,67 @@ function M.MyTabLabel(n)
 end
 
 function M.MyTabLine()
-  local top_line = "%#TabLineFill#%{v:lua.require('pitavim.scripts.tabline').ClearHighlight()}"
-  local middle_line = ""
-  local bottom_line = ""
-
+  local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
   for i = 1, vim.fn.tabpagenr("$") do
     local is_selected = i == vim.fn.tabpagenr()
     local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
     local icon_bg = is_selected and "%#TabLineSelIconBg#" or "%#TabLineIconBg#"
     local border_hl = is_selected and "%#TabLineSelBorder#" or "%#TabLineBorder#"
 
+    -- Start of tab (left border)
+    s = s .. border_hl .. "│"
+
+    s = s .. "%" .. i .. "T"
+
     local label = M.MyTabLabel(i)
+
+    -- Use the icon color if available, otherwise use the default tab color
     local icon_color = label.icon_color and ("%#" .. label.icon_color .. "#") or tab_hl
-
-    -- Top border
-    top_line = top_line
-        .. border_hl
-        .. "┌──"
-        .. string.rep("─", #label.text)
-        .. "──┐"
-        .. "%#TabLineFill#"
-
-    -- Middle line (content)
-    middle_line = middle_line
-        .. "%"
-        .. i
-        .. "T"
-        .. border_hl
-        .. "│ "
-        .. icon_bg
-        .. icon_color
-        .. label.icon
-        .. " "
-        .. tab_hl
-        .. label.text
-        .. " "
+    s = s .. icon_bg .. icon_color .. label.icon .. " " .. tab_hl .. label.text
 
     -- Add LSP diagnostic icons without numbers
     if label.errors then
-      middle_line = middle_line .. "%#ErrorMsg#" .. ""
+      s = s .. " %#ErrorMsg#" .. ""
     end
     if label.warnings then
-      middle_line = middle_line .. "%#WarningMsg#" .. ""
+      s = s .. " %#WarningMsg#" .. ""
     end
     if label.info then
-      middle_line = middle_line .. "%#InfoMsg#" .. ""
+      s = s .. " %#InfoMsg#" .. ""
     end
     if label.hints then
-      middle_line = middle_line .. "%#HintMsg#" .. ""
+      s = s .. " %#HintMsg#" .. ""
     end
 
-    middle_line = middle_line .. border_hl .. "│" .. "%#TabLineFill#"
+    -- End of tab (right border)
+    s = s .. border_hl .. "│"
 
-    -- Bottom border
-    bottom_line = bottom_line
-        .. border_hl
-        .. "└──"
-        .. string.rep("─", #label.text)
-        .. "──┘"
-        .. "%#TabLineFill#"
+    -- Add a small gap between tabs
+    s = s .. "%#TabLineFill# "
   end
-
-  return top_line .. "\n" .. middle_line .. "\n" .. bottom_line
+  s = s .. "%#TabLineFill#%T"
+  return s
 end
 
 function M.ClearHighlight()
+  vim.cmd("highlight clear TabLineFill")
   vim.cmd("highlight clear NeoTreeNormal")
   vim.cmd("highlight clear NeoTreeNormalNC")
   vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "NONE", bold = true })
-  vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "#282828" })
-  vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "#504945" })
+  vim.api.nvim_set_hl(0, "TabLine", { fg = "NONE", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "NONE" })
   vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "#3c3836" })
   vim.api.nvim_set_hl(0, "TabLineBorder", { fg = "#504945", bg = "NONE" })
   vim.api.nvim_set_hl(0, "TabLineSelBorder", { fg = "#fabd2f", bg = "NONE" })
-  vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "#3c3836" })
-  vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "#3c3836" })
-  vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "#3c3836" })
-  vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "NONe" })
   return ""
 end
 
 function M.setup()
-  -- We'll use statusline instead of tabline for this multi-line approach
-  vim.o.laststatus = 3 -- Global statusline
-  vim.o.showtabline = 0 -- Hide the default tabline
-  vim.o.statusline = "%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()"
+  vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
 end
 
 return M
