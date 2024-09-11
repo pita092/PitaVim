@@ -307,7 +307,17 @@ function M.MyTabLabel(n)
   local winnr = vim.fn.tabpagewinnr(n)
   local bufnr = buflist[winnr]
 
-  -- Skip Neo-tree buffers
+  -- If it's a Neo-tree buffer, find the next non-Neo-tree buffer in the tab
+  if is_neo_tree_buffer(bufnr) then
+    for _, buf in ipairs(buflist) do
+      if not is_neo_tree_buffer(buf) then
+        bufnr = buf
+        break
+      end
+    end
+  end
+
+  -- If we still have a Neo-tree buffer, return nil
   if is_neo_tree_buffer(bufnr) then
     return nil
   end
@@ -333,12 +343,8 @@ end
 function M.MyTabLine()
   local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
   for i = 1, vim.fn.tabpagenr("$") do
-    local buflist = vim.fn.tabpagebuflist(i)
-    local winnr = vim.fn.tabpagewinnr(i)
-    local bufnr = buflist[winnr]
-
-    -- Skip Neo-tree buffers
-    if is_neo_tree_buffer(bufnr) then
+    local label = M.MyTabLabel(i)
+    if not label then
       goto continue
     end
 
@@ -349,10 +355,6 @@ function M.MyTabLine()
 
     s = s .. "%" .. i .. "T"
 
-    local label = M.MyTabLabel(i)
-    if not label then
-      goto continue
-    end
     local icon_color = label.icon_color and ("%#" .. label.icon_color .. "#") or tab_hl
 
     -- Left border
