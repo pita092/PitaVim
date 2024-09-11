@@ -266,7 +266,8 @@
 --   vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
 -- end
 --
--- return M
+-- return MyTabLine
+--
 --
 
 local M = {}
@@ -330,30 +331,28 @@ function M.MyTabLine()
     local label = M.MyTabLabel(i)
     local icon_color = label.icon_color and ("%#" .. label.icon_color .. "#") or tab_hl
 
-    -- Simulated top border
-    s = s .. border_hl .. "┌" .. string.rep("─", #label.text + 4) .. "┐"
+    -- Left border
+    s = s .. border_hl .. "["
 
     -- Tab content
-    s = s .. border_hl .. "│ " .. icon_bg .. icon_color .. label.icon .. " " .. tab_hl .. label.text .. " "
+    s = s .. icon_bg .. icon_color .. label.icon .. " " .. tab_hl .. label.text
 
     -- Add LSP diagnostic icons without numbers
     if label.errors then
-      s = s .. "%#ErrorMsg#" .. ""
+      s = s .. " %#ErrorMsg#" .. ""
     end
     if label.warnings then
-      s = s .. "%#WarningMsg#" .. ""
+      s = s .. " %#WarningMsg#" .. ""
     end
     if label.info then
-      s = s .. "%#InfoMsg#" .. ""
+      s = s .. " %#InfoMsg#" .. ""
     end
     if label.hints then
-      s = s .. "%#HintMsg#" .. ""
+      s = s .. " %#HintMsg#" .. ""
     end
 
-    s = s .. border_hl .. "│"
-
-    -- Simulated bottom border
-    s = s .. border_hl .. "└" .. string.rep("─", #label.text + 4) .. "┘"
+    -- Right border
+    s = s .. border_hl .. "]"
 
     s = s .. "%#TabLineFill# " -- Space between tabs
   end
