@@ -1,118 +1,118 @@
 require("telescope").setup({
-	pickers = {
-		find_files = {
-			prompt_title = "/*Find Files*/",
-			prompt_prefix = "🗂️ ",
-		},
-		live_grep = {
-			prompt_title = "/*Search Text*/",
-			prompt_prefix = "🕵️‍♂️ ",
-		},
-		current_buffer_fuzzy_find = {
-			prompt_title = "/*Fuzzy Find Current Buffer*/",
-			prompt_prefix = "📜 ",
-		},
-		git_files = {
-			prompt_title = "/*Git File*/",
-			prompt_prefix = "📦 ",
-		},
-		builtin = {
-			prompt_title = "/*Global Telescope Menu*/",
-			prompt_prefix = "🚀 ",
-		},
-		help_tags = {
-			prompt_title = "/*Global Telescope Menu*/",
-			prompt_prefix = "💡 ",
-		},
-		git_commits = {
-			prompt_title = "/*Git Commits*/",
-			prompt_prefix = "⏩ ",
-		},
-		keymaps = {
-			prompt_title = "/*Keymaps*/",
-			prompt_prefix = "🔑 ",
-		},
-	},
-	defaults = {
-		vimgrep_arguments = {
-			"rg",
-			"-L",
-			"--color=never",
-			"--no-heading",
-			"--with-filename",
-			"--line-number",
-			"--column",
-			"--smart-case",
-		},
-		previewer = false,
-		prompt_prefix = "  ",
-		selection_caret = "   ",
-		entry_prefix = "  ",
-		initial_mode = "insert",
-		selection_strategy = "reset",
-		sorting_strategy = "ascending",
-		layout_strategy = "horizontal",
-		layout_config = {
-			horizontal = {
-				prompt_position = "top",
-				preview_width = 0.55,
-				results_width = 0.8,
-			},
-			vertical = {
-				mirror = false,
-			},
-			width = 0.87,
-			height = 0.80,
-			preview_cutoff = 120,
-		},
-		file_sorter = require("telescope.sorters").get_fuzzy_file,
-		file_ignore_patterns = { "node_modules" },
-		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-		path_display = { "truncate" },
-		winblend = 0,
-		border = {},
-		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-		color_devicons = true,
-		set_env = { ["COLORTERM"] = "truecolor" },
-		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-		mappings = {
-			n = { ["q"] = require("telescope.actions").close },
-		},
-	},
-	extensions = {
-		cmdline = {
-			picker = {
-				layout_config = {
-					width = 120,
-					height = 25,
-				},
-			},
-			mappings = {
-				complete = "<Tab>",
-				run_selection = "<C-CR>",
-				run_input = "<CR>",
-			},
-		},
-		["ui-select"] = {
-			require("telescope.themes").get_cursor({
-				width = 0.8,
-				previewer = false,
-			}),
-			fzf = {
-				fuzzy = true,
-				override_generic_sorter = true,
-				override_file_sorter = true,
-				case_mode = "smart_case",
-			},
-		},
-		media_files = {
-			filetypes = { "png", "webp", "jpg", "jpeg" },
-			find_cmd = "rg",
-		},
-	},
+  pickers = {
+    find_files = {
+      prompt_title = "/*Find Files*/",
+      prompt_prefix = "🗂️ ",
+    },
+    live_grep = {
+      prompt_title = "/*Search Text*/",
+      prompt_prefix = "🕵️‍♂️ ",
+    },
+    current_buffer_fuzzy_find = {
+      prompt_title = "/*Fuzzy Find Current Buffer*/",
+      prompt_prefix = "📜 ",
+    },
+    git_files = {
+      prompt_title = "/*Git File*/",
+      prompt_prefix = "📦 ",
+    },
+    builtin = {
+      prompt_title = "/*Global Telescope Menu*/",
+      prompt_prefix = "🚀 ",
+    },
+    help_tags = {
+      prompt_title = "/*Global Telescope Menu*/",
+      prompt_prefix = "💡 ",
+    },
+    git_commits = {
+      prompt_title = "/*Git Commits*/",
+      prompt_prefix = "⏩ ",
+    },
+    keymaps = {
+      prompt_title = "/*Keymaps*/",
+      prompt_prefix = "🔑 ",
+    },
+  },
+  defaults = {
+    vimgrep_arguments = {
+      "rg",
+      "-L",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
+    previewer = false,
+    prompt_prefix = "  ",
+    selection_caret = "   ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "ascending",
+    layout_strategy = "horizontal",
+    layout_config = {
+      horizontal = {
+        prompt_position = "top",
+        preview_width = 0.55,
+        results_width = 0.8,
+      },
+      vertical = {
+        mirror = false,
+      },
+      width = 0.87,
+      height = 0.80,
+      preview_cutoff = 120,
+    },
+    file_sorter = require("telescope.sorters").get_fuzzy_file,
+    file_ignore_patterns = { "node_modules" },
+    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+    path_display = { "truncate" },
+    winblend = 0,
+    border = {},
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    color_devicons = true,
+    set_env = { ["COLORTERM"] = "truecolor" },
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+    mappings = {
+      n = { ["q"] = require("telescope.actions").close },
+    },
+  },
+  extensions = {
+    cmdline = {
+      picker = {
+        layout_config = {
+          width = 70,
+          height = 25,
+        },
+      },
+      mappings = {
+        complete = "<Tab>",
+        run_selection = "<C-CR>",
+        run_input = "<CR>",
+      },
+    },
+    ["ui-select"] = {
+      require("telescope.themes").get_cursor({
+        width = 0.8,
+        previewer = false,
+      }),
+      fzf = {
+        fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case",
+      },
+    },
+    media_files = {
+      filetypes = { "png", "webp", "jpg", "jpeg" },
+      find_cmd = "rg",
+    },
+  },
 })
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
