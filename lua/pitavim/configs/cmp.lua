@@ -3,7 +3,7 @@ require("nvim-autopairs").setup({})
 local cmdline_formatting = {
   format = function(entry, vim_item)
     -- Customize the format for cmdline items
-    vim_item.kind = "CMD" -- Example: Set all items to have "CMD" as kind
+    vim_item.kind = "" -- Example: Set all items to have "CMD" as kind
     vim_item.menu = ({
       buffer = "[Buffer]",
       path = "[Path]",
