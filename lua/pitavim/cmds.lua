@@ -62,14 +62,14 @@ vim.cmd([[
   highligh  TelescopePromptBorder guibg=#504945
   highligh  TelescopePromptBorder guifg=#504945
   highlight TelescopePromptNormal guibg=#504945
-  highlight TelescopeNormal guibg=NONE
+  highlight TelescopeNormal guibg=#3c3836
   highlight TelescopeNormal guifg=#fbf1c7
   highlight TelescopeSelection guibg=#7c6f64
   highlight  TelescopePromptPrefix guifg=#b8bb26
   highlight TelescopeMatching guifg=#fabd2f
   highlight Pmenu guibg=#3c3836
-  highlight 	TelescopePromptTitle guibg=#fbf1c7
-  highlight 	TelescopePromptTitle guifg=#3c3836
+  highlight 	TelescopePromptTitle guibg=#282828
+  highlight 	TelescopePromptTitle guifg=#fbf1c7
   highlight 	TelescopeBorder guifg=#fbf1c7
   highlight 	TelescopeBorder guibg=#fbf1c7
   ]])
