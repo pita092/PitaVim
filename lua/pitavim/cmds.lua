@@ -59,6 +59,8 @@ vim.cmd([[
   ]])
 
 vim.cmd([[
+  highligh  TelescopePromptBorder guibg=#504945
+  highligh  TelescopePromptBorder guifg=#504945
   highlight TelescopePromptNormal guibg=#504945
   highlight TelescopeNormal guibg=#3c3836
   highlight TelescopeNormal guifg=#fbf1c7
