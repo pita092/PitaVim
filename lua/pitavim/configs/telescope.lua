@@ -110,7 +110,7 @@ require("telescope").setup({
 		["ui-select"] = {
 			require("telescope.themes").get_cursor({
 				width = 0.8,
-				previewer = false,
+				previewer = true,
 			}),
 			fzf = {
 				fuzzy = true,
