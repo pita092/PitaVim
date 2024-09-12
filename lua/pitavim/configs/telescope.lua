@@ -37,7 +37,9 @@ require("telescope").setup({
     },
   },
   defaults = {
-    require("telescope.themes").get_dropdown(),
+    require("telescope.themes").get_dropdown({
+      previewer = true,
+    }),
     vimgrep_arguments = {
       "rg",
       "-L",
