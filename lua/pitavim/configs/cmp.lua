@@ -61,7 +61,7 @@ cmp.setup({
     end,
   },
   window = {
-    completion = blankaborder,
+    completion = borderstyle,
     documentation = blankaborder,
   },
 
