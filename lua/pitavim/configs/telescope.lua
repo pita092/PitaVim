@@ -1,6 +1,9 @@
 local lspkind = require("lspkind")
 
 local function center(prompt_bufnr, text)
+  if not text or text == "" then
+    text = "Telescope" -- Default text if none is provided
+  end
   local width = vim.api.nvim_win_get_width(0)
   local padding = math.floor((width - #text) / 2)
   vim.api.nvim_buf_set_lines(prompt_bufnr, 0, 1, false, { string.rep(" ", padding) .. text })
