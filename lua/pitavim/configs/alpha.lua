@@ -206,7 +206,7 @@ require("alpha.term")
 
 local terminal = {
   type = "terminal",
-  command = vim.fn.expand("$HOME") .. "/.config/thisisfine.sh",
+  command = vim.fn.expand("$HOME") .. "/.config/myimage.sh",
   width = 46,
   height = 25,
   opts = {
