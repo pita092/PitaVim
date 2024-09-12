@@ -1,9 +1,10 @@
 local lspkind = require("lspkind")
 
-local function center(text)
-  local width = vim.api.nvim_get_option("columns")
+local function center(prompt_bufnr, text)
+  local width = vim.api.nvim_win_get_width(0)
   local padding = math.floor((width - #text) / 2)
-  return string.rep(" ", padding) .. text
+  vim.api.nvim_buf_set_lines(prompt_bufnr, 0, 1, false, { string.rep(" ", padding) .. text })
+  vim.api.nvim_buf_add_highlight(prompt_bufnr, -1, "TelescopeTitle", 0, padding, -1)
 end
 
 require("telescope").setup({
