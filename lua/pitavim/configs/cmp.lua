@@ -5,9 +5,9 @@ local cmdline_formatting = {
     -- Customize the format for cmdline items
     vim_item.kind = "" -- Example: Set all items to have "CMD" as kind
     vim_item.menu = ({
-      buffer = "[Buffer]",
+      buffer = "[Buff]",
       path = "[Path]",
-      cmdline = "[Cmdline]",
+      cmdline = "[Cmd]",
     })[entry.source.name]
     return vim_item
   end,
@@ -161,7 +161,7 @@ cmp.setup.cmdline(":", {
     {
       name = "cmdline",
       option = {
-        ignore_cmds = { "Man", "!", "Dashboard" },
+        ignore_cmds = { "Man", "Dashboard" },
       },
     },
   }),
