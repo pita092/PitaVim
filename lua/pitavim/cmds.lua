@@ -64,6 +64,7 @@ vim.cmd([[
   highlight TelescopeSelection guibg=#7c6f64
   highlight  TelescopePromptPrefix guifg=#b8bb26
   highlight TelescopeMatching guifg=#fabd2f
+  highlight CmpItemMenu guibg=#3c3836
   ]])
 
 ---custom commands
