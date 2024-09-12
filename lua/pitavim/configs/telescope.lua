@@ -1,9 +1,14 @@
 local lspkind = require("lspkind")
 
-local function centered_title(text)
-  local width = vim.api.nvim_get_option("columns")
-  local padding = math.floor((width - #text) / 2)
-  return string.format("%%%ds%s", padding, text)
+local function centered_title(title)
+  return function(_, bufnr)
+    local width = vim.api.nvim_win_get_width(0)
+    local pad_width = math.floor((width - #title) / 2)
+    local title_line = string.rep(" ", pad_width) .. title
+
+    vim.api.nvim_buf_set_lines(bufnr, 0, 1, false, { title_line })
+    vim.api.nvim_buf_add_highlight(bufnr, -1, "TelescopeTitle", 0, pad_width, -1)
+  end
 end
 
 require("telescope").setup({
