@@ -68,6 +68,7 @@ vim.cmd([[
   highlight Pmenu guibg=#3c3836
   highlight 	TelescopePromptTitle guibg=#fbf1c7
   highlight 	TelescopePromptTitle guifg=#3c3836
+  highlight TelescopePrompt guibg=#fbf1c7
   ]])
 
 ---custom commands
