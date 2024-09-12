@@ -10,6 +10,7 @@ local cmdline_formatting = {
 		return vim_item
 	end,
 }
+local cmp = require("cmp")
 -- `/` cmdline setup.
 cmp.setup.cmdline("/", {
 	mapping = cmp.mapping.preset.cmdline(),
