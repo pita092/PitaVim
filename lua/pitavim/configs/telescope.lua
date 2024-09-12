@@ -1,43 +1,44 @@
 local lspkind = require("lspkind")
-local function center(str)
-  local width = vim.api.nvim_win_get_width(0)
-  local shift = math.floor((width - #str) / 2)
-  return string.rep(" ", shift) .. str
+
+local function centered_title(text)
+  local width = vim.api.nvim_get_option("columns")
+  local padding = math.floor((width - #text) / 2)
+  return string.rep(" ", padding) .. text
 end
 
 require("telescope").setup({
   pickers = {
     find_files = {
-      prompt_title = center("/*Find Files*/"),
+      prompt_title = centered_title("/*Find Files*/"),
       prompt_prefix = " ",
     },
     live_grep = {
-      prompt_title = center("/*Search Text*/"),
+      prompt_title = centered_title("/*Search Text*/"),
       prompt_prefix = "🕵️‍♂️ ",
       preview = true,
     },
     current_buffer_fuzzy_find = {
-      prompt_title = center("/*Fuzzy Find Current Buffer*/"),
+      prompt_title = centered_title("/*Fuzzy Find Current Buffer*/"),
       prompt_prefix = " ",
     },
     git_files = {
-      prompt_title = center("/*Git File*/"),
+      prompt_title = centered_title("/*Git File*/"),
       prompt_prefix = " ",
     },
     builtin = {
-      prompt_title = center("/*Global Telescope Menu*/"),
+      prompt_title = centered_title("/*Global Telescope Menu*/"),
       prompt_prefix = "  ",
     },
     help_tags = {
-      prompt_title = center("/*Global Telescope Menu*/"),
+      prompt_title = centered_title("/*Global Telescope Menu*/"),
       prompt_prefix = " ",
     },
     git_commits = {
-      prompt_title = center("/*Git Commits*/"),
+      prompt_title = centered_title("/*Git Commits*/"),
       prompt_prefix = " ",
     },
     keymaps = {
-      prompt_title = center("/*Keymaps*/"),
+      prompt_title = centered_title("/*Keymaps*/"),
       prompt_prefix = " ",
     },
   },
