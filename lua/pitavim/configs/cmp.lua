@@ -1,5 +1,18 @@
 require("nvim-autopairs").setup({})
 
+local cmdline_formatting = {
+  format = function(entry, vim_item)
+    -- Customize the format for cmdline items
+    vim_item.kind = "CMD" -- Example: Set all items to have "CMD" as kind
+    vim_item.menu = ({
+      buffer = "[Buffer]",
+      path = "[Path]",
+      cmdline = "[Cmdline]",
+    })[entry.source.name]
+    return vim_item
+  end,
+}
+
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
 local lsp = require("lsp-zero")
@@ -133,6 +146,7 @@ cmp.setup({
 -- `/` cmdline setup.
 cmp.setup.cmdline("/", {
   mapping = cmp.mapping.preset.cmdline(),
+  formatting = cmdline_formatting,
   sources = {
     { name = "buffer" },
   },
@@ -140,6 +154,7 @@ cmp.setup.cmdline("/", {
 -- `:` cmdline setup.
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
+  formatting = cmdline_formatting,
   sources = cmp.config.sources({
     { name = "path" },
   }, {
