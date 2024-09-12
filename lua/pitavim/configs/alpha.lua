@@ -283,79 +283,24 @@
 --   end,
 -- })
 
-local header = {
-  -- Your ASCII art header here
-}
+local alpha = require("alpha")
+require("alpha.term")
 
-local make_header = function()
-  local lines = {}
-  for i, line_chars in ipairs(header) do
-    local hi = i > 15 and "Bulbasaur" .. (i - 15) or "PokemonLogo" .. i
-    local line = {
-      type = "text",
-      val = line_chars,
-      opts = {
-        hl = "AlphaSpecialKey" .. i,
-        shrink_margin = false,
-        position = "center",
-      },
-    }
-    table.insert(lines, line)
-  end
-  return {
-    type = "group",
-    val = lines,
-    opts = { position = "center" },
-  }
-end
-
-local margin_fix = vim.fn.floor(vim.fn.winwidth(0) / 2 - 46 / 2)
-
-local button = function(sc, txt, keybind, padding)
-  local sc_ = sc:gsub("%s", ""):gsub("SPC", "")
-  local text = padding and (" "):rep(padding) .. txt or txt
-  local offset = padding and padding + 3 or 3
-  local opts = {
-    position = "center",
-    width = 46,
-    shortcut = sc,
-    cursor = 3,
-    align_shortcut = "right",
-    hl_shortcut = "AlphaButtonShortcut",
-    hl = {
-      { "AlphaButtonIcon", 0,      margin_fix + offset },
-      { "AlphaButton",     offset, #text },
-    },
-  }
-  if keybind then
-    opts.keymap = { "n", sc_, keybind, { noremap = true, silent = true } }
-  end
-  return {
-    type = "button",
-    val = text,
-    on_press = function()
-      local key = vim.api.nvim_replace_termcodes(keybind or sc_, true, false, true)
-      vim.api.nvim_feedkeys(key, "normal", false)
-    end,
-    opts = opts,
-  }
-end
-
-local date = os.date("%a %d %b")
-local heading = {
-  type = "text",
-  val = "· Today is " .. date .. " ·",
+local terminal = {
+  type = "terminal",
+  command = vim.fn.expand("$HOME") .. "/.config/nvim/image.sh",
+  width = 46,
+  height = 25,
   opts = {
-    position = "center",
-    hl = "Folded",
+    redraw = true,
+    window_config = {},
   },
 }
-
-local alpha = require("alpha")
 
 local section = {
   header = make_header(),
   heading = heading,
+  terminal = terminal,
   buttons = {
     type = "group",
     val = {
@@ -376,8 +321,8 @@ local headerPadding = math.max(4, math.floor(vim.fn.winheight(0) * marginTopPerc
 local config = {
   layout = {
     { type = "padding", val = headerPadding },
-    section.header,
-    { type = "padding", val = 2 },
+    section.terminal,
+    { type = "padding", val = 4 },
     section.heading,
     { type = "padding", val = 2 },
     section.buttons,
@@ -388,26 +333,3 @@ local config = {
 }
 
 alpha.setup(config)
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "AlphaReady",
-  callback = function()
-    vim.opt.laststatus = 0
-  end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "AlphaClosed",
-  callback = function()
-    vim.opt.laststatus = 3
-  end,
-})
-
-vim.api.nvim_create_autocmd("VimResized", {
-  group = vim.api.nvim_create_augroup("alpha_on_resize", { clear = true }),
-  callback = function()
-    if vim.bo.filetype == "alpha" then
-      alpha.redraw()
-    end
-  end,
-})
