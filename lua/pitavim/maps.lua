@@ -36,10 +36,10 @@ vim.keymap.set("n", "<leader>H", builtin.help_tags, { desc = "[S]earch [H]elp" }
 vim.keymap.set("n", "<leader>K", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>o", function()
-	builtin.live_grep({
-		winblend = 0,
-		previewer = true,
-	})
+  builtin.live_grep({
+    winblend = 0,
+    previewer = true,
+  })
 end, { desc = "[O] Live grep" })
 vim.keymap.set("n", "<leader>s", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
@@ -49,26 +49,26 @@ vim.keymap.set("n", "<leader>p", builtin.git_files, { desc = "[G]it Files" })
 vim.keymap.set("n", "<leader>t", builtin.git_commits, { desc = "[G]it Commits" })
 
 vim.keymap.set("n", "<leader><leader>", function()
-	builtin.buffers(require("telescope.themes").get_dropdown({
-		winblend = 0,
-		previewer = true,
-	}))
+  builtin.buffers({
+    winblend = 0,
+    previewer = true,
+  })
 end, { desc = "[ ] Find existing buffers" })
 
 vim.keymap.set("n", "<leader>/", function()
-	builtin.current_buffer_fuzzy_find(themes.get_dropdown({
-		winblend = 0,
-		previewer = false,
-		borderchars = {
-			prompt = { "", "", " ", "", "", "", "", "" },
-			results = { "", "", "", "", "", "", "", "" },
-			preview = { "", "", "", "", "", "", "", "" },
-		},
-	}))
+  builtin.current_buffer_fuzzy_find(themes.get_dropdown({
+    winblend = 0,
+    previewer = false,
+    borderchars = {
+      prompt = { "", "", " ", "", "", "", "", "" },
+      results = { "", "", "", "", "", "", "", "" },
+      preview = { "", "", "", "", "", "", "", "" },
+    },
+  }))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 vim.keymap.set("n", "<leader>sn", function()
-	builtin.find_files({ cwd = vim.fn.stdpath("config") })
+  builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[S]earch [N]eovim files" })
 
 -- terminal
@@ -76,7 +76,7 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- new terminals
 map("n", "<leader>v", function()
-	require("nvterm.terminal").new("vertical")
+  require("nvterm.terminal").new("vertical")
 end, { desc = "terminal new vertical window" })
 
 vim.api.nvim_set_keymap("n", "<C-q>", ":bdelete!<CR>", { noremap = true, silent = true })
@@ -86,23 +86,23 @@ vim.api.nvim_set_keymap("t", "<C-q>", "<C-\\><C-n>:bdelete!<CR>", { noremap = tr
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
 map("n", "<leader>wk", function()
-	vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
+  vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
 end, { desc = "whichkey query lookup" })
 
 -- blankline
 map("n", "<leader>cc", function()
-	local config = { scope = {} }
-	config.scope.exclude = { language = {}, node_type = {} }
-	config.scope.include = { node_type = {} }
-	local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
+  local config = { scope = {} }
+  config.scope.exclude = { language = {}, node_type = {} }
+  config.scope.include = { node_type = {} }
+  local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
 
-	if node then
-		local start_row, _, end_row, _ = node:range()
-		if start_row ~= end_row then
-			vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
-			vim.api.nvim_feedkeys("_", "n", true)
-		end
-	end
+  if node then
+    local start_row, _, end_row, _ = node:range()
+    if start_row ~= end_row then
+      vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
+      vim.api.nvim_feedkeys("_", "n", true)
+    end
+  end
 end, { desc = "blankline jump to current context" })
 
 --tabline
@@ -114,12 +114,12 @@ vim.keymap.set("n", "<C-q>", ":tabprevious<CR>", { noremap = true, silent = true
 --custom menu
 
 vim.keymap.set("n", "<leader>d", function()
-	local dashboard_opened = require("pitavim.scripts.menu").toggle_dashboard()
-	if dashboard_opened then
-		print("Dasboard opned")
-	else
-		print("Dashboard closed")
-	end
+  local dashboard_opened = require("pitavim.scripts.menu").toggle_dashboard()
+  if dashboard_opened then
+    print("Dasboard opned")
+  else
+    print("Dashboard closed")
+  end
 end, { desc = "Toggle dashboard" })
 
 local actions = require("telescope.actions")
@@ -133,18 +133,18 @@ local conf = require("telescope.config").values
 local custom_actions = {}
 
 function custom_actions.select_language(prompt_bufnr)
-	local selection = action_state.get_selected_entry()
-	actions.close(prompt_bufnr)
-	print("You selected: " .. selection.value)
-	-- Here you can add more functionality, like opening a file or running a command
-	-- based on the selected language
-	if selection.value == "Python" then
-		vim.cmd("edit ~/.config/nvim/ftplugin/python.lua")
-	elseif selection.value == "JavaScript" then
-		vim.cmd("edit ~/.config/nvim/ftplugin/javascript.lua")
-	elseif selection.value == "Rust" then
-		vim.cmd("!cargo new my_rust_project")
-	end
+  local selection = action_state.get_selected_entry()
+  actions.close(prompt_bufnr)
+  print("You selected: " .. selection.value)
+  -- Here you can add more functionality, like opening a file or running a command
+  -- based on the selected language
+  if selection.value == "Python" then
+    vim.cmd("edit ~/.config/nvim/ftplugin/python.lua")
+  elseif selection.value == "JavaScript" then
+    vim.cmd("edit ~/.config/nvim/ftplugin/javascript.lua")
+  elseif selection.value == "Rust" then
+    vim.cmd("!cargo new my_rust_project")
+  end
 end
 
 -- Transform the custom actions
@@ -153,28 +153,28 @@ custom_actions = transform_mod(custom_actions)
 
 -- Create the custom picker
 local function language_picker(opts)
-	opts = opts or {}
-	pickers
-		.new(opts, {
-			prompt_title = "Select a Programming Language",
-			finder = finders.new_table({
-				results = { "Python", "JavaScript", "Rust", "Go", "Java", "C++", "Ruby" },
-				entry_maker = function(entry)
-					return {
-						value = entry,
-						display = entry,
-						ordinal = entry,
-					}
-				end,
-			}),
-			sorter = sorters.get_generic_fuzzy_sorter(),
-			attach_mappings = function(prompt_bufnr, map)
-				map("i", "<CR>", custom_actions.select_language)
-				map("n", "<CR>", custom_actions.select_language)
-				return true
-			end,
-		})
-		:find()
+  opts = opts or {}
+  pickers
+      .new(opts, {
+        prompt_title = "Select a Programming Language",
+        finder = finders.new_table({
+          results = { "Python", "JavaScript", "Rust", "Go", "Java", "C++", "Ruby" },
+          entry_maker = function(entry)
+            return {
+              value = entry,
+              display = entry,
+              ordinal = entry,
+            }
+          end,
+        }),
+        sorter = sorters.get_generic_fuzzy_sorter(),
+        attach_mappings = function(prompt_bufnr, map)
+          map("i", "<CR>", custom_actions.select_language)
+          map("n", "<CR>", custom_actions.select_language)
+          return true
+        end,
+      })
+      :find()
 end
 
 -- Set up a keymap to open the picker
