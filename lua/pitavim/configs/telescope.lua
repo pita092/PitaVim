@@ -9,11 +9,11 @@ require("telescope").setup({
     live_grep = {
       prompt_title = "/*Search Text*/",
       prompt_prefix = "🕵️‍♂️ ",
+      previewer = true,
     },
     current_buffer_fuzzy_find = {
       prompt_title = "/*Fuzzy Find Current Buffer*/",
       prompt_prefix = " ",
-      previewer = true,
     },
     git_files = {
       prompt_title = "/*Git File*/",
