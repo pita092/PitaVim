@@ -33,7 +33,7 @@ local kind_icons = {
 }
 local blankaborder = {
   border = { "", "", "", "", "", "", "", "" },
-  winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+  winhighlight = "Normal:CmpNormal,CursorLine:CmpSel,Search:None",
   scrollbar = false,
   side_padding = 0,
 }
@@ -61,8 +61,8 @@ cmp.setup({
     end,
   },
   window = {
-    completion = borderstyle,
-    documentation = blankaborder,
+    completion = blankaborder,
+    documentation = borderstyle,
   },
 
   mapping = cmp.mapping.preset.insert({
@@ -154,4 +154,4 @@ cmp.setup.cmdline(":", {
 
 vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#fbf1c7", bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#b8bb26", bg = "NONE", bold = true })
-vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#FF0000" })
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#3c3836" })
