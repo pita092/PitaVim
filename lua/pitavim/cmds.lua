@@ -68,7 +68,7 @@ vim.cmd([[
   highlight  TelescopePromptPrefix guifg=#b8bb26
   highlight TelescopeMatching guifg=#fabd2f
   highlight Pmenu guibg=#3c3836
-  highlight 	TelescopePromptTitle guibg=NONE
+  highlight 	TelescopePromptTitle guibg=#fbf1c7
   highlight 	TelescopePromptTitle guifg=#3c3836
   highlight 	TelescopeBorder guifg=#fbf1c7
   highlight 	TelescopeBorder guibg=#fbf1c7
