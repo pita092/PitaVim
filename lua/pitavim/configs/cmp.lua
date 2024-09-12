@@ -1,4 +1,4 @@
-require("nvim-autopairs").setup({})
+require("nvim-autopairs").setup({}) 
 
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
@@ -85,8 +85,8 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "path" },
-    { name = "spell",      keyword_length = 3, priority = 5 },
-    { name = "dictionary", keyword_length = 3, priority = 5 },
+    { name = "spell",      },
+    { name = "dictionary" },
     { name = "nvim_lua" },
     { name = "calc" },
   },
@@ -153,4 +153,4 @@ cmp.setup.cmdline(":", {
 })
 
 vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#fbf1c7", bg = "NONE" })
-vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#b8bb26", bg = "NONE", bold = true })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#b8bb26", bg = "NONE", bold = true })   

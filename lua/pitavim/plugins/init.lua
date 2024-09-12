@@ -188,13 +188,13 @@ return {
       return require("pitavim.configs.cmp")
     end,
   },
-  {
-    "gelguy/wilder.nvim",
-    event = "VeryLazy",
-    config = function()
-      return require("pitavim.configs.wilder")
-    end,
-  },
+  -- {
+  --   "gelguy/wilder.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     return require("pitavim.configs.wilder")
+  --   end,
+  -- },
   {
     "ellisonleao/gruvbox.nvim",
     event = "VeryLazy",
