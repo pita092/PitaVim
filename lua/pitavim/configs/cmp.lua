@@ -153,9 +153,6 @@ cmp.setup.cmdline("/", {
 })
 -- `:` cmdline setup.
 cmp.setup.cmdline(":", {
-  window = {
-    completion = borderstyle,
-  },
   mapping = cmp.mapping.preset.cmdline(),
   formatting = cmdline_formatting,
   sources = cmp.config.sources({
