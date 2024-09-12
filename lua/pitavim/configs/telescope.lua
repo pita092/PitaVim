@@ -3,10 +3,7 @@ local lspkind = require("lspkind")
 local function centered_title(text)
   local width = vim.api.nvim_get_option("columns")
   local padding = math.floor((width - #text) / 2)
-  return {
-    { { string.rep(" ", padding), "TelescopePromptNormal" } },
-    { { text, "TelescopePromptTitle" } },
-  }
+  return string.format("%%%ds%s", padding, text)
 end
 
 require("telescope").setup({
