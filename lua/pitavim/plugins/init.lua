@@ -137,7 +137,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdLineEnter" },
     priority = 100,
     dependencies = {
       {
