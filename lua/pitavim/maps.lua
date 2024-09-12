@@ -11,7 +11,7 @@ map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "General Save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "General Copy whole file" })
 
-map("n", ";", ":", { desc = { "Hello" } })
+map("n", ";", ":", { desc = "Hello" })
 --map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
 vim.keymap.set("n", "<C-g>", vim.lsp.buf.format, {})
@@ -44,26 +44,26 @@ vim.keymap.set("n", "<leader>p", builtin.git_files, { desc = "[G]it Files" })
 vim.keymap.set("n", "<leader>t", builtin.git_commits, { desc = "[G]it Commits" })
 
 vim.keymap.set("n", "<leader><leader>", function()
-	builtin.buffers(require("telescope.themes").get_dropdown({
-		winblend = 0,
-		previewer = true,
-	}))
+  builtin.buffers(require("telescope.themes").get_dropdown({
+    winblend = 0,
+    previewer = true,
+  }))
 end, { desc = "[ ] Find existing buffers" })
 
 vim.keymap.set("n", "<leader>/", function()
-	builtin.current_buffer_fuzzy_find(themes.get_dropdown({
-		winblend = 0,
-		previewer = false,
-		borderchars = {
-			prompt = { "", "", " ", "", "", "", "", "" },
-			results = { "", "", "", "", "", "", "", "" },
-			preview = { "", "", "", "", "", "", "", "" },
-		},
-	}))
+  builtin.current_buffer_fuzzy_find(themes.get_dropdown({
+    winblend = 0,
+    previewer = false,
+    borderchars = {
+      prompt = { "", "", " ", "", "", "", "", "" },
+      results = { "", "", "", "", "", "", "", "" },
+      preview = { "", "", "", "", "", "", "", "" },
+    },
+  }))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 vim.keymap.set("n", "<leader>sn", function()
-	builtin.find_files({ cwd = vim.fn.stdpath("config") })
+  builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[S]earch [N]eovim files" })
 
 -- terminal
@@ -71,7 +71,7 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- new terminals
 map("n", "<leader>v", function()
-	require("nvterm.terminal").new("vertical")
+  require("nvterm.terminal").new("vertical")
 end, { desc = "terminal new vertical window" })
 
 vim.api.nvim_set_keymap("n", "<C-q>", ":bdelete!<CR>", { noremap = true, silent = true })
@@ -81,23 +81,23 @@ vim.api.nvim_set_keymap("t", "<C-q>", "<C-\\><C-n>:bdelete!<CR>", { noremap = tr
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
 map("n", "<leader>wk", function()
-	vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
+  vim.cmd("WhichKey " .. vim.fn.input("WhichKey: "))
 end, { desc = "whichkey query lookup" })
 
 -- blankline
 map("n", "<leader>cc", function()
-	local config = { scope = {} }
-	config.scope.exclude = { language = {}, node_type = {} }
-	config.scope.include = { node_type = {} }
-	local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
+  local config = { scope = {} }
+  config.scope.exclude = { language = {}, node_type = {} }
+  config.scope.include = { node_type = {} }
+  local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
 
-	if node then
-		local start_row, _, end_row, _ = node:range()
-		if start_row ~= end_row then
-			vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
-			vim.api.nvim_feedkeys("_", "n", true)
-		end
-	end
+  if node then
+    local start_row, _, end_row, _ = node:range()
+    if start_row ~= end_row then
+      vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
+      vim.api.nvim_feedkeys("_", "n", true)
+    end
+  end
 end, { desc = "blankline jump to current context" })
 
 --tabline
@@ -109,10 +109,10 @@ vim.keymap.set("n", "<C-q>", ":tabprevious<CR>", { noremap = true, silent = true
 --custom menu
 
 vim.keymap.set("n", "<leader>d", function()
-	local dashboard_opened = require("pitavim.scripts.menu").toggle_dashboard()
-	if dashboard_opened then
-		print("Dasboard opned")
-	else
-		print("Dashboard closed")
-	end
+  local dashboard_opened = require("pitavim.scripts.menu").toggle_dashboard()
+  if dashboard_opened then
+    print("Dasboard opned")
+  else
+    print("Dashboard closed")
+  end
 end, { desc = "Toggle dashboard" })
