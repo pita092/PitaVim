@@ -286,6 +286,90 @@
 local alpha = require("alpha")
 require("alpha.term")
 
+local header = {
+  [[ ]],
+  [[ ██████ ]],
+  [[ ████▒▒▒▒▒▒████ ]],
+  [[ ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒██ ]],
+  [[ ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██ ]],
+  [[ ██▒▒▒▒▒▒▒▒ ▒▒▒▒▒▒▒▒ ]],
+  [[ ██▒▒▒▒▒▒ ▒▒▓▓▒▒▒▒▒▒ ▓▓▓▓ ]],
+  [[ ██▒▒▒▒▒▒ ▒▒▓▓▒▒▒▒▒▒ ▒▒▓▓ ]],
+  [[ ██▒▒▒▒▒▒▒▒▒▒ ▒▒▒▒▒▒▒▒ ██ ]],
+  [[ ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██ ]],
+  [[ ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██ ]],
+  [[ ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██ ]],
+  [[ ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██ ]],
+  [[ ██▒▒██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒██▒▒▒▒██ ]],
+  [[ ████ ██▒▒██ ██▒▒▒▒██ ██▒▒██ ]],
+  [[ ██ ██ ████ ████ ]],
+  [[ ]],
+  [[ ]],
+}
+
+local make_header = function()
+  local lines = {}
+  for i, line_chars in ipairs(header) do
+    local hi = i > 15 and "Bulbasaur" .. (i - 15) or "PokemonLogo" .. i
+    local line = {
+      type = "text",
+      val = line_chars,
+      opts = {
+        hl = "AlphaSpecialKey" .. i,
+        shrink_margin = false,
+        position = "center",
+      },
+    }
+    table.insert(lines, line)
+  end
+  return {
+    type = "group",
+    val = lines,
+    opts = { position = "center" },
+  }
+end
+
+local margin_fix = vim.fn.floor(vim.fn.winwidth(0) / 2 - 46 / 2)
+
+local button = function(sc, txt, keybind, padding)
+  local sc_ = sc:gsub("%s", ""):gsub("SPC", "")
+  local text = padding and (" "):rep(padding) .. txt or txt
+  local offset = padding and padding + 3 or 3
+  local opts = {
+    width = 46,
+    shortcut = sc,
+    cursor = -1,
+    align_shortcut = "right",
+    hl_shortcut = "AlphaButtonShortcut",
+    hl = {
+      { "AlphaButtonIcon", 0,      margin_fix + offset },
+      { "AlphaButton",     offset, #text },
+    },
+  }
+  if keybind then
+    opts.keymap = { "n", sc_, keybind, { noremap = true, silent = true } }
+  end
+  return {
+    type = "button",
+    val = text,
+    on_press = function()
+      local key = vim.api.nvim_replace_termcodes(keybind or sc_, true, false, true)
+      vim.api.nvim_feedkeys(key, "normal", false)
+    end,
+    opts = opts,
+  }
+end
+
+local date = os.date("%a %d %b")
+local heading = {
+  type = "text",
+  val = "· Today is " .. date .. " ·",
+  opts = {
+    position = "center",
+    hl = "Folded",
+  },
+}
+
 local terminal = {
   type = "terminal",
   command = vim.fn.expand("$HOME") .. "/.config/nvim/image.sh",
@@ -333,3 +417,16 @@ local config = {
 }
 
 alpha.setup(config)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "alpha",
+  callback = function()
+    vim.opt.laststatus = 0
+    vim.api.nvim_create_autocmd("BufUnload", {
+      buffer = 0,
+      callback = function()
+        vim.opt.laststatus = 3
+      end,
+    })
+  end,
+})
