@@ -115,11 +115,7 @@ return {
       "nvim-telescope/telescope.nvim",
       lazy = true,
       cmd = "Telescope",
-      opts = {
-        extensions = {
-          cmdline = {},
-        },
-      },
+      opts = {},
       dependencies = {
         "nvim-telescope/telescope-media-files.nvim",
         { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
@@ -185,7 +181,6 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
         "lukas-reineke/cmp-under-comparator",
       },
     },
