@@ -116,3 +116,61 @@ vim.keymap.set("n", "<leader>d", function()
     print("Dashboard closed")
   end
 end, { desc = "Toggle dashboard" })
+
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
+local sorters = require("telescope.sorters")
+local conf = require("telescope.config").values
+
+-- Custom actions
+local custom_actions = {}
+
+function custom_actions.select_language(prompt_bufnr)
+  local selection = action_state.get_selected_entry()
+  actions.close(prompt_bufnr)
+  print("You selected: " .. selection.value)
+  -- Here you can add more functionality, like opening a file or running a command
+  -- based on the selected language
+  if selection.value == "Python" then
+    vim.cmd("edit ~/.config/nvim/ftplugin/python.lua")
+  elseif selection.value == "JavaScript" then
+    vim.cmd("edit ~/.config/nvim/ftplugin/javascript.lua")
+  elseif selection.value == "Rust" then
+    vim.cmd("!cargo new my_rust_project")
+  end
+end
+
+-- Transform the custom actions
+local transform_mod = require("telescope.actions.mt").transform_mod
+custom_actions = transform_mod(custom_actions)
+
+-- Create the custom picker
+local function language_picker(opts)
+  opts = opts or {}
+  pickers
+      .new(opts, {
+        prompt_title = "Select a Programming Language",
+        finder = finders.new_table({
+          results = { "Python", "JavaScript", "Rust", "Go", "Java", "C++", "Ruby" },
+          entry_maker = function(entry)
+            return {
+              value = entry,
+              display = entry,
+              ordinal = entry,
+            }
+          end,
+        }),
+        sorter = sorters.get_generic_fuzzy_sorter(),
+        attach_mappings = function(prompt_bufnr, map)
+          map("i", "<CR>", custom_actions.select_language)
+          map("n", "<CR>", custom_actions.select_language)
+          return true
+        end,
+      })
+      :find()
+end
+
+-- Set up a keymap to open the picker
+vim.api.nvim_set_keymap("n", "<leader>lp", "<cmd>lua language_picker()<CR>", { noremap = true, silent = true })
