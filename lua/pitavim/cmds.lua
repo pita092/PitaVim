@@ -61,13 +61,13 @@ vim.cmd([[
 vim.cmd([[
   colorscheme gruvbox
   highlight TelescopeNormal guibg=#3c3836
+  highlight TelescopeNormal guifg=#fbf1c7
   highlight TelescopeSelection guibg=#7c6f64
   highlight  TelescopePromptPrefix guifg=#b8bb26
   highlight TelescopeMatching guifg=#fabd2f
   highlight Pmenu guibg=#3c3836
   highlight 	TelescopePromptTitle guibg=#fbf1c7
   highlight 	TelescopePromptTitle guifg=#3c3836
-  highlight TelescopePromptBorder guifg=#fbf1c7
   ]])
 
 ---custom commands
