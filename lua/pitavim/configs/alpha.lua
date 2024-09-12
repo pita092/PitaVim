@@ -1,14 +1,12 @@
--- alpha_config.lua
-
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 local chafa = require("chafa")
 
 -- Function to display image using chafa
 local function display_image()
-  local image_path = "/mnt/c/users/itaym/Downloads/9740-3942146447(1).png" -- Replace with your image path
+  local image_path = "/path/to/your/image.png" -- Replace with your image path
   local width = vim.o.columns
-  local height = 20                                                       -- Adjust as needed
+  local height = 20                           -- Adjust as needed
 
   return {
     type = "terminal",
@@ -23,10 +21,6 @@ local function display_image()
     end,
     width = width,
     height = height,
-    opts = {
-      redraw = true,
-      window_config = {},
-    },
   }
 end
 
