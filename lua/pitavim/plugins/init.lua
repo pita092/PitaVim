@@ -126,7 +126,6 @@ return {
       dependencies = {
         "nvim-telescope/telescope-media-files.nvim",
         { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
-        "jonarrien/telescope-cmdline.nvim",
       },
       config = function()
         return require("pitavim.configs.telescope")
