@@ -237,10 +237,6 @@ local config = {
   layout = {
     padding(headerPadding),
     section.terminal,
-    padding(4),
-    section.heading,
-    padding(2),
-    section.buttons,
   },
   opts = {
     margin = margin_fix,
