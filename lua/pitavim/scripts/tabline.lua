@@ -407,6 +407,24 @@ end
 
 function M.setup()
   vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
+
+  -- Hide tabline in alpha buffer
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "alpha",
+    callback = function()
+      vim.opt_local.showtabline = 0
+    end,
+  })
+
+  -- Restore tabline when leaving alpha buffer
+  vim.api.nvim_create_autocmd("BufLeave", {
+    pattern = "*",
+    callback = function()
+      if vim.bo.filetype ~= "alpha" then
+        vim.opt.showtabline = 2 -- or whatever your default value is
+      end
+    end,
+  })
 end
 
 return M
