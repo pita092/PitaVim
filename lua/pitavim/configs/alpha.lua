@@ -23,16 +23,3 @@ local config = {
 }
 
 alpha.setup(config)
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "alpha",
-  callback = function()
-    vim.opt.laststatus = 0
-    vim.api.nvim_create_autocmd("BufUnload", {
-      buffer = 0,
-      callback = function()
-        vim.opt.laststatus = 2
-      end,
-    })
-  end,
-})
