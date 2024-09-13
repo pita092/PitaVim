@@ -12,10 +12,10 @@ vim.opt.mouse = "a"
 vim.opt.showmode = false
 
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+  vim.opt.clipboard = "unnamedplus"
 end)
 
-vim.g.vimtex_view_method = "firefox"
+vim.g.vimtex_view_method = "mupdf"
 
 o.expandtab = true
 vim.opt.breakindent = true
@@ -29,11 +29,11 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 --vim.opt.listchars = {tab = "» " , trail = "·", nbsp = "␣" }
 vim.opt.listchars = {
-	eol = "↵",
-	tab = "· ",
-	trail = "▸",
-	extends = "❯",
-	precedes = "❮",
+  eol = "↵",
+  tab = "· ",
+  trail = "▸",
+  extends = "❯",
+  precedes = "❮",
 }
 vim.opt.list = true
 vim.o.showtabline = 2
