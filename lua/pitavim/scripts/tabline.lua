@@ -341,51 +341,56 @@ function M.MyTabLabel(n)
 end
 
 function M.MyTabLine()
+  if vim.bo.filetype == "alpha" then
+    return ""
+  end
+
   local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
   for i = 1, vim.fn.tabpagenr("$") do
-    local label = M.MyTabLabel(i)
-    if not label then
-      goto continue
+      local label = M.MyTabLabel(i)
+      if not label then
+        goto continue
+      end
+
+      local is_selected = i == vim.fn.tabpagenr()
+      local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
+      local icon_bg = is_selected and "%#TabLineSelIconBg#" or "%#TabLineIconBg#"
+      local border_hl = is_selected and "%#TabLineSelBorder#" or "%#TabLineBorder#"
+
+      s = s .. "%" .. i .. "T"
+
+      local icon_color = label.icon_color and ("%#" .. label.icon_color .. "#") or tab_hl
+
+      -- Left border
+      s = s .. border_hl .. "["
+
+      -- Tab content
+      s = s .. icon_bg .. icon_color .. label.icon .. " " .. tab_hl .. label.text
+
+      -- Add LSP diagnostic icons without numbers
+      if label.errors then
+        s = s .. " %#ErrorMsg#" .. ""
+      end
+      if label.warnings then
+        s = s .. " %#WarningMsg#" .. ""
+      end
+      if label.info then
+        s = s .. " %#InfoMsg#" .. ""
+      end
+      if label.hints then
+        s = s .. " %#HintMsg#" .. ""
+      end
+
+      -- Right border
+      s = s .. border_hl .. "]"
+
+      s = s .. "%#TabLineFill# " -- Space between tabs
+
+      ::continue::
     end
-
-    local is_selected = i == vim.fn.tabpagenr()
-    local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
-    local icon_bg = is_selected and "%#TabLineSelIconBg#" or "%#TabLineIconBg#"
-    local border_hl = is_selected and "%#TabLineSelBorder#" or "%#TabLineBorder#"
-
-    s = s .. "%" .. i .. "T"
-
-    local icon_color = label.icon_color and ("%#" .. label.icon_color .. "#") or tab_hl
-
-    -- Left border
-    s = s .. border_hl .. "["
-
-    -- Tab content
-    s = s .. icon_bg .. icon_color .. label.icon .. " " .. tab_hl .. label.text
-
-    -- Add LSP diagnostic icons without numbers
-    if label.errors then
-      s = s .. " %#ErrorMsg#" .. ""
-    end
-    if label.warnings then
-      s = s .. " %#WarningMsg#" .. ""
-    end
-    if label.info then
-      s = s .. " %#InfoMsg#" .. ""
-    end
-    if label.hints then
-      s = s .. " %#HintMsg#" .. ""
-    end
-
-    -- Right border
-    s = s .. border_hl .. "]"
-
-    s = s .. "%#TabLineFill# " -- Space between tabs
-
-    ::continue::
+    s = s .. "%#TabLineFill#%T"
+    return s
   end
-  s = s .. "%#TabLineFill#%T"
-  return s
 end
 
 function M.ClearHighlight()
