@@ -2,7 +2,6 @@ local null_ls = require("null-ls")
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
 local event = "BufWritePre"
 local async = event == "BufWritePost"
-local latex = require("none-ls.diagnostics.latexindent")
 
 null_ls.setup({
   sources = {
