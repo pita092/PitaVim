@@ -9,13 +9,7 @@ null_ls.setup({
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.clang_format,
-    latex.with({
-      extra_args = {
-        "-l",
-        "-m",
-        "-g", "/dev/null", -- Ignore local .indentconfig.yaml
-      },
-    }),
+    null_ls.builtins.formatting.bibtex_tidy,
   },
 })
 
