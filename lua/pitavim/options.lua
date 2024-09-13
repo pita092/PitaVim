@@ -15,6 +15,8 @@ vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
 end)
 
+vim.g.vimtex_view_method = "mupdf"
+
 o.expandtab = true
 vim.opt.breakindent = true
 vim.opt.undofile = true
