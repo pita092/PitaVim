@@ -325,7 +325,7 @@ function M.MyTabLabel(n)
   local filename = vim.fn.bufname(bufnr)
   local icon, icon_color = get_file_icon(filename)
   local short_name = vim.fn.fnamemodify(filename, ":t")
-  short_name = short_name ~= "" and short_name or "[No Name]"
+  short_name = short_name ~= "" and short_name or ""
 
   local diagnostics = get_lsp_diagnostics(bufnr)
 
