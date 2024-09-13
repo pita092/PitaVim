@@ -189,12 +189,10 @@ local button = function(sc, txt, keybind, padding)
 end
 
 local thingy = io.popen('echo "$(date +%a) $(date +%d) $(date +%b)" | tr -d "\n"')
-local date = thingy:read("*a")
 thingy:close()
 
 local heading = {
   type = "text",
-  val = "· Today is " .. date .. " ·",
   opts = {
     position = "center",
     hl = "Folded",
@@ -221,12 +219,7 @@ local section = {
   terminal = terminal,
   buttons = {
     type = "group",
-    val = {
-      button("p", "ﱮ  Restore Session", ":WorkspacesOpen<CR>"),
-      button("f", "  Recent Files", ":Telescope oldfiles<CR>"),
-      button("u", "  Update Plugins", ":Lazy update<CR>"),
-      button("q", "  Quit", ":qa<CR>"),
-    },
+    val = {},
     opts = {
       spacing = 1,
     },
