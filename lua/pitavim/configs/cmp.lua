@@ -181,3 +181,8 @@ cmp.setup.cmdline(":", {
 vim.api.nvim_set_hl(0, "CmpItemAbbr", { fg = "#fbf1c7", bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#b8bb26", bg = "NONE", bold = true })
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#3c3836" })
+
+-- Add these lines for command line completion
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#b8bb26", bg = "NONE", bold = true })
+vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#fbf1c7", bg = "NONE" })
+vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#fbf1c7", bg = "NONE" })
