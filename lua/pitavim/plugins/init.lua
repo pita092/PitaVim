@@ -1,5 +1,9 @@
 return {
   {
+    "jbyuki/venn.nvim",
+    event = "User FilePost",
+  },
+  {
     "lervag/vimtex",
     lazy = false, -- we don't want to lazy load VimTeX
     -- tag = "v2.15", -- uncomment to pin to a specific release
@@ -67,23 +71,17 @@ return {
       end,
     },
   },
-
-  {
-    "romgrk/fzy-lua-native",
-    "nixprime/cpsm",
-    "sharkdp/fd",
-    event = "VeryLazy",
-  },
   {
     "stevearc/dressing.nvim",
-    event = "BufReadPost",
+    event = "User FilePost",
     config = function()
       return require("pitavim.configs.ui")
     end,
   },
   {
     "Bekaboo/dropbar.nvim",
-    event = "BufReadPost",
+    event = "User FilePost",
+
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
     },
@@ -147,7 +145,7 @@ return {
     },
     {
       "neovim/nvim-lspconfig",
-      event = "BufReadPre",
+      event = "User FilePost",
       config = function()
         return require("pitavim.configs.lsp")
       end,
@@ -156,7 +154,6 @@ return {
   {
     {
       "nvim-telescope/telescope.nvim",
-      lazy = true,
       cmd = "Telescope",
       opts = {},
       dependencies = {
@@ -284,7 +281,8 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
     opts = function()
       return require("pitavim.configs.treesitter")
