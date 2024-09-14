@@ -31,7 +31,7 @@ return {
 		dependencies = {
 			"3rd/sqlite.nvim",
 		},
-		event = "VeryLazy",
+		cmd = "TimeTracker",
 		opts = {
 			data_file = vim.fn.stdpath("data") .. "/time-tracker.db",
 		},
