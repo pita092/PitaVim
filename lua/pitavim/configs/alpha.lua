@@ -3,7 +3,7 @@ require("alpha.term")
 
 local terminal = {
   type = "terminal",
-  command = vim.fn.expand("$HOME") .. "/.config/nvim/thisisfine.sh",
+  command = vim.fn.expand("$HOME") .. "/.config/nvim/sponge.sh",
   width = 46,
   height = 25,
   opts = {
