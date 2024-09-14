@@ -40,7 +40,7 @@ return {
     "hrsh7th/cmp-cmdline",
     event = "CmdlineEnter",
     config = function()
-      return require("pitavim.configs.cmdline")
+      return require("pitavim.configs.cmp")
     end,
   },
   {
