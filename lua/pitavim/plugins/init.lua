@@ -78,13 +78,20 @@ return {
       return require("pitavim.configs.ui")
     end,
   },
+  -- {
+  --   "Bekaboo/dropbar.nvim",
+  --   event = "User FilePost",
+  --
+  --   dependencies = {
+  --     "nvim-telescope/telescope-fzf-native.nvim",
+  --   },
+  -- },
   {
-    "Bekaboo/dropbar.nvim",
-    event = "User FilePost",
-
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-    },
+    "fgheng/winbar.nvim",
+    event = "",
+    config = function()
+      return require("pitavim.configs.winbar")
+    end,
   },
   {
     "lewis6991/gitsigns.nvim",
