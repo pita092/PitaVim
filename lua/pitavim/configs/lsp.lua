@@ -12,18 +12,7 @@ require("mason-lspconfig").setup({ ensure_installed = servers })
 lspconfig.jdtls.setup({
   filetypes = { "kotlin", "java" },
   settings = {
-    java = {
-      configuration = {
-        -- jdtls-specific settings
-        runtimes = {
-          {
-            name = "Java-sdk-22",
-            path = "/usr/lib/jvm/java-22-jdk",
-          },
-          -- Add more Java runtimes if needed
-        },
-      },
-    },
+    java = {},
   },
   init_options = {
     workspace = {
