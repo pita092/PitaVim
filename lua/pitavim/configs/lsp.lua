@@ -4,10 +4,6 @@ local lsp_zero = require("lsp-zero")
 
 local servers = {
   "lua_ls",
-  jdtls = {
-    filetypes = { "kotlin", "java" },
-    workspace = { checkThirdParty = false },
-  },
 }
 
 require("mason").setup()
@@ -21,8 +17,8 @@ lspconfig.jdtls.setup({
         -- jdtls-specific settings
         runtimes = {
           {
-            name = "JavaSE-11",
-            path = "/path/to/jdk-11",
+            name = "Java-sdk-22",
+            path = "/usr/lib/jvm/java-22-jdk",
           },
           -- Add more Java runtimes if needed
         },
