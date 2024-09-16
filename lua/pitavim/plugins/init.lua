@@ -88,7 +88,7 @@ return {
   -- },
   {
     "fgheng/winbar.nvim",
-    event = "",
+    event = "User FilePost",
     config = function()
       return require("pitavim.configs.winbar")
     end,
