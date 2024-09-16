@@ -4,8 +4,6 @@ local lsp_zero = require("lsp-zero")
 
 local servers = {
   "lua_ls",
-  "pyright",
-  "tsserver",
   jdtls = {
     filetypes = { "kotlin", "java" },
     workspace = { checkThirdParty = false },
