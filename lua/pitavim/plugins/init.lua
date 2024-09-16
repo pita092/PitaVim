@@ -87,8 +87,13 @@ return {
   --   },
   -- },
   {
-    "fgheng/winbar.nvim",
-    event = "User FilePost",
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
     config = function()
       return require("pitavim.configs.winbar")
     end,
