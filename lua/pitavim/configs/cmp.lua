@@ -91,14 +91,17 @@ cmp.setup({
   }),
 
   sources = {
-    { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+    {
+      name = "L3MON4D3/LuaSnip",
+      build = "make install_jsregexp",
+    },
     {
       name = "lazydev",
       group_index = 0,
     },
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "rafamadriz/friendly-snippets"},
+    { name = "rafamadriz/friendly-snippets" },
     { name = "buffer" },
     { name = "path" },
     { name = "spell" },
