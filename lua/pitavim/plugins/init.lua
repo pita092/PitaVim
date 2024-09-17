@@ -344,4 +344,9 @@ return {
       require("treesj").setup()
     end,
   },
+  {
+    "folke/zen-mode.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
 }
