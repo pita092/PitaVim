@@ -35,9 +35,10 @@ vim.opt.listchars = {
   extends = "❯",
   precedes = "❮",
 }
+o.termguicolors = true
 vim.opt.list = true
 vim.o.showtabline = 2
-o.updatetime = 250
+o.updatetime = 50
 vim.opt.inccommand = "split"
 o.cursorline = false
 o.cursorlineopt = "number"
