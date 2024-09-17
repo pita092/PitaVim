@@ -52,36 +52,6 @@ vim.defer_fn(function()
     highlight SignColumn guibg=NONE ctermbg=NONE
   ]])
 end, 100)
-
-vim.cmd([[
-  colorscheme gruvbox
-  highlight Normal guibg=#282828
-  ]])
-
-vim.cmd([[
-  highligh  TelescopePromptBorder guibg=#504945
-  highligh  TelescopePromptBorder guifg=#504945
-  highlight TelescopePromptNormal guibg=#504945
-  highlight TelescopeNormal guibg=#3c3836
-  highlight TelescopeNormal guifg=#fbf1c7
-  highlight TelescopeSelection guibg=#7c6f64
-  highlight  TelescopePromptPrefix guifg=#b8bb26
-  highlight TelescopeMatching guifg=#fabd2f
-  highlight Pmenu guibg=#3c3836
-  highlight 	TelescopePromptTitle guibg=#504945
-  highlight 	TelescopePromptTitle guifg=#fbf1c7
-  highlight 	TelescopeBorder guifg=#fbf1c7
-  highlight 	TelescopeBorder guibg=#fbf1c7
-  highlight NeoTreeTitleBar guibg = #fbf1c7
-  highlight NeoTreeTitleBar guifg = #3c3836
-  highlight DiagnosticVirtualTextError guibg = #3c3836
-  highlight DiagnosticVirtualTextWarn guibg = #3c3836
-  highlight DiagnosticVirtualTextInfo guibg = #3c3836
-  highlight DiagnosticVirtualTextHint guibg = #3c3836
-
-
-  ]])
-
 ---custom commands
 
 vim.api.nvim_create_user_command("Updt", "Lazy update nvim-plugins", {
