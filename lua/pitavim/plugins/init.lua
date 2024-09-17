@@ -61,13 +61,13 @@ return {
 			end,
 		},
 	},
-	{
-		"stevearc/dressing.nvim",
-		event = "User FilePost",
-		config = function()
-			return require("pitavim.configs.ui")
-		end,
-	},
+	-- {
+	-- 	"stevearc/dressing.nvim",
+	-- 	event = "User FilePost",
+	-- 	config = function()
+	-- 		return require("pitavim.configs.ui")
+	-- 	end,
+	-- },
 	{
 		"Bekaboo/dropbar.nvim",
 		event = "BufReadPost",
