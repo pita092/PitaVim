@@ -113,14 +113,21 @@ return {
     main = "ibl",
     opts = {},
   },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   event = "BufReadPre",
+  --   dependencies = {
+  --     "nvimtools/none-ls-extras.nvim",
+  --   },
+  --   config = function()
+  --     return require("pitavim.configs.none-ls")
+  --   end,
+  -- },
+
   {
-    "nvimtools/none-ls.nvim",
-    event = "BufReadPre",
-    dependencies = {
-      "nvimtools/none-ls-extras.nvim",
-    },
+    "stevearc/conform.nvim",
     config = function()
-      return require("pitavim.configs.none-ls")
+      return require("pitavim.configs.conform")
     end,
   },
   {
