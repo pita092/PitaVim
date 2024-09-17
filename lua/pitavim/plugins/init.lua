@@ -147,6 +147,10 @@ return {
 				return require("pitavim.configs.lsp")
 			end,
 		},
+		{
+			"mfussenegger/nvim-lint",
+			"rshkarin/mason-nvim-lint",
+		},
 	},
 	{
 		"ThePrimeagen/harpoon",
