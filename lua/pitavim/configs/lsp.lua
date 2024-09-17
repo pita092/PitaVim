@@ -1,6 +1,5 @@
 local M = {}
 local lspconfig = require("lspconfig")
-local lsp_zero = require("lsp-zero")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 vim.diagnostic.config({
   signs = {
@@ -20,11 +19,6 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
   border = "single",
 })
-
-lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({ buffer = bufnr })
-  lsp_zero.buffer_autoformat()
-end)
 
 local servers = {
   "lua_ls",
