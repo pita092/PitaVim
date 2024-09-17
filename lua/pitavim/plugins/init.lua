@@ -149,7 +149,10 @@ return {
 		},
 		{
 			"mfussenegger/nvim-lint",
-			"rshkarin/mason-nvim-lint",
+			event = { "BufReadPre", "BufNewFile" },
+			config = function()
+				return require("pitavim.configs.lint")
+			end,
 		},
 	},
 	{
