@@ -1,5 +1,9 @@
 return {
 	{
+		"Bekaboo/deadcolumn.nvim",
+		event = "User FilePost",
+	},
+	{
 		"jbyuki/venn.nvim",
 		event = "User FilePost",
 	},
