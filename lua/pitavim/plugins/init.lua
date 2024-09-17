@@ -147,13 +147,6 @@ return {
 				return require("pitavim.configs.lsp")
 			end,
 		},
-		{
-			"mfussenegger/nvim-lint",
-			event = { "BufReadPre", "BufNewFile" },
-			config = function()
-				return require("pitavim.configs.lint")
-			end,
-		},
 	},
 	{
 		"ThePrimeagen/harpoon",
