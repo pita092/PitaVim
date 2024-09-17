@@ -1,26 +1,7 @@
 local M = {}
 local lspconfig = require("lspconfig")
 local lsp_zero = require("lsp-zero")
-
-local servers = {
-  "lua_ls",
-}
-
-require("mason").setup()
-require("mason-lspconfig").setup({ ensure_installed = servers })
-
-lspconfig.jdtls.setup({
-  filetypes = { "kotlin", "java" },
-  settings = {
-    java = {},
-  },
-  init_options = {
-    workspace = {
-      checkThirdParty = false,
-    },
-  },
-})
-
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 vim.diagnostic.config({
   signs = {
     text = {
@@ -45,7 +26,29 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.buffer_autoformat()
 end)
 
-lspconfig.lua_ls.setup({})
+local servers = {
+  "lua_ls",
+}
+
+require("mason").setup()
+require("mason-lspconfig").setup({ ensure_installed = servers })
+
+lspconfig.jdtls.setup({
+  capabilities = capabilities,
+  filetypes = { "kotlin", "java" },
+  settings = {
+    java = {},
+  },
+  init_options = {
+    workspace = {
+      checkThirdParty = false,
+    },
+  },
+})
+
+lspconfig.lua_ls.setup({
+  capabilities = capabilities,
+})
 lspconfig.clangd.setup({
   keys = {
     { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
@@ -64,7 +67,8 @@ lspconfig.clangd.setup({
     ).find_git_ancestor(fname)
   end,
   capabilities = {
-    offsetEncoding = { "utf-16" },
+    capabilities,
+    offsetEncoding = { "utf-8" },
   },
   cmd = {
     "clangd",
@@ -81,7 +85,9 @@ lspconfig.clangd.setup({
     clangdFileStatus = true,
   },
 })
-lspconfig.texlab.setup({})
+lspconfig.texlab.setup({
+  capabilities = capabilities,
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
