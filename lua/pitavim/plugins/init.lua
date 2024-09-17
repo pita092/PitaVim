@@ -78,6 +78,7 @@ return {
 	-- },
 	{
 		"utilyre/barbecue.nvim",
+		event = "BufReadPre",
 		name = "barbecue",
 		version = "*",
 		dependencies = {
