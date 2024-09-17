@@ -150,9 +150,7 @@ return {
   },
   {
     "ThePrimeagen/harpoon",
-    config = function()
-      return require("pitavim.configs.harpoon")
-    end,
+    event = "User FilePost",
   },
   {
     {
