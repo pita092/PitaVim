@@ -149,6 +149,12 @@ return {
     },
   },
   {
+    "ThePrimeagen/harpoon",
+    config = function()
+      return require("pitavim.configs.harpoon")
+    end,
+  },
+  {
     {
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
