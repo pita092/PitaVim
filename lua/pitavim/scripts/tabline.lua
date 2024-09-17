@@ -275,160 +275,160 @@ local M = {}
 local web_devicons = require("nvim-web-devicons")
 
 local function get_file_icon(filename)
-	local extension = filename:match("^.+%.(.+)$")
-	local icon, icon_color = web_devicons.get_icon(filename, extension)
-	return icon or "", icon_color or "Normal"
+  local extension = filename:match("^.+%.(.+)$")
+  local icon, icon_color = web_devicons.get_icon(filename, extension)
+  return icon or "", icon_color or "Normal"
 end
 
 local function get_lsp_diagnostics(bufnr)
-	local diagnostics = vim.diagnostic.get(bufnr)
-	local count = { errors = 0, warnings = 0, info = 0, hints = 0 }
-	for _, diagnostic in ipairs(diagnostics) do
-		if diagnostic.severity == vim.diagnostic.severity.ERROR then
-			count.errors = count.errors + 1
-		elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-			count.warnings = count.warnings + 1
-		elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-			count.info = count.info + 1
-		elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-			count.hints = count.hints + 1
-		end
-	end
-	return count
+  local diagnostics = vim.diagnostic.get(bufnr)
+  local count = { errors = 0, warnings = 0, info = 0, hints = 0 }
+  for _, diagnostic in ipairs(diagnostics) do
+    if diagnostic.severity == vim.diagnostic.severity.ERROR then
+      count.errors = count.errors + 1
+    elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+      count.warnings = count.warnings + 1
+    elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+      count.info = count.info + 1
+    elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+      count.hints = count.hints + 1
+    end
+  end
+  return count
 end
 
 local function is_neo_tree_buffer(bufnr)
-	local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-	return filetype == "neo-tree"
+  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+  return filetype == "neo-tree"
 end
 
 function M.MyTabLabel(n)
-	local buflist = vim.fn.tabpagebuflist(n)
-	local winnr = vim.fn.tabpagewinnr(n)
-	local bufnr = buflist[winnr]
+  local buflist = vim.fn.tabpagebuflist(n)
+  local winnr = vim.fn.tabpagewinnr(n)
+  local bufnr = buflist[winnr]
 
-	-- If it's a Neo-tree buffer, find the next non-Neo-tree buffer in the tab
-	if is_neo_tree_buffer(bufnr) then
-		for _, buf in ipairs(buflist) do
-			if not is_neo_tree_buffer(buf) then
-				bufnr = buf
-				break
-			end
-		end
-	end
+  -- If it's a Neo-tree buffer, find the next non-Neo-tree buffer in the tab
+  if is_neo_tree_buffer(bufnr) then
+    for _, buf in ipairs(buflist) do
+      if not is_neo_tree_buffer(buf) then
+        bufnr = buf
+        break
+      end
+    end
+  end
 
-	-- If we still have a Neo-tree buffer, return nil
-	if is_neo_tree_buffer(bufnr) then
-		return nil
-	end
+  -- If we still have a Neo-tree buffer, return nil
+  if is_neo_tree_buffer(bufnr) then
+    return nil
+  end
 
-	local filename = vim.fn.bufname(bufnr)
-	local icon, icon_color = get_file_icon(filename)
-	local short_name = vim.fn.fnamemodify(filename, ":t")
-	short_name = short_name ~= "" and short_name or ""
+  local filename = vim.fn.bufname(bufnr)
+  local icon, icon_color = get_file_icon(filename)
+  local short_name = vim.fn.fnamemodify(filename, ":t")
+  short_name = short_name ~= "" and short_name or ""
 
-	local diagnostics = get_lsp_diagnostics(bufnr)
+  local diagnostics = get_lsp_diagnostics(bufnr)
 
-	return {
-		icon = icon,
-		icon_color = icon_color,
-		text = short_name,
-		warnings = diagnostics.warnings > 0,
-		errors = diagnostics.errors > 0,
-		info = diagnostics.info > 0,
-		hints = diagnostics.hints > 0,
-	}
+  return {
+    icon = icon,
+    icon_color = icon_color,
+    text = short_name,
+    warnings = diagnostics.warnings > 0,
+    errors = diagnostics.errors > 0,
+    info = diagnostics.info > 0,
+    hints = diagnostics.hints > 0,
+  }
 end
 
 function M.MyTabLine()
-	if vim.bo.filetype == "alpha" then
-		return ""
-	end
+  if vim.bo.filetype == "alpha" then
+    return ""
+  end
 
-	local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
-	for i = 1, vim.fn.tabpagenr("$") do
-		local label = M.MyTabLabel(i)
-		if not label then
-			goto continue
-		end
+  local s = '%#TabLineFill#%{v:lua.require("pitavim.scripts.tabline").ClearHighlight()}'
+  for i = 1, vim.fn.tabpagenr("$") do
+    local label = M.MyTabLabel(i)
+    if not label then
+      goto continue
+    end
 
-		local is_selected = i == vim.fn.tabpagenr()
-		local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
-		local icon_bg = is_selected and "%#TabLineSelIconBg#" or "%#TabLineIconBg#"
-		local border_hl = is_selected and "%#TabLineSelBorder#" or "%#TabLineBorder#"
+    local is_selected = i == vim.fn.tabpagenr()
+    local tab_hl = is_selected and "%#TabLineSel#" or "%#TabLine#"
+    local icon_bg = is_selected and "%#TabLineSelIconBg#" or "%#TabLineIconBg#"
+    local border_hl = is_selected and "%#TabLineSelBorder#" or "%#TabLineBorder#"
 
-		s = s .. "%" .. i .. "T"
+    s = s .. "%" .. i .. "T"
 
-		local icon_color = label.icon_color and ("%#" .. label.icon_color .. "#") or tab_hl
+    local icon_color = label.icon_color and ("%#" .. label.icon_color .. "#") or tab_hl
 
-		-- Left border
-		s = s .. border_hl .. "["
+    -- Left border
+    s = s .. border_hl .. "["
 
-		-- Tab content
-		s = s .. icon_bg .. icon_color .. label.icon .. " " .. tab_hl .. label.text
+    -- Tab content
+    s = s .. icon_bg .. icon_color .. label.icon .. " " .. tab_hl .. label.text
 
-		-- Add LSP diagnostic icons without numbers
-		if label.errors then
-			s = s .. " %#ErrorMsg#" .. ""
-		end
-		if label.warnings then
-			s = s .. " %#WarningMsg#" .. ""
-		end
-		if label.info then
-			s = s .. " %#InfoMsg#" .. ""
-		end
-		if label.hints then
-			s = s .. " %#HintMsg#" .. ""
-		end
+    -- Add LSP diagnostic icons without numbers
+    if label.errors then
+      s = s .. " %#ErrorMsg#" .. ""
+    end
+    if label.warnings then
+      s = s .. " %#WarningMsg#" .. ""
+    end
+    if label.info then
+      s = s .. " %#InfoMsg#" .. ""
+    end
+    if label.hints then
+      s = s .. " %#HintMsg#" .. ""
+    end
 
-		-- Right border
-		s = s .. border_hl .. "]"
+    -- Right border
+    s = s .. border_hl .. "]"
 
-		s = s .. "%#TabLineFill# " -- Space between tabs
+    s = s .. "%#TabLineFill# " -- Space between tabs
 
-		::continue::
-	end
-	s = s .. "%#TabLineFill#%T"
-	return s
+    ::continue::
+  end
+  s = s .. "%#TabLineFill#%T"
+  return s
 end
 
 function M.ClearHighlight()
-	vim.cmd("highlight clear TabLineFill")
-	vim.cmd("highlight clear NeoTreeNormal")
-	vim.cmd("highlight clear NeoTreeNormalNC")
-	vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fbf1c7", bg = "NONE", bold = true })
-	vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "#282828" })
-	vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "NONE" })
-	vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "NONE" })
-	vim.api.nvim_set_hl(0, "TabLineBorder", { fg = "NONE", bg = "NONE" })
-	vim.api.nvim_set_hl(0, "TabLineSelBorder", { fg = "#fabd2f", bg = "NONE" })
-	vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })
-	vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "NONE" })
-	vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "NONE" })
-	vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "NONE" })
-	return ""
+  vim.cmd("highlight clear TabLineFill")
+  vim.cmd("highlight clear NeoTreeNormal")
+  vim.cmd("highlight clear NeoTreeNormalNC")
+  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fbf1c7", bg = "#3c3836", bold = true })
+  vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "TabLineBorder", { fg = "NONE", bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "TabLineSelBorder", { fg = "#fabd2f", bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "#3c3836" })
+  vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "NONE" })
+  return ""
 end
 
 function M.setup()
-	vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
+  vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
 
-	-- Hide tabline in alpha buffer
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "alpha",
-		callback = function()
-			vim.opt_local.showtabline = 0
-		end,
-	})
+  -- Hide tabline in alpha buffer
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "alpha",
+    callback = function()
+      vim.opt_local.showtabline = 0
+    end,
+  })
 
-	-- Restore tabline when leaving alpha buffer
-	vim.api.nvim_create_autocmd("BufLeave", {
-		pattern = "*",
-		callback = function()
-			if vim.bo.filetype ~= "alpha" then
-				vim.opt.showtabline = 2 -- or whatever your default value is
-			end
-		end,
-	})
+  -- Restore tabline when leaving alpha buffer
+  vim.api.nvim_create_autocmd("BufLeave", {
+    pattern = "*",
+    callback = function()
+      if vim.bo.filetype ~= "alpha" then
+        vim.opt.showtabline = 2 -- or whatever your default value is
+      end
+    end,
+  })
 end
 
 return M
