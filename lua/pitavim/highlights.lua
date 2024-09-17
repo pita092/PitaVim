@@ -74,7 +74,7 @@ vim.cmd([[
   highlight DiagnosticVirtualTextWarn guibg = #3c3836
   highlight DiagnosticVirtualTextWarn guifg = #fabd2f
   highlight DiagnosticVirtualTextInfo guibg = #3c3836
-  highlight DiagnosticVirtualTextInfo guibg = #689d6a
+  highlight DiagnosticVirtualTextInfo guifg = #689d6a
   highlight DiagnosticVirtualTextHint guibg = #3c3836
   highlight diagnosticvirtualtexthint guifg = #b57614
 
