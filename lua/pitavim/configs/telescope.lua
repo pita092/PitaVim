@@ -131,6 +131,7 @@ require("telescope").setup({
 				border = false,
 				borderchars = {},
 				color_devicons = true,
+				prompt_prefix = "■ ",
 			}),
 			fzf = {
 				fuzzy = true,
