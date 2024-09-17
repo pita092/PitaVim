@@ -121,8 +121,21 @@ require("telescope").setup({
 			},
 		},
 		["ui-select"] = {
-			width = 0.4,
-			previewer = false,
+			require("telescope.themes").get_dropdown({
+				-- Custom options for a distinct look
+				winblend = 10,
+				width = 0.5,
+				prompt_title = "",
+				results_title = "",
+				previewer = false,
+				border = true,
+				borderchars = {
+					prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+					results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+					preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+				},
+				color_devicons = true,
+			}),
 			fzf = {
 				fuzzy = true,
 				override_generic_sorter = true,
