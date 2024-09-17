@@ -18,7 +18,6 @@ require("dressing").setup({
 		-- These are passed to nvim_open_win
 		border = "rounded",
 		-- 'editor' and 'win' will default to being centered
-		relative = "editor",
 
 		-- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
 		prefer_width = 40,
@@ -119,7 +118,6 @@ require("dressing").setup({
 			-- Display numbers for options and set up keymaps
 			show_numbers = true,
 			-- These are passed to nvim_open_win
-			border = "single",
 			-- 'editor' and 'win' will default to being centered
 			relative = "editor",
 
