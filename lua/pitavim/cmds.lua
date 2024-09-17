@@ -116,3 +116,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
+
+vim.api.nvim_create_user_command("LintInfo", function()
+	local lint = require("lint")
+	local filetype = vim.bo.filetype
+	local linters = lint.linters_by_ft[filetype] or {}
+
+	local info = "Linters for " .. filetype .. ":\n"
+	if #linters > 0 then
+		for _, linter in ipairs(linters) do
+			info = info .. "- " .. linter .. "\n"
+		end
+	else
+		info = info .. "No linters configured."
+	end
+
+	vim.api.nvim_echo({ { info, "Normal" } }, false, {})
+end, {})
