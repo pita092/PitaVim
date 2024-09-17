@@ -244,7 +244,12 @@ return {
     "NvChad/nvim-colorizer.lua",
     event = "VeryLazy",
     config = function()
-      return require("pitavim.configs.colorizer")
+      require("colorizer").setup({
+        filetypes = { "*" },
+        user_default_options = {
+          names = false,
+        },
+      })
     end,
   },
   {
