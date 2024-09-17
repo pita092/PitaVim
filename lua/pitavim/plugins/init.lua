@@ -68,13 +68,20 @@ return {
 	-- 		return require("pitavim.configs.ui")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"Bekaboo/dropbar.nvim",
+	-- 	event = "BufReadPost",
+	--
+	-- 	dependencies = {
+	-- 		"nvim-telescope/telescope-fzf-native.nvim",
+	-- 	},
+	-- },
 	{
-		"Bekaboo/dropbar.nvim",
+		"fgheng/winbar.nvim",
 		event = "BufReadPost",
-
-		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
-		},
+		config = function()
+			require("winbar").setup()
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
