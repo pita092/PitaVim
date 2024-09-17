@@ -85,9 +85,9 @@ return {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
-		opts = {
-			-- configurations go here
-		},
+		config = function()
+			return require("pitavim.configs.winbar")
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
