@@ -128,12 +128,8 @@ require("telescope").setup({
 				prompt_title = "",
 				results_title = "",
 				previewer = false,
-				border = true,
-				borderchars = {
-					prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
-					results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
-					preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-				},
+				border = false,
+				borderchars = {},
 				color_devicons = true,
 			}),
 			fzf = {
