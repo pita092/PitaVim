@@ -65,10 +65,7 @@ return {
     "stevearc/dressing.nvim",
     event = "User FilePost",
     config = function()
-      require("dressing").setup({
-        relative = "editor",
-        border = "single",
-      })
+      return require("pitavim.configs.ui")
     end,
   },
   {
