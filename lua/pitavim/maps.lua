@@ -33,7 +33,7 @@ local themes = require("telescope.themes")
 --
 vim.keymap.set("n", "<leader>H", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>K", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>g", builtin.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>o", function()
   builtin.live_grep({
     winblend = 0,
