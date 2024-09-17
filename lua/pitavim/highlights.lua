@@ -49,9 +49,3 @@ for hl_group, col in pairs(highlights) do
 end
 
 --winbar
-
-vim.api.nvim_set_hl(0, "DropBarMenuCurrentContext", { fg = "#fbf1c7", bg = "NONE", italic = true })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "#3c1818", fg = "#db4b4b" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "#2e2a1f", fg = "#e0af68" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "#1e2a3f", fg = "#0db9d7" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "#1e2718", fg = "#10B981" })
