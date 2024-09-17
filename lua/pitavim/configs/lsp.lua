@@ -25,7 +25,6 @@ local servers = {
 }
 
 require("mason").setup()
-require("mason-nvim-lint").setup()
 require("mason-lspconfig").setup({ ensure_installed = servers })
 
 lspconfig.jdtls.setup({
