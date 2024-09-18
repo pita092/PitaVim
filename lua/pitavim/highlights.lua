@@ -69,13 +69,13 @@ vim.cmd([[
   highlight 	TelescopeBorder guibg=#fbf1c7
   highlight NeoTreeTitleBar guibg = #fbf1c7
   highlight NeoTreeTitleBar guifg = #3c3836
-  highlight DiagnosticVirtualTextError guibg = #3c3836
+  highlight DiagnosticVirtualTextError guibg =#cc241d
   highlight DiagnosticVirtualTextError guifg =#cc241d
-  highlight DiagnosticVirtualTextWarn guibg = #3c3836
+  highlight DiagnosticVirtualTextWarn guibg = #fabd2f
   highlight DiagnosticVirtualTextWarn guifg = #fabd2f
-  highlight DiagnosticVirtualTextInfo guibg = #3c3836
+  highlight DiagnosticVirtualTextInfo guibg = #689d6a
   highlight DiagnosticVirtualTextInfo guifg = #689d6a
-  highlight DiagnosticVirtualTextHint guibg = #3c3836
+  highlight DiagnosticVirtualTextHint guibg = #b57614
   highlight diagnosticvirtualtexthint guifg = #b57614
 
   ]])
