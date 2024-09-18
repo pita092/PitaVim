@@ -104,27 +104,32 @@ cmp.setup({
 		{ name = "calc" },
 	},
 	formatting = {
-		fields = { "abbr", "menu", "kind" },
+		fields = { "menu", "abbr", "kind" }, -- Changed the order here
 		expandable_indicator = true,
 		format = function(entry, vim_item)
 			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
 			local strings = vim.split(kind.kind, " ", { trimempty = true })
-			kind.kind = string.format("%s %s", vim_item.menu or "", strings[1])
-			vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
-			-- This concatenates the icons with the name of the item kind
 
-			-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
-			kind.menu = "" .. (strings[2] or "") .. ""
-
+			-- Set the menu first
 			vim_item.menu = ({
 				buffer = "[Buff]",
 				path = "[Path]",
 				cmdline = "[Cmd]",
-			})[entry.source.name]
+				-- Add other sources as needed
+			})[entry.source.name] or ""
 
-			return kind, vim_item
+			-- Combine menu and kind
+			kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
+
+			vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
+
+			-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
+			kind.menu = "" .. (strings[2] or "") .. ""
+
+			return kind
 		end,
 	},
+
 	performance = {
 		debounce = 300,
 		throttle = 60,
