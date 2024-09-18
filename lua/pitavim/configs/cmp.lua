@@ -111,14 +111,20 @@ cmp.setup({
 			local strings = vim.split(kind.kind, " ", { trimempty = true })
 
 			-- Set the menu first
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
+			local source_indicator = ({
+				nvim_lsp = "[Lsp]",
 				buffer = "[Buff]",
 				path = "[Path]",
-				luasnip = "[SNIPS]",
-				lazydev = "[LAZY]",
+				luasnip = "[Snips",
+				lazydev = "[Lazy]",
 				-- Add other sources as needed
 			})[entry.source.name] or ""
+			vim_item.menu = string.format(" %%#CmpItemMenuDefault#[%s]%%*", source_indicator)
+
+			-- Combine menu and kind
+			kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
+
+			vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
 
 			-- Combine menu and kind
 			kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
