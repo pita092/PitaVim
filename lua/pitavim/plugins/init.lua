@@ -131,9 +131,9 @@ return {
 
 	{
 		"stevearc/conform.nvim",
-		config = function()
-			return require("pitavim.configs.conform")
-		end,
+		-- config = function()
+		-- 	return require("pitavim.configs.conform")
+		-- end,
 	},
 	{
 		{
