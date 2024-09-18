@@ -15,35 +15,7 @@ local cmdline_formatting = {
 
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
-local lsp = require("lsp-zero")
-lsp.setup()
-local kind_icons = {
-	Text = "󰉿",
-	Method = "󰆧",
-	Function = "󰊕",
-	Constructor = "",
-	Field = "󰜢",
-	Variable = "󰀫",
-	Class = "󰠱",
-	Interface = "",
-	Module = "",
-	Property = "󰜢",
-	Unit = "󰑭",
-	Value = "󰎠",
-	Enum = "",
-	Keyword = "󰌋",
-	Snippet = "",
-	Color = "󰏘",
-	File = "󰈙",
-	Reference = "󰈇",
-	Folder = "󰉋",
-	EnumMember = "",
-	Constant = "󰏿",
-	Struct = "󰙅",
-	Event = "",
-	Operator = "󰆕",
-	TypeParameter = "",
-}
+
 local blankaborder = {
 	border = { "", "", "", "", "", "", "", "" },
 	winhighlight = "Normal:CmpNormal,CursorLine:CmpSel,Search:None",
@@ -121,9 +93,6 @@ cmp.setup({
 			})[entry.source.name] or ""
 
 			-- Combine menu and kind
-			kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
-
-			vim.api.nvim_set_hl(0, "CmpSel", { bg = "#fbf1c7", fg = "#282828" })
 
 			-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
 			kind.menu = "" .. (strings[2] or "") .. ""
