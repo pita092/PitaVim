@@ -39,7 +39,6 @@ vim.keymap.set("n", "<leader>o", function()
 	})
 end, { desc = "[O] Live grep" })
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set("n", "<leader>r", builtin.resume, { desc = "[S]earch [R]esume" })
 vim.keymap.set("n", "<leader>p", builtin.git_files, { desc = "[G]it Files" })
 vim.keymap.set("n", "<leader>t", builtin.git_commits, { desc = "[G]it Commits" })
 
@@ -182,6 +181,8 @@ local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<leader>f", ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>r", ui.nav_next)
+vim.keymap.set("n", "<leader>q", ui.nav_next)
 
 vim.keymap.set("n", "<leader>1", function()
 	ui.nav_file(1)
