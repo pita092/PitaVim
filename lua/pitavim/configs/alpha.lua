@@ -1,4 +1,4 @@
- local alpha = require("alpha")
+    local alpha = require("alpha")
 require("alpha.term")
 
 local terminal = {
