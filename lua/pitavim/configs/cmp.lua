@@ -84,11 +84,11 @@ cmp.setup({
 
 			-- Set the menu first
 			vim_item.menu = ({
-				nvim_lsp = "[Lsp]",
-				buffer = "[Buff]",
-				path = "[Path]",
-				luasnip = "[Snips]",
-				lazydev = "[Lazy]",
+				nvim_lsp = "[Lsp] ",
+				buffer = "[Buff] ",
+				path = "[Path] ",
+				luasnip = "[Snips] ",
+				lazydev = "[Lazy] ",
 				-- Add other sources as needed
 			})[entry.source.name] or ""
 
