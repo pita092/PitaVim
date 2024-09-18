@@ -1,15 +1,5 @@
 return {
 	{
-		"mfussenegger/nvim-lint",
-		event = {
-			"BufReadPre",
-			"BufNewFile",
-		},
-		config = function()
-			return require("pitavim.configs.linting")
-		end,
-	},
-	{
 		"jbyuki/venn.nvim",
 		event = "User FilePost",
 	},
