@@ -93,12 +93,11 @@ cmp.setup({
 			})[entry.source.name] or ""
 
 			-- Combine menu and kind
-			kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
 
 			-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
 			kind.menu = "" .. (strings[2] or "") .. ""
 
-			return vim_item
+			return kind
 		end,
 	},
 
