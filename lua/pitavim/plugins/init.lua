@@ -131,7 +131,6 @@ return {
 
 	{
 		"stevearc/conform.nvim",
-    lazy = false,
 		-- config = function()
 		-- 	return require("pitavim.configs.conform")
 		-- end,
