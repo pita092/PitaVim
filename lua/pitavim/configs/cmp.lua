@@ -94,14 +94,13 @@ cmp.setup({
 
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "lazydev", group_index = 0 },
-		{ name = "friendly-snippets" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "spell" },
 		{ name = "dictionary" },
-		{ name = "nvim_lua" },
 		{ name = "calc" },
 	},
 	formatting = {
