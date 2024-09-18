@@ -77,7 +77,7 @@ cmp.setup({
 	},
 	window = {
 		completion = blankaborder,
-		documentation = blankaborder,
+		documentation = borderstyle,
 	},
 
 	mapping = cmp.mapping.preset.insert({
