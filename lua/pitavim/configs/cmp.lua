@@ -79,7 +79,7 @@ cmp.setup({
 		fields = { "menu", "abbr", "kind" }, -- Changed the order here
 		expandable_indicator = true,
 		format = function(entry, vim_item)
-			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(vim_item, entry)
+			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
 			local strings = vim.split(kind.kind, " ", { trimempty = true })
 
 			-- Set the menu first
