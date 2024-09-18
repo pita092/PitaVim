@@ -12,7 +12,7 @@ vim.opt.mouse = "a"
 vim.opt.showmode = false
 
 vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
+	vim.opt.clipboard = "unnamedplus"
 end)
 
 vim.g.vimtex_view_method = "mupdf"
@@ -29,11 +29,11 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 --vim.opt.listchars = {tab = "» " , trail = "·", nbsp = "␣" }
 vim.opt.listchars = {
-  eol = "↵",
-  tab = "· ",
-  trail = "▸",
-  extends = "❯",
-  precedes = "❮",
+	eol = "↵",
+	tab = "· ",
+	trail = "▸",
+	extends = "❯",
+	precedes = "❮",
 }
 o.termguicolors = true
 vim.opt.list = true
@@ -60,3 +60,11 @@ vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NeoTreeFloatNormal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NeoTreeTitleBar", { fg = "#ffffff", bg = "NONE" })
+
+if vim.g.neovide then
+	vim.g.neovide_padding_top = 0
+	vim.g.neovide_padding_bottom = 0
+	vim.g.neovide_padding_right = 0
+	vim.g.neovide_padding_left = 0
+	vim.g.neovide_confirm_quit = true
+end
