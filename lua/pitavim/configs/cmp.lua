@@ -163,9 +163,9 @@ cmdline_formatting = {
 		-- Customize the format for cmdline items
 		vim_item.kind = "" -- Example: Set all items to have "CMD" as kind
 		vim_item.menu = ({
+			lsp = "[LSP]",
 			buffer = "[Buff]",
 			path = "[Path]",
-			cmdline = "[Cmd]",
 		})[entry.source.name]
 		return vim_item
 	end,
