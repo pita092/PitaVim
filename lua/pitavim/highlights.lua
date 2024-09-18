@@ -62,20 +62,16 @@ vim.cmd([[
   highlight TelescopeSelection guibg=#7c6f64
   highlight  TelescopePromptPrefix guifg=#b8bb26
   highlight TelescopeMatching guifg=#fabd2f
-  highlight Pmenu guibg=#3c3836
   highlight 	TelescopePromptTitle guibg=#504945
   highlight 	TelescopePromptTitle guifg=#fbf1c7
   highlight 	TelescopeBorder guifg=#fbf1c7
   highlight 	TelescopeBorder guibg=#fbf1c7
+  highlight Pmenu guibg=#3c3836
   highlight NeoTreeTitleBar guibg = #fbf1c7
   highlight NeoTreeTitleBar guifg = #3c3836
-  highlight DiagnosticVirtualTextError guibg = #504945
   highlight DiagnosticVirtualTextError guifg =#cc241d
-  highlight DiagnosticVirtualTextWarn guibg = #504945
   highlight DiagnosticVirtualTextWarn guifg = #fabd2f
-  highlight DiagnosticVirtualTextInfo guibg = #504945
   highlight DiagnosticVirtualTextInfo guifg = #689d6a
-  highlight DiagnosticVirtualTextHint guibg = #504945
   highlight diagnosticvirtualtexthint guifg = #b57614
 
   ]])
