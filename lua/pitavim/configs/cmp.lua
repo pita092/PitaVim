@@ -18,7 +18,7 @@ local cmp_action = require("lsp-zero").cmp_action()
 
 local blankaborder = {
 	border = { "", "", "", "", "", "", "", "" },
-	winhighlight = "Normal:CmpNormal,CursorLine:CmpSel,Search:None",
+	winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:None",
 	scrollbar = false,
 	side_padding = 0,
 }
@@ -169,4 +169,5 @@ vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#3c3836" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#b8bb26", bg = "NONE", bold = true })
 vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#fbf1c7", bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#fbf1c7", bg = "NONE" })
-vim.api.nvim_set_hl(0, "CmpItemSel", { bg = "#fbf1c7", fg = "#3c3836" })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#fbf1c7", fg = "#3c3836" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "#3c3836", fg = "#fbf1c7" })
