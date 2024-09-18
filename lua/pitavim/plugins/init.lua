@@ -131,7 +131,7 @@ return {
 
 	{
 		"stevearc/conform.nvim",
-    event = "User FilePost",
+    lazy = false,
 		-- config = function()
 		-- 	return require("pitavim.configs.conform")
 		-- end,
