@@ -168,5 +168,5 @@ vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#3c3836" })
 
 -- Add these lines for command line completion
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#b8bb26", bg = "NONE", bold = true })
-vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#fbf1c7", bg = "NONE" })
-vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#fbf1c7", bg = "NONE" })
+vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#fbf1c7", bg = "#fbf1c7" })
+vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#fbf1c7", bg = "#fbf1c7" })
