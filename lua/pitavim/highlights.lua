@@ -67,7 +67,6 @@ vim.cmd([[
   highlight 	TelescopeBorder guifg=#fbf1c7
   highlight 	TelescopeBorder guibg=#fbf1c7
   highlight Pmenu guibg=#fbf1c7
-  highlights PmenuSel guibg=#fbf1c7
   highlight NeoTreeTitleBar guibg = #fbf1c7
   highlight NeoTreeTitleBar guifg = #3c3836
   highlight DiagnosticVirtualTextError guifg =#cc241d
