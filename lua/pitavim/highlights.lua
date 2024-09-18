@@ -27,44 +27,6 @@ local colors = {
 	yellow = "#d79921",
 }
 
-local function set_telescope_colors()
-	local color = {
-		bg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "bg#"),
-		fg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "fg#"),
-		selection = vim.fn.synIDattr(vim.fn.hlID("Visual"), "bg#"),
-		border = vim.fn.synIDattr(vim.fn.hlID("FloatBorder"), "fg#"),
-		prompt = vim.fn.synIDattr(vim.fn.hlID("Keyword"), "fg#"),
-		match = vim.fn.synIDattr(vim.fn.hlID("Search"), "fg#"),
-	}
-
-	local highlights = {
-		TelescopePromptBorder = { bg = color.bg, fg = color.border },
-		TelescopePromptNormal = { bg = color.bg },
-		TelescopeNormal = { bg = color.bg, fg = color.fg },
-		TelescopeSelection = { bg = color.selection },
-		TelescopePromptPrefix = { fg = color.prompt },
-		TelescopeMatching = { fg = color.match },
-		Pmenu = { bg = color.bg },
-		TelescopePromptTitle = { bg = color.bg, fg = color.fg },
-		TelescopeBorder = { fg = color.border, bg = color.border },
-		NeoTreeTitleBar = { bg = color.fg, fg = color.bg },
-		DiagnosticVirtualTextError = { bg = color.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticError"), "fg#") },
-		DiagnosticVirtualTextWarn = { bg = color.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticWarn"), "fg#") },
-		DiagnosticVirtualTextInfo = { bg = color.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticInfo"), "fg#") },
-		DiagnosticVirtualTextHint = { bg = color.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticHint"), "fg#") },
-	}
-
-	for group, color in pairs(highlights) do
-		vim.api.nvim_set_hl(0, group, color)
-	end
-end
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		set_telescope_colors()
-	end,
-})
-
 -- Telescope highlight groups
 local highlights = {
 	TelescopeBorder = { fg = colors.bg1, bg = colors.bg1 },
@@ -91,29 +53,29 @@ vim.cmd([[
   highlight Normal guibg=#282828
   ]])
 
--- vim.cmd([[
---   highligh  TelescopePromptBorder guibg=#504945
---   highligh  TelescopePromptBorder guifg=#504945
---   highlight TelescopePromptNormal guibg=#504945
---   highlight TelescopeNormal guibg=#3c3836
---   highlight TelescopeNormal guifg=#fbf1c7
---   highlight TelescopeSelection guibg=#7c6f64
---   highlight  TelescopePromptPrefix guifg=#b8bb26
---   highlight TelescopeMatching guifg=#fabd2f
---   highlight Pmenu guibg=#3c3836
---   highlight 	TelescopePromptTitle guibg=#504945
---   highlight 	TelescopePromptTitle guifg=#fbf1c7
---   highlight 	TelescopeBorder guifg=#fbf1c7
---   highlight 	TelescopeBorder guibg=#fbf1c7
---   highlight NeoTreeTitleBar guibg = #fbf1c7
---   highlight NeoTreeTitleBar guifg = #3c3836
---   highlight DiagnosticVirtualTextError guibg = #504945
---   highlight DiagnosticVirtualTextError guifg =#cc241d
---   highlight DiagnosticVirtualTextWarn guibg = #504945
---   highlight DiagnosticVirtualTextWarn guifg = #fabd2f
---   highlight DiagnosticVirtualTextInfo guibg = #504945
---   highlight DiagnosticVirtualTextInfo guifg = #689d6a
---   highlight DiagnosticVirtualTextHint guibg = #504945
---   highlight diagnosticvirtualtexthint guifg = #b57614
---
---   ]])
+vim.cmd([[
+  highligh  TelescopePromptBorder guibg=#504945
+  highligh  TelescopePromptBorder guifg=#504945
+  highlight TelescopePromptNormal guibg=#504945
+  highlight TelescopeNormal guibg=#3c3836
+  highlight TelescopeNormal guifg=#fbf1c7
+  highlight TelescopeSelection guibg=#7c6f64
+  highlight  TelescopePromptPrefix guifg=#b8bb26
+  highlight TelescopeMatching guifg=#fabd2f
+  highlight Pmenu guibg=#3c3836
+  highlight 	TelescopePromptTitle guibg=#504945
+  highlight 	TelescopePromptTitle guifg=#fbf1c7
+  highlight 	TelescopeBorder guifg=#fbf1c7
+  highlight 	TelescopeBorder guibg=#fbf1c7
+  highlight NeoTreeTitleBar guibg = #fbf1c7
+  highlight NeoTreeTitleBar guifg = #3c3836
+  highlight DiagnosticVirtualTextError guibg = #504945
+  highlight DiagnosticVirtualTextError guifg =#cc241d
+  highlight DiagnosticVirtualTextWarn guibg = #504945
+  highlight DiagnosticVirtualTextWarn guifg = #fabd2f
+  highlight DiagnosticVirtualTextInfo guibg = #504945
+  highlight DiagnosticVirtualTextInfo guifg = #689d6a
+  highlight DiagnosticVirtualTextHint guibg = #504945
+  highlight diagnosticvirtualtexthint guifg = #b57614
+
+  ]])
