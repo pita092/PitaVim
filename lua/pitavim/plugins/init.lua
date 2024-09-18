@@ -131,11 +131,6 @@ return {
 
 	{
 		"stevearc/conform.nvim",
-        opts = {
-      formatters_by_ft = {
-        lua = { "stylua" },
-      },
-    },
 		-- config = function()
 		-- 	return require("pitavim.configs.conform")
 		-- end,
