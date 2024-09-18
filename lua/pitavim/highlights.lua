@@ -11,24 +11,24 @@
 -- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#282828" })
 -- vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#282828", bg = "#fbf1c7" })
 
--- local colors = {
--- 	bg0 = "#282828",
--- 	bg1 = "#3c3836",
--- 	bg2 = "#282828",
--- 	fg1 = "#fbf1c7",
--- 	fg4 = "#a89984",
--- 	gray = "#928374",
--- 	blue = "#458588",
--- 	aqua = "#689d6a",
--- 	purple = "#b16286",
--- 	orange = "#d65d0e",
--- 	red = "#cc241d",
--- 	green = "#98971a",
--- 	yellow = "#d79921",
--- }
+local colors = {
+	bg0 = "#282828",
+	bg1 = "#3c3836",
+	bg2 = "#282828",
+	fg1 = "#fbf1c7",
+	fg4 = "#a89984",
+	gray = "#928374",
+	blue = "#458588",
+	aqua = "#689d6a",
+	purple = "#b16286",
+	orange = "#d65d0e",
+	red = "#cc241d",
+	green = "#98971a",
+	yellow = "#d79921",
+}
 
 local function set_telescope_colors()
-	local colors = {
+	local color = {
 		bg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "bg#"),
 		fg = vim.fn.synIDattr(vim.fn.hlID("Normal"), "fg#"),
 		selection = vim.fn.synIDattr(vim.fn.hlID("Visual"), "bg#"),
@@ -38,20 +38,20 @@ local function set_telescope_colors()
 	}
 
 	local highlights = {
-		TelescopePromptBorder = { bg = colors.bg, fg = colors.border },
-		TelescopePromptNormal = { bg = colors.bg },
-		TelescopeNormal = { bg = colors.bg, fg = colors.fg },
-		TelescopeSelection = { bg = colors.selection },
-		TelescopePromptPrefix = { fg = colors.prompt },
-		TelescopeMatching = { fg = colors.match },
-		Pmenu = { bg = colors.bg },
-		TelescopePromptTitle = { bg = colors.bg, fg = colors.fg },
-		TelescopeBorder = { fg = colors.border, bg = colors.border },
-		NeoTreeTitleBar = { bg = colors.fg, fg = colors.bg },
-		DiagnosticVirtualTextError = { bg = colors.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticError"), "fg#") },
-		DiagnosticVirtualTextWarn = { bg = colors.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticWarn"), "fg#") },
-		DiagnosticVirtualTextInfo = { bg = colors.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticInfo"), "fg#") },
-		DiagnosticVirtualTextHint = { bg = colors.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticHint"), "fg#") },
+		TelescopePromptBorder = { bg = color.bg, fg = color.border },
+		TelescopePromptNormal = { bg = color.bg },
+		TelescopeNormal = { bg = color.bg, fg = color.fg },
+		TelescopeSelection = { bg = color.selection },
+		TelescopePromptPrefix = { fg = color.prompt },
+		TelescopeMatching = { fg = color.match },
+		Pmenu = { bg = color.bg },
+		TelescopePromptTitle = { bg = color.bg, fg = color.fg },
+		TelescopeBorder = { fg = color.border, bg = color.border },
+		NeoTreeTitleBar = { bg = color.fg, fg = color.bg },
+		DiagnosticVirtualTextError = { bg = color.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticError"), "fg#") },
+		DiagnosticVirtualTextWarn = { bg = color.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticWarn"), "fg#") },
+		DiagnosticVirtualTextInfo = { bg = color.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticInfo"), "fg#") },
+		DiagnosticVirtualTextHint = { bg = color.bg, fg = vim.fn.synIDattr(vim.fn.hlID("DiagnosticHint"), "fg#") },
 	}
 
 	for group, color in pairs(highlights) do
