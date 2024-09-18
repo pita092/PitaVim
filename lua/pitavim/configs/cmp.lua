@@ -112,6 +112,7 @@ cmp.setup({
 
 			-- Set the menu first
 			vim_item.menu = ({
+				nvim_lsp = "[LSP]",
 				buffer = "[Buff]",
 				path = "[Path]",
 				cmdline = "[Cmd]",
