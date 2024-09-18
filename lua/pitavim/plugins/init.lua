@@ -1,5 +1,10 @@
 return {
 	{
+		--stuff
+		"ThePrimeagen/vim-be-good",
+		cmd = "VimBeGood",
+	},
+	{
 		"jbyuki/venn.nvim",
 		event = "User FilePost",
 	},
