@@ -120,7 +120,7 @@ cmp.setup({
 			})[entry.source.name] or ""
 
 			-- Add space and apply white color to menu_item
-			vim_item.menu = menu_item ~= "" and (" %#CmpItemMenu#" .. menu_item .. "%#CmpItemKind#") or ""
+			vim_item.menu = menu_item ~= "" and (" " .. menu_item .. "") or ""
 
 			-- Combine menu and kind
 			kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
