@@ -83,7 +83,7 @@ cmp.setup({
 			local strings = vim.split(kind.kind, " ", { trimempty = true })
 
 			-- Set the menu first
-			vim_item.menu = ({
+			kind.kind = ({
 				nvim_lsp = "[Lsp] ",
 				buffer = "[Buff] ",
 				path = "[Path] ",
@@ -93,7 +93,6 @@ cmp.setup({
 			})[entry.source.name] or ""
 
 			-- Combine menu and kind
-			kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
 
 			-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
 			kind.menu = "" .. (strings[2] or "") .. ""
