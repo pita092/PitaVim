@@ -43,6 +43,10 @@ lspconfig.jdtls.setup({
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 })
+lspconfig.gopls.setup({
+	filetypes = { "go", "gomod" },
+	capabilities = capabilities,
+})
 lspconfig.clangd.setup({
 	keys = {
 		{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
