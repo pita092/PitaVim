@@ -164,6 +164,7 @@ cmdline_formatting = {
 			nvim_lsp = "[LSP]",
 			buffer = "[Buff]",
 			path = "[Path]",
+			luasnip = "[SNIPS]",
 		})[entry.source.name]
 		return vim_item
 	end,
