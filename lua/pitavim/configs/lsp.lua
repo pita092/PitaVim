@@ -47,11 +47,14 @@ lspconfig.lua_ls.setup({
 lspconfig.gopls.setup({
 	filetypes = { "go", "gomod" },
 	capabilities = capabilities,
-	goplks = {
-		completeUnimported = true,
-		usePlaceholders = true,
-		analyses = {
-			unusedparams = true,
+	settings = {
+		gopls = {
+			completeUnimported = true,
+			usePlaceholders = true,
+			analyses = {
+				unusedparams = true,
+			},
+			staticcheck = true,
 		},
 	},
 })
