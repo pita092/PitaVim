@@ -115,7 +115,8 @@ cmp.setup({
 				nvim_lsp = "[LSP]",
 				buffer = "[Buff]",
 				path = "[Path]",
-				cmdline = "[Cmd]",
+				luasnip = "[SNIPS]",
+				lazydev = "[LAZY]",
 				-- Add other sources as needed
 			})[entry.source.name] or ""
 
@@ -164,7 +165,6 @@ cmdline_formatting = {
 			nvim_lsp = "[LSP]",
 			buffer = "[Buff]",
 			path = "[Path]",
-			luasnip = "[SNIPS]",
 		})[entry.source.name]
 		return vim_item
 	end,
