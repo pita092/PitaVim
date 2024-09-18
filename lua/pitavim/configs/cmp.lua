@@ -112,7 +112,7 @@ cmp.setup({
 		{ name = "calc" },
 	},
 	formatting = {
-		fields = { "abbr", "kind", "menu" },
+		fields = { "abbr", "menu", "kind" },
 		expandable_indicator = true,
 		format = function(entry, vim_item)
 			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
