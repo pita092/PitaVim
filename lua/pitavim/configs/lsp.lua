@@ -1,4 +1,5 @@
 local M = {}
+
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 vim.diagnostic.config({
@@ -46,6 +47,13 @@ lspconfig.lua_ls.setup({
 lspconfig.gopls.setup({
 	filetypes = { "go", "gomod" },
 	capabilities = capabilities,
+	goplks = {
+		completeUnimported = true,
+		usePlaceholders = true,
+		analyses = {
+			unusedparams = true,
+		},
+	},
 })
 lspconfig.clangd.setup({
 	keys = {
