@@ -3,6 +3,13 @@ require("conform").setup({
 		lua = { "stylua", "luaformatter" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
-		go = { "gopls", "goimports_reviser", "golines" },
+
+		formatters_by_ft = {
+			go = { "gofumpt", "goimports", "golines" },
+		},
+		format_on_save = {
+			timeout_ms = 500,
+			lsp_fallback = true,
+		},
 	},
 })
