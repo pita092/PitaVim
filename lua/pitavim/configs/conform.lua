@@ -3,6 +3,6 @@ require("conform").setup({
 		lua = { "stylua", "luaformatter" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
-		go = { "gopls" },
+		go = { "gopls", "goimports_reviser", "golines" },
 	},
 })
