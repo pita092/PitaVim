@@ -75,42 +75,15 @@ cmp.setup({
 		{ name = "dictionary" },
 		{ name = "calc" },
 	},
-	-- formatting = {
-	-- 	fields = { "menu", "abbr", "kind" }, -- Changed the order here
-	-- 	expandable_indicator = true,
-	-- 	format = function(entry, vim_item)
-	-- 		local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
-	-- 		local strings = vim.split(kind.kind, " ", { trimempty = true })
-	--
-	-- 		-- Set the menu first
-	-- 		vim_item.menu = ({
-	-- 			nvim_lsp = "[Lsp]",
-	-- 			buffer = "[Buff]",
-	-- 			path = "[Path]",
-	-- 			luasnip = "[Snips]",
-	-- 			lazydev = "[Lazy]",
-	-- 			-- Add other sources as needed
-	-- 		})[entry.source.name] or ""
-	--
-	-- 		-- Combine menu and kind
-	-- 		kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
-	--
-	-- 		-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
-	-- 		kind.menu = "" .. (strings[2] or "") .. ""
-	--
-	-- 		return vim_item
-	-- 	end,
-	-- },
-
 	formatting = {
-		fields = { "menu", "abbr", "kind" }, -- Kept as is
+		fields = { "menu", "abbr", "kind" }, -- Changed the order here
 		expandable_indicator = true,
 		format = function(entry, vim_item)
 			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
 			local strings = vim.split(kind.kind, " ", { trimempty = true })
 
-			-- Set the menu first with white color and a space
-			local menu_item = ({
+			-- Set the menu first
+			vim_item.menu = ({
 				nvim_lsp = "[Lsp]",
 				buffer = "[Buff]",
 				path = "[Path]",
@@ -119,16 +92,13 @@ cmp.setup({
 				-- Add other sources as needed
 			})[entry.source.name] or ""
 
-			-- Add space and apply white color to menu_item
-			vim_item.menu = menu_item ~= "" and (" " .. menu_item .. "") or ""
-
 			-- Combine menu and kind
 			kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
 
 			-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
 			kind.menu = "" .. (strings[2] or "") .. ""
 
-			return kind
+			return vim_item
 		end,
 	},
 
@@ -200,10 +170,3 @@ vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#3c3836" })
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#b8bb26", bg = "NONE", bold = true })
 vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#fbf1c7", bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#fbf1c7", bg = "NONE" })
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#ffffff", bg = "NONE" })
-	end,
-})
