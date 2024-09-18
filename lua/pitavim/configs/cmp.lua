@@ -75,20 +75,47 @@ cmp.setup({
 		{ name = "dictionary" },
 		{ name = "calc" },
 	},
+	-- formatting = {
+	-- 	fields = { "menu", "abbr", "kind" }, -- Changed the order here
+	-- 	expandable_indicator = true,
+	-- 	format = function(entry, vim_item)
+	-- 		local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
+	-- 		local strings = vim.split(kind.kind, " ", { trimempty = true })
+	--
+	-- 		-- Set the menu first
+	-- 		vim_item.menu = ({
+	-- 			nvim_lsp = "[Lsp]",
+	-- 			buffer = "[Buff]",
+	-- 			path = "[Path]",
+	-- 			luasnip = "[Snips]",
+	-- 			lazydev = "[Lazy]",
+	-- 			-- Add other sources as needed
+	-- 		})[entry.source.name] or ""
+	--
+	-- 		-- Combine menu and kind
+	-- 		kind.kind = string.format("%s %s", vim_item.menu, strings[1] or "")
+	--
+	-- 		-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
+	-- 		kind.menu = "" .. (strings[2] or "") .. ""
+	--
+	-- 		return vim_item
+	-- 	end,
+	-- },
+
 	formatting = {
-		fields = { "menu", "abbr", "kind" }, -- Changed the order here
+		fields = { "menu", "abbr", "kind" }, -- Kept as is
 		expandable_indicator = true,
 		format = function(entry, vim_item)
 			local kind = require("lspkind").cmp_format({ mode = "text", maxwidth = 50 })(entry, vim_item)
 			local strings = vim.split(kind.kind, " ", { trimempty = true })
 
-			-- Set the menu first
+			-- Set the menu first with white color and a space
 			vim_item.menu = ({
-				nvim_lsp = "[Lsp]",
-				buffer = "[Buff]",
-				path = "[Path]",
-				luasnip = "[Snips]",
-				lazydev = "[Lazy]",
+				nvim_lsp = " %#CmpItemMenuDefault#[Lsp]%*",
+				buffer = " %#CmpItemMenuDefault#[Buff]%*",
+				path = " %#CmpItemMenuDefault#[Path]%*",
+				luasnip = " %#CmpItemMenuDefault#[Snips]%*",
+				lazydev = " %#CmpItemMenuDefault#[Lazy]%*",
 				-- Add other sources as needed
 			})[entry.source.name] or ""
 
@@ -98,7 +125,7 @@ cmp.setup({
 			-- NOTE: Don't remove the line below if you don't want the CMP to go haywire
 			kind.menu = "" .. (strings[2] or "") .. ""
 
-			return vim_item
+			return kind
 		end,
 	},
 
