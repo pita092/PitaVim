@@ -58,33 +58,6 @@ vim.api.nvim_create_user_command("Updt", "Lazy update nvim-plugins", {
 	desc = "Update neovim plugins",
 })
 
-local function display_ansi_art()
-	local art_file = "~/.config/nvim/thisisfine.sh"
-	local art = ""
-
-	local file = io.open(art_file, "r")
-	if file then
-		art = file:read("*all")
-		file:close()
-	else
-		print("Error: Unable to open ANSI art file")
-		return
-	end
-
-	local buf = vim.api.nvim_create_buf(false, true)
-	vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(art, "\n"))
-	vim.api.nvim_buf_set_option(buf, "modifiable", false)
-	vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
-	vim.api.nvim_set_current_buf(buf)
-end
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		if vim.fn.argc() == 0 then
-			display_ansi_art()
-		end
-	end,
-})
-
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
