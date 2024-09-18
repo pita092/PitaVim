@@ -94,10 +94,9 @@ cmp.setup({
 
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "L3MON4D3/LuaSnip" },
-		{ name = "lazydev", group_index = 0 },
 		{ name = "luasnip" },
-		{ name = "rafamadriz/friendly-snippets" },
+		{ name = "lazydev", group_index = 0 },
+		{ name = "friendly-snippets" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "spell" },
