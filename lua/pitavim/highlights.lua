@@ -74,4 +74,6 @@ vim.cmd([[
   highlight DiagnosticVirtualTextInfo guifg = #689d6a
   highlight diagnosticvirtualtexthint guifg = #b57614
 
+  highlight MasonNormal guibg=#504945
+  highlight MasonNormal guifg=#fbf1c7
   ]])
