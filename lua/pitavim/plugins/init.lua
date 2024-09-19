@@ -1,11 +1,5 @@
 return {
 	{
-		"hiphish/rainbow-delimiters.nvim",
-		config = function()
-			return require("pitavim.configs.rainbow")
-		end,
-	},
-	{
 		--stuff
 		"ThePrimeagen/vim-be-good",
 		cmd = "VimBeGood",
