@@ -136,7 +136,9 @@ return {
 		-- end,
 	},
 	{
-		"williamboman/mason-lspconfig",
+		{
+			"williamboman/mason-lspconfig",
+		},
 		"williamboman/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
 		opts = function()
