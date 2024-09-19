@@ -76,4 +76,10 @@ vim.cmd([[
 
   highlight MasonNormal guibg=#504945
   highlight MasonNormal guifg=#fbf1c7
+  highlight MasonHeader guibg=#b8bb26
+  highlight MasonHeader guifg=#fbf1c7
+  highlight MasonHeaderSecondary guibg=#458588
+  highlight MasonHeaderSecondary guifg=#fbf1c7
+  highlight MasonHighlight guifg=#fabd2f
+  highlight MasonHighlightBlock guifg=#282828
   ]])
