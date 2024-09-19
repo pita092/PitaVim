@@ -147,7 +147,7 @@ return {
 		"neovim/nvim-lspconfig",
 		event = "User FilePost",
 		config = function()
-			require("nvchad.configs.lspconfig").defaults()
+			return require("pitavim.configs.lsp")
 		end,
 	},
 	{
