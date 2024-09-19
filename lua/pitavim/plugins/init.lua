@@ -138,7 +138,7 @@ return {
 	{
 		{
 			"williamboman/mason.nvim",
-			cmd = { "MasonInstall", "Mason" },
+			cmd = { "Mason", "MasonInstall" },
 			opts = {},
 		},
 		{
