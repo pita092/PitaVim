@@ -247,14 +247,14 @@ return {
 	-- 		return require("pitavim.configs.wilder")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"ellisonleao/gruvbox.nvim",
-	-- 	event = "VeryLazy",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		return require("pitavim.configs.gruvbox")
-	-- 	end,
-	-- },
+	{
+		"ellisonleao/gruvbox.nvim",
+		event = "VeryLazy",
+		priority = 1000,
+		config = function()
+			return require("pitavim.configs.gruvbox")
+		end,
+	},
 	{
 		"maxmx03/solarized.nvim",
 		lazy = false,
@@ -263,7 +263,7 @@ return {
 		opts = {},
 		config = function(_, opts)
 			vim.o.termguicolors = true
-			vim.o.background = "light"
+			vim.o.background = "dark"
 			require("solarized").setup(opts)
 			vim.cmd.colorscheme("solarized")
 		end,
