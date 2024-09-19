@@ -74,9 +74,9 @@ vim.cmd([[
   highlight DiagnosticVirtualTextInfo guifg = #689d6a
   highlight diagnosticvirtualtexthint guifg = #b57614
 
-  highlight MasonNormal guibg=#504945
+  highlight MasonNormal guibg=#3c3836
   highlight MasonNormal guifg=#fbf1c7
-  highlight MasonHeader guibg=#b8bb26
+  highlight MasonHeader guibg=#458588
   highlight MasonHeader guifg=#fbf1c7
   highlight MasonHeaderSecondary guibg=#458588
   highlight MasonHeaderSecondary guifg=#fbf1c7
