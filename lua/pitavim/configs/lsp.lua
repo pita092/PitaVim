@@ -23,6 +23,9 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 local servers = {
 	"lua_ls",
+  "clangd",
+  "stylua",
+  "clang_format",
 }
 
 require("mason").setup()
