@@ -1,5 +1,11 @@
 return {
 	{
+		"hiphish/rainbow-delimiters.nvim",
+		config = function()
+			return require("pitavim.configs.rainbow")
+		end,
+	},
+	{
 		--stuff
 		"ThePrimeagen/vim-be-good",
 		cmd = "VimBeGood",
@@ -241,12 +247,25 @@ return {
 	-- 		return require("pitavim.configs.wilder")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	event = "VeryLazy",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		return require("pitavim.configs.gruvbox")
+	-- 	end,
+	-- },
 	{
-		"ellisonleao/gruvbox.nvim",
-		event = "VeryLazy",
+		"maxmx03/solarized.nvim",
+		lazy = false,
 		priority = 1000,
-		config = function()
-			return require("pitavim.configs.gruvbox")
+		---@type solarized.config
+		opts = {},
+		config = function(_, opts)
+			vim.o.termguicolors = true
+			vim.o.background = "light"
+			require("solarized").setup(opts)
+			vim.cmd.colorscheme("solarized")
 		end,
 	},
 	{
