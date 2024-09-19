@@ -136,22 +136,19 @@ return {
 		-- end,
 	},
 	{
-		{
-			"williamboman/mason.nvim",
-			cmd = { "Mason", "MasonInstall" },
-			opts = {},
-		},
-		{
-			"williamboman/mason-lspconfig.nvim",
-			cmd = { "Mason" },
-		},
-		{
-			"neovim/nvim-lspconfig",
-			event = "User FilePost",
-			config = function()
-				return require("pitavim.configs.lsp")
-			end,
-		},
+		"williamboman/mason.nvim",
+		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+		opts = function()
+			return require("pitavim.configs.mason")
+		end,
+	},
+
+	{
+		"neovim/nvim-lspconfig",
+		event = "User FilePost",
+		config = function()
+			require("nvchad.configs.lspconfig").defaults()
+		end,
 	},
 	{
 		"ThePrimeagen/harpoon",
