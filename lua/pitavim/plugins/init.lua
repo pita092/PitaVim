@@ -143,7 +143,7 @@ return {
 		},
 		{
 			"williamboman/mason-lspconfig.nvim",
-			cmd = { "Mason", "Mason" },
+			cmd = { "Mason" },
 		},
 		{
 			"neovim/nvim-lspconfig",
