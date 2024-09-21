@@ -1,5 +1,5 @@
 local M = {}
- function make_hl_table()
+ function M.make_hl_table()
 	local F = require("colorful.color.functional")
 	local Highlight = require("colorful.highlight")
 
