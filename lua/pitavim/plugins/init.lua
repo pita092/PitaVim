@@ -1,5 +1,11 @@
 return {
 	{
+		"hiphish/rainbow-delimiters.nvim",
+		config = function()
+			return require("pitavim.configs.rainbow")
+		end,
+	},
+	{
 		--stuff
 		"ThePrimeagen/vim-be-good",
 		cmd = "VimBeGood",
@@ -137,21 +143,21 @@ return {
 	},
 	{
 		{
-			"williamboman/mason.nvim",
-			cmd = { "MasonInstall", "Mason" },
-			opts = {},
+			"williamboman/mason-lspconfig",
 		},
-		{
-			"williamboman/mason-lspconfig.nvim",
-			cmd = { "Mason", "Mason" },
-		},
-		{
-			"neovim/nvim-lspconfig",
-			event = "User FilePost",
-			config = function()
-				return require("pitavim.configs.lsp")
-			end,
-		},
+		"williamboman/mason.nvim",
+		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+		opts = function()
+			return require("pitavim.configs.mason")
+		end,
+	},
+
+	{
+		"neovim/nvim-lspconfig",
+		event = "User FilePost",
+		config = function()
+			return require("pitavim.configs.lsp")
+		end,
 	},
 	{
 		"ThePrimeagen/harpoon",
@@ -301,6 +307,20 @@ return {
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
 		end,
+	},
+	{
+		"ray-x/go.nvim",
+		dependencies = { -- optional packages
+			"ray-x/guihua.lua",
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("go").setup()
+		end,
+		event = { "CmdlineEnter" },
+		ft = { "go", "gomod" },
+		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 	},
 	{
 		"folke/trouble.nvim",
