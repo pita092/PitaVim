@@ -37,14 +37,6 @@ local M = {}
 			TelescopeResultsBorder = { fg = bg_dark, bg = bg_dark },
 			TelescopeResultsTitle = { fg = bg_dark, bg = bg_dark },
 		},
-		-- highlights specific to dracula, like a different accent color
-		["dracula"] = {
-			-- ...
-		},
-		-- highlights specific to any catppuccin variant
-		["catppuccin*"] = {
-			-- ...
-		},
 	}
 end
 return M
