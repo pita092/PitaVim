@@ -1,33 +1,10 @@
-local function make_hl_table()
-	local F = require("colorful.color.functional")
-	local Highlight = require("colorful.highlight")
-	local hl = Highlight("Normal")
-	local fg = hl.fg
-	local bg = hl:map_copy("bg", F.lighten(0.02))
-	local bg_dark = hl:map_copy("bg", F.lighten(-0.045))
-	local dim = hl:map_copy("bg", F.lighten(0.125))
-	local accent = Highlight.get_fg("@function", "Function")
-	return {
-		["*"] = {
-			TelescopeNormal = { fg = fg, bg = bg_dark },
-			TelescopePreviewBorder = { fg = bg_dark, bg = bg_dark },
-			TelescopePreviewTitle = { fg = accent, reverse = true, bold = true },
-			TelescopePromptBorder = { fg = bg, bg = bg },
-			TelescopePromptCounter = { fg = dim },
-			TelescopePromptNormal = { fg = fg, bg = bg },
-			TelescopePromptPrefix = { fg = accent },
-			TelescopePromptTitle = { fg = accent, reverse = true, bold = true },
-			TelescopeResultsBorder = { fg = bg_dark, bg = bg_dark },
-			TelescopeResultsTitle = { fg = bg_dark, bg = bg_dark },
-		},
-	}
-end
+local hello = require("pitavim.configs.color")
 
 return {
 	{
 		"bwpge/colorful.nvim",
 		opts = {
-			highlights = make_hl_table,
+			highlights = hello.make_hl_table(),
 			create_autocmd = true,
 			apply_on_setup = true,
 		},

@@ -1,5 +1,5 @@
 local M = {}
-function M.make_hl_table()
+local function make_hl_table()
 	local F = require("colorful.color.functional")
 	local Highlight = require("colorful.highlight")
 
@@ -36,6 +36,14 @@ function M.make_hl_table()
 			TelescopePromptTitle = { fg = accent, reverse = true, bold = true },
 			TelescopeResultsBorder = { fg = bg_dark, bg = bg_dark },
 			TelescopeResultsTitle = { fg = bg_dark, bg = bg_dark },
+		},
+		-- highlights specific to dracula, like a different accent color
+		["dracula"] = {
+			-- ...
+		},
+		-- highlights specific to any catppuccin variant
+		["catppuccin*"] = {
+			-- ...
 		},
 	}
 end
