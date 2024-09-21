@@ -2,7 +2,7 @@ return {
 	{
 		"bwpge/colorful.nvim",
 		opts = {
-			highlights = make_h 
+			highlights = make_h, 
 			create_autocmd = true,
 			apply_on_setup = true,
 		},
