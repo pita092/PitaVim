@@ -1,15 +1,15 @@
 local hello = require("pitavim.configs.color")
 
 return {
-	-- {
-	-- 	"bwpge/colorful.nvim",
-	-- 	opts = {
-	-- 		highlights = hello.make_hl_table(),
-	-- 		create_autocmd = true,
-	-- 		apply_on_setup = true,
-	-- 	},
-	-- 	event = "VeryLazy",
-	-- },
+	{
+		"bwpge/colorful.nvim",
+		opts = {
+			highlights = hello.make_hl_table(),
+			create_autocmd = true,
+			apply_on_setup = true,
+		},
+		event = "VeryLazy",
+	},
 	{
 		"hiphish/rainbow-delimiters.nvim",
 		config = function()
