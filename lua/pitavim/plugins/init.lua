@@ -1,5 +1,15 @@
 return {
 	{
+		"bwpge/colorful.nvim",
+		opts = {
+			-- see above example for how to create a highlights function
+			highlights = function()
+				-- ...
+			end,
+		},
+		event = "VeryLazy",
+	},
+	{
 		"hiphish/rainbow-delimiters.nvim",
 		config = function()
 			return require("pitavim.configs.rainbow")

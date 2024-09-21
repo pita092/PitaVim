@@ -28,25 +28,22 @@ local colors = {
 }
 
 -- Telescope highlight groups
-local highlights = {
-	TelescopeBorder = { fg = colors.bg1, bg = colors.bg1 },
-	TelescopePromptBorder = { fg = colors.bg2, bg = colors.bg2 },
-	TelescopePromptNormal = { fg = colors.fg1, bg = colors.gray },
-	TelescopePromptPrefix = { fg = colors.orange, bg = colors.bg2 },
-	TelescopePromptTitle = { fg = colors.bg0, bg = colors.fg1 },
-	TelescopePreviewTitle = { fg = colors.fg1, bg = colors.green },
-	TelescopeResultsTitle = { fg = colors.bg0, bg = colors.gray },
-	TelescopeSelection = { fg = colors.fg1, bg = colors.bg2 },
-	TelescopeSelectionCaret = { fg = colors.orange, bg = colors.bg2 },
-	TelescopeResultsDiffAdd = { fg = colors.green },
-	TelescopeResultsDiffChange = { fg = colors.yellow },
-	TelescopeResultsDiffDelete = { fg = colors.red },
-}
+-- local highlights = {
+-- 	TelescopeBorder = { fg = colors.bg1, bg = colors.bg1 },
+-- 	TelescopePromptBorder = { fg = colors.bg2, bg = colors.bg2 },
+-- 	TelescopePromptNormal = { fg = colors.fg1, bg = colors.gray },
+-- 	TelescopePromptPrefix = { fg = colors.orange, bg = colors.bg2 },
+-- 	TelescopePromptTitle = { fg = colors.bg0, bg = colors.fg1 },
+-- 	TelescopePreviewTitle = { fg = colors.fg1, bg = colors.green },
+-- 	TelescopeResultsTitle = { fg = colors.bg0, bg = colors.gray },
+-- 	TelescopeSelection = { fg = colors.fg1, bg = colors.bg2 },
+-- 	TelescopeSelectionCaret = { fg = colors.orange, bg = colors.bg2 },
+-- 	TelescopeResultsDiffAdd = { fg = colors.green },
+-- 	TelescopeResultsDiffChange = { fg = colors.yellow },
+-- 	TelescopeResultsDiffDelete = { fg = colors.red },
+-- }
 
 -- Apply highlights
-for hl_group, col in pairs(highlights) do
-	vim.api.nvim_set_hl(0, hl_group, col)
-end
 
 vim.cmd([[
   colorscheme gruvbox
