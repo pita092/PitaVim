@@ -53,7 +53,6 @@ vim.cmd([[
   highlight Normal guibg=#282828
   ]])
 
-<<<<<<< HEAD
 -- vim.cmd([[
 --   highligh  TelescopePromptBorder guibg=#504945
 --   highligh  TelescopePromptBorder guifg=#504945
