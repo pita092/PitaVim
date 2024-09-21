@@ -1,5 +1,22 @@
 local lspkind = require("lspkind")
 
+local function center_telescope_title(prompt_bufnr)
+	local prompt_win = vim.api.nvim_get_current_win()
+	local width = vim.api.nvim_win_get_width(prompt_win)
+	local bufname = vim.fn.bufname(prompt_bufnr)
+	local title = bufname:match("Telescope (.+)$") or "Telescope"
+	local padding = math.floor((width - #title) / 2)
+
+	-- Create the centered title string
+	local centered_title = string.rep(" ", padding) .. title
+
+	-- Set the first line of the buffer to the centered title
+	vim.api.nvim_buf_set_lines(prompt_bufnr, 0, 1, false, { centered_title })
+
+	-- Highlight the title
+	vim.api.nvim_buf_add_highlight(prompt_bufnr, -1, "TelescopeTitle", 0, 0, -1)
+end
+
 require("telescope").setup({
 	pickers = {
 		find_files = {
@@ -148,6 +165,19 @@ require("telescope").setup({
 })
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
+local telescope_module = require("telescope.builtin")
+for k, v in pairs(telescope_module) do
+	if type(v) == "function" then
+		telescope_module[k] = function(opts)
+			opts = opts or {}
+			opts.attach_mappings = function(prompt_bufnr, map)
+				center_telescope_title(prompt_bufnr)
+				return true
+			end
+			return v(opts)
+		end
+	end
+end
 
 -- defaults = {
 --   border = false,
