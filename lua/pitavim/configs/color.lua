@@ -1,4 +1,5 @@
-local function make_hl_table()
+local M = {}
+local function M.make_hl_table()
 	local F = require("colorful.color.functional")
 	local Highlight = require("colorful.highlight")
 
@@ -46,21 +47,4 @@ local function make_hl_table()
 		},
 	}
 end
-
-return {
-	"bwpge/colorful.nvim",
-	opts = {
-		-- this option accepts a function and expects it to return a table like we built above.
-		-- using a function allows the colors to be "refreshed" each time it is called.
-		highlights = make_hl_table,
-		-- creates a ColorScheme autocmd to apply these changes on each colorscheme change
-		create_autocmd = true,
-		-- since we (presumably) load the plugin after the first colorscheme change, we probably
-		-- need to apply the changes manually the first time. if you have a different setup, you
-		-- can disable this behavior with `false`.
-		apply_on_setup = true,
-	},
-	-- not strictly required, but we can lazy load to defer some of the work required to set the
-	-- highlights (e.g., copying colors, adjustments, conversions, etc.)
-	event = "VeryLazy",
-}
+return M
