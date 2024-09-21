@@ -1,9 +1,8 @@
-
 return {
 	{
 		"bwpge/colorful.nvim",
 		opts = {
-			highlights = make_hl_table,
+			highlights = require("pitavim.configs.color"),
 			create_autocmd = true,
 			apply_on_setup = true,
 		},
