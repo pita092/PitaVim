@@ -1,4 +1,3 @@
-local make_hl_table = require("pitavim.configs.color")
 
 return {
 	{
