@@ -4,11 +4,11 @@ local color_module = require("pitavim.configs.color")
 return {
 	{
 		"bwpge/colorful.nvim",
-		-- opts = {
-		-- 	highlights = color_module.make_hl_table(), 
-		-- 	create_autocmd = true,
-		-- 	apply_on_setup = true,
-		-- },
+		opts = {
+			highlights = color_module.make_hl_table(), 
+			create_autocmd = true,
+			apply_on_setup = true,
+		},
 		event = "VeryLazy",
 	},
 	{
