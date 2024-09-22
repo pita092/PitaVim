@@ -66,13 +66,22 @@ require("telescope").setup({
 		sorting_strategy = "ascending",
 		layout_strategy = "horizontal",
 		layout_config = {
-        height = function(_, _, l) return l end,
-          width = function(_, c, _) return c end,
-          prompt_position = "top",
-          preview_height = 0.40,
+			height = function(_, _, l)
+				return l
+			end,
+			width = function(_, c, _)
+				return c
+			end,
+			prompt_position = "top",
+			preview_height = 0.40,
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.55,
+				results_width = 0.8,
 			},
-			width = 0.87,
-			height = 0.80,
+			vertical = {
+				mirror = false,
+			},
 			preview_cutoff = 120,
 		},
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
