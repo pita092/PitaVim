@@ -44,9 +44,6 @@ local colors = {
 -- }
 
 -- Apply highlights
-vim.cmd([[
-highlight Normal = {bg = "#282828"}
-]])
 -- vim.cmd([[
 --   highligh  TelescopePromptBorder guibg=#504945
 --   highligh  TelescopePromptBorder guifg=#504945
