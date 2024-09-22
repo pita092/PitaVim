@@ -6,7 +6,6 @@ return {
 		event = "VeryLazy",
 	},
 	-- {
-  :wqa
 	-- 	"jbyuki/venn.nvim",
 	-- 	event = "User FilePost",
 	-- },
