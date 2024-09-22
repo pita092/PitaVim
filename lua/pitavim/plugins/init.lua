@@ -1,4 +1,4 @@
-return{
+return {
 	{
 		"bwpge/colorful.nvim",
 		opts = require("pitavim.configs.color"),
@@ -234,7 +234,6 @@ return{
 	{
 		"stevearc/oil.nvim",
 		cmd = "Oil",
-		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 		opts = {
 			border = "single",
 		},
