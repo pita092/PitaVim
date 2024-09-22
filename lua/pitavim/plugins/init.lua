@@ -215,21 +215,12 @@ return {
 	-- 		return require("pitavim.configs.wilder")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"ellisonleao/gruvbox.nvim",
-	-- 	event = "VeryLazy",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		return require("pitavim.configs.colorscheme")
-	-- 	end,
-	-- },
 	{
-		"shaunsingh/solarized.nvim",
+		"ellisonleao/gruvbox.nvim",
 		event = "VeryLazy",
 		priority = 1000,
 		config = function()
-			--Lua:
-			require("solarized").set()
+			return require("pitavim.configs.colorscheme")
 		end,
 	},
 	{
