@@ -20,7 +20,16 @@ map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "General Copy whole file" })
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
 
 -- neotree/oil
-map("n", "<leader>e", ":Neotree reveal right<CR>", { silent = true, desc = "neotree reavel" })
+-- map("n", "<leader>e", ":Neotree reveal right<CR>", { silent = true, desc = "neotree reavel" })
+vim.keymap.set("n", "<leader>e", function()
+	local oil = require("oil")
+	oil.open_float(vim.fn.getcwd())
+	-- Move the oil window to the far left
+	vim.cmd("wincmd H")
+	-- Resize the oil window (adjust the width as needed)
+	vim.cmd("vertical resize 30")
+end, { desc = "Open oil.nvim on the left side" })
+
 map("n", "<C-x>", "<CMD>Oil --float<CR>", { silent = true, desc = "Open parent directory" })
 map("n", "<C-f>", ":lua require('oil').close()<CR>", { silent = true, desc = "Close oil" })
 
