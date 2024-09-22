@@ -1,5 +1,8 @@
 return {
 	{
+		"nvim-java/nvim-java",
+	},
+	{
 		"bwpge/colorful.nvim",
 		opts = require("pitavim.configs.color"),
 		event = "VeryLazy",
