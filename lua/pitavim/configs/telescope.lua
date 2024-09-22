@@ -2,46 +2,45 @@ require("telescope").setup({
 	pickers = {
 		find_files = {
 			prompt_title = "/*Find Files*/",
-			-- prompt_prefix = " ",
-			prompt_prefix = "■ ",
+			prompt_prefix = " ",
+			-- prompt_prefix = "■ ",
 		},
 		live_grep = {
 			prompt_title = "/*Search Text*/",
-			-- prompt_prefix = "🕵️‍♂️ ",
-
-			prompt_prefix = "■ ",
+			prompt_prefix = "🕵️‍♂️ ",
+			-- prompt_prefix = "■ ",
 
 			preview = true,
 		},
 		current_buffer_fuzzy_find = {
 			prompt_title = "/*Fuzzy Find Current Buffer*/",
-			-- prompt_prefix = " ",
-			prompt_prefix = "■ ",
+			prompt_prefix = " ",
+			-- prompt_prefix = "■ ",
 		},
 		git_files = {
 			prompt_title = "/*Git File*/",
-			-- prompt_prefix = " ",
-			prompt_prefix = "■ ",
+			prompt_prefix = " ",
+			-- prompt_prefix = "■ ",
 		},
 		builtin = {
 			prompt_title = "/*Global Telescope Menu*/",
-			-- prompt_prefix = "  ",
-			prompt_prefix = "■ ",
+			prompt_prefix = "  ",
+			-- prompt_prefix = "■ ",
 		},
 		help_tags = {
 			prompt_title = "/*Global Telescope Menu*/",
-			-- prompt_prefix = " ",
-			prompt_prefix = "■ ",
+			prompt_prefix = " ",
+			-- prompt_prefix = "■ ",
 		},
 		git_commits = {
 			prompt_title = "/*Git Commits*/",
-			-- prompt_prefix = " ",
-			prompt_prefix = "■ ",
+			prompt_prefix = " ",
+			-- prompt_prefix = "■ ",
 		},
 		keymaps = {
 			prompt_title = "/*Keymaps*/",
-			-- prompt_prefix = " ",
-			prompt_prefix = "■ ",
+			prompt_prefix = " ",
+			-- prompt_prefix = "■ ",
 		},
 	},
 	defaults = {
@@ -126,7 +125,6 @@ require("telescope").setup({
 })
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("media_files")
 
 -- defaults = {
 --   border = false,
