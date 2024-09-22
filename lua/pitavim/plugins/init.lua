@@ -1,4 +1,3 @@
-
 return {
 	{
 		"bwpge/colorful.nvim",
@@ -86,10 +85,6 @@ return {
 		config = function()
 			return require("pitavim.configs.lualine")
 		end,
-	},
-	{
-		"folke/which-key.nvim",
-		keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -343,8 +338,6 @@ return {
 		end,
 	},
 }
-
-
 
 -- return {
 -- 	{
