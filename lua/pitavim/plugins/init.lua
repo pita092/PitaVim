@@ -5,13 +5,8 @@ return {
 		opts = require("pitavim.configs.color"),
 		event = "VeryLazy",
 	},
-	{
-		"hiphish/rainbow-delimiters.nvim",
-		config = function()
-			return require("pitavim.configs.rainbow")
-		end,
-	},
 	-- {
+  :wqa
 	-- 	"jbyuki/venn.nvim",
 	-- 	event = "User FilePost",
 	-- },
