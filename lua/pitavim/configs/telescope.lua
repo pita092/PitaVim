@@ -1,22 +1,3 @@
-local lspkind = require("lspkind")
-
-local function center_telescope_title(prompt_bufnr)
-	local prompt_win = vim.api.nvim_get_current_win()
-	local width = vim.api.nvim_win_get_width(prompt_win)
-	local bufname = vim.fn.bufname(prompt_bufnr)
-	local title = bufname:match("Telescope (.+)$") or "Telescope"
-	local padding = math.floor((width - #title) / 2)
-
-	-- Create the centered title string
-	local centered_title = string.rep(" ", padding) .. title
-
-	-- Set the first line of the buffer to the centered title
-	vim.api.nvim_buf_set_lines(prompt_bufnr, 0, 1, false, { centered_title })
-
-	-- Highlight the title
-	vim.api.nvim_buf_add_highlight(prompt_bufnr, -1, "TelescopeTitle", 0, 0, -1)
-end
-
 require("telescope").setup({
 	pickers = {
 		find_files = {

@@ -1,5 +1,4 @@
 return {
-	{ "NvChad/menu" },
 	{
 		"bwpge/colorful.nvim",
 		opts = require("pitavim.configs.color"),
@@ -237,9 +236,9 @@ return {
 		"stevearc/oil.nvim",
 		cmd = "Oil",
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
-		config = function()
-			return require("pitavim.configs.oil")
-		end,
+		opts = {
+			border = "single",
+		},
 	},
 	{
 		"NvChad/nvterm",
