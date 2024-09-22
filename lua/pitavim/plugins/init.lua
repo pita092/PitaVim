@@ -138,6 +138,10 @@ return {
 		},
 	},
 	{
+		"hrsh7th/cmp-cmdline",
+		event = "CmdlineEnter",
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		priority = 100,
