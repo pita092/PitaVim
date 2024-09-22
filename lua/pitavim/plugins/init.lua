@@ -1,4 +1,4 @@
-eturn({
+return{
 	{
 		"bwpge/colorful.nvim",
 		opts = require("pitavim.configs.color"),
@@ -282,7 +282,7 @@ eturn({
 			require("treesj").setup()
 		end,
 	},
-})
+}
 
 -- return {
 -- 	{
