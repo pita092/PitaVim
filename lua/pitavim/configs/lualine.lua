@@ -8,7 +8,7 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " ", info = " ", hint = " " },
+	symbols = { error = "E ", warn = "W ", info = "I ", hint = "H " },
 	colored = false,
 	update_in_insert = false,
 	always_visible = false,
@@ -17,16 +17,16 @@ local diagnostics = {
 local diff = {
 	"diff",
 	colored = false,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+	symbols = { added = "+ ", modified = ". ", removed = "- " }, -- changes diff symbols
 }
 
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		theme = "gruvbox",
-		section_separators = { left = "] ", right = " [" },
-		component_separators = { left = "] ", right = "[ " },
-		disabled_filetypes = { "alpha", "neo-tree" },
+		section_separators = { left = "| ", right = " |" },
+		component_separators = { left = "| ", right = "| " },
+		disabled_filetypes = { "alpha", "neo-tree", "oil" },
 	},
 	sections = {
 		lualine_a = { "mode" },
