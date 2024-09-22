@@ -293,9 +293,9 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "bufreadpost", "bufnewfile" },
-		cmd = { "tsinstall", "tsbufenable", "tsbufdisable", "tsmoduleinfo" },
-		build = ":tsupdate",
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "TSinstall", "TSBufEnable", "TSBufDisable", "TSMduleInfo" },
+		build = ":TSUpdate",
 		opts = function()
 			return require("pitavim.configs.treesitter")
 		end,
