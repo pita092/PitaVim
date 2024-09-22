@@ -11,33 +11,28 @@ return {
 			return require("pitavim.configs.rainbow")
 		end,
 	},
-	{
-		--stuff
-		"ThePrimeagen/vim-be-good",
-		cmd = "VimBeGood",
-	},
-	{
-		"jbyuki/venn.nvim",
-		event = "User FilePost",
-	},
-	{
-		"lervag/vimtex",
-		lazy = false, -- we don't want to lazy load VimTeX
-		-- tag = "v2.15", -- uncomment to pin to a specific release
-		init = function()
-			-- VimTeX configuration goes here, e.g.
-			vim.g.vimtex_view_method = "zathura"
-		end,
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = "cd app && yarn install",
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	},
+	-- {
+	-- 	"jbyuki/venn.nvim",
+	-- 	event = "User FilePost",
+	-- },
+	-- {
+	-- 	"lervag/vimtex",
+	-- 	lazy = false, -- we don't want to lazy load VimTeX
+	-- 	-- tag = "v2.15", -- uncomment to pin to a specific release
+	-- 	init = function()
+	-- 		-- VimTeX configuration goes here, e.g.
+	-- 		vim.g.vimtex_view_method = "zathura"
+	-- 	end,
+	-- },
+	-- {
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	cmd = { "markdownpreviewtoggle", "markdownpreview", "markdownpreviewstop" },
+	-- 	build = "cd app && yarn install",
+	-- 	init = function()
+	-- 		vim.g.mkdp_filetypes = { "markdown" }
+	-- 	end,
+	-- 	ft = { "markdown" },
+	-- },
 	{
 		"goolord/alpha-nvim",
 		lazy = false,
@@ -49,7 +44,7 @@ return {
 	},
 	{
 		"hrsh7th/cmp-cmdline",
-		event = "CmdlineEnter",
+		event = "cmdlineenter",
 		config = function()
 			return require("pitavim.configs.cmp")
 		end,
@@ -57,7 +52,7 @@ return {
 	{
 		{
 			"folke/lazydev.nvim",
-			event = "VeryLazy",
+			event = "verylazy",
 			ft = "lua",
 			opts = {
 				library = {
@@ -65,29 +60,29 @@ return {
 				},
 			},
 		},
-		{ "Bilal2453/luvit-meta", lazy = true },
+		{ "bilal2453/luvit-meta", lazy = true },
 		{
 			"hrsh7th/nvim-cmp",
 			opts = function(_, opts)
 				opts.sources = opts.sources or {}
 				table.insert(opts.sources, {
 					name = "lazydev",
-					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-					sonInstall,
+					group_index = 0, -- set group index to 0 to skip loading luals completions
+					soninstall,
 				})
 			end,
 		},
 	},
 	-- {
 	-- 	"stevearc/dressing.nvim",
-	-- 	event = "User FilePost",
+	-- 	event = "user filepost",
 	-- 	config = function()
 	-- 		return require("pitavim.configs.ui")
 	-- 	end,
 	-- },
 	{
-		"Bekaboo/dropbar.nvim",
-		event = "BufReadPost",
+		"bekaboo/dropbar.nvim",
+		event = "bufreadpost",
 
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -95,26 +90,26 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "User FilePost",
+		event = "user filepost",
 		config = function()
 			return require("pitavim.configs.gitsigns")
 		end,
 	},
 	{
 		"nvim-lua/plenary.nvim",
-		event = "VimEnter",
+		event = "vimenter",
 	},
 	-- {
 	--   "echasnovski/mini.nvim",
 	--   version = false,
-	--   event = "VeryLazy",
+	--   event = "verylazy",
 	--   config = function()
 	--     return require("pitavim.configs.mini")
 	--   end,
 	-- },
 	{
 		"nvim-lualine/lualine.nvim",
-		event = { "VimEnter", "BufReadPost", "BufNewFile" },
+		event = { "vimenter", "bufreadpost", "bufnewfile" },
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			return require("pitavim.configs.lualine")
@@ -126,13 +121,13 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "BufReadPre",
+		event = "bufreadpre",
 		main = "ibl",
 		opts = {},
 	},
 	-- {
 	--   "nvimtools/none-ls.nvim",
-	--   event = "BufReadPre",
+	--   event = "bufreadpre",
 	--   dependencies = {
 	--     "nvimtools/none-ls-extras.nvim",
 	--   },
@@ -152,7 +147,7 @@ return {
 			"williamboman/mason-lspconfig",
 		},
 		"williamboman/mason.nvim",
-		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+		cmd = { "mason", "masoninstall", "masoninstallall", "masonupdate" },
 		opts = function()
 			return require("pitavim.configs.mason")
 		end,
@@ -160,19 +155,19 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
-		event = "User FilePost",
+		event = "user filepost",
 		config = function()
 			return require("pitavim.configs.lsp")
 		end,
 	},
 	{
-		"ThePrimeagen/harpoon",
-		event = "User FilePost",
+		"theprimeagen/harpoon",
+		event = "user filepost",
 	},
 	{
 		{
 			"nvim-telescope/telescope.nvim",
-			cmd = "Telescope",
+			cmd = "telescope",
 			opts = {},
 			dependencies = {
 				"nvim-telescope/telescope-media-files.nvim",
@@ -190,23 +185,23 @@ return {
 		},
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+			build = "cmake -s. -bbuild -dcmake_build_type=release && cmake --build build --config release",
 		},
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		event = "insertenter",
 		priority = 100,
 		dependencies = {
 			{
-				"VonHeikemen/lsp-zero.nvim",
+				"vonheikemen/lsp-zero.nvim",
 				"onsails/lspkind.nvim",
 			},
 			{
 				-- snippet plugin
-				"L3MON4D3/LuaSnip",
+				"l3mon4d3/luasnip",
 				dependencies = "rafamadriz/friendly-snippets",
-				opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+				opts = { history = true, updateevents = "textchanged,textchangedi" },
 				config = function(_, opts)
 					require("luasnip").config.set_config(opts)
 					require("pitavim.configs.snippets")
@@ -218,7 +213,7 @@ return {
 				"windwp/nvim-autopairs",
 				opts = {
 					fast_wrap = {},
-					disable_filetype = { "TelescopePrompt", "vim" },
+					disable_filetype = { "telescopeprompt", "vim" },
 				},
 				config = function(_, opts)
 					require("nvim-autopairs").setup(opts)
@@ -248,22 +243,22 @@ return {
 	},
 	-- {
 	-- 	"gelguy/wilder.nvim",
-	-- 	event = "VeryLazy",
+	-- 	event = "verylazy",
 	-- 	config = function()
 	-- 		return require("pitavim.configs.wilder")
 	-- 	end,
 	-- },
 	{
 		"ellisonleao/gruvbox.nvim",
-		event = "VeryLazy",
+		event = "verylazy",
 		priority = 1000,
 		config = function()
 			return require("pitavim.configs.gruvbox")
 		end,
 	},
 	{
-		"NvChad/nvim-colorizer.lua",
-		event = "VeryLazy",
+		"nvchad/nvim-colorizer.lua",
+		event = "verylazy",
 		config = function()
 			require("colorizer").setup({
 				filetypes = { "*" },
@@ -277,11 +272,11 @@ return {
 
 		"nvim-neo-tree/neo-tree.nvim",
 		name = "neotree",
-		cmd = "Neotree",
+		cmd = "neotree",
 		branch = "v3.x",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
+			"muniftanjim/nui.nvim",
 			config = function()
 				return require("pitavim.configs.neotree")
 			end,
@@ -289,24 +284,24 @@ return {
 	},
 	{
 		"stevearc/oil.nvim",
-		cmd = "Oil",
+		cmd = "oil",
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 		config = function()
 			return require("pitavim.configs.oil")
 		end,
 	},
 	{
-		"NvChad/nvterm",
-		event = "BufReadPre",
+		"nvchad/nvterm",
+		event = "bufreadpre",
 		config = function()
 			return require("pitavim.configs.nvterm")
 		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
-		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-		build = ":TSUpdate",
+		event = { "bufreadpost", "bufnewfile" },
+		cmd = { "tsinstall", "tsbufenable", "tsbufdisable", "tsmoduleinfo" },
+		build = ":tsupdate",
 		opts = function()
 			return require("pitavim.configs.treesitter")
 		end,
@@ -314,61 +309,24 @@ return {
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
-	{
-		"ray-x/go.nvim",
-		dependencies = { -- optional packages
-			"ray-x/guihua.lua",
-			"neovim/nvim-lspconfig",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = function()
-			require("go").setup()
-		end,
-		event = { "CmdlineEnter" },
-		ft = { "go", "gomod" },
-		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-	},
-	{
-		"folke/trouble.nvim",
-		opts = {}, -- for default options, refer to the configuration section for custom setup.
-		cmd = "Trouble",
-		keys = {
-			{
-				"<leader>xx",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "Diagnostics (Trouble)",
-			},
-			{
-				"<leader>xX",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-				"<leader>cs",
-				"<cmd>Trouble symbols toggle focus=false<cr>",
-				desc = "Symbols (Trouble)",
-			},
-			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-				"<leader>xL",
-				"<cmd>Trouble loclist toggle<cr>",
-				desc = "Location List (Trouble)",
-			},
-			{
-				"<leader>xQ",
-				"<cmd>Trouble qflist toggle<cr>",
-				desc = "Quickfix List (Trouble)",
-			},
-		},
-	},
+	-- {
+	-- 	"ray-x/go.nvim",
+	-- 	dependencies = { -- optional packages
+	-- 		"ray-x/guihua.lua",
+	-- 		"neovim/nvim-lspconfig",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 	},
+	-- 	config = function()
+	-- 		require("go").setup()
+	-- 	end,
+	-- 	event = { "cmdlineenter" },
+	-- 	ft = { "go", "gomod" },
+	-- 	build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+	-- },
 	{
 
-		"Wansmer/treesj",
-		event = { "BufReadPre", "BufNewFile" },
+		"wansmer/treesj",
+		event = { "bufreadpre", "bufnewfile" },
 		keys = { "<space>m", "<space>j", "<space>s" },
 		dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
 		config = function()
