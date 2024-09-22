@@ -217,10 +217,11 @@ return {
 	-- },
 	{
 		"ellisonleao/gruvbox.nvim",
+		"shaunsingh/solarized.nvim",
 		event = "VeryLazy",
 		priority = 1000,
 		config = function()
-			return require("pitavim.configs.gruvbox")
+			return require("pitavim.configs.colorscheme")
 		end,
 	},
 	{
