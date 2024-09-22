@@ -39,9 +39,11 @@ require("neo-tree").setup({
 				[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
 			},
 		},
-	}),
 
-	require("neo-tree").setup({
+		source_selector = {
+			winbar = false,
+			statusline = false,
+		},
 		close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 		popup_border_style = "rounded",
 		enable_git_status = true,
@@ -128,8 +130,8 @@ require("neo-tree").setup({
 			},
 		},
 		-- A list of functions, each representing a global custom command
-		-- that will be available in all sources (if not overridden in `opts[source_name].commands`)
-		-- see `:h neo-tree-custom-commands-global`
+		-- that will be available in all sources (if not overridden in `opts[source_name].commands`)sources
+		-- see `:h neo-tree-custom-commands-global`sources
 		commands = {},
 		window = {
 			position = "left",
