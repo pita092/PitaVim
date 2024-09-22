@@ -1,14 +1,17 @@
 require("telescope").setup({
-	title_pos = "center",
 	pickers = {
 		find_files = {
 			prompt_title = "/*Find Files*/",
 			prompt_prefix = " ",
+			title_pos = "center",
+
 			-- prompt_prefix = "■ ",
 		},
 		live_grep = {
 			prompt_title = "/*Search Text*/",
 			prompt_prefix = "🕵️‍♂️ ",
+			title_pos = "center",
+
 			-- prompt_prefix = "■ ",
 
 			preview = true,
