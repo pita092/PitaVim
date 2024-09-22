@@ -1,5 +1,5 @@
 require("telescope").setup({
-	prompt_title_pos = "center",
+	title_pos = "center",
 	pickers = {
 		find_files = {
 			prompt_title = "/*Find Files*/",
@@ -81,14 +81,14 @@ require("telescope").setup({
 		path_display = { "truncate" },
 		winblend = 0,
 		border = {},
-		-- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-		borderchars = { "", "", "", "", "", "", "", "" },
+		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		-- borderchars = { "", "", "", "", "", "", "", "" },
 		color_devicons = true,
-		-- set_env = { ["COLORTERM"] = "truecolor" },
-		-- file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-		-- grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-		-- qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-		-- buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+		set_env = { ["COLORTERM"] = "truecolor" },
+		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		mappings = {
 			n = { ["q"] = require("telescope.actions").close },
 		},
