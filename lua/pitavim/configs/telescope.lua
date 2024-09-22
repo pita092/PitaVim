@@ -44,6 +44,7 @@ require("telescope").setup({
 		},
 	},
 	defaults = {
+		title_pos = "center",
 		require("telescope.themes").get_dropdown({
 			previewer = true,
 		}),
