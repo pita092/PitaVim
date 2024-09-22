@@ -1,4 +1,5 @@
 require("telescope").setup({
+	title_pos = "center",
 	pickers = {
 		find_files = {
 			prompt_title = "/*Find Files*/",
@@ -44,7 +45,6 @@ require("telescope").setup({
 		},
 	},
 	defaults = {
-		title_pos = "center",
 		-- require("telescope.themes").get_dropdown({
 		-- 	previewer = true,
 		-- }),
