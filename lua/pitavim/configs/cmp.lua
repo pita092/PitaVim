@@ -41,7 +41,13 @@ require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip").filetype_extend("c", { "cdoc" })
 
 cmp.setup({
-
+	enabled = function()
+		local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+		if buftype == "prompt" then
+			return true
+		end
+		return true
+	end,
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
