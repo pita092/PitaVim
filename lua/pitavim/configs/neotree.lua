@@ -70,7 +70,6 @@ require("neo-tree").setup({
 				-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 				-- then these will never be used.
 				default = " ",
-				highlight = "NeoTreeFileIcon",
 			},
 			modified = {
 				symbol = "[+]",
