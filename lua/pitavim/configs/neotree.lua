@@ -24,11 +24,22 @@
 -- }
 
 require("neo-tree").setup({
-	-- If you want icons for diagnostic errors, you'll need to define them somewhere:
-	vim.fn.sign_define("DiagnosticSignError", { text = "E", texthl = "DiagnosticSignError" }),
-	vim.fn.sign_define("DiagnosticSignWarn", { text = "W", texthl = "DiagnosticSignWarn" }),
-	vim.fn.sign_define("DiagnosticSignInfo", { text = "I", texthl = "DiagnosticSignInfo" }),
-	vim.fn.sign_define("DiagnosticSignHint", { text = "H", texthl = "DiagnosticSignHint" }),
+	vim.diagnostic.config({
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = "E ",
+				[vim.diagnostic.severity.WARN] = "W ",
+				[vim.diagnostic.severity.INFO] = "I ",
+				[vim.diagnostic.severity.HINT] = "H ",
+			},
+			numhl = {
+				[vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+				[vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+				[vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+				[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+			},
+		},
+	}),
 
 	require("neo-tree").setup({
 		close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
