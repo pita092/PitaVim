@@ -71,7 +71,7 @@ require("telescope").setup({
 				results_width = 0.8,
 			},
 			vertical = {
-				mirror = false,
+				mirror = true,
 			},
 			width = 0.87,
 			height = 0.80,
