@@ -45,9 +45,9 @@ require("telescope").setup({
 	},
 	defaults = {
 		title_pos = "center",
-		require("telescope.themes").get_dropdown({
-			previewer = true,
-		}),
+		-- require("telescope.themes").get_dropdown({
+		-- 	previewer = true,
+		-- }),
 		vimgrep_arguments = {
 			"rg",
 			"-L",
