@@ -14,13 +14,6 @@ return {
 		end,
 	},
 	{
-		"hrsh7th/cmp-cmdline",
-		event = "CmdlineEnter",
-		config = function()
-			return require("pitavim.configs.cmp")
-		end,
-	},
-	{
 		{
 			"folke/lazydev.nvim",
 			event = "VeryLazy",
@@ -32,17 +25,6 @@ return {
 			},
 		},
 		{ "Bilal2453/luvit-meta", lazy = true },
-		{
-			"hrsh7th/nvim-cmp",
-			opts = function(_, opts)
-				opts.sources = opts.sources or {}
-				table.insert(opts.sources, {
-					name = "lazydev",
-					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-					sonInstall,
-				})
-			end,
-		},
 	},
 	-- {
 	-- 	"stevearc/dressing.nvim",
@@ -289,43 +271,6 @@ return {
 		event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
 		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-	},
-	{
-		"folke/trouble.nvim",
-		opts = {}, -- for default options, refer to the configuration section for custom setup.
-		cmd = "Trouble",
-		keys = {
-			{
-				"<leader>xx",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "Diagnostics (Trouble)",
-			},
-			{
-				"<leader>xX",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-				"<leader>cs",
-				"<cmd>Trouble symbols toggle focus=false<cr>",
-				desc = "Symbols (Trouble)",
-			},
-			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-				"<leader>xL",
-				"<cmd>Trouble loclist toggle<cr>",
-				desc = "Location List (Trouble)",
-			},
-			{
-				"<leader>xQ",
-				"<cmd>Trouble qflist toggle<cr>",
-				desc = "Quickfix List (Trouble)",
-			},
-		},
 	},
 	{
 
