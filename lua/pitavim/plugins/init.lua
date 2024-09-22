@@ -217,32 +217,21 @@ return {
 			})
 		end,
 	},
-	-- {
-	--
-	-- 	"nvim-neo-tree/neo-tree.nvim",
-	-- 	name = "neotree",
-	-- 	cmd = "Neotree",
-	-- 	branch = "v3.x",
-	-- 	dependencies = {
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 		"MunifTanjim/nui.nvim",
-	-- 		config = function()
-	-- 			return require("pitavim.configs.neotree")
-	-- 		end,
-	-- 	},
-	-- },
-
 	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
+
+		"nvim-neo-tree/neo-tree.nvim",
+		name = "neotree",
+		cmd = "Neotree",
+		branch = "v3.x",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+			config = function()
+				return require("pitavim.configs.neotree")
+			end,
 		},
-		opts = function()
-			return require("pitavim.configs.tree")
-		end,
 	},
+
 	{
 		"stevearc/oil.nvim",
 		cmd = "Oil",
