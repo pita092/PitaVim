@@ -1,4 +1,6 @@
 return {
+	{ "nvchad/volt", lazy = true },
+	{ "nvchad/minty", lazy = true },
 	{
 		"bwpge/colorful.nvim",
 		opts = require("pitavim.configs.color"),

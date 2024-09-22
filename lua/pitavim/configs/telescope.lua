@@ -117,26 +117,6 @@ require("telescope").setup({
 		},
 	},
 	extensions = {
-		cmdline = {
-			format_item = function(entry, item)
-				local icon = lspkind.presets.default[item.kind]
-				return string.format("%s %s", icon, item.label)
-			end,
-			picker = {
-				prompt_title = "/*Cmdline*/",
-				prompt_prefix = "  ",
-
-				layout_config = {
-					width = 70,
-					height = 25,
-				},
-			},
-			mappings = {
-				complete = "<Tab>",
-				run_selection = "<C-CR>",
-				run_input = "<CR>",
-			},
-		},
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({
 				-- Custom options for a distinct look
@@ -165,19 +145,6 @@ require("telescope").setup({
 })
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
-local telescope_module = require("telescope.builtin")
-for k, v in pairs(telescope_module) do
-	if type(v) == "function" then
-		telescope_module[k] = function(opts)
-			opts = opts or {}
-			opts.attach_mappings = function(prompt_bufnr, map)
-				center_telescope_title(prompt_bufnr)
-				return true
-			end
-			return v(opts)
-		end
-	end
-end
 
 -- defaults = {
 --   border = false,
