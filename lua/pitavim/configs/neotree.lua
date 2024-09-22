@@ -41,8 +41,8 @@ require("neo-tree").setup({
 		},
 
 		source_selector = {
-			winbar = false,
-			statusline = false,
+			winbar = tree,
+			statusline = true,
 		},
 		close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 		popup_border_style = "rounded",
