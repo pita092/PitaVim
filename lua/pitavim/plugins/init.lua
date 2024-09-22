@@ -214,6 +214,12 @@ return {
 		name = "flexoki",
 	},
 	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
 		"NvChad/nvim-colorizer.lua",
 		event = "VeryLazy",
 		config = function()
