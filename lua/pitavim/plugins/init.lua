@@ -1,4 +1,4 @@
-return {
+eturn({
 	{
 		"bwpge/colorful.nvim",
 		opts = require("pitavim.configs.color"),
@@ -224,7 +224,6 @@ return {
 		cmd = "Neotree",
 		branch = "v3.x",
 		dependencies = {
-			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 			config = function()
 				return require("pitavim.configs.neotree")
@@ -283,7 +282,7 @@ return {
 			require("treesj").setup()
 		end,
 	},
-}
+})
 
 -- return {
 -- 	{
