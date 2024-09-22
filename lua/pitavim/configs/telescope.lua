@@ -67,7 +67,8 @@ require("telescope").setup({
 		entry_prefix = "  ",
 		initial_mode = "insert",
 		selection_strategy = "reset",
-		sorting_strategy = "horizontal",
+		sorting_strategy = "ascending",
+		layout_strategy = "horizontal",
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
