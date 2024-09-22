@@ -38,12 +38,12 @@ local function make_hl_table()
 			TelescopeResultsTitle = { fg = bg_dark, bg = bg_dark },
 			Pmenu = { bg = bg_light, fg = fg },
 			PmenuSel = { bg = fg, fg = bg_light },
-			CmpItemMenu = { fg = fg, bg = "NONE" },
-			CmpItemKind = { fg = fg, bg = "NONE" },
-			CmpItemAbbrMatchFuzzy = { fg = accent, bg = "NONE" },
+			CmpItemMenu = { fg = fg },
+			CmpItemKind = { fg = fg },
+			CmpItemAbbrMatchFuzzy = { fg = accent },
 			CmpNormal = { bg = bg_light, fg = fg },
-			CmpItemAbbrMatch = { fg = accent, bg = "NONE" },
-			CmpItemAbbr = { fg = fg, bg = "NONE" },
+			CmpItemAbbrMatch = { fg = accent },
+			CmpItemAbbr = { fg = fg },
 		},
 	}
 end
