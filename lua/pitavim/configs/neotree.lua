@@ -39,6 +39,7 @@ require("neo-tree").setup({
 				[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
 			},
 		},
+  }),
 
 		source_selector = {
 			winbar = tree,
