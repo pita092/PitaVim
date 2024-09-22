@@ -1,17 +1,14 @@
 require("telescope").setup({
+	title_pos = "center",
 	pickers = {
 		find_files = {
 			prompt_title = "/*Find Files*/",
 			prompt_prefix = " ",
-			title_pos = "center",
-
 			-- prompt_prefix = "■ ",
 		},
 		live_grep = {
 			prompt_title = "/*Search Text*/",
 			prompt_prefix = "🕵️‍♂️ ",
-			title_pos = "center",
-
 			-- prompt_prefix = "■ ",
 
 			preview = true,
@@ -68,7 +65,6 @@ require("telescope").setup({
 		initial_mode = "insert",
 		selection_strategy = "reset",
 		sorting_strategy = "ascending",
-		layout_strategy = "horizontal",
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
