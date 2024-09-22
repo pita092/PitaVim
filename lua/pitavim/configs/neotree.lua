@@ -25,10 +25,10 @@
 
 require("neo-tree").setup({
 	-- If you want icons for diagnostic errors, you'll need to define them somewhere:
-	vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" }),
-	vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" }),
-	vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" }),
-	vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" }),
+	vim.fn.sign_define("DiagnosticSignError", { text = "E ", texthl = "DiagnosticSignError" }),
+	vim.fn.sign_define("DiagnosticSignWarn", { text = "W ", texthl = "DiagnosticSignWarn" }),
+	vim.fn.sign_define("DiagnosticSignInfo", { text = "I ", texthl = "DiagnosticSignInfo" }),
+	vim.fn.sign_define("DiagnosticSignHint", { text = "H ", texthl = "DiagnosticSignHint" }),
 
 	require("neo-tree").setup({
 		close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
@@ -64,12 +64,12 @@ require("neo-tree").setup({
 				expander_highlight = "NeoTreeExpander",
 			},
 			icon = {
-				folder_closed = " ",
-				folder_open = " ",
-				folder_empty = "󰜌 ",
+				folder_closed = "f   ",
+				folder_open = "o   ",
+				folder_empty = "e   ",
 				-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 				-- then these will never be used.
-				default = "*",
+				default = " ",
 				highlight = "NeoTreeFileIcon",
 			},
 			modified = {
