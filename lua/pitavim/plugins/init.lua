@@ -4,15 +4,15 @@ return {
 		opts = require("pitavim.configs.color"),
 		event = "VeryLazy",
 	},
-	--{
-		--"goolord/alpha-nvim",
-		--lazy = false,
-		-- dependencies = { 'echasnovski/mini.icons' },
-		--dependencies = { "nvim-tree/nvim-web-devicons" },
-		--config = function()
-		--	return require("pitavim.configs.alpha")
-	--	end,
-	--},
+	{
+		"goolord/alpha-nvim",
+		lazy = false,
+		dependencies = { "echasnovski/mini.icons" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			return require("pitavim.configs.alpha")
+		end,
+	},
 	{
 		{
 			"folke/lazydev.nvim",
