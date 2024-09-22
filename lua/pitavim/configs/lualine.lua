@@ -1,10 +1,3 @@
-local mode = {
-	"mode",
-	fmt = function(str)
-		return " " .. str
-	end,
-}
-
 local filename = {
 	"filename",
 	file_status = true, -- displays file status (readonly status, modified status)
@@ -36,7 +29,7 @@ require("lualine").setup({
 		disabled_filetypes = { "alpha", "neo-tree" },
 	},
 	sections = {
-		lualine_a = { mode },
+		lualine_a = { "mode" },
 		lualine_b = { "branch" },
 		lualine_c = { filename, diagnostics, diff },
 		lualine_x = {},
