@@ -210,6 +210,10 @@ return {
 		end,
 	},
 	{
+		"kepano/flexoki-neovim",
+		name = "flexoki",
+	},
+	{
 		"NvChad/nvim-colorizer.lua",
 		event = "VeryLazy",
 		config = function()
