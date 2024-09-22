@@ -46,11 +46,6 @@ local colors = {
 -- Apply highlights
 
 -- vim.cmd([[
---   colorscheme gruvbox
---   highlight Normal guibg=#282828
---   ]])
-
--- vim.cmd([[
 --   highligh  TelescopePromptBorder guibg=#504945
 --   highligh  TelescopePromptBorder guifg=#504945
 --   highlight TelescopePromptNormal guibg=#504945
