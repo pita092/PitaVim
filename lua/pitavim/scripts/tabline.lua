@@ -369,10 +369,10 @@ function M.MyTabLine()
 
     -- Add LSP diagnostic icons without numbers
     if label.errors then
-      s = s .. " %#ErrorMsg#" .. " "
+      s = s .. " %#ErrorMsg#" .. ""
     end
     if label.warnings then
-      s = s .. " %#WarningMsg#" .. " "
+      s = s .. " %#WarningMsg#" .. ""
     end
     if label.info then
       s = s .. " %#InfoMsg#" .. ""
