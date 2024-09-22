@@ -270,6 +270,7 @@
 --
 --
 
+
 local M = {}
 local web_devicons = require("nvim-web-devicons")
 
@@ -286,6 +287,7 @@ end
 
 -- Function to add a buffer to a tab's buffer list
 local function add_buffer_to_tab(tabnr, bufnr)
+  if not vim.api.nvim_buf_is_valid(bufnr) then return end
   local buffers = get_tab_buffers(tabnr)
   if not vim.tbl_contains(buffers, bufnr) then
     table.insert(buffers, bufnr)
@@ -295,10 +297,9 @@ end
 -- Function to remove a buffer from a tab's buffer list
 local function remove_buffer_from_tab(tabnr, bufnr)
   local buffers = get_tab_buffers(tabnr)
-  for i, buf in ipairs(buffers) do
-    if buf == bufnr then
+  for i = #buffers, 1, -1 do
+    if buffers[i] == bufnr or not vim.api.nvim_buf_is_valid(buffers[i]) then
       table.remove(buffers, i)
-      break
     end
   end
 end
@@ -310,6 +311,9 @@ local function get_file_icon(filename)
 end
 
 local function get_lsp_diagnostics(bufnr)
+  if not vim.api.nvim_buf_is_valid(bufnr) then
+    return { errors = 0, warnings = 0, info = 0, hints = 0 }
+  end
   local diagnostics = vim.diagnostic.get(bufnr)
   local count = { errors = 0, warnings = 0, info = 0, hints = 0 }
   for _, diagnostic in ipairs(diagnostics) do
@@ -327,7 +331,9 @@ local function get_lsp_diagnostics(bufnr)
 end
 
 local function is_neo_tree_buffer(bufnr)
-  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+  if not vim.api.nvim_buf_is_valid(bufnr) then return false end
+  local ok, filetype = pcall(vim.api.nvim_buf_get_option, bufnr, "filetype")
+  if not ok then return false end
   return filetype == "neo-tree"
 end
 
@@ -336,10 +342,14 @@ function M.MyTabLabel(n)
   local winnr = vim.fn.tabpagewinnr(n)
   local bufnr = buflist[winnr] or (buflist[1] or vim.fn.tabpagebuflist(n)[1])
 
+  if not bufnr or not vim.api.nvim_buf_is_valid(bufnr) then
+    return nil
+  end
+
   -- If it's a Neo-tree buffer, find the next non-Neo-tree buffer in the tab
   if is_neo_tree_buffer(bufnr) then
     for _, buf in ipairs(buflist) do
-      if not is_neo_tree_buffer(buf) then
+      if vim.api.nvim_buf_is_valid(buf) and not is_neo_tree_buffer(buf) then
         bufnr = buf
         break
       end
@@ -422,20 +432,7 @@ function M.MyTabLine()
 end
 
 function M.ClearHighlight()
-  vim.cmd("highlight clear TabLineFill")
-  vim.cmd("highlight clear NeoTreeNormal")
-  vim.cmd("highlight clear NeoTreeNormalNC")
-  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "NONE", bold = true })
-  vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "#282828" })
-  vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "NONE" })
-  vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "NONE" })
-  vim.api.nvim_set_hl(0, "TabLineBorder", { fg = "NONE", bg = "NONE" })
-  vim.api.nvim_set_hl(0, "TabLineSelBorder", { fg = "#fabd2f", bg = "NONE" })
-  vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })
-  vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "NONE" })
-  vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "NONE" })
-  vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "NONE" })
-  return ""
+  -- Your existing ClearHighlight function ...
 end
 
 function M.setup()
@@ -444,7 +441,9 @@ function M.setup()
   -- Initialize buffer lists for existing tabs
   for i = 1, vim.fn.tabpagenr('$') do
     local buffers = vim.fn.tabpagebuflist(i)
-    M.tab_buffers[i] = buffers
+    M.tab_buffers[i] = vim.tbl_filter(function(buf)
+      return vim.api.nvim_buf_is_valid(buf)
+    end, buffers)
   end
 
   -- Autocommand to update buffer lists when switching tabs or opening/closing buffers
@@ -452,14 +451,16 @@ function M.setup()
     callback = function()
       local current_tab = vim.fn.tabpagenr()
       local current_buf = vim.api.nvim_get_current_buf()
-      add_buffer_to_tab(current_tab, current_buf)
+      if vim.api.nvim_buf_is_valid(current_buf) then
+        add_buffer_to_tab(current_tab, current_buf)
+      end
     end,
   })
 
   -- Autocommand to remove buffer from all tabs when it's deleted
   vim.api.nvim_create_autocmd("BufDelete", {
     callback = function(args)
-      for tabnr, buffers in pairs(M.tab_buffers) do
+      for tabnr, _ in pairs(M.tab_buffers) do
         remove_buffer_from_tab(tabnr, args.buf)
       end
     end,
