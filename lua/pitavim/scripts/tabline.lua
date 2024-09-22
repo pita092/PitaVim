@@ -274,36 +274,6 @@
 local M = {}
 local web_devicons = require("nvim-web-devicons")
 
--- Table to store buffers for each tab
-M.tab_buffers = {}
-
--- Function to get or create a buffer list for a tab
-local function get_tab_buffers(tabnr)
-  if not M.tab_buffers[tabnr] then
-    M.tab_buffers[tabnr] = {}
-  end
-  return M.tab_buffers[tabnr]
-end
-
--- Function to add a buffer to a tab's buffer list
-local function add_buffer_to_tab(tabnr, bufnr)
-  if not vim.api.nvim_buf_is_valid(bufnr) then return end
-  local buffers = get_tab_buffers(tabnr)
-  if not vim.tbl_contains(buffers, bufnr) then
-    table.insert(buffers, bufnr)
-  end
-end
-
--- Function to remove a buffer from a tab's buffer list
-local function remove_buffer_from_tab(tabnr, bufnr)
-  local buffers = get_tab_buffers(tabnr)
-  for i = #buffers, 1, -1 do
-    if buffers[i] == bufnr or not vim.api.nvim_buf_is_valid(buffers[i]) then
-      table.remove(buffers, i)
-    end
-  end
-end
-
 local function get_file_icon(filename)
   local extension = filename:match("^.+%.(.+)$")
   local icon, icon_color = web_devicons.get_icon(filename, extension)
@@ -311,9 +281,6 @@ local function get_file_icon(filename)
 end
 
 local function get_lsp_diagnostics(bufnr)
-  if not vim.api.nvim_buf_is_valid(bufnr) then
-    return { errors = 0, warnings = 0, info = 0, hints = 0 }
-  end
   local diagnostics = vim.diagnostic.get(bufnr)
   local count = { errors = 0, warnings = 0, info = 0, hints = 0 }
   for _, diagnostic in ipairs(diagnostics) do
@@ -331,25 +298,19 @@ local function get_lsp_diagnostics(bufnr)
 end
 
 local function is_neo_tree_buffer(bufnr)
-  if not vim.api.nvim_buf_is_valid(bufnr) then return false end
-  local ok, filetype = pcall(vim.api.nvim_buf_get_option, bufnr, "filetype")
-  if not ok then return false end
+  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
   return filetype == "neo-tree"
 end
 
 function M.MyTabLabel(n)
-  local buflist = get_tab_buffers(n)
+  local buflist = vim.fn.tabpagebuflist(n)
   local winnr = vim.fn.tabpagewinnr(n)
-  local bufnr = buflist[winnr] or (buflist[1] or vim.fn.tabpagebuflist(n)[1])
-
-  if not bufnr or not vim.api.nvim_buf_is_valid(bufnr) then
-    return nil
-  end
+  local bufnr = buflist[winnr]
 
   -- If it's a Neo-tree buffer, find the next non-Neo-tree buffer in the tab
   if is_neo_tree_buffer(bufnr) then
     for _, buf in ipairs(buflist) do
-      if vim.api.nvim_buf_is_valid(buf) and not is_neo_tree_buffer(buf) then
+      if not is_neo_tree_buffer(buf) then
         bufnr = buf
         break
       end
@@ -432,47 +393,24 @@ function M.MyTabLine()
 end
 
 function M.ClearHighlight()
-  -- Your existing ClearHighlight function ...
+  vim.cmd("highlight clear TabLineFill")
+  vim.cmd("highlight clear NeoTreeNormal")
+  vim.cmd("highlight clear NeoTreeNormalNC")
+  vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#fabd2f", bg = "NONE", bold = true })
+  vim.api.nvim_set_hl(0, "TabLine", { fg = "#fbf1c7", bg = "#282828" })
+  vim.api.nvim_set_hl(0, "TabLineSelIconBg", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TabLineIconBg", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TabLineBorder", { fg = "NONE", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "TabLineSelBorder", { fg = "#fabd2f", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "WarningMsg", { fg = "#fabd2f", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "ErrorMsg", { fg = "#fb4934", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "InfoMsg", { fg = "#83a598", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "HintMsg", { fg = "#8ec07c", bg = "NONE" })
+  return ""
 end
 
 function M.setup()
   vim.o.tabline = [[%!v:lua.require'pitavim.scripts.tabline'.MyTabLine()]]
-
-  -- Initialize buffer lists for existing tabs
-  for i = 1, vim.fn.tabpagenr('$') do
-    local buffers = vim.fn.tabpagebuflist(i)
-    M.tab_buffers[i] = vim.tbl_filter(function(buf)
-      return vim.api.nvim_buf_is_valid(buf)
-    end, buffers)
-  end
-
-  -- Autocommand to update buffer lists when switching tabs or opening/closing buffers
-  vim.api.nvim_create_autocmd({"BufEnter", "TabEnter", "BufAdd", "BufDelete"}, {
-    callback = function()
-      local current_tab = vim.fn.tabpagenr()
-      local current_buf = vim.api.nvim_get_current_buf()
-      if vim.api.nvim_buf_is_valid(current_buf) then
-        add_buffer_to_tab(current_tab, current_buf)
-      end
-    end,
-  })
-
-  -- Autocommand to remove buffer from all tabs when it's deleted
-  vim.api.nvim_create_autocmd("BufDelete", {
-    callback = function(args)
-      for tabnr, _ in pairs(M.tab_buffers) do
-        remove_buffer_from_tab(tabnr, args.buf)
-      end
-    end,
-  })
-
-  -- Autocommand to create a new buffer list when a new tab is created
-  vim.api.nvim_create_autocmd("TabNew", {
-    callback = function()
-      local new_tab = vim.fn.tabpagenr()
-      M.tab_buffers[new_tab] = {}
-    end,
-  })
 
   -- Hide tabline in alpha buffer
   vim.api.nvim_create_autocmd("FileType", {
@@ -494,4 +432,3 @@ function M.setup()
 end
 
 return M
-
