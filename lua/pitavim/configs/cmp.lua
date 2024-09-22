@@ -41,13 +41,11 @@ require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip").filetype_extend("c", { "cdoc" })
 
 cmp.setup({
+
 	enabled = function()
-		local buftype = vim.api.nvim_buf_get_option(0, "buftype")
-		if buftype == "prompt" then
-			return true
-		end
-		return true
+		return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
 	end,
+
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
@@ -177,3 +175,10 @@ vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#fbf1c7", bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#fbf1c7", bg = "NONE" })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#fbf1c7", fg = "#3c3836" })
 vim.api.nvim_set_hl(0, "Pmenu", { bg = "#3c3836", fg = "#fbf1c7" })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "TelescopePrompt",
+	callback = function()
+		require("cmp").setup.buffer({ enabled = true })
+	end,
+})
