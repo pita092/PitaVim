@@ -1,5 +1,5 @@
 require("telescope").setup({
-	title_pos = "center",
+	prompt_title_pos = "center",
 	pickers = {
 		find_files = {
 			prompt_title = "/*Find Files*/",
