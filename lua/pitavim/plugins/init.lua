@@ -1,6 +1,7 @@
 return {
 	{
 		"NvChad/base46",
+		"NvChad/ui",
 		event = "VimEnter",
 		config = function()
 			require("base46").setup({
