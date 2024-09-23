@@ -25,11 +25,6 @@ return {
 			require("nvim-web-devicons").setup(opts)
 		end,
 	},
-	-- {
-	-- 	"bwpge/colorful.nvim",
-	-- 	opts = require("pitavim.configs.color"),
-	-- 	event = "VeryLazy",
-	-- },
 	{
 		"goolord/alpha-nvim",
 		lazy = false,
@@ -51,13 +46,7 @@ return {
 		},
 		{ "Bilal2453/luvit-meta", lazy = true },
 	},
-	-- {
-	-- 	"stevearc/dressing.nvim",
-	-- 	event = "User FilePost",
-	-- 	config = function()
-	-- 		return require("pitavim.configs.ui")
-	-- 	end,
-	-- },
+
 	{
 		"Bekaboo/dropbar.nvim",
 		event = "BufReadPost",
@@ -144,7 +133,6 @@ return {
 			cmd = "Telescope",
 			opts = {},
 			dependencies = {
-				"andrew-george/telescope-themes",
 				"nvim-telescope/telescope-media-files.nvim",
 				{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 			},
