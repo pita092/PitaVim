@@ -1,13 +1,31 @@
 return {
+
 	{
 		"NvChad/base46",
+		lazy = true,
+		build = function()
+			require("base46").load_all_highlights()
+		end,
+	},
+
+	-- if u want nvchad's ui plugin :)
+	{
 		"NvChad/ui",
-		lazy = false,
 		config = function()
-			require("base46").setup({
-				theme = "tokyonight-day", -- Set your default theme
-				transparency = false,
-			})
+			require("nvchad")
+		end,
+	},
+
+	-- dependency for ui
+	{
+		"nvim-tree/nvim-web-devicons",
+		lazy = true,
+		opts = function()
+			return { override = require("nvchad.icons.devicons") }
+		end,
+		config = function(_, opts)
+			dofile(vim.g.base46_cache .. "devicons")
+			require("nvim-web-devicons").setup(opts)
 		end,
 	},
 	{
@@ -18,7 +36,6 @@ return {
 	{
 		"goolord/alpha-nvim",
 		lazy = false,
-		dependencies = { "echasnovski/mini.icons" },
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			return require("pitavim.configs.alpha")
