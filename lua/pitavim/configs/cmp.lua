@@ -1,5 +1,7 @@
 require("nvim-autopairs").setup({})
 
+dofile(vim.g.base46_cache .. "cmp")
+
 local cmdline_formatting = {
 	format = function(entry, vim_item)
 		-- Customize the format for cmdline items
