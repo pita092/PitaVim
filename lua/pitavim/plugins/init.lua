@@ -215,24 +215,24 @@ return {
 	-- 		return require("pitavim.configs.wilder")
 	-- 	end,
 	-- },
-	{
-		"ellisonleao/gruvbox.nvim",
-		event = "VimEnter",
-		priority = 1000,
-		config = function()
-			return require("pitavim.configs.gruvbox")
-		end,
-	},
-	{
-		"kepano/flexoki-neovim",
-		name = "flexoki",
-	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	event = "VimEnter",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		return require("pitavim.configs.gruvbox")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"kepano/flexoki-neovim",
+	-- 	name = "flexoki",
+	-- },
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {},
+	-- },
 	{
 		"NvChad/nvim-colorizer.lua",
 		event = "VeryLazy",
