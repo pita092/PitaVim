@@ -1,5 +1,14 @@
 return {
 	{
+		"NvChad/base46",
+		config = function()
+			require("base46").setup({
+				theme = "default", -- Set your default theme
+				transparency = false,
+			})
+		end,
+	},
+	{
 		"bwpge/colorful.nvim",
 		opts = require("pitavim.configs.color"),
 		event = "VeryLazy",
