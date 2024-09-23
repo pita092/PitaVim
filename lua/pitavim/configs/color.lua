@@ -1,3 +1,5 @@
+require("base46").load_all_highlights()
+
 local function make_hl_table()
 	local F = require("colorful.color.functional")
 	local Highlight = require("colorful.highlight")
