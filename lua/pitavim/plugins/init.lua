@@ -7,6 +7,13 @@ return {
 			require("base46").load_all_highlights()
 		end,
 	},
+
+	{
+		"NvChad/ui",
+		config = function()
+			require("nvchad")
+		end,
+	},
 	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
