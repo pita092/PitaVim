@@ -1,13 +1,13 @@
 local map = vim.keymap.set
 vim.keymap.set("n", "<leader>pv", ":Neotree current<CR>", { desc = "File Tree" })
 
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '>-2<CR>gv=gv")
-
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '>-2<CR>gv=gv")
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 
