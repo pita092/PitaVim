@@ -33,7 +33,7 @@ local themes = require("telescope.themes")
 -- vim.keymap.set("n", "<C-t>", open_with_trouble, { desc = "Trouble" })
 --
 vim.keymap.set("n", "<leader>H", builtin.help_tags, { desc = "[S]earch [H]elp" })
-vim.keymap.set("n", "<leader>th", "<CMD>Telescope themes<CR>", { desc = "[S]earch [K]eymaps" })
+vim.keymap.set("n", "<leader>K", "<CMD>Telescope themes<CR>", { desc = "[S]earch [K]eymaps" })
 vim.keymap.set("n", "<leader>g", builtin.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>o", function()
 	builtin.live_grep({
@@ -43,7 +43,7 @@ vim.keymap.set("n", "<leader>o", function()
 end, { desc = "[O] Live grep" })
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>p", builtin.git_files, { desc = "[G]it Files" })
-vim.keymap.set("n", "<leader>K", builtin.git_commits, { desc = "[G]it Commits" })
+vim.keymap.set("n", "<leader>th", builtin.git_commits, { desc = "[G]it Commits" })
 
 vim.keymap.set("n", "<leader><leader>", function()
 	builtin.buffers({
