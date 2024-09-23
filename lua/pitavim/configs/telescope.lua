@@ -1,3 +1,5 @@
+dofile(vim.g.base46_cache .. "telescope")
+
 local telescope = require("telescope")
 require("telescope").setup({
 	title_pos = "center",
