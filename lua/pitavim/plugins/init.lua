@@ -25,11 +25,11 @@ return {
 			require("nvim-web-devicons").setup(opts)
 		end,
 	},
-	{
-		"bwpge/colorful.nvim",
-		opts = require("pitavim.configs.color"),
-		event = "VeryLazy",
-	},
+	-- {
+	-- 	"bwpge/colorful.nvim",
+	-- 	opts = require("pitavim.configs.color"),
+	-- 	event = "VeryLazy",
+	-- },
 	{
 		"goolord/alpha-nvim",
 		lazy = false,
