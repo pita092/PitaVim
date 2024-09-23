@@ -2,7 +2,7 @@ return {
 	{
 		"NvChad/base46",
 		"NvChad/ui",
-		event = "VimEnter",
+		lazy = false,
 		config = function()
 			require("base46").setup({
 				theme = "tokyonight-day", -- Set your default theme
