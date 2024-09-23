@@ -3,7 +3,7 @@ return {
 		"NvChad/base46",
 		config = function()
 			require("base46").setup({
-				theme = "default", -- Set your default theme
+				theme = "tokyonight", -- Set your default theme
 				transparency = false,
 			})
 		end,
