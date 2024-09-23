@@ -43,7 +43,7 @@ vim.keymap.set("n", "<leader>o", function()
 end, { desc = "[O] Live grep" })
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>p", builtin.git_files, { desc = "[G]it Files" })
-vim.keymap.set("n", "<leader>t", builtin.git_commits, { desc = "[G]it Commits" })
+vim.keymap.set("n", "<leader>K", builtin.git_commits, { desc = "[G]it Commits" })
 
 vim.keymap.set("n", "<leader><leader>", function()
 	builtin.buffers({
