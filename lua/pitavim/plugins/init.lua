@@ -5,7 +5,7 @@ return {
 		event = "VimEnter",
 		config = function()
 			require("base46").setup({
-				theme = "tokyonight", -- Set your default theme
+				theme = "tokyonight-day", -- Set your default theme
 				transparency = false,
 			})
 		end,
