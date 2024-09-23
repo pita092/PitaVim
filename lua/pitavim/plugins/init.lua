@@ -85,14 +85,14 @@ return {
 	--     return require("pitavim.configs.mini")
 	--   end,
 	-- },
-	{
-		"nvim-lualine/lualine.nvim",
-		event = { "VimEnter", "BufReadPost", "BufNewFile" },
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			return require("pitavim.configs.lualine")
-		end,
-	},
+	-- {
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	event = { "VimEnter", "BufReadPost", "BufNewFile" },
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- 	config = function()
+	-- 		return require("pitavim.configs.lualine")
+	-- 	end,
+	-- },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufReadPre",
