@@ -1,3 +1,4 @@
+local telescope = require("telescope")
 require("telescope").setup({
 	title_pos = "center",
 	pickers = {
@@ -120,6 +121,7 @@ require("telescope").setup({
 		},
 	},
 })
+telescope.load_extension("themes")
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
 
