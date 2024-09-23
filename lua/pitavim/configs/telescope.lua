@@ -1,6 +1,3 @@
-local action_state = require("telescope.actions.state")
-local colorscheme_config = require("pitavim.scripts.colorscheme")
-
 require("telescope").setup({
 	title_pos = "center",
 	pickers = {
