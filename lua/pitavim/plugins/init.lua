@@ -119,6 +119,7 @@ return {
 			cmd = "Telescope",
 			opts = {},
 			dependencies = {
+				"andrew-george/telescope-themes",
 				"nvim-telescope/telescope-media-files.nvim",
 				{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 			},
