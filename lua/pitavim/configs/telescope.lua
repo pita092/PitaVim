@@ -97,19 +97,6 @@ require("telescope").setup({
 		},
 	},
 	extensions = {
-    colorscheme = {
-      enable_preview = true,
-      -- Override the Telescope colorscheme picker
-      colorscheme = function(prompt_bufnr, map)
-        local actions = require("telescope.actions")
-        actions.select_default:replace(function()
-          local selection = action_state.get_selected_entry()
-          actions.close(prompt_bufnr)
-          colorscheme_config.set_colorscheme(selection.value)
-        end)
-        return true
-      end,
-    },
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({
 				-- Custom options for a distinct look
