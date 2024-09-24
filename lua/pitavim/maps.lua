@@ -1,18 +1,56 @@
 local map = vim.keymap.set
 
-local function rename_with_popup()
-	local current_word = vim.fn.expand("<cword>")
-	vim.ui.input({
-		prompt = "New name: ",
-		default = current_word,
-	}, function(input)
-		if input then
-			vim.lsp.buf.rename(input)
-		end
-	end)
+local function create_centered_popup(width, height)
+	local buf = vim.api.nvim_create_buf(false, true)
+	local win_width = vim.api.nvim_get_option("columns")
+	local win_height = vim.api.nvim_get_option("lines")
+
+	local row = math.floor((win_height - height) / 2)
+	local col = math.floor((win_width - width) / 2)
+
+	local opts = {
+		style = "minimal",
+		relative = "editor",
+		width = width,
+		height = height,
+		row = row,
+		col = col,
+		border = "rounded",
+	}
+
+	local win = vim.api.nvim_open_win(buf, true, opts)
+	vim.api.nvim_win_set_option(win, "winblend", 15)
+	return buf, win
 end
 
-map("n", "<leader>rn", rename_with_popup, { noremap = true, silent = true })
+local function rename_with_centered_popup()
+	local current_word = vim.fn.expand("<cword>")
+	local buf, win = create_centered_popup(40, 1)
+
+	-- Set up the buffer
+	vim.api.nvim_buf_set_option(buf, "buftype", "prompt")
+	vim.fn.prompt_setprompt(buf, "New name: ")
+	vim.fn.prompt_setcallback(buf, function(new_name)
+		if new_name and new_name ~= "" then
+			vim.api.nvim_win_close(win, true)
+			vim.lsp.buf.rename(new_name)
+		end
+	end)
+
+	-- Enter insert mode and set the initial text
+	vim.cmd("startinsert!")
+	vim.api.nvim_buf_set_text(buf, 0, 9, 0, 9, { current_word })
+
+	-- Set up autocommand to close the window on <Esc>
+	vim.api.nvim_create_autocmd("BufLeave", {
+		buffer = buf,
+		callback = function()
+			vim.api.nvim_win_close(win, true)
+		end,
+	})
+end
+
+map("n", "<leader>rn", rename_with_centered_popup, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>pv", ":Neotree current<CR>", { desc = "File Tree" })
 
