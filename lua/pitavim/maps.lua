@@ -1,10 +1,10 @@
 local map = vim.keymap.set
 vim.keymap.set("n", "<leader>pv", ":Neotree current<CR>", { desc = "File Tree" })
 
-map("n", "<C-h>", "<cmd>TmuxNavigaterLeft <CR>", { desc = "switch window left" })
-map("n", "<C-l>", "<cmd>TmuxNavigaterLeft <CR>", { desc = "switch window right" })
-map("n", "<C-j>", "<cmd>TmuxNavigaterLeft <CR>", { desc = "switch window down" })
-map("n", "<C-k>", "<cmd>TmuxNavigaterLeft <CR>", { desc = "switch window up" })
+map("n", "<C-h>", "<cmd>TmuxNavigateRight <CR>", { desc = "switch window left" })
+map("n", "<C-l>", "<cmd>TmuxNavigateLeft<CR>", { desc = "switch window right" })
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "switch window down" })
+map("n", "<C-k>", "<cmd>TmuxNavigateUp <CR>", { desc = "switch window up" })
 
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '>-2<CR>gv=gv")
