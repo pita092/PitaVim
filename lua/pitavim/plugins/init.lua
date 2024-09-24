@@ -1,6 +1,7 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
+		event = "User FilePost",
 		config = function()
 			return require("pitavim.configs.dap")
 		end,
