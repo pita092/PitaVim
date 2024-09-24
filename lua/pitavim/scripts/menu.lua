@@ -1,3 +1,5 @@
+-- not used for now maybe ill re write it in the future
+
 local api = vim.api
 local buffer = nil
 local window = nil
