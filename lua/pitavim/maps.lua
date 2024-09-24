@@ -1,4 +1,52 @@
 local map = vim.keymap.set
+
+local popup = require("plenary.popup")
+
+local function rename_with_plenary()
+	local current_word = vim.fn.expand("<cword>")
+	local win_width = vim.api.nvim_get_option("columns")
+	local win_height = vim.api.nvim_get_option("lines")
+
+	local width = 40
+	local height = 1
+	local borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+
+	local bufnr = vim.api.nvim_create_buf(false, true)
+	local winid = popup.create(bufnr, {
+		title = "Rename",
+		line = math.floor((win_height - height) / 2),
+		col = math.floor((win_width - width) / 2),
+		minwidth = width,
+		minheight = height,
+		borderchars = borderchars,
+	})
+
+	-- Set up the buffer
+	vim.api.nvim_buf_set_option(bufnr, "buftype", "prompt")
+	vim.fn.prompt_setprompt(bufnr, "New name: ")
+	vim.fn.prompt_setcallback(bufnr, function(new_name)
+		if new_name and new_name ~= "" then
+			vim.api.nvim_win_close(winid, true)
+			vim.lsp.buf.rename(new_name)
+		end
+	end)
+
+	-- Enter insert mode and set the initial text
+	vim.cmd("startinsert!")
+	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { current_word })
+	vim.api.nvim_win_set_cursor(winid, { 1, #current_word + 10 }) -- +10 for "New name: "
+
+	-- Set up autocommand to close the window on <Esc>
+	vim.api.nvim_create_autocmd("BufLeave", {
+		buffer = bufnr,
+		callback = function()
+			vim.api.nvim_win_close(winid, true)
+		end,
+	})
+end
+
+vim.keymap.set("n", "<leader>rn", rename_with_plenary, { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>pv", ":Neotree current<CR>", { desc = "File Tree" })
 
 map("n", "<C-h>", "<cmd>TmuxNavigateRight <CR>", { desc = "switch window left" })
