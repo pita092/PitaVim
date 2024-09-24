@@ -61,7 +61,7 @@ require("telescope").setup({
 			"--column",
 			"--smart-case",
 		},
-		previewer = true,
+		previewer = false,
 		prompt_prefix = "  ",
 		selection_caret = "   ",
 		entry_prefix = "  ",
