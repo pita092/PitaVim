@@ -1,4 +1,8 @@
 return {
+  {
+  "christoomey/vim-tmux-navigator",
+  lazy = false,
+  },
 	{
 		"mfussenegger/nvim-dap",
 		event = "User FilePost",
