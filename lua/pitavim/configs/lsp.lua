@@ -17,17 +17,9 @@ local servers = {
 	"clangd",
 	"gopls",
 }
-local formaters = {
-	"stylua",
-	"clang_format",
-	"gofumpt",
-}
 
 require("mason").setup()
 require("mason-lspconfig").setup({ ensure_installed = servers })
-require("mason-null-ls").setup({
-	ensure_installed = formaters,
-})
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
