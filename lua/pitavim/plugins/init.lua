@@ -4,13 +4,6 @@ return {
 		lazy = false,
 	},
 	{
-		"mfussenegger/nvim-dap",
-		event = "User FilePost",
-		config = function()
-			return require("pitavim.configs.dap")
-		end,
-	},
-	{
 		"NvChad/base46",
 		lazy = true,
 	},
