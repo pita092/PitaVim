@@ -1,4 +1,19 @@
 local map = vim.keymap.set
+
+local function rename_with_popup()
+	local current_word = vim.fn.expand("<cword>")
+	vim.ui.input({
+		prompt = "New name: ",
+		default = current_word,
+	}, function(input)
+		if input then
+			vim.lsp.buf.rename(input)
+		end
+	end)
+end
+
+map("n", "<leader>rn", rename_with_popup, { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>pv", ":Neotree current<CR>", { desc = "File Tree" })
 
 map("n", "<C-h>", "<cmd>TmuxNavigateRight <CR>", { desc = "switch window left" })
