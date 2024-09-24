@@ -81,3 +81,12 @@ vim.api.nvim_create_user_command("LintInfo", function()
 
 	vim.api.nvim_echo({ { info, "Normal" } }, false, {})
 end, {})
+
+--just stright uo stole this from kickstart.nvim
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
