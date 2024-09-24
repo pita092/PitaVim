@@ -27,7 +27,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local map = function(keys, func, desc)
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
-		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+		map("gd", function()
+			require("telescope.builtin").lsp_definitions(require("telescope.themes").get_dropdown({
+				previewer = false,
+			}))
+		end, "[G]oto [D]efinition")
 		map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 		map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 		map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
