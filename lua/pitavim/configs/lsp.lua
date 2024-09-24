@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, "[G]oto [D]efinition")
 		map(
 			"gr",
-			require("telescope.builtin").lsp_reflsp_reflsp_reflsp_references(require("telescope.themes").get_dropdown({
+			require("telescope.builtin").lsp_references(require("telescope.themes").get_dropdown({
 				previewer = false,
 			})),
 			"[G]oto [R]eferences"
