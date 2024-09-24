@@ -14,7 +14,7 @@ require("telescope").setup({
 			-- prompt_prefix = "🕵️‍♂️ ",
 			-- prompt_prefix = "■ ",
 
-			preview = true,
+			preview = false,
 		},
 		current_buffer_fuzzy_find = {
 			prompt_title = "Fuzzy Find Current Buffer",
