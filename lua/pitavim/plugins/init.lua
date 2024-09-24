@@ -118,6 +118,7 @@ return {
 	{
 		{
 			"williamboman/mason-lspconfig",
+			"jay-babu/mason-null-ls.nvim",
 		},
 		"williamboman/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
