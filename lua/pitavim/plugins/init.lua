@@ -1,5 +1,13 @@
 return {
 	{
+		"echasnovski/mini.nvim",
+		version = false,
+		event = "VeryLazy",
+		config = function()
+			return require("pitavim.configs.mini")
+		end,
+	},
+	{
 		"NvChad/base46",
 		lazy = true,
 	},
