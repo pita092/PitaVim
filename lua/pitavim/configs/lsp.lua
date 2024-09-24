@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>w", vim.lsp.buf.rename, "[R]e[n]ame")
 		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-		map("<leader>bf", vim.lsp.buf.hover, "context menu")
+		map("<leader>bf", vim.lsp.buf.hover, "lsp context menu")
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then

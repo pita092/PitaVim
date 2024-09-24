@@ -269,13 +269,14 @@ return {
 		},
 	},
 
-	{
-		"stevearc/oil.nvim",
-		cmd = "Oil",
-		opts = {
-			border = "single",
-		},
-	},
+	-- {
+	-- 	"stevearc/oil.nvim",
+	-- 	cmd = "Oil",
+	-- 	opts = {
+	-- 		border = "single",
+	-- 	},
+	-- },
+	--
 	{
 		"NvChad/nvterm",
 		event = "BufReadPre",
