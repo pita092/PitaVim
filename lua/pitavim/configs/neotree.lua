@@ -22,7 +22,7 @@
 --   },
 --   use_libuv_file_watcher = true,
 -- }
-
+dofile(vim.g.base46_cache .. "neotree")
 require("neo-tree").setup({
 	vim.diagnostic.config({
 		signs = {
