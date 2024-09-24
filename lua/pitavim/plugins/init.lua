@@ -1,5 +1,11 @@
 return {
 	{
+		"mfussenegger/nvim-dap",
+		config = function()
+			return require("pitavim.configs.dap")
+		end,
+	},
+	{
 		"NvChad/base46",
 		lazy = true,
 	},
