@@ -1,53 +1,48 @@
 local map = vim.keymap.set
+vim.keymap.set("n", "<leader>pv", ":Neotree current<CR>", { desc = "File Tree" })
 
-local popup = require("plenary.popup")
+local map = vim.keymap.set
 
-local function rename_with_plenary()
-	local current_word = vim.fn.expand("<cword>")
-	local win_width = vim.api.nvim_get_option("columns")
-	local win_height = vim.api.nvim_get_option("lines")
+local function apply(curr, win)
+  local newName = vim.trim(vim.fn.getline ".")
+  vim.api.nvim_win_close(win, true)
 
-	local width = 40
-	local height = 1
-	local borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+  if #newName > 0 and newName ~= curr then
+    local params = vim.lsp.util.make_position_params()
+    params.newName = newName
 
-	local bufnr = vim.api.nvim_create_buf(false, true)
-	local winid = popup.create(bufnr, {
-		title = "Rename",
-		line = math.floor((win_height - height) / 2),
-		col = math.floor((win_width - width) / 2),
-		minwidth = width,
-		minheight = height,
-		borderchars = borderchars,
-	})
-
-	-- Set up the buffer
-	vim.api.nvim_buf_set_option(bufnr, "buftype", "prompt")
-	vim.fn.prompt_setprompt(bufnr, "New name: ")
-	vim.fn.prompt_setcallback(bufnr, function(new_name)
-		if new_name and new_name ~= "" then
-			vim.api.nvim_win_close(winid, true)
-			vim.lsp.buf.rename(new_name)
-		end
-	end)
-
-	-- Enter insert mode and set the initial text
-	vim.cmd("startinsert!")
-	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { current_word })
-	vim.api.nvim_win_set_cursor(winid, { 1, #current_word + 10 }) -- +10 for "New name: "
-
-	-- Set up autocommand to close the window on <Esc>
-	vim.api.nvim_create_autocmd("BufLeave", {
-		buffer = bufnr,
-		callback = function()
-			vim.api.nvim_win_close(winid, true)
-		end,
-	})
+    vim.lsp.buf_request(0, "textDocument/rename", params)
+  end
 end
 
-vim.keymap.set("n", "<leader>rn", rename_with_plenary, { noremap = true, silent = true })
+return function()
+  local currName = vim.fn.expand "<cword>" .. " "
 
-vim.keymap.set("n", "<leader>pv", ":Neotree current<CR>", { desc = "File Tree" })
+  local win = require("plenary.popup").create(currName, {
+    title = "Renamer",
+    style = "minimal",
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    relative = "cursor",
+    borderhighlight = "RenamerBorder",
+    titlehighlight = "RenamerTitle",
+    focusable = true,
+    width = 25,
+    height = 1,
+    line = "cursor+2",
+    col = "cursor-1",
+  })
+
+  vim.cmd "normal A"
+  vim.cmd "startinsert"
+
+  map({ "i", "n" }, "<Esc>", "<cmd>q<CR>", { buffer = 0 })
+
+  map({ "i", "n" }, "<CR>", function()
+    apply(currName, win)
+    vim.cmd.stopinsert()
+  end, { buffer = 0 })
+end
+
 
 map("n", "<C-h>", "<cmd>TmuxNavigateRight <CR>", { desc = "switch window left" })
 map("n", "<C-l>", "<cmd>TmuxNavigateLeft<CR>", { desc = "switch window right" })
