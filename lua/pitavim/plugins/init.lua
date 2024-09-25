@@ -1,5 +1,12 @@
 return {
 	{
+		"mfussenegger/nvim-lint",
+		event = "User FilePost",
+		config = function ()
+		require("lint").setup()
+		end
+	},
+	{
 		"ziontee113/icon-picker.nvim",
 		event = "InsertEnter",
 		config = function()
@@ -8,7 +15,7 @@ return {
 			local opts = { noremap = true, silent = true }
 
 			vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
-			vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+			vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts)
 			vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
 		end,
 	},
