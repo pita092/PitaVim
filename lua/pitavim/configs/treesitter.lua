@@ -6,11 +6,13 @@ require("nvim-treesitter.configs").setup({
 	auto_install = true,
 	highlight = { enable = true },
 	indent = { enable = true },
-	keymaps = {
-		-- Your custom capture.
-		["aF"] = "@custom_capture",
-		["af"] = "@function.outer",
-		["if"] = "@function.inner",
+	incremental_selection = {
+		keymaps = {
+			-- Your custom capture.
+			["aF"] = "@custom_capture",
+			["af"] = "@function.outer",
+			["if"] = "@function.inner",
+		},
 	},
 })
 vim.filetype.add({
