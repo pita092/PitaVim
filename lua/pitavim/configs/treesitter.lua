@@ -1,6 +1,6 @@
 ---@diagnostic disable: missing-fields
-require("nvim-treesitter.install").compilers = { "gcc" }
-local parser_install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
+-- require("nvim-treesitter.install").compilers = { "gcc" }
+-- local parser_install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "vim", "vimdoc", "query", "c" },
 	parser_install_dir = parser_install_dir,
