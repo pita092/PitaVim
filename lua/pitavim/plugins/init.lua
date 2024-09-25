@@ -2,9 +2,6 @@ return {
 	{
 		"mfussenegger/nvim-lint",
 		event = "User FilePost",
-		config = function ()
-		require("lint").setup()
-		end
 	},
 	{
 		"ziontee113/icon-picker.nvim",
