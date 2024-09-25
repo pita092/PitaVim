@@ -27,9 +27,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local map = function(keys, func, desc)
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
-		vim.lsp.buf.hover()
 
-		vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { buffer = bufnr, noremap = true, silent = true })
+		vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
 		map("gd", function()
 			require("telescope.builtin").lsp_definitions(require("telescope.themes").get_dropdown({
 				previewer = false,
