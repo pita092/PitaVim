@@ -26,7 +26,7 @@ return {
 	},
 
 	{
-		"NvChad/ui",
+		"pita092/ui",
 		config = function()
 			require("nvchad")
 		end,
