@@ -6,8 +6,8 @@ map("n", "<C-l>", "<cmd>TmuxNavigateLeft<CR>", { desc = "switch window right" })
 map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "switch window down" })
 map("n", "<C-k>", "<cmd>TmuxNavigateUp <CR>", { desc = "switch window up" })
 
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '>-2<CR>gv=gv")
+map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+map("v", "K", ":m '>-2<CR>gv=gv", { noremap = true, silent = true })
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 

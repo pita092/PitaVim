@@ -326,7 +326,7 @@ return {
 			require("treesj").setup()
 		end,
 	},
--- }
+}
 
 -- return {
 -- 	{
