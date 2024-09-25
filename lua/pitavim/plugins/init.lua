@@ -286,7 +286,6 @@ return {
 		end,
 	},
 	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
@@ -294,6 +293,10 @@ return {
 		config = function()
 			require("nvim-treesitter.configs").setup()
 		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		event = { "BufReadPost", "BufNewFile" },
 	},
 	{
 
