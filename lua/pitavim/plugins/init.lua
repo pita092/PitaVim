@@ -1,12 +1,5 @@
 return {
 	{
-		"prichrd/netrw.nvim",
-		event = "VimEnter",
-		config = function()
-			return require("pitavim.configs.netrw")
-		end,
-	},
-	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},
