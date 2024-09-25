@@ -12,7 +12,7 @@ require("nvim-treesitter.configs").setup({
 		keymaps = {
 			init_selection = "gnn",
 			node_incremental = "grn",
-			scope_incemental = "grc",
+			scopm_incemental = "grc",
 			node_decremental = "grm",
 		},
 	},
