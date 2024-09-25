@@ -1,10 +1,8 @@
 require("nvim-treesitter.install").compilers = { "gcc" }
 local parser_install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
 require("nvim-treesitter.configs").setup({
-	ensure_installed = {},
-	ignore_install = {},
+	ensure_installed = { "lua", "vim", "vimdoc", "query", "c" },
 	parser_install_dir = parser_install_dir,
-	sync_install = true,
 	auto_install = true,
 	highlight = { enable = true },
 	indent = { enable = true },
