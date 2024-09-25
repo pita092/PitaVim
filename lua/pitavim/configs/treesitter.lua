@@ -1,6 +1,6 @@
 ---@diagnostic disable: missing-fields
--- require("nvim-treesitter.install").compilers = { "gcc" }
--- local parser_install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
+require("nvim-treesitter.install").compilers = { "gcc" }
+local parser_install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "vim", "vimdoc", "query", "c" },
 	parser_install_dir = parser_install_dir,
@@ -10,9 +10,9 @@ require("nvim-treesitter.configs").setup({
 	incremental_selection = {
 		enable = true,
 		keymaps = {
-			init_selection = "<leader>ii", -- set to `false` to disable one of the mappings
+			init_selection = "gnn", -- set to `false` to disable one of the mappings
 			node_incremental = "grn",
-			scope_incremcntal = "<leader>is",
+			scope_incremcntal = "grc",
 			node_decremental = "grm",
 		},
 	},
