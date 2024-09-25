@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 require("nvim-treesitter.install").compilers = { "gcc" }
 local parser_install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser"
 require("nvim-treesitter.configs").setup({
@@ -7,11 +8,12 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 	incremental_selection = {
+		enable = true,
 		keymaps = {
-			-- Your custom capture.
-			["aF"] = "@custom_capture",
-			["af"] = "@function.outer",
-			["if"] = "@function.inner",
+			init_selection = "gnn",
+			node_incremental = "grn",
+			scope_incemental = "grc",
+			node_decremental = "grm",
 		},
 	},
 })
