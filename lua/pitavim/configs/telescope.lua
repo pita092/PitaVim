@@ -118,7 +118,6 @@ require("telescope").setup({
 				["<C-q>"] = { action = z_utils.create_basic_command("split") },
 			},
 		},
-		undo = {},
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({
 				-- Custom options for a distinct look
@@ -148,7 +147,7 @@ require("telescope").setup({
 telescope.load_extension("themes")
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("undo")
+require("telescope").load_extension("zoxide")
 
 -- defaults = {
 --   border = false,
