@@ -411,15 +411,14 @@ function M.setup()
     end,
   })
 
-  -- Restore tabline when leaving alpha buffer
-  vim.api.nvim_create_autocmd("BufLeave", {
-    pattern = "*",
-    callback = function()
-      if vim.bo.filetype ~= "alpha" then
-        vim.opt.showtabline = 2 -- or whatever your default value is
-      end
-    end,
-  })
+--   -- Restore tabline when leaving alpha buffer
+--   vim.api.nvim_create_autocmd("BufLeave", {
+--     pattern = "*",
+--     callback = function()
+--       if vim.bo.filetype ~= "alpha" then
+--         vim.opt.showtabline = 2 -- or whatever your default value is
+--       end
+--     end,
+--   })
 end
-
 return M
