@@ -324,16 +324,15 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 	},
 
-	-- {
-	--
-	-- 	"Wansmer/treesj",
-	-- 	event = { "BufReadPre", "BufNewFile" },
-	-- 	keys = { "<space>m", "<space>j", "<space>s" },
-	-- 	dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
-	-- 	config = function()
-	-- 		require("treesj").setup()
-	-- 	end,
-	-- },
+	{
+
+		"Wansmer/treesj",
+		event = { "BufReadPost", "BufNewFile" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("treesj").setup()
+		end,
+	},
 }
 
 -- return {
