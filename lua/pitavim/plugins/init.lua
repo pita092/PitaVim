@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-neorg/neorg",
 		lazy = false,
-		version = "*",
+		vrrsion = "*",
 		config = true,
 	},
 	{
