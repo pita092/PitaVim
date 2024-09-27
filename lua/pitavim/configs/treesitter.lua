@@ -27,7 +27,7 @@ require("nvim-treesitter.configs").setup({
 			},
 			selection_modes = {
 				["@parameter.outer"] = "v",
-				["@function.outer"] = "V",
+				["@function.outer"] = "v",
 				["@class.outer"] = "<c-v>",
 			},
 			include_surrounding_whitespace = true,
