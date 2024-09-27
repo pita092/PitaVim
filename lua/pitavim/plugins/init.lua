@@ -1,5 +1,11 @@
 return {
 	{
+		"nvim-neorg/neorg",
+		lazy = false,
+		version = "*",
+		config = true,
+	},
+	{
 		"mfussenegger/nvim-lint",
 		event = "User FilePost",
 	},
