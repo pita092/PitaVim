@@ -97,21 +97,7 @@ require("telescope").setup({
 		},
 	},
 	extensions = {
-		undo = {
-			mappings = {
-				i = {
-					["<cr>"] = require("telescope-undo.actions").yank_additions,
-					["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
-					["<C-y>"] = require("telescope-undo.actions").yank_deletions,
-					["<C-r>"] = require("telescope-undo.actions").restore,
-				},
-				n = {
-					["y"] = require("telescope-undo.actions").yank_additions,
-					["Y"] = require("telescope-undo.actions").yank_deletions,
-					["u"] = require("telescope-undo.actions").restore,
-				},
-			},
-		},
+		undo = {},
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({
 				-- Custom options for a distinct look
