@@ -1,6 +1,6 @@
 return {
 	{
-		"debugloop/telescope-undo.nvim",
+		"jvgrootveld/telescope-zoxide",
 	},
 	{
 		"nvim-neorg/neorg",
