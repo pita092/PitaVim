@@ -97,6 +97,7 @@ require("telescope").setup({
 		},
 	},
 	extensions = {
+		undo = {},
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({
 				-- Custom options for a distinct look
@@ -126,6 +127,7 @@ require("telescope").setup({
 telescope.load_extension("themes")
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("undo")
 
 -- defaults = {
 --   border = false,

@@ -1,5 +1,8 @@
 return {
 	{
+		"debugloop/telescope-undo.nvim",
+	},
+	{
 		"nvim-neorg/neorg",
 		lazy = false,
 		vrrsion = "*",
