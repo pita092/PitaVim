@@ -84,7 +84,7 @@ require("telescope").setup({
 		path_display = { "truncate" },
 		winblend = 0,
 		border = {},
-		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 		-- borderchars = { "", "", "", "", "", "", "", "" },
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" },
