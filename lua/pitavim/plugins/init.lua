@@ -61,10 +61,10 @@ return {
 		vrrsion = "*",
 		config = true,
 	},
-	-- {
-	-- 	"mfussenegger/nvim-lint",
-	-- 	event = "User FilePost",
-	-- },
+	{
+		"mfussenegger/nvim-lint",
+		lazy = false,
+	},
 	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
@@ -166,17 +166,6 @@ return {
 			dofile(vim.g.base46_cache .. "blankline")
 		end,
 	},
-	{
-		"nvimtools/none-ls.nvim",
-		event = "BufReadPre",
-		dependencies = {
-			"nvimtools/none-ls-extras.nvim",
-		},
-		config = function()
-			return require("pitavim.configs.none-ls")
-		end,
-	},
-
 	{
 		"stevearc/conform.nvim",
 		-- config = function()
