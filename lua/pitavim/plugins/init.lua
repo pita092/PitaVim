@@ -67,7 +67,7 @@ return {
 	{
 		"goolord/alpha-nvim",
 		lazy = false,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		-- dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			return require("pitavim.configs.alpha")
 		end,
@@ -185,7 +185,7 @@ return {
 			opts = {},
 			dependencies = {
 				"nvim-telescope/telescope-media-files.nvim",
-				{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+				-- { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 			},
 			config = function()
 				return require("pitavim.configs.telescope")
