@@ -1,4 +1,5 @@
 vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
+
 return {
 	{
 		{
@@ -7,16 +8,14 @@ return {
 			config = function()
 				require("neogen").setup({ snippet_engine = "luasnip" })
 				local neogen = require("neogen")
+				local opts = { noremap = true, silent = true }
+
 				require("neogen").generate()
 				vim.keymap.set("n", "<leader>df", function()
-					neogen.generate({ type = "func" })
+					neogen.generate()
 				end)
-				vim.keymap.set("n", "<leader>dt", function()
-					neogen.generate({ type = "type" })
-				end)
-				vim.keymap.set("n", "<leader>dd", function()
-					neogen.generate({ type = "typedef" })
-				end)
+				vim.api.nvim_set_keymap("i", "<C-g>", ":lua require('neogen').jump_next<CR>", opts)
+				vim.api.nvim_set_keymap("i", "<C-d>", ":lua require('neogen').jump_prev<CR>", opts)
 			end,
 		},
 	},
