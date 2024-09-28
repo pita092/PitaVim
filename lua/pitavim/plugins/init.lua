@@ -5,6 +5,7 @@ return {
 			"danymat/neogen",
 			lazy = false,
 			config = function()
+				require("neogen").setup({ snippet_engine = "luasnip" })
 				local neogen = require("neogen")
 				require("neogen").generate()
 				vim.keymap.set("n", "<leader>df", function()
