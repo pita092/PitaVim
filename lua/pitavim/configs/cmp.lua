@@ -14,8 +14,7 @@ local cmdline_formatting = {
 }
 
 local cmp = require("cmp")
-local cmp_action = require("lsp-zero").cmp_action()
-
+local luasnip = require("luasnip")
 local blankaborder = {
 	border = { "", "", "", "", "", "", "", "" },
 	winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:None",
@@ -56,8 +55,26 @@ cmp.setup({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<Tab>"] = cmp.luasnip_supertab(),
-		["<C-Tab>"] = cmp.luasnip_shift_supertab(),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-j>"] = cmp.mapping.select_next_item(),
