@@ -4,6 +4,7 @@ return {
 		{
 			"danymat/neogen",
 			config = function()
+				require("neogen").setup({})
 				require("neogen").generate()
 			end,
 		},
