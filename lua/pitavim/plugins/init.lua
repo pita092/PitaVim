@@ -25,11 +25,11 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
-		opts = { icons = false },
+		opts = {},
 		cmd = "Trouble",
 		keys = {
 			{
-				"<leader>xx",
+				"<leader>tt",
 				"<cmd>Trouble diagnostics toggle<cr>",
 				desc = "Diagnostics (Trouble)",
 			},
