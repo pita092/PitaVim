@@ -1,4 +1,12 @@
 return {
+	--[[clangd]]
+	{
+		"p00f/clangd_extensions.nvim",
+		event = "User FilePost",
+		config = function()
+			require("clangd_extensions").setup()
+		end,
+	},
 	{
 		{
 			"jiaoshijie/undotree",
