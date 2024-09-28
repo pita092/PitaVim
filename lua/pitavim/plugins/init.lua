@@ -8,6 +8,9 @@ return {
 		},
 	},
 	{
+		"j-hui/fidget.nvim",
+	},
+	{
 		"nvim-neorg/neorg",
 		lazy = false,
 		vrrsion = "*",
