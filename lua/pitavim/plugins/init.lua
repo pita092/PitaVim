@@ -1,6 +1,14 @@
 vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
 	{
+		{
+			"danymat/neogen",
+			config = function()
+				require("neogen").generate()
+			end,
+		},
+	},
+	{
 		"Exafunction/codeium.nvim",
 		event = "VeryLazy",
 		opts = {},
