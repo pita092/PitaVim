@@ -1,4 +1,5 @@
 dofile(vim.g.base46_cache .. "cmp")
+vim.api.nvim_set_hl(0, "CmpGhostText", { italic = true, fg = "#888888" })
 
 local cmdline_formatting = {
 	format = function(entry, vim_item)
@@ -129,7 +130,10 @@ cmp.setup({
 		max_view_entries = 50,
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = {
+			enabled = true,
+			hl_group = "CmpGhostText",
+		},
 	},
 	sorting = {
 		comparators = {
