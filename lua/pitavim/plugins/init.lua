@@ -24,7 +24,6 @@ return {
 		"nvim-telescope/telescope-github.nvim",
 		{
 			"folke/trouble.nvim",
-			event = "VeryLazy",
 			cmd = "Trouble",
 			config = function()
 				Icons = false
