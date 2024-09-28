@@ -34,11 +34,6 @@ return {
 				desc = "Diagnostics (Trouble)",
 			},
 			{
-				"<leader>tT",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
 				"<leader>cs",
 				"<cmd>Trouble symbols toggle focus=false<cr>",
 				desc = "Symbols (Trouble)",
