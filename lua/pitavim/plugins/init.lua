@@ -1,3 +1,7 @@
+---@module 1233
+---@author [TODO:description]
+---@license [TODO:description]
+
 vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 
 return {
@@ -14,8 +18,8 @@ return {
 				vim.keymap.set("n", "<leader>df", function()
 					neogen.generate()
 				end)
-				vim.api.nvim_set_keymap("i", "<C-g>", "<cmd>lua require('neogen').jump_next<CR>", opts)
-				vim.api.nvim_set_keymap("i", "<C-d>", "<cmd>lua require('neogen').jump_prev<CR>", opts)
+				vim.api.nvim_set_keymap("i", "<C-g>", "<cmd>lua require('neogen').jump_next()<CR>", opts)
+				vim.api.nvim_set_keymap("i", "<C-d>", "<cmd>lua require('neogen').jump_prev()<CR>", opts)
 			end,
 		},
 	},
