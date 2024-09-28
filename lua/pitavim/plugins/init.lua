@@ -5,7 +5,7 @@ return {
 		event = "VeryLazy",
     opts = {
 enable_chat = true,
-      s
+      }
 	},
 
 	--[[clangd]]
