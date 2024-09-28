@@ -4,7 +4,7 @@ return {
 		"nvim-telescope/telescope-github.nvim",
 		{
 			"folke/trouble.nvim",
-			cmd = "Trouble",
+			event = "VeryLazy",
 		},
 	},
 	{
