@@ -1,5 +1,12 @@
 vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
+	{
+		"Exafunction/codeium.nvim",
+		config = function()
+			require("codeium").setup({})
+		end,
+	},
+
 	--[[clangd]]
 	{
 		"p00f/clangd_extensions.nvim",
