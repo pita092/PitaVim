@@ -107,6 +107,7 @@ cmp.setup({
 				path = "[Path] ",
 				luasnip = "[Snips] ",
 				lazydev = "[Lazy] ",
+				Codeium = "[AI]",
 				-- Add other sources as needed
 			})[entry.source.name] or ""
 
