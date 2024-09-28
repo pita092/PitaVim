@@ -1,10 +1,15 @@
+vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
 	--[[clangd]]
 	{
 		"p00f/clangd_extensions.nvim",
 		event = "User FilePost",
 		config = function()
-			require("clangd_extensions").setup()
+			require("clangd_extensions").setup({
+				inlay_hints = {
+					highlight = "YourCustomHighlightGroup",
+				},
+			})
 		end,
 	},
 	{
