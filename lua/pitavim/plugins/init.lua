@@ -25,9 +25,7 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
-		opts = {
-			icons = false,
-		},
+		opts = { icons = false },
 		cmd = "Trouble",
 		keys = {
 			{
