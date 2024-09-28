@@ -1,5 +1,3 @@
-require("nvim-autopairs").setup({})
-
 dofile(vim.g.base46_cache .. "cmp")
 
 local cmdline_formatting = {
