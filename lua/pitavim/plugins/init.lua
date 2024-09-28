@@ -1,6 +1,7 @@
 return {
 	{
 		"jvgrootveld/telescope-zoxide",
+		"nvim-telescope/telescope.nvim",
 	},
 	{
 		"nvim-neorg/neorg",
