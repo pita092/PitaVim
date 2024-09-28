@@ -9,6 +9,7 @@ return {
 	},
 	{
 		"j-hui/fidget.nvim",
+		event = "User FilePost",
 	},
 	{
 		"nvim-neorg/neorg",
