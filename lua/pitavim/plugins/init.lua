@@ -3,9 +3,7 @@ return {
 	{
 		"Exafunction/codeium.nvim",
 		event = "VeryLazy",
-    opts = {
-enable_chat = true,
-      }
+		opts = {},
 	},
 
 	--[[clangd]]
