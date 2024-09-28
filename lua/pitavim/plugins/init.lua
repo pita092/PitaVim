@@ -21,7 +21,7 @@ return {
 	},
 	{
 		"Exafunction/codeium.nvim",
-		event = "VeryLazy",
+		event = "InsertEnter",
 		opts = {},
 	},
 
