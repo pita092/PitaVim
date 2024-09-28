@@ -8,11 +8,6 @@ return {
 		},
 	},
 	{
-		"j-hui/fidget.nvim",
-		event = "User FilePost",
-		opts = {},
-	},
-	{
 		"nvim-neorg/neorg",
 		lazy = false,
 		vrrsion = "*",
