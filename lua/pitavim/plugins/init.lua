@@ -4,7 +4,11 @@ return {
 		"Exafunction/codeium.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("codeium").setup({})
+			require("codeium").setup({
+				config = {
+					enable_chat = true,
+				},
+			})
 		end,
 	},
 
