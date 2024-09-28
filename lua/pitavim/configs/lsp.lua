@@ -29,7 +29,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
-
+		require("clangd_extensions.inlay_hints").setup_autocmd()
+		require("clangd_extensions.inlay_hints").set_inlay_hints()
 		map("gd", function()
 			require("telescope.builtin").lsp_definitions(require("telescope.themes").get_dropdown({
 				previewer = false,
