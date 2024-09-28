@@ -3,6 +3,7 @@ return {
 	{
 		{
 			"danymat/neogen",
+			lazy = false,
 			config = function()
 				local neogen = require("neogen")
 				require("neogen").generate()
