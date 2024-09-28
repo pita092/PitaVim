@@ -4,8 +4,17 @@ return {
 		{
 			"danymat/neogen",
 			config = function()
-				require("neogen").setup({})
+				local neogen = require("neogen")
 				require("neogen").generate()
+				vim.keymap.set("n", "<leader>df", function()
+					neogen.generate({ type = "func" })
+				end)
+				vim.keymap.set("n", "<leader>dt", function()
+					neogen.generate({ type = "type" })
+				end)
+				vim.keymap.set("n", "<leader>dd", function()
+					neogen.generate({ type = "typedef" })
+				end)
 			end,
 		},
 	},
