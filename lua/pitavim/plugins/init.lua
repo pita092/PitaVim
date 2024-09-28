@@ -14,8 +14,8 @@ return {
 				vim.keymap.set("n", "<leader>df", function()
 					neogen.generate()
 				end)
-				vim.api.nvim_set_keymap("i", "<C-g>", ":lua require('neogen').jump_next<CR>", opts)
-				vim.api.nvim_set_keymap("i", "<C-d>", ":lua require('neogen').jump_prev<CR>", opts)
+				vim.api.nvim_set_keymap("i", "<C-g>", "<cmd>lua require('neogen').jump_next<CR>", opts)
+				vim.api.nvim_set_keymap("i", "<C-d>", "<cmd>lua require('neogen').jump_prev<CR>", opts)
 			end,
 		},
 	},
