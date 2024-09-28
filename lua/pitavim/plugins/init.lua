@@ -25,8 +25,9 @@ return {
 		{
 			"folke/trouble.nvim",
 			event = "VeryLazy",
+			cmd = "Trouble",
 			config = function()
-				icons = false
+				Icons = false
 			end,
 		},
 	},
