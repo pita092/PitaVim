@@ -24,7 +24,7 @@ return {
 		"nvim-telescope/telescope-github.nvim",
 		{
 			"folke/trouble.nvim",
-			cmd = "Trouble",
+			event = "User FilePost",
 			config = function()
 				Icons = false
 			end,
