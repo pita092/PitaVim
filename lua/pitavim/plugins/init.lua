@@ -316,19 +316,6 @@ return {
 			})
 		end,
 	},
-	{
-
-		"nvim-neo-tree/neo-tree.nvim",
-		name = "neotree",
-		cmd = "Neotree",
-		branch = "v3.x",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			config = function()
-				return require("pitavim.configs.neotree")
-			end,
-		},
-	},
 
 	-- {
 	-- 	"stevearc/oil.nvim",
