@@ -2,6 +2,7 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
 	{
 		"ThePrimeagen/refactoring.nvim",
+		event = "User FilePost",
 		config = function()
 			require("refactoring").setup({})
 		end,
