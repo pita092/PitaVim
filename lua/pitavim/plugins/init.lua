@@ -1,7 +1,3 @@
----@module 1233
----@author [TODO:description]
----@license [TODO:description]
-
 vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 
 return {
