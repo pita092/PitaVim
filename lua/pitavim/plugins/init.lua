@@ -2,7 +2,8 @@ return {
 	{
 		"jvgrootveld/telescope-zoxide",
 		"nvim-telescope/telescope-github.nvim",
-		"frankroeder/parrot.nvim",
+		"folke/trouble.nvim",
+		"jackMort/ChatGPT.nvim",
 	},
 	{
 		"nvim-neorg/neorg",
