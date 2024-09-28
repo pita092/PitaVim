@@ -36,9 +36,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			}))
 		end, "[G]oto [D]efinition")
 		map("gr", function()
-			require("telescope.builtin").lsp_references(require("telescope.themes").get_dropdown({
-				previewer = false,
-			}))
+			require("telescope.builtin").lsp_references()
 		end, "[G]oto [R]eferences")
 		map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 		map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
