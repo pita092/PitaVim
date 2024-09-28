@@ -4,7 +4,10 @@ return {
 		"ThePrimeagen/refactoring.nvim",
 		event = "User FilePost",
 		config = function()
-			require("refactoring").setup({})
+			require("refactoring").setup({
+      enable = {
+        "lua",
+    }}  )
 		end,
 	},
 	--[[clangd]]
