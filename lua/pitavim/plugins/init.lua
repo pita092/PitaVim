@@ -4,13 +4,13 @@ return {
 		"nvim-telescope/telescope-github.nvim",
 		{
 			"folke/trouble.nvim",
-			lazy = false,
-			opts = {},
+			event = "VeryLazy",
 		},
 	},
 	{
 		"j-hui/fidget.nvim",
 		event = "User FilePost",
+		opts = {},
 	},
 	{
 		"nvim-neorg/neorg",
