@@ -2,24 +2,6 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 
 return {
 	{
-		{
-			"danymat/neogen",
-			lazy = false,
-			config = function()
-				require("neogen").setup({ snippet_engine = "luasnip" })
-				local neogen = require("neogen")
-				local opts = { noremap = true, silent = true }
-
-				require("neogen").generate()
-				vim.keymap.set("n", "<leader>df", function()
-					neogen.generate()
-				end)
-				vim.api.nvim_set_keymap("i", "<C-g>", "<cmd>lua require('neogen').jump_next()<CR>", opts)
-				vim.api.nvim_set_keymap("i", "<C-d>", "<cmd>lua require('neogen').jump_prev()<CR>", opts)
-			end,
-		},
-	},
-	{
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
 		conig = function()
