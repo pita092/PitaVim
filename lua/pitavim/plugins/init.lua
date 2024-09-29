@@ -20,10 +20,8 @@ return {
 		},
 	},
 	{
-<<<<<<< HEAD
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
-=======
 		"Exafunction/codeium.nvim",
 		lazy = false,
 		dependencies = {
@@ -35,7 +33,6 @@ return {
 				log_level = "error",
 			})
 		end,
->>>>>>> 056281c573baed3bb758cbb8339e5d9e32bb20c1
 	},
 
 	--[[clangd]]
