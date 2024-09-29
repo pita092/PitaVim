@@ -15,7 +15,9 @@ return {
 	{
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
-		opts = {},
+		config = function()
+			require("codeium").setup({})
+		end,
 	},
 	--[[clangd]]
 	{
