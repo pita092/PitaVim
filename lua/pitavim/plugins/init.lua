@@ -3,8 +3,7 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
 	{
 		"Exafunction/codeium.vim",
-		event = "InsertEnter",
-		opts = {},
+		event = "BufEnter",
 	},
 	{
 		"rcarriga/nvim-notify",
