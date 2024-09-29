@@ -3,16 +3,13 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
 	{
 		"Exafunction/codeium.vim",
-		event = "BufEnter",
+		lazy = false,
 	},
 	{
 		"rcarriga/nvim-notify",
 		config = function()
-			require("notify").setup({
-				stages = "fade_in_slide_out",
-				background_colour = "FloatShadow",
-				timeout = 3000,
-			})
+			---@diagnostic disable-next-line: missing-fields
+			require("notify").setup({})
 			vim.notify = require("notify")
 		end,
 	},
