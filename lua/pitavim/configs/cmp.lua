@@ -15,8 +15,6 @@ local cmdline_formatting = {
 }
 
 local cmp = require("cmp")
-local cmp = require("cmp")
-local neogen = require("neogen")
 local luasnip = require("luasnip")
 local blankaborder = {
 	border = { "", "", "", "", "", "", "", "" },
