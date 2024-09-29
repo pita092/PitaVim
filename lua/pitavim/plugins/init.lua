@@ -3,6 +3,7 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
 	{
 		"madskjeldgaard/cheeky-snippets.nvim",
+		event = "InsertEnter",
 		requires = {
 			"L3MON4D3/LuaSnip",
 		},
