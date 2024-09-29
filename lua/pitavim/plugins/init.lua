@@ -2,6 +2,26 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 
 return {
 	{
+		"madskjeldgaard/cheeky-snippets.nvim",
+		requires = {
+			"L3MON4D3/LuaSnip",
+		},
+		config = function()
+			local cheeky = require("cheeky")
+			cheeky.setup({
+				langs = {
+					all = true,
+					lua = true,
+					cpp = true,
+					asm = true,
+					cmake = true,
+					markdown = true,
+					supercollider = true,
+				},
+			})
+		end,
+	},
+	{
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
 		config = function() end,
