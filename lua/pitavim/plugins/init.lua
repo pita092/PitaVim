@@ -20,9 +20,10 @@ return {
 		},
 	},
 	{
-		"Exafunction/codeium.vim",
-		event = "BufEnter",
+		"Exafunction/codeium.nvim",
+		event = "InsertEnter",
 	},
+
 	--[[clangd]]
 	{
 		"p00f/clangd_extensions.nvim",
