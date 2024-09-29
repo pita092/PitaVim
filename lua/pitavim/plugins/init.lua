@@ -2,6 +2,11 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 
 return {
 	{
+		"Exafunction/codeium.vim",
+		lazy = "BufEnter",
+		opts = {},
+	},
+	{
 		"rcarriga/nvim-notify",
 		config = function()
 			require("notify").setup({
@@ -14,6 +19,7 @@ return {
 	},
 	{
 		"Exafunction/codeium.vim",
+		lazy = "BufEnter",
 		opts = {},
 	},
 	--[[clangd]]
