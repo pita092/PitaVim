@@ -131,12 +131,12 @@ cmp.setup({
 		async_budget = 1,
 		max_view_entries = 50,
 	},
-	experimental = {
-		ghost_text = {
-			enabled = true,
-			hl_group = "CmpGhostText",
-		},
-	},
+	-- experimental = {
+	-- 	ghost_text = {
+	-- 		enabled = true,
+	-- 		hl_group = "CmpGhostText",
+	-- 	},
+	-- },
 	sorting = {
 		comparators = {
 			cmp.config.compare.offset,
