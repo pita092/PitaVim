@@ -27,7 +27,9 @@ return {
 			"hrsh7th/nvim-cmp",
 		},
 		config = function()
-			require("codeium").setup({})
+			require("codeium").setup({
+				log_level = "error",
+			})
 		end,
 	},
 
