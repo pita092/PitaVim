@@ -14,7 +14,7 @@ return {
 	},
 	{
 		"Exafunction/codeium.vim",
-		lazy = false,
+		lazy = true,
 		opts = {},
 	},
 	--[[clangd]]
