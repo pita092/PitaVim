@@ -15,9 +15,7 @@ return {
 	{
 		"Exafunction/codeium.vim",
 		lazy = false,
-		config = function()
-			require("codeium").setup({})
-		end,
+		opts = {},
 	},
 	--[[clangd]]
 	{
