@@ -22,19 +22,7 @@ return {
 	{
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
-		"Exafunction/codeium.nvim",
-		lazy = false,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
-		},
-		config = function()
-			require("codeium").setup({
-				log_level = "error",
-			})
-		end,
 	},
-
 	--[[clangd]]
 	{
 		"p00f/clangd_extensions.nvim",
