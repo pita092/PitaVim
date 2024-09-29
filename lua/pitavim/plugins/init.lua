@@ -4,6 +4,7 @@ return {
 	{
 		"Exafunction/codeium.vim",
 		lazy = "BufEnter",
+		opts = {},
 	},
 	{
 		"rcarriga/nvim-notify",
