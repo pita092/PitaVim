@@ -4,7 +4,7 @@ return {
 	{
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
-		opts = {},
+		config = function() end,
 	},
 	{
 		"rcarriga/nvim-notify",
