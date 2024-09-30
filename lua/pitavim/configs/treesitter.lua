@@ -15,6 +15,7 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 	textobjects = {
+    enable = true,
 		select = {
 			enable = true,
 			lookahead = true,
@@ -44,8 +45,8 @@ require("nvim-treesitter.configs").setup({
 					goto_definition = "gnd",
 					list_definitions = "gnD",
 					list_definitions_toc = "gO",
-					goto_next_usage = "<a-a>",
-					goto_previous_usage = "<a-s>",
+					goto_next_usage = "<a-*>",
+					goto_previous_usage = "<a-#>",
 				},
 			},
 		},
