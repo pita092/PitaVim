@@ -364,11 +364,11 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		event = { "BufReadPost", "BufNewFile" },
+    lazy = false
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-refactor",
-		event = { "BufReadPost", "BufNewFile" },
+    lazy = false
 	},
 	{
 
