@@ -126,10 +126,10 @@ require("telescope").setup({
 				prompt_title = "",
 				results_title = "",
 				previewer = false,
-				border = false,
+				border = true,
 				borderchars = {},
 				color_devicons = true,
-				prompt_prefix = "■ ",
+				prompt_prefix = "",
 			}),
 			fzf = {
 				fuzzy = true,
