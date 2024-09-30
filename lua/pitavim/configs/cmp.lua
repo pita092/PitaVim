@@ -87,13 +87,9 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		{ name = "minuet" },
-		{ name = "lazydev", group_index = 0 },
+		{ name = "lazydev" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "spell" },
-		{ name = "dictionary" },
-		{ name = "calc" },
 	},
 	formatting = {
 		fields = { "menu", "abbr", "kind" }, -- Changed the order here
