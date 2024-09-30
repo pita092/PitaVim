@@ -120,13 +120,12 @@ require("telescope").setup({
 		},
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({
-				-- Custom options for a distinct look
 				winblend = 10,
 				width = 0.8,
 				prompt_title = "",
 				results_title = "",
 				previewer = false,
-				border = true,
+				border = false,
 				borderchars = {},
 				color_devicons = true,
 				prompt_prefix = "",
