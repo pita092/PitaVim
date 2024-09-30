@@ -234,21 +234,6 @@ return {
 	{
 		"ThePrimeagen/harpoon",
 		event = "User FilePost",
-		config = function()
-			require("harpoon").setup({
-				ui = {
-					border = "rounded",
-					title = "Harpoon",
-					title_pos = "center",
-					hl = {
-						normal = "Comment",
-						border = "FloatBorder",
-						title = "Title",
-						cursor = "Cursor",
-					},
-				},
-			})
-		end,
 	},
 	{
 		{
