@@ -120,8 +120,8 @@ require("telescope").setup({
 		},
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({
-				winblend = 10,
-				width = 0.8,
+				winblend = 0,
+				width = 0.4,
 				prompt_title = "",
 				results_title = "",
 				previewer = false,
