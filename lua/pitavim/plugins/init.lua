@@ -233,7 +233,8 @@ return {
 	},
 	{
 		"ThePrimeagen/harpoon",
-		event = "User FilePost",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		{
