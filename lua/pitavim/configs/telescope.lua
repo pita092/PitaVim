@@ -119,15 +119,15 @@ require("telescope").setup({
 			},
 		},
 		["ui-select"] = {
-			require("telescope").setup({
+			require("telescope.themes").get_dropdown({
 				winblend = 0,
 				width = 0.8,
-				prompt_title = "",
-				results_title = "",
+				prompt_title = "menu",
+				results_title = "menu",
 				previewer = false,
 				border = false,
 				borderchars = {},
-				color_devicons = true,
+				color_devicons = false,
 				prompt_prefix = "",
 			}),
 			fzf = {
