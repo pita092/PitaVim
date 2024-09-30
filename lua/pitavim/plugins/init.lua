@@ -2,6 +2,15 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 
 return {
 	{
+		"milanglacier/minuet-ai.nvim",
+		config = function()
+			require("minuet").setup({})
+		end,
+		{ "nvim-lua/plenary.nvim" },
+		{ "hrsh7th/nvim-cmp" },
+	},
+
+	{
 		"madskjeldgaard/cheeky-snippets.nvim",
 		event = "InsertEnter",
 		requires = {
