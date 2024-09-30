@@ -366,7 +366,10 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		event = { "BufReadPost", "BufNewFile" },
 	},
-
+	{
+		"nvim-treesitter/nvim-treesitter-refactor",
+		event = { "BufReadPost", "BufNewFile" },
+	},
 	{
 
 		"Wansmer/treesj",
