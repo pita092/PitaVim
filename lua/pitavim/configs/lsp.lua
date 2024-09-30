@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gr", function()
 			require("telescope.builtin").lsp_geferences()
 		end, "[G]oto [R]eferences")
-		map("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+		map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 		map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 		map("<leader>w", vim.lsp.buf.rename, "[R]e[n]ame")
 		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")

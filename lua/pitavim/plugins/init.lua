@@ -346,13 +346,13 @@ return {
 	-- 	},
 	-- },
 	--
-	{
-		"NvChad/nvterm",
-		event = "BufReadPre",
-		config = function()
-			return require("pitavim.configs.nvterm")
-		end,
-	},
+	-- {
+	-- 	"NvChad/nvterm",
+	-- 	event = "BufReadPre",
+	-- 	config = function()
+	-- 		return require("pitavim.configs.nvterm")
+	-- 	end,
+	-- },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
@@ -364,11 +364,11 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-    lazy = false
+		lazy = false,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-refactor",
-    lazy = false
+		lazy = false,
 	},
 	{
 
