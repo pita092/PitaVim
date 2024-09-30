@@ -33,6 +33,12 @@ require("nvim-treesitter.configs").setup({
 			include_surrounding_whitespace = true,
 		},
 	},
+	refactor = {
+		highlight_definitions = {
+			enable = true,
+			clear_on_cursor_move = true,
+		},
+	},
 })
 
 vim.filetype.add({
