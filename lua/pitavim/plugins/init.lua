@@ -359,7 +359,7 @@ return {
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
 		config = function()
-			require("pitavim.configs.treesitter")
+			return require("pitavim.configs.treesitter")
 		end,
 	},
 	{
