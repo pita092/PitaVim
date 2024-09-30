@@ -87,7 +87,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		{ name = "codeium" },
+		{ name = "minuet" },
 		{ name = "lazydev", group_index = 0 },
 		{ name = "buffer" },
 		{ name = "path" },
