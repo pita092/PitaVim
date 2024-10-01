@@ -5,7 +5,26 @@ return {
 		"milanglacier/minuet-ai.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("minuet").setup({})
+			require("minuet").setup({
+				enabled = true,
+				provider = "gemini",
+				context_window = 12800,
+				context_ratio = 0.75,
+				throttle = 1000,
+				debounce = 400,
+				notify = "verbose",
+				provider_options = {
+					gemini = {
+						model = "gemini-1.5-flash-latest",
+						stream = true,
+						optional = {
+							generationConfig = {
+								maxOutputTokens = 256,
+							},
+						},
+					},
+				},
+			})
 		end,
 		{ "nvim-lua/plenary.nvim" },
 		{ "hrsh7th/nvim-cmp" },
