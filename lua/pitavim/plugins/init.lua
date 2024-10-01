@@ -6,13 +6,14 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("darkvoid").setup({})
+			vim.cmd("colorscheme darkvoid")
 		end,
 	},
 	{
 		"olivercederborg/poimandres.nvim",
-		event = "VeryLazy",
 		config = function()
 			require("poimandres").setup({})
+			vim.cmd("colorscheme poimandres")
 		end,
 	},
 	{
