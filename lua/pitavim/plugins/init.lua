@@ -3,6 +3,7 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
 	{
 		"milanglacier/minuet-ai.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("minuet").setup({})
 		end,
@@ -38,16 +39,12 @@ return {
 	},
 	{
 		"rcarriga/nvim-notify",
+		event = "VimEnter",
 		config = function()
 			---@diagnostic disable-next-line: missing-fields
 			require("notify").setup({})
 			vim.notify = require("notify")
 		end,
-	},
-	{
-		"Exafunction/codeium.vim",
-		lazy = "BufEnter",
-		opts = {},
 	},
 	--[[clangd]]
 	{
@@ -106,17 +103,16 @@ return {
 	},
 	{
 		"nvim-neorg/neorg",
-		lazy = false,
+		event = "User FilePost",
 		vrrsion = "*",
 		config = true,
 	},
 	{
 		"mfussenegger/nvim-lint",
-		lazy = false,
 	},
 	{
 		"christoomey/vim-tmux-navigator",
-		lazy = false,
+		event = "VimEnter",
 	},
 	{
 		"NvChad/base46",
@@ -143,7 +139,7 @@ return {
 	--
 	{
 		"goolord/alpha-nvim",
-		lazy = false,
+		event = "VimEnter",
 		-- dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			return require("pitavim.configs.alpha")
@@ -374,11 +370,11 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		lazy = false,
+		event = { "BufReadPost", "BufNewFile" },
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-refactor",
-		lazy = false,
+		event = { "BufReadPost", "BufNewFile" },
 	},
 	{
 
