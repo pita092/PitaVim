@@ -83,12 +83,12 @@ cmp.setup({
 	}),
 
 	sources = {
-		-- { name = "nvim_lsp" },
+		{ name = "nvim_lsp" },
 		{ name = "cmp_ai" },
 		-- { name = "nvim_lua" },
-		-- { name = "luasnip" },
-		-- { name = "lazydev" },
-		-- { name = "buffer" },
+		{ name = "luasnip" },
+		{ name = "lazydev" },
+		{ name = "buffer" },
 		-- { name = "path" },
 	},
 	formatting = {
