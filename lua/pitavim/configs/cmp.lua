@@ -83,13 +83,13 @@ cmp.setup({
 	}),
 
 	sources = {
-		{ name = "nvim_lsp" },
+		-- { name = "nvim_lsp" },
 		{ name = "cmp_ai" },
-		{ name = "nvim_lua" },
-		{ name = "luasnip" },
-		{ name = "lazydev" },
-		{ name = "buffer" },
-		{ name = "path" },
+		-- { name = "nvim_lua" },
+		-- { name = "luasnip" },
+		-- { name = "lazydev" },
+		-- { name = "buffer" },
+		-- { name = "path" },
 	},
 	formatting = {
 		fields = { "menu", "abbr", "kind" }, -- Changed the order here
