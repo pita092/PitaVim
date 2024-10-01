@@ -2,34 +2,27 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 
 return {
 	{
-		"milanglacier/minuet-ai.nvim",
-		event = "VeryLazy",
+		"tzachar/cmp-ai",
+		event = "VimEnter",
+		dependencies = "nvim-lua/plenary.nvim",
 		config = function()
-			require("minuet").setup({
-				enabled = true,
-				provider = "gemini",
-				context_window = 12800,
-				context_ratio = 0.75,
-				throttle = 1000,
-				debounce = 400,
-				notify = "verbose",
+			local cmp_ai = require("cmp_ai.config")
+
+			cmp_ai:setup({
+				max_lines = 1000,
+				provider = "Codestral",
 				provider_options = {
-					gemini = {
-						model = "gemini-1.5-flash-latest",
-						stream = true,
-						optional = {
-							generationConfig = {
-								maxOutputTokens = 256,
-							},
-						},
-					},
+					model = "codestral-latest",
 				},
+				notify = true,
+				notify_callback = function(msg)
+					vim.notify(msg)
+				end,
+				run_on_every_keystroke = true,
+				ignored_file_types = {},
 			})
 		end,
-		{ "nvim-lua/plenary.nvim" },
-		{ "hrsh7th/nvim-cmp" },
 	},
-
 	{
 		"madskjeldgaard/cheeky-snippets.nvim",
 		event = "InsertEnter",

@@ -85,7 +85,7 @@ cmp.setup({
 
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "minuet" },
+		{ name = "cmp_ai" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "lazydev" },
