@@ -1,23 +1,16 @@
 vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 
 return {
-	-- Lua
-
+	{
+		"Aliqyan-21/darkvoid.nvim",
+		config = function()
+			require("darkvoid").setup({})
+		end,
+	},
 	{
 		"olivercederborg/poimandres.nvim",
-		lazy = false,
-		priority = 1000,
 		config = function()
-			require("poimandres").setup({
-				-- leave this setup function empty for default config
-				-- or refer to the configuration section
-				-- for configuration options
-			})
-		end,
-
-		-- optionally set the colorscheme within lazy config
-		init = function()
-			vim.cmd("colorscheme poimandres")
+			require("poimandres").setup({})
 		end,
 	},
 	{
