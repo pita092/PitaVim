@@ -3,12 +3,14 @@ vim.api.nvim_set_hl(0, "YourCustomHighlightGroup", { fg = "#868686" })
 return {
 	{
 		"Aliqyan-21/darkvoid.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("darkvoid").setup({})
 		end,
 	},
 	{
 		"olivercederborg/poimandres.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("poimandres").setup({})
 		end,
