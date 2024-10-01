@@ -14,7 +14,7 @@ return {
 				provider_options = {
 					model = "codestral-latest",
 				},
-				notify = true,
+				notify = false,
 				notify_callback = function(msg)
 					vim.notify(msg)
 				end,
