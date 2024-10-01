@@ -49,15 +49,6 @@ return {
 		event = "BufEnter",
 		config = function() end,
 	},
-	{
-		"rcarriga/nvim-notify",
-		event = "VimEnter",
-		config = function()
-			---@diagnostic disable-next-line: missing-fields
-			require("notify").setup({})
-			vim.notify = require("notify")
-		end,
-	},
 	--[[clangd]]
 	{
 		"p00f/clangd_extensions.nvim",
@@ -190,14 +181,14 @@ return {
 		"nvim-lua/plenary.nvim",
 		event = "VimEnter",
 	},
-	-- {
-	--   "echasnovski/mini.nvim",
-	--   version = false,
-	--   event = "VeryLazy",
-	--   config = function()
-	--     return require("pitavim.configs.mini")
-	--   end,
-	-- },
+	{
+		"echasnovski/mini.nvim",
+		version = false,
+		event = "VeryLazy",
+		config = function()
+			return require("pitavim.configs.mini")
+		end,
+	},
 	-- {
 	-- 	"nvim-lualine/lualine.nvim",
 	-- 	event = { "VimEnter", "BufReadPost", "BufNewFile" },
