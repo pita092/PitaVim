@@ -53,7 +53,6 @@ cmp.setup({
 	},
 
 	mapping = cmp.mapping.preset.insert({
-		["<A-y>"] = require("minuet").make_cmp_map(),
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
