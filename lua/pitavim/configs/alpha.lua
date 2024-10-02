@@ -1,9 +1,10 @@
 local alpha = require("alpha")
 require("alpha.term")
 
+        -- command = "curl -s https://raw.githubusercontent.com/pita092/nvim-main/refs/heads/main/thisisfine.sh | sh",
 local terminal = {
 	type = "terminal",
-        command = "curl -s https://raw.githubusercontent.com/pita092/nvim-main/refs/heads/main/thisisfine.sh | sh",
+  command = "kitten icat ~/Downloads/doof.png",
 	width = 46,
 	height = 25,
 	opts = {
