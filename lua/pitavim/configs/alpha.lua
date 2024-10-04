@@ -4,7 +4,7 @@ require("alpha.term")
         -- command = "curl -s https://raw.githubusercontent.com/pita092/nvim-main/refs/heads/main/thisisfine.sh | sh",
 local terminal = {
 	type = "terminal",
-  command = "vim.fn.expand("$HOME") .. "/.config/nvim/lua/thisisfine.sh"",
+  command = vim.fn.expand("$HOME") .. "/.config/nvim/lua/thisisfine.sh",
 	width = 46,
 	height = 25,
 	opts = {
